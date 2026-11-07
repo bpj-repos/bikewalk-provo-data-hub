@@ -1,0 +1,1207 @@
+{
+ "extent": {
+  "ymin": 0,
+  "xmin": 0,
+  "ymax": 4651807.8287000004,
+  "xmax": 672318.86720000021,
+  "spatialReference": {
+   "falseM": -100000,
+   "xyTolerance": 0.019999999999999997,
+   "mUnits": 10000,
+   "zUnits": 10000,
+   "latestWkid": 26912,
+   "zTolerance": 0.001,
+   "wkid": 26912,
+   "xyUnits": 100.000000000000014,
+   "mTolerance": 0.001,
+   "falseX": -5120900,
+   "falseY": -9998100,
+   "falseZ": -100000
+  }
+ },
+ "maxRecordCount": 2000,
+ "datesInUnknownTimezone": false,
+ "ownershipBasedAccessControlForFeatures": {"allowOthersToQuery": true},
+ "type": "Feature Layer",
+ "maxSelectionCount": 2000,
+ "subtypes": [],
+ "relationships": [],
+ "cimVersion": "3.7.0",
+ "isDataArchived": false,
+ "id": 14,
+ "archivingInfo": {
+  "startArchivingMoment": -1,
+  "supportsQueryWithHistoricMoment": false
+ },
+ "spatialReference": {
+  "falseM": -100000,
+  "xyTolerance": 0.019999999999999997,
+  "mUnits": 10000,
+  "zUnits": 10000,
+  "latestWkid": 26912,
+  "zTolerance": 0.001,
+  "wkid": 26912,
+  "xyUnits": 100.000000000000014,
+  "mTolerance": 0.001,
+  "falseX": -5120900,
+  "falseY": -9998100,
+  "falseZ": -100000
+ },
+ "subtypeFieldName": null,
+ "supportsStatistics": true,
+ "hasLastEditTime": true,
+ "standardMaxRecordCount": 32000,
+ "isDataVersioned": false,
+ "supportsAdvancedQueries": true,
+ "parentLayer": null,
+ "subLayers": [],
+ "currentVersion": 12.1,
+ "referenceScale": 0,
+ "canScaleSymbols": false,
+ "name": "Crash Locations 2025",
+ "displayField": "COUNTY_NAME",
+ "fields": [
+  {
+   "nullable": false,
+   "domain": null,
+   "name": "OBJECTID",
+   "alias": "OBJECTID",
+   "type": "esriFieldTypeOID"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "SHAPE",
+   "alias": "SHAPE",
+   "type": "esriFieldTypeGeometry"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "CRASH_ID",
+   "alias": "CRASH_ID",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "CRASH_DATETIME",
+   "length": 8,
+   "alias": "CRASH_DATETIME",
+   "type": "esriFieldTypeDate"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "COUNTY_NAME",
+   "length": 22,
+   "alias": "COUNTY_NAME",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "REGION_NAME",
+   "length": 15,
+   "alias": "REGION_NAME",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "MAIN_ROAD_NAME",
+   "length": 4000,
+   "alias": "MAIN_ROAD_NAME",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "ROUTE",
+   "length": 95,
+   "alias": "ROUTE",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "START_ACCUM",
+   "alias": "START_ACCUM",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "ROUTE_DIRECTION",
+   "length": 5,
+   "alias": "ROUTE_DIRECTION",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "ROADWAY_TYPE_CD",
+   "length": 1,
+   "alias": "ROADWAY_TYPE_CD",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "EXIT_NUMBER",
+   "alias": "EXIT_NUMBER",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "RAMP_ID",
+   "length": 11,
+   "alias": "RAMP_ID",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "LOCATION_DESC",
+   "length": 4000,
+   "alias": "LOCATION_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "LAT_UTM_Y",
+   "alias": "LAT_UTM_Y",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "LONG_UTM_X",
+   "alias": "LONG_UTM_X",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "CRASH_SEVERITY_DESC",
+   "length": 50,
+   "alias": "CRASH_SEVERITY_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "LIGHT_CONDITION_DESC",
+   "length": 50,
+   "alias": "LIGHT_CONDITION_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "WEATHER_CONDITION_DESC",
+   "length": 50,
+   "alias": "WEATHER_CONDITION_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "MANNER_COLLISION_DESC",
+   "length": 50,
+   "alias": "MANNER_COLLISION_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "PAVEMENT_DESC",
+   "length": 4000,
+   "alias": "PAVEMENT_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "ROADWAY_SURF_CONDITION_DESC",
+   "length": 50,
+   "alias": "ROADWAY_SURF_CONDITION_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "ROADWAY_JUNCT_FEATURE_DESC",
+   "length": 50,
+   "alias": "ROADWAY_JUNCT_FEATURE_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "ROAD_JURISDICTION_DESC",
+   "length": 50,
+   "alias": "ROAD_JURISDICTION_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "WORK_ZONE_RELATED_YNU",
+   "length": 1,
+   "alias": "WORK_ZONE_RELATED_YNU",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "HORIZONTAL_ALIGNMENT_DESC",
+   "length": 4000,
+   "alias": "HORIZONTAL_ALIGNMENT_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "VERTICAL_ALIGNMENT_DESC",
+   "length": 4000,
+   "alias": "VERTICAL_ALIGNMENT_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "ROADWAY_CONTRIB_CIRCUM_DESC",
+   "length": 4000,
+   "alias": "ROADWAY_CONTRIB_CIRCUM_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "NUMBER_VEHICLES_INVOLVED",
+   "alias": "NUMBER_VEHICLES_INVOLVED",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "FIRST_HARMFUL_EVENT_DESC",
+   "length": 4000,
+   "alias": "FIRST_HARMFUL_EVENT_DESC",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "MOTOR_CARRIER_INVOLVED_YN",
+   "length": 10,
+   "alias": "MOTOR_CARRIER_INVOLVED_YN",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "NUMBER_FATALITIES",
+   "alias": "NUMBER_FATALITIES",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "NUMBER_FOUR_INJURIES",
+   "alias": "NUMBER_FOUR_INJURIES",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "NUMBER_THREE_INJURIES",
+   "alias": "NUMBER_THREE_INJURIES",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "NUMBER_TWO_INJURIES",
+   "alias": "NUMBER_TWO_INJURIES",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "NUMBER_ONE_INJURIES",
+   "alias": "NUMBER_ONE_INJURIES",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "PEDESTRIAN_INVOLVED",
+   "length": 1,
+   "alias": "PEDESTRIAN_INVOLVED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "BICYCLIST_INVOLVED",
+   "length": 1,
+   "alias": "BICYCLIST_INVOLVED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "MOTORCYCLE_INVOLVED",
+   "length": 1,
+   "alias": "MOTORCYCLE_INVOLVED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "DUI",
+   "length": 1,
+   "alias": "DUI",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "AGGRESSIVE_DRIVING",
+   "length": 1,
+   "alias": "AGGRESSIVE_DRIVING",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "DISREGARD_TRAFFIC_CONTROL_DEV",
+   "length": 1,
+   "alias": "DISREGARD_TRAFFIC_CONTROL_DEV",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "DISTRACTED_DRIVING",
+   "length": 1,
+   "alias": "DISTRACTED_DRIVING",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "DROWSY_DRIVING",
+   "length": 1,
+   "alias": "DROWSY_DRIVING",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "SPEED_RELATED",
+   "length": 1,
+   "alias": "SPEED_RELATED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "IMPROPER_RESTRAINT",
+   "length": 1,
+   "alias": "IMPROPER_RESTRAINT",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "IMPROPER_RESTRAINT_FATAL_TOT",
+   "alias": "IMPROPER_RESTRAINT_FATAL_TOT",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "IMPROPER_RESTRAINT_LEVEL4_TOT",
+   "alias": "IMPROPER_RESTRAINT_LEVEL4_TOT",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "UNRESTRAINED",
+   "length": 1,
+   "alias": "UNRESTRAINED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "UNRESTRAINED_FATAL_TOT",
+   "alias": "UNRESTRAINED_FATAL_TOT",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "UNRESTRAINED_LEVEL4_TOT",
+   "alias": "UNRESTRAINED_LEVEL4_TOT",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "WILD_ANIMAL_RELATED",
+   "length": 1,
+   "alias": "WILD_ANIMAL_RELATED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "DOMESTIC_ANIMAL_RELATED",
+   "length": 1,
+   "alias": "DOMESTIC_ANIMAL_RELATED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "ROADWAY_DEPARTURE",
+   "length": 1,
+   "alias": "ROADWAY_DEPARTURE",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "OVERTURN_ROLLOVER",
+   "length": 1,
+   "alias": "OVERTURN_ROLLOVER",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "COMMERCIAL_MOTOR_VEH_INVOLVED",
+   "length": 1,
+   "alias": "COMMERCIAL_MOTOR_VEH_INVOLVED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "TEENAGE_DRIVER_INVOLVED",
+   "length": 1,
+   "alias": "TEENAGE_DRIVER_INVOLVED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "OLDER_DRIVER_INVOLVED",
+   "length": 1,
+   "alias": "OLDER_DRIVER_INVOLVED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "SINGLE_VEHICLE",
+   "length": 1,
+   "alias": "SINGLE_VEHICLE",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "TRAIN_INVOLVED",
+   "length": 1,
+   "alias": "TRAIN_INVOLVED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "RAILROAD_CROSSING",
+   "length": 1,
+   "alias": "RAILROAD_CROSSING",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "TRANSIT_VEHICLE_INVOLVED",
+   "length": 1,
+   "alias": "TRANSIT_VEHICLE_INVOLVED",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "COLLISION_WITH_FIXED_OBJECT",
+   "length": 1,
+   "alias": "COLLISION_WITH_FIXED_OBJECT",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "HIT_AND_RUN",
+   "length": 1,
+   "alias": "HIT_AND_RUN",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "DEBRIS",
+   "length": 1,
+   "alias": "DEBRIS",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "DIVIDED_HIGHWAY",
+   "length": 1,
+   "alias": "DIVIDED_HIGHWAY",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "FUNCTIONAL_CLASS",
+   "length": 50,
+   "alias": "FUNCTIONAL_CLASS",
+   "type": "esriFieldTypeString"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "ERR_CD",
+   "alias": "ERR_CD",
+   "type": "esriFieldTypeDouble"
+  },
+  {
+   "nullable": true,
+   "domain": null,
+   "name": "CURRENT_AS_OF_DATE",
+   "length": 8,
+   "alias": "CURRENT_AS_OF_DATE",
+   "type": "esriFieldTypeDate"
+  }
+ ],
+ "maxRecordCountFactor": 1,
+ "dateFieldsTimeReference": {
+  "timeZoneIANA": "America/Denver",
+  "respectsDaylightSaving": true,
+  "timeZone": "Mountain Standard Time"
+ },
+ "preferredTimeReference": null,
+ "useStandardizedQueries": true,
+ "sourceSpatialReference": {
+  "falseM": -100000,
+  "xyTolerance": 0.001,
+  "mUnits": 10000,
+  "zUnits": 10000,
+  "latestWkid": 26912,
+  "zTolerance": 0.001,
+  "wkid": 26912,
+  "xyUnits": 10000,
+  "mTolerance": 0.001,
+  "falseX": -5120900,
+  "falseY": -9998100,
+  "falseZ": -100000
+ },
+ "description": "",
+ "canModifyLayer": true,
+ "supportedSpatialRelationships": [
+  "esriSpatialRelIntersects",
+  "esriSpatialRelContains",
+  "esriSpatialRelCrosses",
+  "esriSpatialRelEnvelopeIntersects",
+  "esriSpatialRelIndexIntersects",
+  "esriSpatialRelOverlaps",
+  "esriSpatialRelTouches",
+  "esriSpatialRelWithin",
+  "esriSpatialRelRelation"
+ ],
+ "standardMaxRecordCountNoGeometry": 32000,
+ "indexes": [
+  {
+   "name": "FDO_OBJECTID",
+   "isUnique": true,
+   "description": "",
+   "fields": "OBJECTID",
+   "isAscending": true
+  },
+  {
+   "name": "FDO_SHAPE",
+   "isUnique": false,
+   "description": "",
+   "fields": "SHAPE",
+   "isAscending": true
+  }
+ ],
+ "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+ "supportsDatumTransformation": true,
+ "minScale": 0,
+ "supportsDynamicLegends": true,
+ "hasAttachments": false,
+ "advancedQueryCapabilities": {
+  "supportsStatistics": true,
+  "supportsSqlExpression": true,
+  "supportsQueryWithResultType": true,
+  "supportsTrueCurve": true,
+  "supportsOrderBy": true,
+  "supportsQueryRelatedPagination": true,
+  "supportsSqlFormat": false,
+  "useStandardizedQueries": true,
+  "supportsLod": false,
+  "supportsQueryWithDistance": true,
+  "supportsQueryWithCacheHint": false,
+  "supportsQueryWithDatumTransformation": true,
+  "supportsCountDistinct": true,
+  "supportsCurrentUserQueries": true,
+  "supportsAdvancedQueryRelated": true,
+  "supportsReturningQueryExtent": true,
+  "supportsQueryWithLodSR": false,
+  "supportsPagination": true,
+  "supportsMaxRecordCountFactor": false,
+  "supportsDistinct": true,
+  "supportsTimeRelation": true,
+  "supportsQueryAnalytic": false,
+  "supportsPercentileStatistics": true,
+  "supportsHavingClause": true
+ },
+ "subtypeField": null,
+ "serviceItemId": "06c397a4c16242e4bc2928053f856def",
+ "supportsCoordinatesQuantization": true,
+ "capabilities": "Map,Query,Data",
+ "maxScale": 0,
+ "supportsExceedsLimitStatistics": true,
+ "defaultVisibility": true,
+ "hasMetadata": true,
+ "tileMaxRecordCount": 8000,
+ "typeIdField": null,
+ "defaultSubtypeCode": null,
+ "supportedQueryFormats": "JSON, geoJSON, PBF",
+ "hasLabels": false,
+ "drawingInfo": {
+  "renderer": {
+   "uniqueValueGroups": [{
+    "heading": "CRASH_SEVERITY_DESC",
+    "classes": [
+     {
+      "symbol": {
+       "outline": {
+        "color": [
+         0,
+         0,
+         0,
+         255
+        ],
+        "width": 0.59999999999999998
+       },
+       "color": [
+        230,
+        0,
+        0,
+        255
+       ],
+       "size": 10,
+       "yoffset": 0,
+       "xoffset": 0,
+       "angle": 0,
+       "style": "esriSMSCircle",
+       "type": "esriSMS"
+      },
+      "values": [["Fatal"]],
+      "description": "Fatal",
+      "label": "Fatal"
+     },
+     {
+      "symbol": {
+       "outline": {
+        "color": [
+         0,
+         0,
+         0,
+         255
+        ],
+        "width": 0.59999999999999998
+       },
+       "color": [
+        255,
+        85,
+        0,
+        255
+       ],
+       "size": 10,
+       "yoffset": 0,
+       "xoffset": 0,
+       "angle": 0,
+       "style": "esriSMSCircle",
+       "type": "esriSMS"
+      },
+      "values": [["Suspected Serious Injury"]],
+      "description": "Suspected Serious Injury",
+      "label": "Suspected Serious Injury"
+     },
+     {
+      "symbol": {
+       "outline": {
+        "color": [
+         0,
+         0,
+         0,
+         255
+        ],
+        "width": 0.59999999999999998
+       },
+       "color": [
+        255,
+        170,
+        0,
+        255
+       ],
+       "size": 10,
+       "yoffset": 0,
+       "xoffset": 0,
+       "angle": 0,
+       "style": "esriSMSCircle",
+       "type": "esriSMS"
+      },
+      "values": [["Suspected Minor Injury"]],
+      "description": "Suspected Minor Injury",
+      "label": "Suspected Minor Injury"
+     },
+     {
+      "symbol": {
+       "outline": {
+        "color": [
+         0,
+         0,
+         0,
+         255
+        ],
+        "width": 0.59999999999999998
+       },
+       "color": [
+        255,
+        255,
+        0,
+        255
+       ],
+       "size": 10,
+       "yoffset": 0,
+       "xoffset": 0,
+       "angle": 0,
+       "style": "esriSMSCircle",
+       "type": "esriSMS"
+      },
+      "values": [["Possible Injury"]],
+      "description": "Possible Injury",
+      "label": "Possible Injury"
+     },
+     {
+      "symbol": {
+       "outline": {
+        "color": [
+         0,
+         0,
+         0,
+         255
+        ],
+        "width": 0.59999999999999998
+       },
+       "color": [
+        0,
+        197,
+        255,
+        255
+       ],
+       "size": 10,
+       "yoffset": 0,
+       "xoffset": 0,
+       "angle": 0,
+       "style": "esriSMSCircle",
+       "type": "esriSMS"
+      },
+      "values": [["No Injury/PDO"]],
+      "description": "No Injury/PDO",
+      "label": "No Injury/PDO"
+     }
+    ]
+   }],
+   "field1": "CRASH_SEVERITY_DESC",
+   "authoringInfo": {"colorRamp": {
+    "colorRamps": [
+     {
+      "toColor": [
+       252,
+       222,
+       210,
+       255
+      ],
+      "fromColor": [
+       252,
+       222,
+       210,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       201,
+       182,
+       252,
+       255
+      ],
+      "fromColor": [
+       201,
+       182,
+       252,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       179,
+       252,
+       191,
+       255
+      ],
+      "fromColor": [
+       179,
+       252,
+       191,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       189,
+       240,
+       252,
+       255
+      ],
+      "fromColor": [
+       189,
+       240,
+       252,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       252,
+       179,
+       216,
+       255
+      ],
+      "fromColor": [
+       252,
+       179,
+       216,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       252,
+       249,
+       182,
+       255
+      ],
+      "fromColor": [
+       252,
+       249,
+       182,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       182,
+       252,
+       231,
+       255
+      ],
+      "fromColor": [
+       182,
+       252,
+       231,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       224,
+       215,
+       252,
+       255
+      ],
+      "fromColor": [
+       224,
+       215,
+       252,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       245,
+       179,
+       252,
+       255
+      ],
+      "fromColor": [
+       245,
+       179,
+       252,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       234,
+       252,
+       215,
+       255
+      ],
+      "fromColor": [
+       234,
+       252,
+       215,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       252,
+       192,
+       182,
+       255
+      ],
+      "fromColor": [
+       252,
+       192,
+       182,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       252,
+       210,
+       224,
+       255
+      ],
+      "fromColor": [
+       252,
+       210,
+       224,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     },
+     {
+      "toColor": [
+       244,
+       199,
+       252,
+       255
+      ],
+      "fromColor": [
+       244,
+       199,
+       252,
+       255
+      ],
+      "type": "algorithmic",
+      "algorithm": "esriCIELabAlgorithm"
+     }
+    ],
+    "type": "multipart"
+   }},
+   "uniqueValueInfos": [
+    {
+     "symbol": {
+      "outline": {
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 0.59999999999999998
+      },
+      "color": [
+       230,
+       0,
+       0,
+       255
+      ],
+      "size": 10,
+      "yoffset": 0,
+      "xoffset": 0,
+      "angle": 0,
+      "style": "esriSMSCircle",
+      "type": "esriSMS"
+     },
+     "label": "Fatal",
+     "value": "Fatal"
+    },
+    {
+     "symbol": {
+      "outline": {
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 0.59999999999999998
+      },
+      "color": [
+       255,
+       85,
+       0,
+       255
+      ],
+      "size": 10,
+      "yoffset": 0,
+      "xoffset": 0,
+      "angle": 0,
+      "style": "esriSMSCircle",
+      "type": "esriSMS"
+     },
+     "label": "Suspected Serious Injury",
+     "value": "Suspected Serious Injury"
+    },
+    {
+     "symbol": {
+      "outline": {
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 0.59999999999999998
+      },
+      "color": [
+       255,
+       170,
+       0,
+       255
+      ],
+      "size": 10,
+      "yoffset": 0,
+      "xoffset": 0,
+      "angle": 0,
+      "style": "esriSMSCircle",
+      "type": "esriSMS"
+     },
+     "label": "Suspected Minor Injury",
+     "value": "Suspected Minor Injury"
+    },
+    {
+     "symbol": {
+      "outline": {
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 0.59999999999999998
+      },
+      "color": [
+       255,
+       255,
+       0,
+       255
+      ],
+      "size": 10,
+      "yoffset": 0,
+      "xoffset": 0,
+      "angle": 0,
+      "style": "esriSMSCircle",
+      "type": "esriSMS"
+     },
+     "label": "Possible Injury",
+     "value": "Possible Injury"
+    },
+    {
+     "symbol": {
+      "outline": {
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 0.59999999999999998
+      },
+      "color": [
+       0,
+       197,
+       255,
+       255
+      ],
+      "size": 10,
+      "yoffset": 0,
+      "xoffset": 0,
+      "angle": 0,
+      "style": "esriSMSCircle",
+      "type": "esriSMS"
+     },
+     "label": "No Injury/PDO",
+     "value": "No Injury/PDO"
+    }
+   ],
+   "type": "uniqueValue",
+   "fieldDelimiter": ","
+  },
+  "scaleSymbols": true,
+  "transparency": 0,
+  "labelingInfo": null
+ },
+ "geometryField": {
+  "name": "SHAPE",
+  "alias": "SHAPE",
+  "type": "esriFieldTypeGeometry"
+ },
+ "copyrightText": "",
+ "geometryType": "esriGeometryPoint"
+}

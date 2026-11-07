@@ -1,0 +1,2259 @@
+version: 3
+scope: Inventory and metadata matching for the three existing incident-map sources. Record linking is paused.
+references:
+  manual2026:
+    title: Utah Crash Report Data Dictionary and DI-9 Instruction Manual
+    version: February 2026
+    url: https://highwaysafety.utah.gov/wp-content/uploads/Utah-Crash-Report-Instruction-Manual.pdf
+    capture: references/incident-metadata/manual-2026.pdf
+    sha256: 474e40eacddc800d4674a26984824791e29bfadb16b791cd8faec07d3248efd2
+    retrievedOn: '2026-11-02'
+    capturePolicy: remote-document
+  dictionary2021:
+    title: Utah Motor Vehicle Crash Report Data Dictionary
+    version: March 2021
+    url: https://highwaysafety.utah.gov/wp-content/uploads/Utah-Crash-Report-Data-Dictionary-2021-v8-030121.pdf
+    capture: references/incident-metadata/dictionary-2021.pdf
+    sha256: 1c13a36f7b2b409cfc6445210bd217f90ed05a8a0f31371c05d3c269944adb81
+    retrievedOn: '2026-11-02'
+    capturePolicy: remote-document
+  codes2021:
+    title: UDOT Data Fields and Codes
+    version: April 2021
+    url: https://support.numetric.com/en/articles/615415-udot-data-fields-codes
+    capture: references/incident-metadata/field-codes.html
+    sha256: a745e8301e74f33b64ba6a350fcde076e9d47837d03c8a73940f472565d8961a
+    retrievedOn: '2026-11-02'
+    capturePolicy: remote-document
+  rollups2021:
+    title: UDOT UTAPS Rollup Definitions
+    version: April 2021
+    url: https://support.numetric.com/en/articles/5063363-udot-utaps-rollup-definitions
+    capture: references/incident-metadata/rollups.html
+    sha256: 74c46801e304b197dcdeb79245b1344828edfe0a11ec22820b6bb5bf53d954ac
+    retrievedOn: '2026-11-02'
+    capturePolicy: remote-document
+  tables2021:
+    title: UDOT Crash Data Fields by Data Table
+    version: April 2021
+    url: https://support.numetric.com/en/articles/4730297-udot-crash-data-fields-by-data-table
+    capture: references/incident-metadata/field-tables.html
+    sha256: 28e45628a4ab4b4ba0e96e8df87f4d9056b88499cd5d6d438a4c740fab96e4cc
+    retrievedOn: '2026-11-02'
+    capturePolicy: remote-document
+  interpretation:
+    title: UDOT Interpreting Crash Attributes
+    version: Undated live guide, retrieved 2026-11-02
+    url: https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/interpreting-crash-attributes
+    capture: references/incident-metadata/interpretation.html
+    sha256: dd5af7110d29775aa6c1bdc10045251a42de5fd107aef9aaef960b14768cf95b
+    retrievedOn: '2026-11-02'
+    capturePolicy: remote-document
+  policeHeaders:
+    title: Retained Provo Police workbooks and positional importer
+    version: Two delivered workbooks, 2024–2026 records
+    url: null
+    capture: src/danger_zones/police.py
+    sha256: 59b9dc81c17f06d31704b2b6c30a14a27a7f006c75cfa4c00e1ccc3779a12976
+    retrievedOn: '2026-11-02'
+    capturePolicy: local-file
+  arcgisMetadata:
+    title: Retained UDOT Crash Locations 2025 layer metadata
+    version: Layer metadata from accepted udot-crashes-1cc5d0d7a69d4137 snapshot
+    url: https://maps.udot.utah.gov/central/rest/services/TrafficAndSafety/Crash_Locations/MapServer/14
+    capture: references/incident-metadata/arcgis-2025-layer.json
+    sha256: 09b031151c991a492fcf3ceb657077532116e54ecf9487bfe6416a5ed03c2687
+    retrievedOn: '2026-11-02'
+    capturePolicy: retained-source
+concepts:
+  agency.reporting_code:
+    entity: crash
+    definition: Code identifying the agency reporting the crash. The export does not include an agency case number.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Agency Name
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  classification.adverse_surface:
+    entity: crash
+    definition: Source derived classification for adverse roadway surface condition. Confirm the provider rule version
+      before recomputing.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Adverse Roadway Surface Condition
+  classification.adverse_weather:
+    entity: crash
+    definition: Source classification for specified adverse weather conditions.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Adverse Weather
+  classification.aggressive_driving:
+    entity: crash
+    definition: Source classification indicating reckless/aggressive driving. Preserve source rule version and unknown
+      values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Reckless/Aggressive Driving
+  classification.alcohol_confirmed:
+    entity: crash
+    definition: Source derived classification for confirmed alcohol involvement.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Alcohol Confirmed
+  classification.alcohol_suspected:
+    entity: crash
+    definition: Source derived classification for suspected alcohol involvement.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Alcohol Suspected
+  classification.animal:
+    entity: crash
+    definition: Source combined domestic/wild animal involvement classification.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Animal Involved
+  classification.bicycle_involved:
+    entity: crash
+    definition: Source classification indicating cyclist involved. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Cyclist Involved
+  classification.commercial_motor_vehicle:
+    entity: crash
+    definition: Source classification indicating commercial motor vehicle involved. Preserve source rule version
+      and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Commercial Motor Vehicle Involved
+  classification.dark:
+    entity: crash
+    definition: Source derived classification for night or dark condition. Confirm the provider rule version before
+      recomputing.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Night or Dark Condition
+  classification.debris:
+    entity: crash
+    definition: Source classification indicating debris. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Debris
+  classification.disregard_control:
+    entity: crash
+    definition: Source classification indicating disregard traffic control device. Preserve source rule version
+      and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Disregard Traffic Control Device
+  classification.distracted_driving:
+    entity: crash
+    definition: Source classification indicating distracted driving. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Distracted Driving
+  classification.divided_highway:
+    entity: crash
+    definition: Source classification indicating divided highway. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Divided Highway
+  classification.domestic_animal:
+    entity: crash
+    definition: Source classification indicating domestic animal involved. Preserve source rule version and unknown
+      values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Domestic Animal Involved
+  classification.drowsy_driving:
+    entity: crash
+    definition: Source classification indicating drowsy driving. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Drowsy Driving
+  classification.drugs_confirmed:
+    entity: crash
+    definition: Source derived classification for confirmed drug involvement.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Drugs Confirmed
+  classification.drugs_suspected:
+    entity: crash
+    definition: Source derived classification for suspected drug involvement.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Drugs Suspected
+  classification.dui:
+    entity: crash
+    definition: Source classification indicating dui/impaired. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: DUI/Impaired
+  classification.fixed_object:
+    entity: crash
+    definition: Source classification indicating collision with fixed object. Preserve source rule version and unknown
+      values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Collision with Fixed Object
+  classification.heavy_truck:
+    entity: crash
+    definition: Source derived classification for heavy truck involved. Confirm the provider rule version before
+      recomputing.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Heavy Truck Involved
+  classification.hit_and_run:
+    entity: crash
+    definition: Source classification indicating hit and run. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Hit and Run
+  classification.improper_restraint:
+    entity: crash
+    definition: Source classification indicating improper restraint. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Improper Restraint
+  classification.intersection:
+    entity: crash
+    definition: Source derived classification for intersection related. Confirm the provider rule version before
+      recomputing.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Intersection Related
+  classification.interstate:
+    entity: crash
+    definition: Source derived classification for interstate highway. Confirm the provider rule version before recomputing.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Interstate Highway
+  classification.left_u_turn:
+    entity: crash
+    definition: Source derived classification for left or u-turn involved. Confirm the provider rule version before
+      recomputing.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Left or U-Turn Involved
+  classification.motor_carrier:
+    entity: crash
+    definition: Source classification indicating motor carrier involved. Preserve source rule version and unknown
+      values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Motor Carrier Involved
+  classification.motorcycle:
+    entity: crash
+    definition: Source classification indicating motorcycle involved. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Motorcycle Involved
+  classification.older_driver:
+    entity: crash
+    definition: Source classification indicating older driver involved. Preserve source rule version and unknown
+      values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Older Driver Involved
+  classification.pedestrian_involved:
+    entity: crash
+    definition: Source classification indicating pedestrian involved. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Pedestrian Involved
+  classification.railroad_crossing:
+    entity: crash
+    definition: Source classification indicating railroad crossing. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Railroad Crossing
+  classification.right_turn:
+    entity: crash
+    definition: Source derived classification for right-turn involved. Confirm the provider rule version before
+      recomputing.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Right-Turn Involved
+  classification.road_geometry:
+    entity: crash
+    definition: Source derived classification for roadway geometry related. Confirm the provider rule version before
+      recomputing.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Roadway Geometry Related
+  classification.roadway_departure:
+    entity: crash
+    definition: Source classification indicating roadway departure. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Roadway Departure
+  classification.rollover:
+    entity: crash
+    definition: Source classification indicating vehicle overturn/rollover. Preserve source rule version and unknown
+      values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Vehicle Overturn/Rollover
+  classification.single_vehicle:
+    entity: crash
+    definition: Source classification indicating single vehicle. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Single Vehicle
+  classification.speed_related:
+    entity: crash
+    definition: Source classification indicating speed related. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Speed Related
+  classification.teenage_driver:
+    entity: crash
+    definition: Source classification indicating teenage driver involved. Preserve source rule version and unknown
+      values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Teenage Driver Involved
+  classification.train:
+    entity: crash
+    definition: Source classification indicating train involved. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Train Involved
+  classification.transit_vehicle:
+    entity: crash
+    definition: Source classification indicating transit vehicle involved. Preserve source rule version and unknown
+      values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Transit Vehicle Involved
+  classification.unrestrained:
+    entity: crash
+    definition: Source classification indicating unrestrained. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Unrestrained
+  classification.urban_county:
+    entity: crash
+    definition: Source derived classification for urban county. Confirm the provider rule version before recomputing.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Urban County
+  classification.wild_animal:
+    entity: crash
+    definition: Source classification indicating wild animal involved. Preserve source rule version and unknown
+      values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Wild Animal Involved
+  classification.work_zone:
+    entity: crash
+    definition: Source classification indicating work zone involved. Preserve source rule version and unknown values.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Work Zone Involved
+  classification.wrong_way:
+    entity: crash
+    definition: Source flag for wrong-way driving involvement.
+    valueType: boolean
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Wrong Way Driving
+  condition.light:
+    entity: crash
+    definition: Lighting conditions at the crash location.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Light Condition
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  condition.road_surface:
+    entity: crash
+    definition: Surface condition at the time, such as dry, wet or icy.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Roadway Surface Condition
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  condition.roadway_contributing:
+    entity: crash
+    definition: Reported roadway circumstances associated with the crash.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Roadway Contributing Circumstances
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  condition.roadway_contributing_second:
+    entity: crash
+    definition: Second roadway-contributing circumstance label. The corresponding numeric column is absent from
+      this export.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Roadway Contributing Circumstances
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  condition.weather:
+    entity: crash
+    definition: Reported atmospheric conditions when the crash occurred.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Atmospheric Conditions
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  count.fatalities:
+    entity: crash
+    definition: Count of persons recorded with fatal injury in the crash.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Number of Fatalities
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  count.improper_restraint_fatalities:
+    entity: crash
+    definition: Source count for improper restraint fatalities count. Preserve source rule version and unknown values.
+    valueType: integer
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Improper Restraint Fatalities Count
+  count.improper_restraint_serious:
+    entity: crash
+    definition: Source count for improper restraint level 4 count. Preserve source rule version and unknown values.
+    valueType: integer
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Improper Restraint Level 4 Count
+  count.minor_injuries:
+    entity: crash
+    definition: Count of persons with suspected minor injury.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Number of Level 3 Injuries
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  count.no_apparent_injury:
+    entity: crash
+    definition: Count of persons with no apparent injury. The column name includes injuries.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Number of Level 1 Injuries
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  count.possible_injuries:
+    entity: crash
+    definition: Count of persons with possible injury.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Number of Level 2 Injuries
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  count.serious_injuries:
+    entity: crash
+    definition: Count of persons with suspected serious injury.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Number of level 4 Injuries
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  count.unrestrained_fatalities:
+    entity: crash
+    definition: Source count for unrestrained fatalities count. Preserve source rule version and unknown values.
+    valueType: integer
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Unrestrained Fatalities Count
+  count.unrestrained_serious:
+    entity: crash
+    definition: Source count for unrestrained level 4 count. Preserve source rule version and unknown values.
+    valueType: integer
+    reviewStatus: documented
+    references:
+    - reference: rollups2021
+      section: Unrestrained Level 4 Count
+  count.vehicles:
+    entity: crash
+    definition: Source count of motor vehicles involved in the crash.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Number of Vehicles
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  event.collision_manner:
+    entity: crash
+    definition: Configuration of the initial collision between motor vehicles. Interpret with maneuvers and non-motorist
+      involvement.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Manner of Collision of the First Harmful Event
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  event.first_harmful:
+    entity: crash
+    definition: First event in the crash causing injury or property damage.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: First Harmful Event
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  export.filter_filter:
+    entity: export
+    definition: Applied export filter name.
+    valueType: string
+    reviewStatus: local
+    references:
+    - reference: tables2021
+      section: Portal Filters worksheet
+  export.filter_value:
+    entity: export
+    definition: Applied export filter setting. This describes the selection, not an individual crash.
+    valueType: string
+    reviewStatus: local
+    references:
+    - reference: tables2021
+      section: Portal Filters worksheet
+  identity.arcgis_object_id:
+    entity: provider
+    definition: ArcGIS service row identifier, scoped to its layer.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: arcgisMetadata
+      section: ArcGIS OBJECTID
+    - reference: tables2021
+      section: ArcGIS OBJECTID
+  identity.local_case_number:
+    entity: police_report
+    definition: Agency-assigned police case number. Distinct from the state crash identifier.
+    valueType: string
+    reviewStatus: inferred
+    references:
+    - reference: policeHeaders
+      section: Case Number
+  identity.state_crash_id:
+    entity: crash
+    definition: State crash identifier carried by the public state products.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: DPS Case Number
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  identity.vehicle_number:
+    entity: vehicle
+    definition: Vehicle unit number within a source crash. Non-motorists can have special or absent vehicle references.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Vehicle Number
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  injury.crash_severity:
+    entity: crash
+    definition: Highest injury severity represented by a crash-level classification.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Crash Severity
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  location.county:
+    entity: crash
+    definition: County associated with the source location. Preserve reported versus geographic provenance.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: County
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  location.description:
+    entity: crash
+    definition: Source description of where the crash occurred.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Location on Road/Intersection
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  location.geographic_city:
+    entity: crash
+    definition: Municipality assigned by geographic processing of the crash point.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: City Geo
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  location.latitude:
+    entity: crash
+    definition: WGS84 latitude coordinate component, delivered as text in this export.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Latitude/Longitude
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+    unit: degrees
+  location.longitude:
+    entity: crash
+    definition: WGS84 longitude coordinate component, delivered as text in this export.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Latitude/Longitude
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+    unit: degrees
+  location.point:
+    entity: crash
+    definition: Queried crash point in WGS84 longitude/latitude. Supplied as geometry, separate from UTM attributes.
+    valueType: object
+    reviewStatus: documented
+    references:
+    - reference: arcgisMetadata
+      section: Source query outSR=4326
+    - reference: tables2021
+      section: Source query outSR=4326
+    unit: EPSG:4326
+  location.police_description:
+    entity: police_report
+    definition: Original police location text, sometimes including annotations. It is an input to geocoding.
+    valueType: string
+    reviewStatus: inferred
+    references:
+    - reference: policeHeaders
+      section: Address
+  location.road_name:
+    entity: crash
+    definition: Road or street associated with the crash location.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Road, Street, Highway Crash Occurred
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  location.utm_easting:
+    entity: crash
+    definition: Provider projected X attribute despite its UTM field name. Retained values empirically match EPSG:3857,
+      not EPSG:26912; provider confirmation is absent.
+    valueType: number
+    reviewStatus: inferred
+    references:
+    - reference: arcgisMetadata
+      section: Layer geometry declares EPSG:26912; attribute CRS is not declared; retained coordinate audit establishes
+        EPSG:3857 agreement
+    - reference: tables2021
+      section: Layer geometry declares EPSG:26912; attribute CRS is not declared; retained coordinate audit establishes
+        EPSG:3857 agreement
+    unit: metres
+  location.utm_northing:
+    entity: crash
+    definition: Provider projected Y attribute despite its UTM field name. Retained values empirically match EPSG:3857,
+      not EPSG:26912; provider confirmation is absent.
+    valueType: number
+    reviewStatus: inferred
+    references:
+    - reference: arcgisMetadata
+      section: Layer geometry declares EPSG:26912; attribute CRS is not declared; retained coordinate audit establishes
+        EPSG:3857 agreement
+    - reference: tables2021
+      section: Layer geometry declares EPSG:26912; attribute CRS is not declared; retained coordinate audit establishes
+        EPSG:3857 agreement
+    unit: metres
+  person.age:
+    entity: person
+    definition: Person age supplied or calculated by the provider. Infants may be zero and missing values remain
+      unknown.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Age
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+    unit: years
+  person.driver_contributing_first:
+    entity: person
+    definition: First recorded driver-contributing circumstance for this person.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Driver Contributing Circumstances
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  person.driver_contributing_second:
+    entity: person
+    definition: Second recorded driver-contributing circumstance for this person.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Driver Contributing Circumstances
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  person.injury_severity:
+    entity: person
+    definition: Injury severity assigned to one person. This differs in grain from crash severity.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Injury Level
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  person.nonmotorist_contributing:
+    entity: person
+    definition: Recorded circumstance associated with the non-motorist.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Non-Motorist Contributing Circumstances
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  person.nonmotorist_location:
+    entity: person
+    definition: Location or position of the non-motorist in relation to the roadway.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Non-Motorist Location
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  person.sex:
+    entity: person
+    definition: Sex/gender code supplied in the crash person record.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Sex/Gender
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  person.type:
+    entity: person
+    definition: Type of person involved, such as driver, passenger or non-motorist.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Person Type
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  provider.error_code:
+    entity: provider
+    definition: Undocumented provider field. Retain its original value pending a provider definition.
+    valueType: string
+    reviewStatus: unresolved
+    references:
+    - reference: arcgisMetadata
+      section: Provider ERR_CD
+    - reference: tables2021
+      section: Provider ERR_CD
+  provider.police_unused:
+    entity: police_report
+    definition: Fifth physical source column with no supplied heading. It is unused by the importer.
+    valueType: string
+    reviewStatus: unresolved
+    references:
+    - reference: policeHeaders
+      section: Retained headerless workbook
+  road.exit_number:
+    entity: road
+    definition: Exit number associated with a crash on an exit or ramp.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Exit Number
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  road.functional_class:
+    entity: road
+    definition: Road functional classification used for transport planning.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: arcgisMetadata
+      section: Public provider FUNCTIONAL_CLASS
+    - reference: tables2021
+      section: Public provider FUNCTIONAL_CLASS
+  road.horizontal_alignment:
+    entity: road
+    definition: Road horizontal alignment in the vehicle environment.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Horizontal/Roadway Alignment
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  road.junction:
+    entity: crash
+    definition: Roadway or junction feature associated with the crash location.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Roadway/Junction Feature
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  road.jurisdiction:
+    entity: road
+    definition: Source classification of the authority responsible for the road.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Road Jurisdiction
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  road.milepoint:
+    entity: road
+    definition: Accumulated route milepoint used by the state linear referencing system.
+    valueType: number
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Milepoint
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+    unit: miles
+  road.pavement_type:
+    entity: road
+    definition: Material or construction type of the roadway surface.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Roadway Description
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  road.provider_type:
+    entity: road
+    definition: Provider roadway type code. Exact code semantics need provider confirmation.
+    valueType: string
+    reviewStatus: unresolved
+    references:
+    - reference: arcgisMetadata
+      section: Provider ROADWAY_TYPE_CD
+    - reference: tables2021
+      section: Provider ROADWAY_TYPE_CD
+  road.ramp_id:
+    entity: road
+    definition: State ramp identifier associated with the crash.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Ramp ID
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  road.route_direction:
+    entity: road
+    definition: Direction along increasing or decreasing route milepoints.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Route Direction
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  road.route_number:
+    entity: road
+    definition: Assigned roadway route identifier. Preserve as text including leading zeros.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Route Number
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  road.udot_region:
+    entity: road
+    definition: UDOT administrative region associated with the roadway.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: arcgisMetadata
+      section: Provider REGION_NAME
+    - reference: tables2021
+      section: Provider REGION_NAME
+  road.urban_rural:
+    entity: road
+    definition: Urban/rural area classification assigned to the crash location.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Area Type
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  road.vertical_alignment:
+    entity: road
+    definition: Road grade or vertical alignment in the vehicle environment.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Roadway Grade/Vertical Alignment
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  source.current_through:
+    entity: source
+    definition: Provider currency timestamp attached to the observation.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: arcgisMetadata
+      section: Public provider CURRENT_AS_OF_DATE
+    - reference: tables2021
+      section: Public provider CURRENT_AS_OF_DATE
+  time.holiday:
+    entity: crash
+    definition: Provider holiday indicator or category for the crash date.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Holiday Crash
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  time.minutes_after_midnight:
+    entity: crash
+    definition: Provider time-of-day helper, apparently minutes after midnight. Confirm against the timestamp before
+      normalization.
+    valueType: number
+    reviewStatus: unresolved
+    references:
+    - reference: manual2026
+      section: Portal export crash_mins
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+    unit: minutes (candidate, verify)
+  time.occurred_at:
+    entity: crash
+    definition: Source occurrence date and time. Preserve timezone and original precision.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Date of Crash; Military Time/Time Crash Occurred
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  time.occurrence_date:
+    entity: crash
+    definition: Date component derived from the provider occurrence timestamp.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Date of Crash
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  time.reported_at:
+    entity: police_report
+    definition: Timestamp labeled Date of Report in the named workbook. Occurrence-time equivalence is unconfirmed.
+    valueType: string
+    reviewStatus: inferred
+    references:
+    - reference: policeHeaders
+      section: Date of Report
+  travel.police_mode:
+    entity: police_report
+    definition: Locally reported active-transportation type or mode. More specific than state involvement flags.
+    valueType: string
+    reviewStatus: inferred
+    references:
+    - reference: policeHeaders
+      section: Type
+  vehicle.body_type:
+    entity: vehicle
+    definition: Motor vehicle body or configuration category.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Motor Vehicle Body Type
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  vehicle.maneuver:
+    entity: vehicle
+    definition: Vehicle movement before the critical event, such as turning or proceeding straight.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Vehicle Status Prior to Critical Event
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  vehicle.most_harmful_event:
+    entity: vehicle
+    definition: Event causing the greatest harm for this vehicle and its occupants.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Most Harmful Event for Vehicle
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+  vehicle.special_function:
+    entity: vehicle
+    definition: Special operational function of the motor vehicle.
+    valueType: string
+    reviewStatus: documented
+    references:
+    - reference: manual2026
+      section: Special Function of Motor Vehicle
+    - reference: codes2021
+      section: Corresponding historical field code table. Confirm the delivery version before decoding.
+tables:
+  udot.arcgis:
+    source: udot-crashes
+    entity: crash
+    fields:
+      CRASH_ID:
+        concept: identity.state_crash_id
+        representation: identifier
+        relationship: equivalent
+        notes: State identifier concept. The dictionary does not establish a mapping to local police case numbers.
+      OBJECTID:
+        concept: identity.arcgis_object_id
+        representation: identifier
+        relationship: equivalent
+      CRASH_DATETIME:
+        concept: time.occurred_at
+        representation: timestamp
+        relationship: equivalent
+      CURRENT_AS_OF_DATE:
+        concept: source.current_through
+        representation: timestamp
+        relationship: equivalent
+      COUNTY_NAME:
+        concept: location.county
+        representation: label
+        relationship: equivalent
+      REGION_NAME:
+        concept: road.udot_region
+        representation: label
+        relationship: equivalent
+      MAIN_ROAD_NAME:
+        concept: location.road_name
+        representation: text
+        relationship: equivalent
+      LOCATION_DESC:
+        concept: location.description
+        representation: text
+        relationship: equivalent
+      ROUTE:
+        concept: road.route_number
+        representation: identifier
+        relationship: equivalent
+      START_ACCUM:
+        concept: road.milepoint
+        representation: number
+        relationship: equivalent
+      ROUTE_DIRECTION:
+        concept: road.route_direction
+        representation: code
+        relationship: equivalent
+      ROADWAY_TYPE_CD:
+        concept: road.provider_type
+        representation: code
+        relationship: unresolved
+      EXIT_NUMBER:
+        concept: road.exit_number
+        representation: identifier
+        relationship: equivalent
+      RAMP_ID:
+        concept: road.ramp_id
+        representation: identifier
+        relationship: equivalent
+      LAT_UTM_Y:
+        concept: location.utm_northing
+        representation: number
+        relationship: equivalent
+      LONG_UTM_X:
+        concept: location.utm_easting
+        representation: number
+        relationship: equivalent
+      CRASH_SEVERITY_DESC:
+        concept: injury.crash_severity
+        representation: label
+        relationship: equivalent
+      LIGHT_CONDITION_DESC:
+        concept: condition.light
+        representation: label
+        relationship: equivalent
+      WEATHER_CONDITION_DESC:
+        concept: condition.weather
+        representation: label
+        relationship: equivalent
+      MANNER_COLLISION_DESC:
+        concept: event.collision_manner
+        representation: label
+        relationship: equivalent
+      PAVEMENT_DESC:
+        concept: road.pavement_type
+        representation: label
+        relationship: equivalent
+      ROADWAY_SURF_CONDITION_DESC:
+        concept: condition.road_surface
+        representation: label
+        relationship: equivalent
+      ROADWAY_JUNCT_FEATURE_DESC:
+        concept: road.junction
+        representation: label
+        relationship: equivalent
+      ROAD_JURISDICTION_DESC:
+        concept: road.jurisdiction
+        representation: label
+        relationship: equivalent
+      HORIZONTAL_ALIGNMENT_DESC:
+        concept: road.horizontal_alignment
+        representation: label
+        relationship: equivalent
+      VERTICAL_ALIGNMENT_DESC:
+        concept: road.vertical_alignment
+        representation: label
+        relationship: equivalent
+      ROADWAY_CONTRIB_CIRCUM_DESC:
+        concept: condition.roadway_contributing
+        representation: label
+        relationship: equivalent
+      NUMBER_VEHICLES_INVOLVED:
+        concept: count.vehicles
+        representation: number
+        relationship: equivalent
+      FIRST_HARMFUL_EVENT_DESC:
+        concept: event.first_harmful
+        representation: label
+        relationship: equivalent
+      NUMBER_FATALITIES:
+        concept: count.fatalities
+        representation: number
+        relationship: equivalent
+      NUMBER_FOUR_INJURIES:
+        concept: count.serious_injuries
+        representation: number
+        relationship: equivalent
+      NUMBER_THREE_INJURIES:
+        concept: count.minor_injuries
+        representation: number
+        relationship: equivalent
+      NUMBER_TWO_INJURIES:
+        concept: count.possible_injuries
+        representation: number
+        relationship: equivalent
+      NUMBER_ONE_INJURIES:
+        concept: count.no_apparent_injury
+        representation: number
+        relationship: equivalent
+      FUNCTIONAL_CLASS:
+        concept: road.functional_class
+        representation: label
+        relationship: equivalent
+      ERR_CD:
+        concept: provider.error_code
+        representation: code
+        relationship: unresolved
+      AGGRESSIVE_DRIVING:
+        concept: classification.aggressive_driving
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      BICYCLIST_INVOLVED:
+        concept: classification.bicycle_involved
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      COLLISION_WITH_FIXED_OBJECT:
+        concept: classification.fixed_object
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      COMMERCIAL_MOTOR_VEH_INVOLVED:
+        concept: classification.commercial_motor_vehicle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      DEBRIS:
+        concept: classification.debris
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      DISREGARD_TRAFFIC_CONTROL_DEV:
+        concept: classification.disregard_control
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      DISTRACTED_DRIVING:
+        concept: classification.distracted_driving
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      DIVIDED_HIGHWAY:
+        concept: classification.divided_highway
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      DOMESTIC_ANIMAL_RELATED:
+        concept: classification.domestic_animal
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      DROWSY_DRIVING:
+        concept: classification.drowsy_driving
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      DUI:
+        concept: classification.dui
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      HIT_AND_RUN:
+        concept: classification.hit_and_run
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      IMPROPER_RESTRAINT:
+        concept: classification.improper_restraint
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      IMPROPER_RESTRAINT_FATAL_TOT:
+        concept: count.improper_restraint_fatalities
+        representation: number
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      IMPROPER_RESTRAINT_LEVEL4_TOT:
+        concept: count.improper_restraint_serious
+        representation: number
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      MOTORCYCLE_INVOLVED:
+        concept: classification.motorcycle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      MOTOR_CARRIER_INVOLVED_YN:
+        concept: classification.motor_carrier
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      OLDER_DRIVER_INVOLVED:
+        concept: classification.older_driver
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      OVERTURN_ROLLOVER:
+        concept: classification.rollover
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      PEDESTRIAN_INVOLVED:
+        concept: classification.pedestrian_involved
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      RAILROAD_CROSSING:
+        concept: classification.railroad_crossing
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      ROADWAY_DEPARTURE:
+        concept: classification.roadway_departure
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      SINGLE_VEHICLE:
+        concept: classification.single_vehicle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      SPEED_RELATED:
+        concept: classification.speed_related
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      TEENAGE_DRIVER_INVOLVED:
+        concept: classification.teenage_driver
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      TRAIN_INVOLVED:
+        concept: classification.train
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      TRANSIT_VEHICLE_INVOLVED:
+        concept: classification.transit_vehicle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      UNRESTRAINED:
+        concept: classification.unrestrained
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      UNRESTRAINED_FATAL_TOT:
+        concept: count.unrestrained_fatalities
+        representation: number
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      UNRESTRAINED_LEVEL4_TOT:
+        concept: count.unrestrained_serious
+        representation: number
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      WILD_ANIMAL_RELATED:
+        concept: classification.wild_animal
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      WORK_ZONE_RELATED_YNU:
+        concept: classification.work_zone
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      geometry:
+        concept: location.point
+        representation: geometry
+        relationship: equivalent
+  police.numbers:
+    source: provo-police-incidents
+    entity: police_report
+    fields:
+      column_1:
+        concept: identity.local_case_number
+        representation: identifier
+        relationship: source-specific
+        notes: Headerless source. Column meaning follows the retained positional importer and analogous named delivery.
+          Confirm semantics with provider.
+      column_2:
+        concept: time.reported_at
+        representation: timestamp
+        relationship: source-specific
+        notes: Headerless source. Column meaning follows the retained positional importer and analogous named delivery.
+          Confirm semantics with provider.
+      column_3:
+        concept: location.police_description
+        representation: text
+        relationship: source-specific
+        notes: Headerless source. Column meaning follows the retained positional importer and analogous named delivery.
+          Confirm semantics with provider.
+      column_4:
+        concept: travel.police_mode
+        representation: text
+        relationship: source-specific
+        notes: Headerless source. Column meaning follows the retained positional importer and analogous named delivery.
+          Confirm semantics with provider.
+      column_5:
+        concept: provider.police_unused
+        representation: text
+        relationship: unresolved
+  police.xlsx:
+    source: provo-police-incidents
+    entity: police_report
+    fields:
+      'Case Number:':
+        concept: identity.local_case_number
+        representation: identifier
+        relationship: source-specific
+        notes: Header provides the field name. Local shorthand definitions are not supplied.
+      'Date of Report:':
+        concept: time.reported_at
+        representation: timestamp
+        relationship: source-specific
+        notes: Header provides the field name. Local shorthand definitions are not supplied.
+      'Address:':
+        concept: location.police_description
+        representation: text
+        relationship: source-specific
+        notes: Header provides the field name. Local shorthand definitions are not supplied.
+      'Type:':
+        concept: travel.police_mode
+        representation: text
+        relationship: source-specific
+        notes: Header provides the field name. Local shorthand definitions are not supplied.
+  portal.crashes:
+    source: utah-crash-portal
+    entity: crash
+    fields:
+      Crash_ID:
+        concept: identity.state_crash_id
+        representation: identifier
+        relationship: equivalent
+        notes: State identifier concept. The dictionary does not establish a mapping to local police case numbers.
+      crashDateandTime:
+        concept: time.occurred_at
+        representation: timestamp
+        relationship: equivalent
+      County:
+        concept: location.county
+        representation: code
+        relationship: related
+        notes: County code/name representations. Reported versus geometry-assigned county provenance is not established
+          for each alias.
+      county:
+        concept: location.county
+        representation: code
+        relationship: related
+        notes: County code/name representations. Reported versus geometry-assigned county provenance is not established
+          for each alias.
+      countyName:
+        concept: location.county
+        representation: label
+        relationship: related
+        notes: County code/name representations. Reported versus geometry-assigned county provenance is not established
+          for each alias.
+      route:
+        concept: road.route_number
+        representation: identifier
+        relationship: equivalent
+      direction:
+        concept: road.route_direction
+        representation: code
+        relationship: equivalent
+      type:
+        concept: road.provider_type
+        representation: code
+        relationship: unresolved
+      milePoint:
+        concept: road.milepoint
+        representation: number
+        relationship: equivalent
+      mile_point:
+        concept: road.milepoint
+        representation: number
+        relationship: equivalent
+      exitNumber:
+        concept: road.exit_number
+        representation: identifier
+        relationship: equivalent
+      exit_number:
+        concept: road.exit_number
+        representation: identifier
+        relationship: equivalent
+      rampID:
+        concept: road.ramp_id
+        representation: identifier
+        relationship: equivalent
+      roadName:
+        concept: location.road_name
+        representation: text
+        relationship: equivalent
+      crashSeverity:
+        concept: injury.crash_severity
+        representation: code
+        relationship: coded-equivalent
+      crashSeverity_label:
+        concept: injury.crash_severity
+        representation: label
+        relationship: equivalent
+      mannerCollision:
+        concept: event.collision_manner
+        representation: code
+        relationship: coded-equivalent
+      mannerCollision_label:
+        concept: event.collision_manner
+        representation: label
+        relationship: equivalent
+      roadwayContributingCircumstances:
+        concept: condition.roadway_contributing
+        representation: code
+        relationship: coded-equivalent
+      roadwayContribCircumstances_label:
+        concept: condition.roadway_contributing
+        representation: label
+        relationship: equivalent
+      weatherCondition:
+        concept: condition.weather
+        representation: code
+        relationship: coded-equivalent
+      lightCondition:
+        concept: condition.light
+        representation: code
+        relationship: coded-equivalent
+      roadwaySurfaceCondition:
+        concept: condition.road_surface
+        representation: code
+        relationship: coded-equivalent
+      roadwayJunction:
+        concept: road.junction
+        representation: code
+        relationship: coded-equivalent
+      roadwayJunction_label:
+        concept: road.junction
+        representation: label
+        relationship: equivalent
+      firstHarmfulEvent:
+        concept: event.first_harmful
+        representation: code
+        relationship: coded-equivalent
+      firstHarmfulEvent_label:
+        concept: event.first_harmful
+        representation: label
+        relationship: equivalent
+      workZoneRelated:
+        concept: classification.work_zone
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      numberOfVehicles:
+        concept: count.vehicles
+        representation: number
+        relationship: equivalent
+      functional:
+        concept: road.functional_class
+        representation: code
+        relationship: coded-equivalent
+      pedestrian_involved:
+        concept: classification.pedestrian_involved
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      motorcycle_involved:
+        concept: classification.motorcycle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      speed_related:
+        concept: classification.speed_related
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      aggressive_driving:
+        concept: classification.aggressive_driving
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      hit_and_run:
+        concept: classification.hit_and_run
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      teenage_driver_involved:
+        concept: classification.teenage_driver
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      older_driver_involved:
+        concept: classification.older_driver
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      cyclist_involved:
+        concept: classification.bicycle_involved
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      dui:
+        concept: classification.dui
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      single_vehicle:
+        concept: classification.single_vehicle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      unrestrained:
+        concept: classification.unrestrained
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      distracted_driving:
+        concept: classification.distracted_driving
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      drowsy_driving:
+        concept: classification.drowsy_driving
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      latitude:
+        concept: location.latitude
+        representation: number
+        relationship: equivalent
+      longitude:
+        concept: location.longitude
+        representation: number
+        relationship: equivalent
+      City_Geo:
+        concept: location.geographic_city
+        representation: label
+        relationship: equivalent
+      city_geo:
+        concept: location.geographic_city
+        representation: label
+        relationship: equivalent
+      UR:
+        concept: road.urban_rural
+        representation: code
+        relationship: source-specific
+      holiday:
+        concept: time.holiday
+        representation: code
+        relationship: source-specific
+      wrong_way_driving:
+        concept: classification.wrong_way
+        representation: flag
+        relationship: derived
+      animal_related:
+        concept: classification.animal
+        representation: flag
+        relationship: derived
+      adverse_weather:
+        concept: classification.adverse_weather
+        representation: flag
+        relationship: derived
+      alcohol_confirmed:
+        concept: classification.alcohol_confirmed
+        representation: flag
+        relationship: derived
+      alcohol_suspected:
+        concept: classification.alcohol_suspected
+        representation: flag
+        relationship: derived
+      drugs_confirmed:
+        concept: classification.drugs_confirmed
+        representation: flag
+        relationship: derived
+      drugs_suspected:
+        concept: classification.drugs_suspected
+        representation: flag
+        relationship: derived
+      officer_department:
+        concept: agency.reporting_code
+        representation: code
+        relationship: source-specific
+      crash_date:
+        concept: time.occurrence_date
+        representation: date
+        relationship: derived
+      crash_mins:
+        concept: time.minutes_after_midnight
+        representation: number
+        relationship: unresolved
+      roadwayContribCircumstances2_label:
+        concept: condition.roadway_contributing_second
+        representation: label
+        relationship: source-specific
+    codeLabelPairs:
+    - - crashSeverity
+      - crashSeverity_label
+    - - mannerCollision
+      - mannerCollision_label
+    - - roadwayJunction
+      - roadwayJunction_label
+    - - firstHarmfulEvent
+      - firstHarmfulEvent_label
+    - - roadwayContributingCircumstances
+      - roadwayContribCircumstances_label
+    aliasPairs:
+    - - County
+      - county
+    - - City_Geo
+      - city_geo
+    - - milePoint
+      - mile_point
+    - - exitNumber
+      - exit_number
+  portal.persons:
+    source: utah-crash-portal
+    entity: person
+    fields:
+      Crash_ID:
+        concept: identity.state_crash_id
+        representation: identifier
+        relationship: equivalent
+        notes: Parent crash reference within this source. Does not identify a person or vehicle.
+      vehicleNumber:
+        concept: identity.vehicle_number
+        representation: identifier
+        relationship: equivalent
+      personType:
+        concept: person.type
+        representation: code
+        relationship: coded-equivalent
+      personType_label:
+        concept: person.type
+        representation: label
+        relationship: equivalent
+      ageCalculated:
+        concept: person.age
+        representation: number
+        relationship: coded-equivalent
+      sex:
+        concept: person.sex
+        representation: code
+        relationship: coded-equivalent
+      injuryLevel:
+        concept: person.injury_severity
+        representation: code
+        relationship: coded-equivalent
+      injuryLevel_label:
+        concept: person.injury_severity
+        representation: label
+        relationship: equivalent
+      personDriverContribCircumstances1:
+        concept: person.driver_contributing_first
+        representation: code
+        relationship: coded-equivalent
+      personDriverContribCircumstances1_label:
+        concept: person.driver_contributing_first
+        representation: label
+        relationship: equivalent
+      personDriverContribCircumstances2:
+        concept: person.driver_contributing_second
+        representation: code
+        relationship: coded-equivalent
+      personDriverContribCircumstances2_label:
+        concept: person.driver_contributing_second
+        representation: label
+        relationship: equivalent
+      personNmContribCircumstances:
+        concept: person.nonmotorist_contributing
+        representation: code
+        relationship: coded-equivalent
+      personNmContribCircumstances_label:
+        concept: person.nonmotorist_contributing
+        representation: label
+        relationship: equivalent
+      personNmLocation:
+        concept: person.nonmotorist_location
+        representation: code
+        relationship: coded-equivalent
+      personNmLocation_label:
+        concept: person.nonmotorist_location
+        representation: label
+        relationship: equivalent
+    codeLabelPairs:
+    - - personType
+      - personType_label
+    - - injuryLevel
+      - injuryLevel_label
+    - - personDriverContribCircumstances1
+      - personDriverContribCircumstances1_label
+    - - personDriverContribCircumstances2
+      - personDriverContribCircumstances2_label
+    - - personNmContribCircumstances
+      - personNmContribCircumstances_label
+    - - personNmLocation
+      - personNmLocation_label
+  portal.vehicles:
+    source: utah-crash-portal
+    entity: vehicle
+    fields:
+      Crash_ID:
+        concept: identity.state_crash_id
+        representation: identifier
+        relationship: equivalent
+        notes: Parent crash reference within this source. Does not identify a person or vehicle.
+      vehicleNumber:
+        concept: identity.vehicle_number
+        representation: identifier
+        relationship: equivalent
+      vehicleBodyType:
+        concept: vehicle.body_type
+        representation: code
+        relationship: coded-equivalent
+      vehicleBodyType_label:
+        concept: vehicle.body_type
+        representation: label
+        relationship: equivalent
+      vehicleManeuver:
+        concept: vehicle.maneuver
+        representation: code
+        relationship: coded-equivalent
+      vehicleManeuver_label:
+        concept: vehicle.maneuver
+        representation: label
+        relationship: equivalent
+      mostHarmfulEvent:
+        concept: vehicle.most_harmful_event
+        representation: code
+        relationship: coded-equivalent
+      mostHarmfulEvent_label:
+        concept: vehicle.most_harmful_event
+        representation: label
+        relationship: equivalent
+      specialFunction:
+        concept: vehicle.special_function
+        representation: code
+        relationship: coded-equivalent
+      specialFunction_label:
+        concept: vehicle.special_function
+        representation: label
+        relationship: equivalent
+    codeLabelPairs:
+    - - vehicleBodyType
+      - vehicleBodyType_label
+    - - vehicleManeuver
+      - vehicleManeuver_label
+    - - mostHarmfulEvent
+      - mostHarmfulEvent_label
+    - - specialFunction
+      - specialFunction_label
+  portal.rollups:
+    source: utah-crash-portal
+    entity: crash
+    fields:
+      Crash_ID:
+        concept: identity.state_crash_id
+        representation: identifier
+        relationship: equivalent
+        notes: Parent crash reference within this source. Does not identify a person or vehicle.
+      crash_id:
+        concept: identity.state_crash_id
+        representation: identifier
+        relationship: equivalent
+        notes: Case-differing alias of Crash_ID. Profile checks both independently.
+      alcohol_suspected:
+        concept: classification.alcohol_suspected
+        representation: flag
+        relationship: derived
+      drugs_suspected:
+        concept: classification.drugs_suspected
+        representation: flag
+        relationship: derived
+      unrestrained:
+        concept: classification.unrestrained
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      roadway_departure:
+        concept: classification.roadway_departure
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      older_driver_involved:
+        concept: classification.older_driver
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      adverse_roadway_surf_condition:
+        concept: classification.adverse_surface
+        representation: flag
+        relationship: derived
+      dui:
+        concept: classification.dui
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      aggressive_driving:
+        concept: classification.aggressive_driving
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      disregard_traffic_control_dev:
+        concept: classification.disregard_control
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      distracted_driving:
+        concept: classification.distracted_driving
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      drowsy_driving:
+        concept: classification.drowsy_driving
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      speed_related:
+        concept: classification.speed_related
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      motorcycle_involved:
+        concept: classification.motorcycle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      cyclist_involved:
+        concept: classification.bicycle_involved
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      pedestrian_involved:
+        concept: classification.pedestrian_involved
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      intersection_related:
+        concept: classification.intersection
+        representation: flag
+        relationship: derived
+      adverse_weather:
+        concept: classification.adverse_weather
+        representation: flag
+        relationship: derived
+      roadway_geometry_related:
+        concept: classification.road_geometry
+        representation: flag
+        relationship: derived
+      wild_animal_related:
+        concept: classification.wild_animal
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      domestic_animal_related:
+        concept: classification.domestic_animal
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      animal_related:
+        concept: classification.animal
+        representation: flag
+        relationship: derived
+      overturn_rollover:
+        concept: classification.rollover
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      commercial_motor_veh_involved:
+        concept: classification.commercial_motor_vehicle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      heavy_truck_involved:
+        concept: classification.heavy_truck
+        representation: flag
+        relationship: derived
+      interstate_highway:
+        concept: classification.interstate
+        representation: flag
+        relationship: derived
+      teenage_driver_involved:
+        concept: classification.teenage_driver
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      urban_county:
+        concept: classification.urban_county
+        representation: flag
+        relationship: derived
+      night_dark_condition:
+        concept: classification.dark
+        representation: flag
+        relationship: derived
+      single_vehicle:
+        concept: classification.single_vehicle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      train_involved:
+        concept: classification.train
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      railroad_crossing:
+        concept: classification.railroad_crossing
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      transit_vehicle_involved:
+        concept: classification.transit_vehicle
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      right_turn_involved:
+        concept: classification.right_turn
+        representation: flag
+        relationship: derived
+      left_or_u_turn_involved:
+        concept: classification.left_u_turn
+        representation: flag
+        relationship: derived
+      wrong_way_driving:
+        concept: classification.wrong_way
+        representation: flag
+        relationship: derived
+      work_zone_involved:
+        concept: classification.work_zone
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      divided_highway:
+        concept: classification.divided_highway
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      hit_and_run:
+        concept: classification.hit_and_run
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      debris:
+        concept: classification.debris
+        representation: flag
+        relationship: derived
+        notes: Formula/threshold coverage in the 2021 rollup guide must be checked against later provider versions.
+      alcohol_confirmed:
+        concept: classification.alcohol_confirmed
+        representation: flag
+        relationship: derived
+      drugs_confirmed:
+        concept: classification.drugs_confirmed
+        representation: flag
+        relationship: derived
+    aliasPairs:
+    - - crash_id
+      - Crash_ID
+  portal.filters:
+    source: utah-crash-portal
+    entity: export
+    fields:
+      Filter:
+        concept: export.filter_filter
+        representation: text
+        relationship: source-specific
+      Value:
+        concept: export.filter_value
+        representation: text
+        relationship: source-specific
+conceptRelations:
+- from: identity.local_case_number
+  to: identity.state_crash_id
+  relationship: unresolved
+  reason: Different issuing authorities. No authoritative crosswalk is present.
+- from: time.reported_at
+  to: time.occurred_at
+  relationship: related
+  reason: Report time can differ from occurrence time. The headerless police delivery is additionally ambiguous.
+- from: location.police_description
+  to: location.description
+  relationship: related
+  reason: Both describe location, but police annotations and geocoding inputs have different semantics from state
+    location descriptions.
+- from: travel.police_mode
+  to: person.type
+  relationship: related
+  reason: Police mode can distinguish e-bike or scooter. Person type may combine several devices and is person-grained.
+- from: person.type
+  to: classification.bicycle_involved
+  relationship: derived
+  reason: A source-defined crash rollup can be derived from person roles. The exact rule depends on source version.
+- from: person.type
+  to: classification.pedestrian_involved
+  relationship: derived
+  reason: A source-defined crash rollup can aggregate pedestrian and conveyance roles. Preserve the rule version.
+- from: injury.crash_severity
+  to: person.injury_severity
+  relationship: derived
+  reason: Crash severity summarizes the highest applicable person injury level. Person rows retain individual outcomes.
+- from: location.point
+  to: location.latitude
+  relationship: component
+  reason: Latitude is one component of the WGS84 point.
+- from: location.point
+  to: location.longitude
+  relationship: component
+  reason: Longitude is one component of the WGS84 point.
+- from: event.first_harmful
+  to: vehicle.most_harmful_event
+  relationship: related
+  reason: First event is crash-grained. Most harmful event is vehicle-grained and can describe a different event.
+- from: time.occurred_at
+  to: time.occurrence_date
+  relationship: component
+  reason: Date component must retain the occurrence timezone and precision.
+- from: count.fatalities
+  to: person.injury_severity
+  relationship: derived
+  reason: Source-specific count of eligible people in the corresponding injury category, grouped by source crash
+    ID.
+- from: count.serious_injuries
+  to: person.injury_severity
+  relationship: derived
+  reason: Source-specific count of eligible people in the corresponding injury category, grouped by source crash
+    ID.
+- from: count.minor_injuries
+  to: person.injury_severity
+  relationship: derived
+  reason: Source-specific count of eligible people in the corresponding injury category, grouped by source crash
+    ID.
+- from: count.possible_injuries
+  to: person.injury_severity
+  relationship: derived
+  reason: Source-specific count of eligible people in the corresponding injury category, grouped by source crash
+    ID.
+- from: count.no_apparent_injury
+  to: person.injury_severity
+  relationship: derived
+  reason: Source-specific count of eligible people in the corresponding injury category, grouped by source crash
+    ID.
+- from: location.utm_easting
+  to: location.point
+  relationship: derived
+  reason: Retained projected X/Y attributes empirically match EPSG:3857 when transformed to the WGS84 point; provider
+    confirmation is absent. Neither UTM component is a latitude/longitude degree value.
+- from: location.utm_northing
+  to: location.point
+  relationship: derived
+  reason: Retained projected X/Y attributes empirically match EPSG:3857 when transformed to the WGS84 point; provider
+    confirmation is absent. Neither UTM component is a latitude/longitude degree value.
+knownGaps:
+- source: police
+  fields:
+  - event_type
+  - severity
+  - occurrence_timestamp
+  reason: Not delivered as dedicated workbook columns. Report time semantics need confirmation.
+- source: portal.persons
+  fields:
+  - nonmotorist_device_type
+  - device_motorization
+  - nonmotorist_action
+  - nonmotorist_safety_equipment
+  reason: Defined in the 2026 manual but absent from the retained person export.
+- source: portal.vehicles
+  fields:
+  - travel_direction
+  - estimated_speed
+  - traffic_control_device
+  - event_sequence_1
+  - event_sequence_2
+  - event_sequence_3
+  - event_sequence_4
+  reason: Described in guides but absent from the retained vehicle export.
+- source: state exports
+  fields:
+  - local_police_case_number
+  - narrative
+  - diagram
+  reason: Absent from the retained exports. Access and crosswalk work remain deferred.
+- source: portal.persons
+  fields:
+  - person_number
+  reason: No person identifier is exported. vehicleNumber identifies a vehicle unit, not a person. Preserve row
+    provenance.

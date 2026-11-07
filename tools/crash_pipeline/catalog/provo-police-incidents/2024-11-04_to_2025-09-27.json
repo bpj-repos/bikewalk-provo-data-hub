@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "provo-police-incidents",
+  "sourceTitle": "Provo Police active transportation incident workbook",
+  "steward": "Provo Police Department",
+  "accessClass": "restricted",
+  "snapshotId": "provo-police-incidents-5b4eb6765141afac",
+  "receivedAt": "2026-07-18T02:48:16.901030Z",
+  "coverage": {
+    "startDate": "2024-11-04",
+    "endDate": "2025-09-27",
+    "timezone": "America/Denver"
+  },
+  "recordCount": 39,
+  "sourceFile": {
+    "storedFilename": "police-incidents.numbers",
+    "bytes": 861298,
+    "sha256": "20c7949e8d6204c0fe6d0864b2f3888f568bc72de4a8f8d3df289318abd7a52f"
+  },
+  "schemaFingerprint": "18b67d95dd4139118b64b7a7858946fa8103d2e02184c8dd1ac33d5ee9ee674e",
+  "validation": {
+    "status": "accepted",
+    "normalizedRecordCount": 39,
+    "rejectedRecordCount": 0,
+    "duplicateIncidentIdCount": 0,
+    "missingLocationCount": 1,
+    "mappedLocationCount": 37,
+    "reviewRequiredLocationCount": 1
+  },
+  "storagePolicy": {
+    "rawDataRoot": ".danger-zone-private",
+    "gitTracked": false,
+    "rawDataCommitAllowed": false
+  },
+  "warnings": [
+    "The workbook does not provide severity or event type.",
+    "Original location text and matched coordinates remain restricted to the owner datastore.",
+    "One record has no incident location."
+  ]
+}

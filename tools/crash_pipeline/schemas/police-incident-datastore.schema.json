@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://provostreets.watch/schemas/danger-zones/police-incident-datastore.schema.json",
+  "title": "Private police incident datastore",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "sourceKey",
+    "storageClass",
+    "updatedAt",
+    "sourceCurrentThrough",
+    "counts",
+    "limitations",
+    "ingestions",
+    "records"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "sourceKey": { "const": "provo-police-incidents" },
+    "storageClass": { "const": "private-owner-only" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "sourceCurrentThrough": { "type": ["string", "null"] },
+    "counts": {
+      "type": "object",
+      "required": ["records", "mapEligible", "locationStatuses", "modeCategories", "sourceConflicts"],
+      "properties": {
+        "records": { "type": "integer", "minimum": 0 },
+        "mapEligible": { "type": "integer", "minimum": 0 },
+        "locationStatuses": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+        "modeCategories": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+        "sourceConflicts": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "ingestions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["snapshotId", "workbookSha256", "retrievedAt", "sourceCurrentThrough", "sourceRows"],
+        "properties": {
+          "snapshotId": { "type": "string" },
+          "workbookSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "retrievedAt": { "type": "string", "format": "date-time" },
+          "sourceCurrentThrough": { "type": ["string", "null"] },
+          "sourceRows": { "type": "integer", "minimum": 0 },
+          "sourceFileName": { "type": "string" },
+          "sourceFormat": { "type": "string", "enum": ["numbers", "xlsx"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "incidentId",
+          "observedAt",
+          "location",
+          "mode",
+          "severity",
+          "eventType",
+          "latestSourceVersionHash",
+          "sourceVersions",
+          "hasSourceConflict"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "incidentId": { "type": ["string", "null"] },
+          "observedAt": { "type": "object" },
+          "location": { "type": "object" },
+          "mode": { "type": "object" },
+          "severity": { "type": "object" },
+          "eventType": { "type": "object" },
+          "latestSourceVersionHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "sourceVersions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "versionHash",
+                "contentHash",
+                "retrievedAt",
+                "snapshotId",
+                "workbookSha256",
+                "sourceSheet",
+                "sourceTable",
+                "sourceRow",
+                "cells"
+              ],
+              "properties": {
+                "versionHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+                "contentHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+                "sourceFileName": { "type": "string" },
+                "sourceFormat": { "type": "string" },
+                "sourceHeaders": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          },
+          "hasSourceConflict": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

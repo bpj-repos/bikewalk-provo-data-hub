@@ -1,0 +1,356 @@
+schemaVersion: 1
+sources:
+  - key: provo-streets
+    title: Provo Streets
+    steward: Provo City
+    officialUrl: https://gispublicweb.provo.gov/ArcGIS/rest/services/Other/Streets_for_Imagery/MapServer/0
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: context
+    format: ArcGIS Feature Layer
+    expectedCadence: monthly-check
+    importer: arcgis-provo-streets-v1
+    schemaVersion: 1
+    geography: Provo municipal street network
+    dependencies: []
+    limitations:
+      - Geometry and roadway attributes do not establish danger.
+      - The source is a candidate canonical network and must remain versioned.
+
+  - key: udot-crashes
+    title: UDOT Crash Locations
+    steward: Utah Department of Transportation
+    officialUrl: https://maps.udot.utah.gov/central/rest/services/TrafficAndSafety/Crash_Locations/MapServer
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: observed
+    format: ArcGIS Map Service with annual feature layers
+    expectedCadence: weekly
+    importer: arcgis-udot-crashes-v1
+    schemaVersion: 1
+    geography: Provo-area bounding box, followed by network matching
+    dependencies: []
+    limitations:
+      - Recent crashes can be delayed, relocated, or corrected.
+      - The service is queried with a conservative bounding box and can include nearby jurisdictions.
+
+  - key: provo-police-incidents
+    title: Provo Police active transportation incident workbook
+    steward: Provo Police Department
+    officialUrl: null
+    accessClass: restricted
+    accessStatus: available-periodic-delivery
+    evidenceFamily: observed
+    format: Spreadsheet
+    expectedCadence: on-receipt
+    importer: spreadsheet-provo-police-v2
+    schemaVersion: 1
+    geography: Provo
+    dependencies:
+      - udot-crashes
+    limitations:
+      - Publication terms, stable identifiers, field definitions, and correction handling require confirmation.
+      - Probable overlap with UDOT must be linked rather than counted twice.
+
+  - key: udot-traffic
+    title: UDOT Annual Average Daily Traffic
+    steward: Utah Department of Transportation
+    officialUrl: https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/AADT2024_Unrounded/FeatureServer/3
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: measured
+    format: ArcGIS Feature Layer
+    expectedCadence: annual
+    importer: arcgis-udot-aadt-v1
+    schemaVersion: 1
+    geography: Utah, with partial Provo coverage
+    dependencies: []
+    limitations:
+      - The latest measure in this layer is 2024, even when the service is edited later.
+      - Annual average traffic does not describe hourly peaks or turning movements.
+
+  - key: provo-traffic-studies
+    title: Provo traffic studies
+    steward: Provo City
+    officialUrl: https://www.provo.gov/DocumentCenter/View/5247
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: measured
+    format: PDF and occasional tabular attachments
+    expectedCadence: on-discovery
+    importer: pdf-provo-traffic-study-v1
+    schemaVersion: 1
+    geography: Selected Provo locations
+    dependencies: []
+    limitations:
+      - Coverage is selective and study dates differ.
+      - Extracted values require page-level provenance and review.
+
+  - key: udot-at-intersection-safety
+    title: UDOT Active Transportation Intersection Safety Data
+    steward: Utah Department of Transportation
+    officialUrl: https://maps.udot.utah.gov/central/rest/services/TrafficAndSafety/AT_Intersection_Safety_Data/MapServer
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: modeled
+    format: ArcGIS Map Service
+    expectedCadence: quarterly-check
+    importer: arcgis-udot-at-safety-v1
+    schemaVersion: 1
+    geography: Utah intersections
+    dependencies:
+      - udot-crashes
+      - udot-traffic
+    limitations:
+      - This is a dated model result, not observed harm.
+      - Included crash and exposure inputs must not be counted again as independent support.
+
+  - key: ugrc-bikeways-lts
+    title: UGRC Utah Bikeways and Level of Traffic Stress
+    steward: Utah Geospatial Resource Center
+    officialUrl: https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/Bikeways/FeatureServer/0
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: modeled
+    format: Geospatial download
+    expectedCadence: monthly-check
+    importer: arcgis-ugrc-bikeways-lts-v1
+    schemaVersion: 1
+    geography: Utah bicycle network coverage
+    dependencies: []
+    limitations:
+      - Traffic stress represents modeled comfort, not observed harm.
+      - Coverage does not imply that unclassified streets are safe.
+
+  - key: udot-at-counts
+    title: UDOT active transportation counters
+    steward: Utah Department of Transportation
+    officialUrl: https://gis.udot.utah.gov/AT-Counters
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: measured
+    format: Counter observations and map resources
+    expectedCadence: monthly-or-quarterly
+    importer: arcgis-udot-at-counts-v1
+    schemaVersion: 1
+    geography: Selected locations in Utah County
+    dependencies: []
+    limitations:
+      - Provo has only a few counter sites, so coverage is sparse.
+      - Time bucket, mode, outages, direction, duration, and season must be retained.
+      - A provider value of undefined for travel mode must not be presented as a bicycle count.
+
+  - key: udot-safe-routes-to-school
+    title: UDOT Safe Routes to School public views
+    steward: Utah Department of Transportation
+    officialUrl: https://safe-routes-uplan.hub.arcgis.com/
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: context
+    format: ArcGIS feature layers for approved schools, routes, and mapped plan features
+    expectedCadence: monthly-check
+    importer: arcgis-udot-safe-routes-to-school-v1
+    schemaVersion: 1
+    geography: Approved Provo school plans
+    dependencies: []
+    limitations:
+      - Safe routes identify approved recommended travel routes, not verified safety outcomes.
+      - Mapped controls, crossings, guards, loading areas, and hazard notes require field verification.
+      - The public export does not contain legal school-zone speed-limit extents or operating schedules.
+      - School contact fields exposed by the provider are intentionally excluded from ingestion.
+
+  - key: provo-school-zones
+    title: Provo school-zone traffic-control inventory
+    steward: Provo City Traffic Engineering
+    officialUrl: https://www.provo.gov/891/GIS
+    accessClass: public-derived-only
+    accessStatus: request-needed
+    evidenceFamily: context
+    format: Requested geospatial sign and street-segment inventory
+    expectedCadence: annual-before-school-year
+    importer: pending
+    schemaVersion: 1
+    geography: Provo school-zone approaches
+    dependencies: []
+    limitations:
+      - Provo's public map services do not currently expose legal school-zone extents or schedules.
+      - School property, attendance boundaries, and Safe Routes lines cannot be used to infer a legal school zone.
+      - A useful delivery must include begin and end controls, street and direction, reduced speed, operating schedule, associated school, and last verification date.
+
+  - key: provo-crosswalks
+    title: Provo official crosswalk inventory
+    steward: Provo City Public Works
+    officialUrl: https://gispublicweb.provo.gov/ArcGIS/rest/services/Public_Works/Crosswalks/MapServer/1
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: context
+    format: ArcGIS polyline layer
+    expectedCadence: monthly-check
+    importer: arcgis-provo-crosswalks-v1
+    schemaVersion: 1
+    geography: Provo
+    dependencies: []
+    limitations:
+      - Crosswalk presence does not establish safety, and absence does not establish danger.
+      - Marking condition, control operation, visibility, and accessibility require field verification.
+      - Provider editor usernames are intentionally excluded from ingestion.
+
+  - key: fra-grade-crossings
+    title: FRA railroad grade crossing inventory
+    steward: Federal Railroad Administration
+    officialUrl: https://railroads.dot.gov/rail-network-development/maps-and-data/maps-geographic-information-system/maps-geographic
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: context
+    format: Weekly-updated ArcGIS feature layer
+    expectedCadence: weekly
+    importer: arcgis-fra-grade-crossings-v1
+    schemaVersion: 1
+    geography: Provo records in the national crossing inventory
+    dependencies: []
+    limitations:
+      - The inventory includes at-grade and grade-separated records.
+      - Warning controls, train counts, and roadway traffic are context, not an independent danger finding.
+      - Railroad and police contact fields are intentionally excluded from ingestion.
+
+  - key: udot-traffic-events
+    title: UDOT Traffic temporary construction and closure events
+    steward: Utah Department of Transportation
+    officialUrl: https://udottraffic.utah.gov/developers/doc
+    accessClass: restricted
+    accessStatus: developer-key-needed
+    evidenceFamily: context
+    format: UDOT Traffic API v2 event feed
+    expectedCadence: hourly-when-operational
+    importer: udot-traffic-events-v1
+    schemaVersion: 1
+    geography: Provo-area bounding box
+    dependencies: []
+    limitations:
+      - The feed is temporary operational context and changes frequently.
+      - Event presence does not independently establish active transportation danger.
+      - Descriptions, comments, contacts, and detour narratives are excluded from normalized public-context artifacts.
+
+  - key: uta-transit-stops
+    title: UTA stops and recent ridership
+    steward: Utah Transit Authority
+    officialUrl: https://maps.rideuta.com/server/rest/services/Hosted/UTA_Stops_and_Most_Recent_Ridership/FeatureServer/0
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: context
+    format: ArcGIS point layer
+    expectedCadence: monthly-check
+    importer: arcgis-uta-transit-stops-v1
+    schemaVersion: 1
+    geography: Provo stops
+    dependencies: []
+    limitations:
+      - Stop presence and ridership describe transit activity, not danger.
+      - Ridership values and stop geometry may have different update schedules.
+      - Major transfer point is a transparent display grouping, not a provider safety classification.
+
+  - key: provo-trails
+    title: Provo Parks and Recreation trails
+    steward: Provo City Parks and Recreation
+    officialUrl: https://gispublicweb.provo.gov/ArcGIS/rest/services/Recreation/ParksTrails/FeatureServer/1
+    accessClass: public
+    accessStatus: available
+    evidenceFamily: context
+    format: ArcGIS polyline layer with derived geometry intersections
+    expectedCadence: monthly-check
+    importer: arcgis-provo-trails-v1
+    schemaVersion: 1
+    geography: Provo trail network and geometry-only street intersection candidates
+    dependencies:
+      - provo-streets
+    limitations:
+      - Derived trail-road points are screening candidates, not verified at-grade crossings.
+      - Bridge, tunnel, signal, curb-ramp, visibility, and crossing-control conditions require verification.
+      - Line overlaps are excluded from candidate points.
+
+  - key: strava-metro
+    title: Strava Metro
+    steward: Strava
+    officialUrl: https://metro.strava.com/
+    accessClass: restricted
+    accessStatus: requested
+    evidenceFamily: estimated-exposure
+    format: Licensed provider delivery
+    expectedCadence: agreement-dependent
+    importer: pending
+    schemaVersion: 1
+    geography: Requested Provo area
+    dependencies: []
+    limitations:
+      - Provider activity is not a complete count of bicycle use.
+      - Raw data and derived publication are subject to the agreement.
+
+  - key: mag-bike-demand
+    title: MAG Utah Bike Demand Model output
+    steward: Mountainland Association of Governments
+    officialUrl: https://github.com/WFRCAnalytics/BDM-Utah-Bike-Demand-Model
+    accessClass: public-derived-only
+    accessStatus: requested
+    evidenceFamily: estimated-exposure
+    format: Requested official postprocessed model output
+    expectedCadence: on-model-release
+    importer: pending
+    schemaVersion: 1
+    geography: MAG model network
+    dependencies:
+      - udot-traffic
+      - ugrc-bikeways-lts
+    limitations:
+      - Modeled use is not a physical count.
+      - Infrastructure and traffic inputs mean the estimate is not independent safety evidence.
+
+  - key: mag-high-injury-network
+    title: MAG High Injury Network
+    steward: Mountainland Association of Governments
+    officialUrl: null
+    accessClass: public-derived-only
+    accessStatus: requested
+    evidenceFamily: official-reconciliation
+    format: Requested official geospatial dataset and methodology
+    expectedCadence: quarterly-check
+    importer: pending
+    schemaVersion: 1
+    geography: MAG planning area
+    dependencies:
+      - udot-crashes
+    limitations:
+      - When derived from the same crash records, it is a reconciliation layer rather than independent evidence.
+
+  - key: provo-streets-watch-reports
+    title: Provo Streets Watch reports and concerns
+    steward: Provo Streets Watch
+    officialUrl: null
+    accessClass: internal-sensitive
+    accessStatus: available
+    evidenceFamily: community
+    format: Firestore collections
+    expectedCadence: daily-or-release
+    importer: firestore-minimized-report-export-v1
+    schemaVersion: 1
+    geography: Provo-area submitted locations
+    dependencies: []
+    limitations:
+      - Reports are self-selected and cannot create or raise a danger tier.
+      - Only approved, public-safe references and aggregates may enter release artifacts.
+
+  - key: provo-311
+    title: Provo 311 service requests
+    steward: Provo City
+    officialUrl: null
+    accessClass: public-derived-only
+    accessStatus: deferred
+    evidenceFamily: community
+    format: Historical export would be required
+    expectedCadence: deferred
+    importer: pending
+    schemaVersion: 1
+    geography: Provo
+    dependencies: []
+    limitations:
+      - Current-map or complaint records are not verified danger evidence.
+      - A stable historical dataset and suitable fields have not been confirmed.

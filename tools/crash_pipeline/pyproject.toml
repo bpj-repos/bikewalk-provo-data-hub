@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools==80.10.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bwp-crash-producer"
+version = "0.1.0"
+description = "Private BikeWalk Provo crash reconciliation and annual aggregates"
+requires-python = ">=3.11"
+dependencies = [
+  "duckdb==1.4.5",
+  "jsonschema==4.25.1",
+  "numbers-parser==4.16.3",
+  "openpyxl==3.1.5",
+  "defusedxml==0.7.1",
+  "pyarrow==25.0.0",
+  "pyproj==3.7.2",
+  "PyYAML==6.0.3",
+  "requests==2.32.5",
+  "shapely==2.1.2",
+]
+
+[project.optional-dependencies]
+ci = ["coverage==7.17.0"]
+
+[project.scripts]
+bwp-update-crashes = "danger_zones.update_incidents:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

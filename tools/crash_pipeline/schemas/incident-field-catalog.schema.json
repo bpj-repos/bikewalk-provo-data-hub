@@ -1,0 +1,292 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Incident source field catalog",
+  "type": "object",
+  "required": [
+    "version",
+    "scope",
+    "references",
+    "concepts",
+    "tables",
+    "conceptRelations",
+    "knownGaps"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "references": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "title",
+          "version",
+          "url",
+          "capture",
+          "sha256",
+          "retrievedOn",
+          "capturePolicy"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "capture": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "retrievedOn": {
+            "type": "string",
+            "format": "date"
+          },
+          "capturePolicy": {
+            "enum": [
+              "remote-document",
+              "retained-source",
+              "local-file"
+            ]
+          }
+        }
+      }
+    },
+    "concepts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "entity",
+          "definition",
+          "valueType",
+          "reviewStatus",
+          "references"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "entity": {
+            "enum": [
+              "crash",
+              "person",
+              "vehicle",
+              "road",
+              "provider",
+              "source",
+              "export",
+              "police_report"
+            ]
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "valueType": {
+            "enum": [
+              "string",
+              "number",
+              "integer",
+              "boolean",
+              "object"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "reviewStatus": {
+            "enum": [
+              "documented",
+              "inferred",
+              "local",
+              "unresolved"
+            ]
+          },
+          "references": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "reference",
+                "section"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "reference": {
+                  "type": "string"
+                },
+                "section": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tables": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "source",
+          "entity",
+          "fields"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "enum": [
+              "udot-crashes",
+              "utah-crash-portal",
+              "provo-police-incidents"
+            ]
+          },
+          "entity": {
+            "type": "string"
+          },
+          "codeLabelPairs": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "concept",
+                "representation",
+                "relationship"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "concept": {
+                  "type": "string"
+                },
+                "representation": {
+                  "enum": [
+                    "text",
+                    "identifier",
+                    "number",
+                    "timestamp",
+                    "geometry",
+                    "code",
+                    "label",
+                    "flag",
+                    "date"
+                  ]
+                },
+                "relationship": {
+                  "enum": [
+                    "equivalent",
+                    "coded-equivalent",
+                    "related",
+                    "derived",
+                    "source-specific",
+                    "unresolved"
+                  ]
+                },
+                "notes": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "aliasPairs": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "conceptRelations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "relationship",
+          "reason"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "relationship": {
+            "enum": [
+              "related",
+              "derived",
+              "component",
+              "unresolved"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "knownGaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "fields",
+          "reason"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

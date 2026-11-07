@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "provo-police-incidents",
+  "sourceTitle": "Provo Police active transportation collision workbook",
+  "steward": "Provo Police Department",
+  "accessClass": "restricted",
+  "snapshotId": "provo-police-incidents-1f247a1e05d70f2d",
+  "receivedAt": "2026-08-13T03:23:30.330675Z",
+  "coverage": {
+    "startDate": "2025-10-02",
+    "endDate": "2026-07-29",
+    "timezone": "America/Denver"
+  },
+  "recordCount": 37,
+  "sourceFile": {
+    "storedFilename": "police-incidents.xlsx",
+    "bytes": 7786,
+    "sha256": "b90a5075a2532d5b230c1f973760924017cb5fec3291ba44054f42abc1cee90f"
+  },
+  "schemaFingerprint": "41b4802d4b07377e4467b415bcfe8e9a13ba85454873510372ed36f81cef1dc6",
+  "validation": {
+    "status": "accepted",
+    "normalizedRecordCount": 37,
+    "rejectedRecordCount": 0,
+    "duplicateIncidentIdCount": 0,
+    "missingLocationCount": 0,
+    "mappedLocationCount": 36,
+    "reviewRequiredLocationCount": 1
+  },
+  "storagePolicy": {
+    "rawDataRoot": ".danger-zone-private",
+    "gitTracked": false,
+    "rawDataCommitAllowed": false
+  },
+  "warnings": [
+    "The workbook does not provide severity or event type.",
+    "Original location text and matched coordinates remain restricted to the owner datastore.",
+    "One location did not meet the matching threshold and remains review-required."
+  ]
+}

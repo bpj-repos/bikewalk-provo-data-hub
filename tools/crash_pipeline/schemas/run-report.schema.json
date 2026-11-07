@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://provostreets.watch/schemas/danger-zones/run-report.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "runId",
+    "sourceKey",
+    "snapshotId",
+    "startedAt",
+    "completedAt",
+    "importerVersion",
+    "status",
+    "rawRecordCount",
+    "normalizedRecordCount",
+    "rejectedRecordCount",
+    "normalizedArtifacts",
+    "checks",
+    "warnings"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "runId": { "type": "string", "minLength": 12 },
+    "sourceKey": { "type": "string", "minLength": 1 },
+    "snapshotId": { "type": "string", "minLength": 12 },
+    "startedAt": { "type": "string", "format": "date-time" },
+    "completedAt": { "type": "string", "format": "date-time" },
+    "importerVersion": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["accepted", "rejected", "reused"] },
+    "rawRecordCount": { "type": "integer", "minimum": 0 },
+    "normalizedRecordCount": { "type": "integer", "minimum": 0 },
+    "rejectedRecordCount": { "type": "integer", "minimum": 0 },
+    "normalizedArtifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "rows", "sha256"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "rows": { "type": "integer", "minimum": 0 },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["passed", "warning", "failed"] },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,1083 @@
+version: 1
+status: approved
+inventoryCatalogVersion: 3
+scope: Source-qualified active-transportation observations. No cross-source record
+  linking or public export.
+concepts:
+  agency.reporting_code:
+    disposition: keep
+    target: agency.reporting_code
+    type: category
+  classification.adverse_surface:
+    disposition: keep
+    target: classification.adverse_surface
+    type: boolean
+  classification.adverse_weather:
+    disposition: keep
+    target: classification.adverse_weather
+    type: boolean
+  classification.aggressive_driving:
+    disposition: keep
+    target: classification.aggressive_driving
+    type: boolean
+  classification.alcohol_confirmed:
+    disposition: keep
+    target: classification.alcohol_confirmed
+    type: boolean
+  classification.alcohol_suspected:
+    disposition: keep
+    target: classification.alcohol_suspected
+    type: boolean
+  classification.animal:
+    disposition: exclude
+    group: low-priority
+    reason: Animal-involvement convenience rollup. First/most harmful event still
+      retains animal collision context.
+  classification.bicycle_involved:
+    disposition: keep
+    target: classification.bicycle_involved
+    type: boolean
+  classification.commercial_motor_vehicle:
+    disposition: keep
+    target: classification.commercial_motor_vehicle
+    type: boolean
+  classification.dark:
+    disposition: keep
+    target: classification.dark
+    type: boolean
+  classification.debris:
+    disposition: keep
+    target: classification.debris
+    type: boolean
+  classification.disregard_control:
+    disposition: keep
+    target: classification.disregard_control
+    type: boolean
+  classification.distracted_driving:
+    disposition: keep
+    target: classification.distracted_driving
+    type: boolean
+  classification.divided_highway:
+    disposition: keep
+    target: classification.divided_highway
+    type: boolean
+  classification.domestic_animal:
+    disposition: exclude
+    group: low-priority
+    reason: Domestic-animal convenience rollup. Event classifications remain available.
+  classification.drowsy_driving:
+    disposition: keep
+    target: classification.drowsy_driving
+    type: boolean
+  classification.drugs_confirmed:
+    disposition: keep
+    target: classification.drugs_confirmed
+    type: boolean
+  classification.drugs_suspected:
+    disposition: keep
+    target: classification.drugs_suspected
+    type: boolean
+  classification.dui:
+    disposition: keep
+    target: classification.dui
+    type: boolean
+  classification.fixed_object:
+    disposition: keep
+    target: classification.fixed_object
+    type: boolean
+  classification.heavy_truck:
+    disposition: keep
+    target: classification.heavy_truck
+    type: boolean
+  classification.hit_and_run:
+    disposition: keep
+    target: classification.hit_and_run
+    type: boolean
+  classification.improper_restraint:
+    disposition: exclude
+    group: occupant-restraints
+    reason: Motor-vehicle occupant belt/child-restraint rollup; not non-motorist helmet
+      use (2021 rollup guide).
+  classification.intersection:
+    disposition: keep
+    target: classification.intersection
+    type: boolean
+  classification.interstate:
+    disposition: keep
+    target: classification.interstate
+    type: boolean
+  classification.left_u_turn:
+    disposition: keep
+    target: classification.left_u_turn
+    type: boolean
+  classification.motor_carrier:
+    disposition: keep
+    target: classification.motor_carrier
+    type: boolean
+  classification.motorcycle:
+    disposition: keep
+    target: classification.motorcycle
+    type: boolean
+  classification.older_driver:
+    disposition: keep
+    target: classification.older_driver
+    type: boolean
+  classification.pedestrian_involved:
+    disposition: keep
+    target: classification.pedestrian_involved
+    type: boolean
+  classification.railroad_crossing:
+    disposition: keep
+    target: classification.railroad_crossing
+    type: boolean
+  classification.right_turn:
+    disposition: keep
+    target: classification.right_turn
+    type: boolean
+  classification.road_geometry:
+    disposition: keep
+    target: classification.road_geometry
+    type: boolean
+  classification.roadway_departure:
+    disposition: keep
+    target: classification.roadway_departure
+    type: boolean
+  classification.rollover:
+    disposition: keep
+    target: classification.rollover
+    type: boolean
+  classification.single_vehicle:
+    disposition: keep
+    target: classification.single_vehicle
+    type: boolean
+  classification.speed_related:
+    disposition: keep
+    target: classification.speed_related
+    type: boolean
+  classification.teenage_driver:
+    disposition: keep
+    target: classification.teenage_driver
+    type: boolean
+  classification.train:
+    disposition: keep
+    target: classification.train
+    type: boolean
+  classification.transit_vehicle:
+    disposition: keep
+    target: classification.transit_vehicle
+    type: boolean
+  classification.unrestrained:
+    disposition: exclude
+    group: occupant-restraints
+    reason: Motor-vehicle driver/passenger restraint rollup, not cyclist helmet use
+      (2021 rollup guide).
+  classification.urban_county:
+    disposition: exclude
+    group: low-priority
+    reason: County-wide urban flag is too coarse for local street analysis; urban/rural
+      area and city/county remain.
+  classification.wild_animal:
+    disposition: exclude
+    group: low-priority
+    reason: Wild-animal convenience rollup. Event classifications remain available.
+  classification.work_zone:
+    disposition: keep
+    target: classification.work_zone
+    type: boolean
+  classification.wrong_way:
+    disposition: keep
+    target: classification.wrong_way
+    type: boolean
+  condition.light:
+    disposition: keep
+    target: condition.light
+    type: category
+  condition.road_surface:
+    disposition: keep
+    target: condition.road_surface
+    type: category
+  condition.roadway_contributing:
+    disposition: keep
+    target: condition.roadway_contributing
+    type: category
+  condition.roadway_contributing_second:
+    disposition: keep
+    target: condition.roadway_contributing_second
+    type: category
+  condition.weather:
+    disposition: keep
+    target: condition.weather
+    type: category
+  count.fatalities:
+    disposition: keep
+    target: count.fatalities
+    type: integer
+  count.improper_restraint_fatalities:
+    disposition: exclude
+    group: occupant-restraints
+    reason: Fatal motor-vehicle occupant restraint count; retain overall and person-level
+      injury fields instead.
+  count.improper_restraint_serious:
+    disposition: exclude
+    group: occupant-restraints
+    reason: Serious motor-vehicle occupant restraint count; retain overall and person-level
+      injury fields instead.
+  count.minor_injuries:
+    disposition: keep
+    target: count.minor_injuries
+    type: integer
+  count.no_apparent_injury:
+    disposition: keep
+    target: count.no_apparent_injury
+    type: integer
+  count.possible_injuries:
+    disposition: keep
+    target: count.possible_injuries
+    type: integer
+  count.serious_injuries:
+    disposition: keep
+    target: count.serious_injuries
+    type: integer
+  count.unrestrained_fatalities:
+    disposition: exclude
+    group: occupant-restraints
+    reason: Fatal motor-vehicle occupant restraint count; retain overall and person-level
+      injury fields instead.
+  count.unrestrained_serious:
+    disposition: exclude
+    group: occupant-restraints
+    reason: Serious motor-vehicle occupant restraint count; retain overall and person-level
+      injury fields instead.
+  count.vehicles:
+    disposition: keep
+    target: count.vehicles
+    type: integer
+  event.collision_manner:
+    disposition: keep
+    target: event.collision_manner
+    type: category
+  event.first_harmful:
+    disposition: keep
+    target: event.first_harmful
+    type: category
+  export.filter_filter:
+    disposition: manifest
+    target: export.filter_filter
+    type: text
+    reason: Export scope belongs to snapshot manifest, not every incident row.
+  export.filter_value:
+    disposition: manifest
+    target: export.filter_value
+    type: text
+    reason: Export scope belongs to snapshot manifest, not every incident row.
+  identity.arcgis_object_id:
+    disposition: provenance
+    target: source_row_id
+    type: text
+    reason: Provider-layer row locator belongs to provenance, not an additional incident
+      identifier.
+  identity.local_case_number:
+    disposition: keep
+    target: identity.local_case_number
+    type: text
+  identity.state_crash_id:
+    disposition: keep
+    target: identity.state_crash_id
+    type: text
+  identity.vehicle_number:
+    disposition: keep
+    target: identity.vehicle_number
+    type: text
+  injury.crash_severity:
+    disposition: keep
+    target: injury.crash_severity
+    type: category
+  location.county:
+    disposition: keep
+    target: location.county
+    type: category
+  location.description:
+    disposition: keep
+    target: location.description
+    type: text
+  location.geographic_city:
+    disposition: keep
+    target: location.geographic_city
+    type: category
+  location.latitude:
+    disposition: component
+    target: location.point
+    type: number
+    reason: Build one WGS84 point from latitude/y and longitude/x; do not retain a
+      second coordinate representation in analytical records.
+  location.longitude:
+    disposition: component
+    target: location.point
+    type: number
+    reason: Build one WGS84 point from latitude/y and longitude/x; do not retain a
+      second coordinate representation in analytical records.
+  location.point:
+    disposition: keep
+    target: location.point
+    type: point
+  location.police_description:
+    disposition: keep
+    target: location.police_description
+    type: text
+  location.road_name:
+    disposition: keep
+    target: location.road_name
+    type: text
+  location.utm_easting:
+    disposition: exclude
+    group: redundant-coordinate
+    reason: Use delivered WGS84 point once. Original projected attributes stay in
+      raw inputs. Verify empirical EPSG:3857 agreement; their UTM name/layer geometry
+      CRS does not establish attribute CRS.
+  location.utm_northing:
+    disposition: exclude
+    group: redundant-coordinate
+    reason: Use delivered WGS84 point once. Original projected attributes stay in
+      raw inputs. Verify empirical EPSG:3857 agreement; their UTM name/layer geometry
+      CRS does not establish attribute CRS.
+  person.age:
+    disposition: keep
+    target: person.age
+    type: integer
+  person.driver_contributing_first:
+    disposition: keep
+    target: person.driver_contributing_first
+    type: category
+  person.driver_contributing_second:
+    disposition: keep
+    target: person.driver_contributing_second
+    type: category
+  person.injury_severity:
+    disposition: keep
+    target: person.injury_severity
+    type: category
+  person.nonmotorist_contributing:
+    disposition: keep
+    target: person.nonmotorist_contributing
+    type: category
+  person.nonmotorist_location:
+    disposition: keep
+    target: person.nonmotorist_location
+    type: category
+  person.sex:
+    disposition: keep
+    target: person.sex
+    type: category
+  person.type:
+    disposition: keep
+    target: person.type
+    type: category
+  provider.error_code:
+    disposition: exclude
+    group: unresolved-or-empty
+    reason: Entire retained column is null and its meaning is undocumented. Preserve
+      in raw data, review if future values appear.
+  provider.police_unused:
+    disposition: exclude
+    group: unresolved-or-empty
+    reason: Entire headerless fifth column is empty; no supplied semantic definition.
+  road.exit_number:
+    disposition: exclude
+    group: low-priority
+    reason: Exit locator is low priority for the initial street-focused analysis;
+      road, route, milepoint and point remain.
+  road.functional_class:
+    disposition: keep
+    target: road.functional_class
+    type: category
+  road.horizontal_alignment:
+    disposition: keep
+    target: road.horizontal_alignment
+    type: category
+  road.junction:
+    disposition: keep
+    target: road.junction
+    type: category
+  road.jurisdiction:
+    disposition: keep
+    target: road.jurisdiction
+    type: category
+  road.milepoint:
+    disposition: keep
+    target: road.milepoint
+    type: number
+  road.pavement_type:
+    disposition: keep
+    target: road.pavement_type
+    type: category
+  road.provider_type:
+    disposition: exclude
+    group: unresolved-or-empty
+    reason: Roadway type codes lack a verified definition. Hold outside normalized
+      analysis until clarified.
+  road.ramp_id:
+    disposition: exclude
+    group: low-priority
+    reason: Ramp identifier is low priority initially. Junction and vehicle maneuver
+      retain ramp context, but not this exact identifier.
+  road.route_direction:
+    disposition: keep
+    target: road.route_direction
+    type: category
+  road.route_number:
+    disposition: keep
+    target: road.route_number
+    type: text
+  road.udot_region:
+    disposition: exclude
+    group: low-priority
+    reason: Broad administrative region adds little to the current local analysis.
+  road.urban_rural:
+    disposition: keep
+    target: road.urban_rural
+    type: category
+  road.vertical_alignment:
+    disposition: keep
+    target: road.vertical_alignment
+    type: category
+  source.current_through:
+    disposition: provenance
+    target: source.current_through
+    type: temporal
+    reason: Provider currency belongs to source/partition provenance; preserve differing
+      values instead of claiming a single global date.
+  time.holiday:
+    disposition: exclude
+    group: low-priority
+    reason: Provider holiday label is not needed initially; exact source date remains
+      available for later calendar analysis.
+  time.minutes_after_midnight:
+    disposition: exclude
+    group: unresolved-or-empty
+    reason: Undocumented helper; time-of-day can be queried from the occurrence clock
+      without adopting this helper.
+  time.occurred_at:
+    disposition: keep
+    target: time.occurred_at
+    type: temporal
+  time.occurrence_date:
+    disposition: query
+    target: time.occurred_at.date
+    type: date
+    reason: Query the date from the temporal structure; compare the supplied helper
+      date and flag disagreements instead of retaining a duplicate date field.
+  time.reported_at:
+    disposition: keep
+    target: time.reported_at
+    type: temporal
+  travel.police_mode:
+    disposition: keep
+    target: travel.police_mode
+    type: text
+  vehicle.body_type:
+    disposition: keep
+    target: vehicle.body_type
+    type: category
+  vehicle.maneuver:
+    disposition: keep
+    target: vehicle.maneuver
+    type: category
+  vehicle.most_harmful_event:
+    disposition: keep
+    target: vehicle.most_harmful_event
+    type: category
+  vehicle.special_function:
+    disposition: keep
+    target: vehicle.special_function
+    type: category
+bindings:
+  udot.arcgis.CRASH_ID:
+    rule: identifier
+  udot.arcgis.OBJECTID:
+    rule: identifier
+  udot.arcgis.CRASH_DATETIME:
+    rule: epoch-ms
+  udot.arcgis.CURRENT_AS_OF_DATE:
+    rule: epoch-ms
+  udot.arcgis.COUNTY_NAME:
+    rule: category-label
+  udot.arcgis.REGION_NAME:
+    rule: category-label
+  udot.arcgis.MAIN_ROAD_NAME:
+    rule: text
+  udot.arcgis.LOCATION_DESC:
+    rule: text
+  udot.arcgis.ROUTE:
+    rule: identifier
+  udot.arcgis.START_ACCUM:
+    rule: number
+  udot.arcgis.ROUTE_DIRECTION:
+    rule: category-code
+  udot.arcgis.ROADWAY_TYPE_CD:
+    rule: category-code
+  udot.arcgis.EXIT_NUMBER:
+    rule: identifier
+  udot.arcgis.RAMP_ID:
+    rule: identifier
+  udot.arcgis.LAT_UTM_Y:
+    rule: number
+  udot.arcgis.LONG_UTM_X:
+    rule: number
+  udot.arcgis.CRASH_SEVERITY_DESC:
+    rule: category-label
+  udot.arcgis.LIGHT_CONDITION_DESC:
+    rule: category-label
+  udot.arcgis.WEATHER_CONDITION_DESC:
+    rule: category-label
+  udot.arcgis.MANNER_COLLISION_DESC:
+    rule: category-label
+  udot.arcgis.PAVEMENT_DESC:
+    rule: category-label
+  udot.arcgis.ROADWAY_SURF_CONDITION_DESC:
+    rule: category-label
+  udot.arcgis.ROADWAY_JUNCT_FEATURE_DESC:
+    rule: category-label
+  udot.arcgis.ROAD_JURISDICTION_DESC:
+    rule: category-label
+  udot.arcgis.HORIZONTAL_ALIGNMENT_DESC:
+    rule: category-label
+  udot.arcgis.VERTICAL_ALIGNMENT_DESC:
+    rule: category-label
+  udot.arcgis.ROADWAY_CONTRIB_CIRCUM_DESC:
+    rule: category-label
+  udot.arcgis.NUMBER_VEHICLES_INVOLVED:
+    rule: integer
+  udot.arcgis.FIRST_HARMFUL_EVENT_DESC:
+    rule: category-label
+  udot.arcgis.NUMBER_FATALITIES:
+    rule: integer
+  udot.arcgis.NUMBER_FOUR_INJURIES:
+    rule: integer
+  udot.arcgis.NUMBER_THREE_INJURIES:
+    rule: integer
+  udot.arcgis.NUMBER_TWO_INJURIES:
+    rule: integer
+  udot.arcgis.NUMBER_ONE_INJURIES:
+    rule: integer
+  udot.arcgis.FUNCTIONAL_CLASS:
+    rule: category-label
+  udot.arcgis.ERR_CD:
+    rule: category-code
+  udot.arcgis.AGGRESSIVE_DRIVING:
+    rule: boolean
+  udot.arcgis.BICYCLIST_INVOLVED:
+    rule: boolean
+  udot.arcgis.COLLISION_WITH_FIXED_OBJECT:
+    rule: boolean
+  udot.arcgis.COMMERCIAL_MOTOR_VEH_INVOLVED:
+    rule: boolean
+  udot.arcgis.DEBRIS:
+    rule: boolean
+  udot.arcgis.DISREGARD_TRAFFIC_CONTROL_DEV:
+    rule: boolean
+  udot.arcgis.DISTRACTED_DRIVING:
+    rule: boolean
+  udot.arcgis.DIVIDED_HIGHWAY:
+    rule: boolean
+  udot.arcgis.DOMESTIC_ANIMAL_RELATED:
+    rule: boolean
+  udot.arcgis.DROWSY_DRIVING:
+    rule: boolean
+  udot.arcgis.DUI:
+    rule: boolean
+  udot.arcgis.HIT_AND_RUN:
+    rule: boolean
+  udot.arcgis.IMPROPER_RESTRAINT:
+    rule: boolean
+  udot.arcgis.IMPROPER_RESTRAINT_FATAL_TOT:
+    rule: integer
+  udot.arcgis.IMPROPER_RESTRAINT_LEVEL4_TOT:
+    rule: integer
+  udot.arcgis.MOTORCYCLE_INVOLVED:
+    rule: boolean
+  udot.arcgis.MOTOR_CARRIER_INVOLVED_YN:
+    rule: boolean
+  udot.arcgis.OLDER_DRIVER_INVOLVED:
+    rule: boolean
+  udot.arcgis.OVERTURN_ROLLOVER:
+    rule: boolean
+  udot.arcgis.PEDESTRIAN_INVOLVED:
+    rule: boolean
+  udot.arcgis.RAILROAD_CROSSING:
+    rule: boolean
+  udot.arcgis.ROADWAY_DEPARTURE:
+    rule: boolean
+  udot.arcgis.SINGLE_VEHICLE:
+    rule: boolean
+  udot.arcgis.SPEED_RELATED:
+    rule: boolean
+  udot.arcgis.TEENAGE_DRIVER_INVOLVED:
+    rule: boolean
+  udot.arcgis.TRAIN_INVOLVED:
+    rule: boolean
+  udot.arcgis.TRANSIT_VEHICLE_INVOLVED:
+    rule: boolean
+  udot.arcgis.UNRESTRAINED:
+    rule: boolean
+  udot.arcgis.UNRESTRAINED_FATAL_TOT:
+    rule: integer
+  udot.arcgis.UNRESTRAINED_LEVEL4_TOT:
+    rule: integer
+  udot.arcgis.WILD_ANIMAL_RELATED:
+    rule: boolean
+  udot.arcgis.WORK_ZONE_RELATED_YNU:
+    rule: boolean
+  udot.arcgis.geometry:
+    rule: point
+  police.numbers.column_1:
+    rule: identifier
+  police.numbers.column_2:
+    rule: temporal
+  police.numbers.column_3:
+    rule: text
+  police.numbers.column_4:
+    rule: text
+  police.numbers.column_5:
+    rule: text
+  'police.xlsx.Case Number:':
+    rule: identifier
+  'police.xlsx.Date of Report:':
+    rule: temporal
+  'police.xlsx.Address:':
+    rule: text
+  'police.xlsx.Type:':
+    rule: text
+  portal.crashes.Crash_ID:
+    rule: identifier
+  portal.crashes.crashDateandTime:
+    rule: temporal
+  portal.crashes.County:
+    rule: category-code
+  portal.crashes.county:
+    rule: category-code
+  portal.crashes.countyName:
+    rule: category-label
+  portal.crashes.route:
+    rule: identifier
+  portal.crashes.direction:
+    rule: category-code
+  portal.crashes.type:
+    rule: category-code
+  portal.crashes.milePoint:
+    rule: number
+  portal.crashes.mile_point:
+    rule: number
+  portal.crashes.exitNumber:
+    rule: identifier
+  portal.crashes.exit_number:
+    rule: identifier
+  portal.crashes.rampID:
+    rule: identifier
+  portal.crashes.roadName:
+    rule: text
+  portal.crashes.crashSeverity:
+    rule: category-code
+  portal.crashes.crashSeverity_label:
+    rule: category-label
+  portal.crashes.mannerCollision:
+    rule: category-code
+  portal.crashes.mannerCollision_label:
+    rule: category-label
+  portal.crashes.roadwayContributingCircumstances:
+    rule: category-code
+  portal.crashes.roadwayContribCircumstances_label:
+    rule: category-label
+  portal.crashes.weatherCondition:
+    rule: category-code
+  portal.crashes.lightCondition:
+    rule: category-code
+  portal.crashes.roadwaySurfaceCondition:
+    rule: category-code
+  portal.crashes.roadwayJunction:
+    rule: category-code
+  portal.crashes.roadwayJunction_label:
+    rule: category-label
+  portal.crashes.firstHarmfulEvent:
+    rule: category-code
+  portal.crashes.firstHarmfulEvent_label:
+    rule: category-label
+  portal.crashes.workZoneRelated:
+    rule: boolean
+  portal.crashes.numberOfVehicles:
+    rule: integer
+  portal.crashes.functional:
+    rule: category-label
+  portal.crashes.pedestrian_involved:
+    rule: boolean
+  portal.crashes.motorcycle_involved:
+    rule: boolean
+  portal.crashes.speed_related:
+    rule: boolean
+  portal.crashes.aggressive_driving:
+    rule: boolean
+  portal.crashes.hit_and_run:
+    rule: boolean
+  portal.crashes.teenage_driver_involved:
+    rule: boolean
+  portal.crashes.older_driver_involved:
+    rule: boolean
+  portal.crashes.cyclist_involved:
+    rule: boolean
+  portal.crashes.dui:
+    rule: boolean
+  portal.crashes.single_vehicle:
+    rule: boolean
+  portal.crashes.unrestrained:
+    rule: boolean
+  portal.crashes.distracted_driving:
+    rule: boolean
+  portal.crashes.drowsy_driving:
+    rule: boolean
+  portal.crashes.latitude:
+    rule: latitude
+  portal.crashes.longitude:
+    rule: longitude
+  portal.crashes.City_Geo:
+    rule: category-label
+  portal.crashes.city_geo:
+    rule: category-label
+  portal.crashes.UR:
+    rule: category-label
+  portal.crashes.holiday:
+    rule: category-label
+  portal.crashes.wrong_way_driving:
+    rule: boolean
+  portal.crashes.animal_related:
+    rule: boolean
+  portal.crashes.adverse_weather:
+    rule: boolean
+  portal.crashes.alcohol_confirmed:
+    rule: boolean
+  portal.crashes.alcohol_suspected:
+    rule: boolean
+  portal.crashes.drugs_confirmed:
+    rule: boolean
+  portal.crashes.drugs_suspected:
+    rule: boolean
+  portal.crashes.officer_department:
+    rule: category-code
+  portal.crashes.crash_date:
+    rule: date
+  portal.crashes.crash_mins:
+    rule: number
+  portal.crashes.roadwayContribCircumstances2_label:
+    rule: category-label
+  portal.persons.Crash_ID:
+    rule: identifier
+  portal.persons.vehicleNumber:
+    rule: identifier
+  portal.persons.personType:
+    rule: category-code
+  portal.persons.personType_label:
+    rule: category-label
+  portal.persons.ageCalculated:
+    rule: age
+  portal.persons.sex:
+    rule: category-code
+  portal.persons.injuryLevel:
+    rule: category-code
+  portal.persons.injuryLevel_label:
+    rule: category-label
+  portal.persons.personDriverContribCircumstances1:
+    rule: category-code
+  portal.persons.personDriverContribCircumstances1_label:
+    rule: category-label
+  portal.persons.personDriverContribCircumstances2:
+    rule: category-code
+  portal.persons.personDriverContribCircumstances2_label:
+    rule: category-label
+  portal.persons.personNmContribCircumstances:
+    rule: category-code
+  portal.persons.personNmContribCircumstances_label:
+    rule: category-label
+  portal.persons.personNmLocation:
+    rule: category-code
+  portal.persons.personNmLocation_label:
+    rule: category-label
+  portal.vehicles.Crash_ID:
+    rule: identifier
+  portal.vehicles.vehicleNumber:
+    rule: identifier
+  portal.vehicles.vehicleBodyType:
+    rule: category-code
+  portal.vehicles.vehicleBodyType_label:
+    rule: category-label
+  portal.vehicles.vehicleManeuver:
+    rule: category-code
+  portal.vehicles.vehicleManeuver_label:
+    rule: category-label
+  portal.vehicles.mostHarmfulEvent:
+    rule: category-code
+  portal.vehicles.mostHarmfulEvent_label:
+    rule: category-label
+  portal.vehicles.specialFunction:
+    rule: category-code
+  portal.vehicles.specialFunction_label:
+    rule: category-label
+  portal.rollups.Crash_ID:
+    rule: identifier
+  portal.rollups.crash_id:
+    rule: identifier
+  portal.rollups.alcohol_suspected:
+    rule: boolean
+  portal.rollups.drugs_suspected:
+    rule: boolean
+  portal.rollups.unrestrained:
+    rule: boolean
+  portal.rollups.roadway_departure:
+    rule: boolean
+  portal.rollups.older_driver_involved:
+    rule: boolean
+  portal.rollups.adverse_roadway_surf_condition:
+    rule: boolean
+  portal.rollups.dui:
+    rule: boolean
+  portal.rollups.aggressive_driving:
+    rule: boolean
+  portal.rollups.disregard_traffic_control_dev:
+    rule: boolean
+  portal.rollups.distracted_driving:
+    rule: boolean
+  portal.rollups.drowsy_driving:
+    rule: boolean
+  portal.rollups.speed_related:
+    rule: boolean
+  portal.rollups.motorcycle_involved:
+    rule: boolean
+  portal.rollups.cyclist_involved:
+    rule: boolean
+  portal.rollups.pedestrian_involved:
+    rule: boolean
+  portal.rollups.intersection_related:
+    rule: boolean
+  portal.rollups.adverse_weather:
+    rule: boolean
+  portal.rollups.roadway_geometry_related:
+    rule: boolean
+  portal.rollups.wild_animal_related:
+    rule: boolean
+  portal.rollups.domestic_animal_related:
+    rule: boolean
+  portal.rollups.animal_related:
+    rule: boolean
+  portal.rollups.overturn_rollover:
+    rule: boolean
+  portal.rollups.commercial_motor_veh_involved:
+    rule: boolean
+  portal.rollups.heavy_truck_involved:
+    rule: boolean
+  portal.rollups.interstate_highway:
+    rule: boolean
+  portal.rollups.teenage_driver_involved:
+    rule: boolean
+  portal.rollups.urban_county:
+    rule: boolean
+  portal.rollups.night_dark_condition:
+    rule: boolean
+  portal.rollups.single_vehicle:
+    rule: boolean
+  portal.rollups.train_involved:
+    rule: boolean
+  portal.rollups.railroad_crossing:
+    rule: boolean
+  portal.rollups.transit_vehicle_involved:
+    rule: boolean
+  portal.rollups.right_turn_involved:
+    rule: boolean
+  portal.rollups.left_or_u_turn_involved:
+    rule: boolean
+  portal.rollups.wrong_way_driving:
+    rule: boolean
+  portal.rollups.work_zone_involved:
+    rule: boolean
+  portal.rollups.divided_highway:
+    rule: boolean
+  portal.rollups.hit_and_run:
+    rule: boolean
+  portal.rollups.debris:
+    rule: boolean
+  portal.rollups.alcohol_confirmed:
+    rule: boolean
+  portal.rollups.drugs_confirmed:
+    rule: boolean
+  portal.filters.Filter:
+    rule: text
+  portal.filters.Value:
+    rule: text
+codebooks:
+  condition.weather:
+    reference: dictionary2021
+    section: condition.weather
+    codes:
+      '1': Clear
+      '2': Cloudy
+      '3': Rain
+      '4': Snowing
+      '5': Blowing Snow
+      '6': Sleet, Hail
+      '7': Fog, Smog
+      '8': Severe Crosswinds
+      '9': Blowing Sand, Soil, Dirt (legacy code)
+      '88': Invalid
+      '89': Not Provided
+      '99': Unknown
+      U: Unknown
+      '01': Clear
+      '02': Cloudy
+      '03': Rain
+      '04': Snowing
+      '05': Blowing Snow
+      '06': Sleet, Hail
+      '07': Fog, Smog
+      08: Severe Crosswinds
+      09: Blowing Sand, Soil, Dirt (legacy code)
+    labelAliases: {}
+  condition.light:
+    reference: dictionary2021
+    section: condition.light
+    codes:
+      '1': Daylight
+      '2': Dark - Lighted
+      '3': Dark - Not Lighted
+      '4': Dark - Unknown Lighting
+      '5': Dawn
+      '6': Dusk
+      '88': Invalid
+      '89': Not Provided
+      '99': Unknown
+      U: Unknown
+      '01': Daylight
+      '02': Dark - Lighted
+      '03': Dark - Not Lighted
+      '04': Dark - Unknown Lighting
+      '05': Dawn
+      '06': Dusk
+    labelAliases: {}
+  condition.road_surface:
+    reference: dictionary2021
+    section: condition.road_surface
+    codes:
+      '1': Dry
+      '2': Wet
+      '3': Snow
+      '4': Slush
+      '5': Ice/Frost
+      '6': Water (standing, moving)
+      '7': Mud
+      '8': Sand, Dirt, Gravel (legacy code)
+      '9': Oil
+      '10': Dirt
+      '11': Gravel
+      '12': Sand
+      '97': Other
+      '88': Invalid
+      '89': Not Provided
+      '99': Unknown
+      U: Unknown
+      '01': Dry
+      '02': Wet
+      '03': Snow
+      '04': Slush
+      '05': Ice/Frost
+      '06': Water (standing, moving)
+      '07': Mud
+      08: Sand, Dirt, Gravel (legacy code)
+      09: Oil
+    labelAliases:
+      Ice: Ice/Frost
+      Sand, Dirt, Gravel: Sand, Dirt, Gravel (legacy code)
+  person.sex:
+    reference: dictionary2021
+    section: Sex; observed legacy 99 unknown and lower-case f retained as explicit
+      aliases
+    codes:
+      M: Male
+      F: Female
+      f: Female
+      U: Unknown
+      '99': Unknown
+    labelAliases: {}
+  injury.crash_severity:
+    reference: dictionary2021
+    section: injury.crash_severity
+    codes:
+      '1': No injury
+      '2': Possible injury
+      '3': Suspected Minor Injury
+      '4': Suspected Serious Injury
+      '5': Fatal
+      '88': Invalid
+      '89': Not Provided
+      '99': Unknown
+      U: Unknown
+    labelAliases:
+      No Injury/PDO: No injury
+      No injury: No injury
+      Possible Injury: Possible injury
+      Fatalities: Fatal
+  person.injury_severity:
+    reference: dictionary2021
+    section: person.injury_severity
+    codes:
+      '1': No injury
+      '2': Possible injury
+      '3': Suspected Minor Injury
+      '4': Suspected Serious Injury
+      '5': Fatal
+      '88': Invalid
+      '89': Not Provided
+      '99': Unknown
+      U: Unknown
+    labelAliases:
+      No Injury/PDO: No injury
+      No injury: No injury
+      Possible Injury: Possible injury
+      Fatalities: Fatal
+  person.type:
+    reference: dictionary2021
+    section: Person Type, legacy categories; do not infer exact conveyance for type
+      5
+    codes:
+      '1': Driver
+      '2': Passenger
+      '3': Pedestrian
+      '4': Pedalcyclist
+      '5': Other Pedestrian (wheelchair, skater, personal conveyance, etc.)
+      '88': Invalid
+      '89': Not Provided
+      '99': Unknown
+      U: Unknown
+    labelAliases: {}
+policeModes:
+  bicycle:
+  - bicycle
+  ebike:
+  - electric-bicycle
+  e-bike:
+  - electric-bicycle
+  electric bicycle:
+  - electric-bicycle
+  electric pocket bike:
+  - electric-bicycle
+  electric scooter:
+  - scooter
+  motoroized foot scooter:
+  - scooter
+  motorolized scooter:
+  - scooter
+  scooter:
+  - scooter
+  longboard:
+  - skateboard
+  electric wheelchair:
+  - mobility-device
+  electric bike or scooter, unknown:
+  - unspecified-electric-micromobility
+  pedestrian & electric scooter:
+  - pedestrian
+  - scooter

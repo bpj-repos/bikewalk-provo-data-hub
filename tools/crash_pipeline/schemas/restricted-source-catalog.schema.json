@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://provostreets.watch/schemas/danger-zones/restricted-source-catalog.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "sourceKey",
+    "sourceTitle",
+    "steward",
+    "accessClass",
+    "snapshotId",
+    "receivedAt",
+    "coverage",
+    "recordCount",
+    "sourceFile",
+    "schemaFingerprint",
+    "validation",
+    "storagePolicy",
+    "warnings"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "sourceKey": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "sourceTitle": { "type": "string", "minLength": 1 },
+    "steward": { "type": "string", "minLength": 1 },
+    "accessClass": { "const": "restricted" },
+    "snapshotId": { "type": "string", "minLength": 12 },
+    "receivedAt": { "type": "string", "format": "date-time" },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["startDate", "endDate", "timezone"],
+      "properties": {
+        "startDate": { "type": "string", "format": "date" },
+        "endDate": { "type": "string", "format": "date" },
+        "timezone": { "type": "string", "minLength": 1 }
+      }
+    },
+    "recordCount": { "type": "integer", "minimum": 0 },
+    "sourceFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["storedFilename", "bytes", "sha256"],
+      "properties": {
+        "storedFilename": { "type": "string", "minLength": 1 },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "schemaFingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "normalizedRecordCount",
+        "rejectedRecordCount",
+        "duplicateIncidentIdCount",
+        "missingLocationCount"
+      ],
+      "properties": {
+        "status": { "enum": ["accepted", "rejected"] },
+        "normalizedRecordCount": { "type": "integer", "minimum": 0 },
+        "rejectedRecordCount": { "type": "integer", "minimum": 0 },
+        "duplicateIncidentIdCount": { "type": "integer", "minimum": 0 },
+        "missingLocationCount": { "type": "integer", "minimum": 0 },
+        "mappedLocationCount": { "type": "integer", "minimum": 0 },
+        "reviewRequiredLocationCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "storagePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rawDataRoot", "gitTracked", "rawDataCommitAllowed"],
+      "properties": {
+        "rawDataRoot": { "const": ".danger-zone-private" },
+        "gitTracked": { "const": false },
+        "rawDataCommitAllowed": { "const": false }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

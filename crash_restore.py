@@ -120,6 +120,18 @@ runpy.run_module('danger_zones.update_incidents', run_name='__main__')
     after = json.loads((bundle / "collection.json").read_bytes())
     if before["records"] != after["records"] or crash_report(before, 2025) != crash_report(after, 2025):
         raise ValueError("Relocation changed incident records or annual aggregates")
+    annual = crash_report(after, 2025)["annual"]
+    out = io.StringIO(newline="")
+    writer = csv.writer(out)
+    writer.writerow(["year", "total", "bike", "ped", "other", "complete_year"])
+    writer.writerows([r[k] for k in ("year", "total", "bike", "ped", "other", "complete")] for r in annual)
+    csv_hash = hashlib.sha256(out.getvalue().encode()).hexdigest()
+    if csv_hash != CSV_HASH:
+        raise ValueError("Shadow release diverged from the adopted annual CSV")
+    records_hash = hashlib.sha256(json.dumps(after["records"], sort_keys=True).encode()).hexdigest()
+    print("shadow", json.dumps({"records": records_hash, "links": hashlib.sha256(
+        (bundle / "reviewed-links.json").read_bytes()).hexdigest(), "annualCsv": csv_hash,
+        "annualTotals": [r["total"] for r in annual], "release": first["releaseId"]}, sort_keys=True))
     accepted = active.read_bytes()
     if invoke("--offline")["status"] != "unchanged" or active.read_bytes() != accepted:
         raise ValueError("Repeated offline run changed the active pointer")

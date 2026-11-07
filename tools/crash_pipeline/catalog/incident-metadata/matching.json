@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "nearDays": 1,
+  "months": 1,
+  "delayedLookbackDays": 365,
+  "tightMetres": 100,
+  "wideMetres": 250,
+  "minimumAddressTokens": 3,
+  "tiers": ["exact-clock-address", "exact-clock", "same-day-address-at", "near-day-tight-at", "window-address-at", "window-spatial-at", "contradictory-evidence"]
+}

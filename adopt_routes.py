@@ -41,7 +41,9 @@ def adopt(previous,output,version,pin,producer):
     for key,summary in audit.items():
         if summary['rejected'] or summary['missingSchoolId']:
             warnings.append(f"{key}: {len(summary['rejected'])} records without geometry; {summary['missingSchoolId']} features without provider school ID.")
-    compat.update(generatedAt=package['sourceRetrievedAt'],releaseId=f'{DATASET}-{version}')
+    compat['generatedAt']=package['sourceRetrievedAt']
+    if 'releaseId' in compat:
+        compat['releaseId']=f'{DATASET}-{version}'
     compat['sourceFreshness'][0].update(currentThrough=package['providerApprovalDate'],lastImportedAt=package['sourceRetrievedAt'],snapshotId=f'{DATASET}-{version}',warnings=warnings)
     if 'approval' in compat:
         compat.update(approval='BikeWalk approved hub pin '+pin,producerCommit=producer)

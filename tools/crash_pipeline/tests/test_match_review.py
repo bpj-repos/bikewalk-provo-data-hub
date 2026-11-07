@@ -25,10 +25,11 @@ class MatchReviewTests(unittest.TestCase):
     def test_missing_address_and_coordinates_preserve_exact_clock_lead(self):
         r=self.run_one(dict(self.p,address=None,coordinates=None))
         self.assertEqual(r['candidates'][0]['tier'],'exact-clock')
-        self.assertEqual(r['status'],'candidate-only')
-    def test_no_at_is_contrary_not_positive_match(self):
+        self.assertEqual(r['status'],'distinctive-circumstantial-lead')
+    def test_exact_address_and_clock_preserve_police_mode_despite_absent_state_flag(self):
         r=self.run_one(c=dict(self.c,modes=[]))
-        self.assertEqual(r['status'],'contradictory-evidence-only')
+        self.assertEqual(r['status'],'distinctive-circumstantial-lead')
+        self.assertIn('no-active-transportation-evidence',r['candidates'][0]['conflicts'])
     def test_both_competing_police_records_remain_ambiguous(self):
         r=review([self.p,dict(self.p,id='other')],[self.c],self.rules)
         self.assertEqual([x['status'] for x in r],['ambiguous','ambiguous'])
@@ -46,7 +47,7 @@ class MatchReviewTests(unittest.TestCase):
     def test_source_conflict_blocks_distinctive_status(self):
         self.assertEqual(self.run_one(c=dict(self.c,sourceConflict=True))['status'],'candidate-only')
     def test_mode_conflict_is_not_silently_confirmed(self):
-        self.assertEqual(self.run_one(c=dict(self.c,modes=['pedestrian']))['status'],'candidate-only')
+        self.assertEqual(self.run_one(c=dict(self.c,modes=['pedestrian']))['status'],'distinctive-circumstantial-lead')
     def test_bad_policy_and_duplicate_ids_fail(self):
         with self.assertRaises(ValueError):validate_policy(dict(self.rules,wideMetres=float('nan')))
         with self.assertRaises(ValueError):review([self.p,self.p],[self.c],self.rules)
@@ -59,6 +60,10 @@ class MatchReviewTests(unittest.TestCase):
         self.assertTrue(address_agrees('200 NORTH 300 WEST ST','300 WEST ST & 200 N',3))
         self.assertFalse(address_agrees('200 N 300 W','300 N 200 W',3))
         self.assertFalse(address_agrees('900 E','900 E BIRCH LN',3))
+    def test_named_intersections_match_both_streets_even_when_order_reverses(self):
+        self.assertTrue(address_agrees('E COUGAR BLVD & N UNIVERSITY AVE','N UNIVERSITY AVENUE  E COUGAR BOULEVARD',3))
+        self.assertFalse(address_agrees('E COUGAR BLVD & N UNIVERSITY AVE','S UNIVERSITY AVE  E COUGAR BLVD',3))
+        self.assertEqual(self.run_one(c=dict(self.c,road='500 W CENTER ST'))['status'],'candidate-only')
     def test_control_year_and_leap_day(self):
         self.assertEqual(previous_year('2024-02-29'),'2023-02-28')
         self.assertEqual(previous_year('2025-06-01'),'2024-06-01')

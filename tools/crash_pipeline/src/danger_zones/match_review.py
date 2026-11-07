@@ -22,7 +22,7 @@ TIERS = ['exact-clock-address', 'exact-clock', 'same-day-address-at', 'near-day-
 
 
 def validate_policy(p):
-    if set(p) != {'schemaVersion', 'nearDays', 'months', 'delayedLookbackDays', 'tightMetres', 'wideMetres', 'minimumAddressTokens', 'tiers'} or p['schemaVersion'] != 1 or p['tiers'] != TIERS:
+    if set(p) != {'schemaVersion', 'nearDays', 'months', 'delayedLookbackDays', 'tightMetres', 'wideMetres', 'minimumAddressTokens', 'tiers'} or p['schemaVersion'] != 2 or p['tiers'] != TIERS:
         raise ValueError('Unsupported matching policy')
     for k in ['nearDays', 'months', 'delayedLookbackDays', 'minimumAddressTokens']:
         if type(p[k]) is not int or p[k] < 0:
@@ -49,7 +49,21 @@ def location_flags(local):
     return flags
 
 
+def intersection(value):
+    # The portal also separates intersection legs with repeated whitespace.
+    legs = re.split(r'\s*(?:&|\bAND\b|\bAT\b|/)\s*|\s{2,}', (value or '').strip().upper())
+    if len(legs) != 2:
+        return None
+    aliases = {'NORTH':'N','SOUTH':'S','EAST':'E','WEST':'W','AVENUE':'AVE','AV':'AVE',
+               'BOULEVARD':'BLVD','PARKWAY':'PKWY','ROAD':'RD','STREET':'ST','LANE':'LN','DRIVE':'DR'}
+    normalized = [tuple(aliases.get(t,t) for t in re.findall(r'[A-Z]+|\d+', leg)) for leg in legs]
+    return sorted(normalized) if all(normalized) else None
+
+
 def address_agrees(left, right, minimum_tokens):
+    streets = intersection(left)
+    if streets and streets == intersection(right):
+        return True
     tokens = road_tokens(left)
     def grid_pairs(value):
         text = (value or '').upper()
@@ -98,7 +112,8 @@ def review(police, crashes, policy):
         found = []
         for c in ordered[bisect_left(dates, start.isoformat()):bisect_right(dates, end.isoformat())]:
             delta = (date.fromisoformat(c['date']) - day).days
-            exact = delta == 0 and bool(local['time']) and local['time'] == c['time']
+            exact = (delta == 0 and bool(re.fullmatch(r'\d\d:\d\d:\d\d(?:\.\d+)?',local['time'] or ''))
+                     and local['time'] == c['time'])
             address = address_agrees(local['address'], c['road'], policy['minimumAddressTokens'])
             distance = geod.inv(*local['coordinates'], *c['coordinates'])[2] if local['coordinates'] and c['coordinates'] else None
             near = distance is not None and distance <= policy['wideMetres'] and not unreliable
@@ -107,7 +122,7 @@ def review(police, crashes, policy):
             compatible = mode != 'mode-mismatch-or-missing'
             # Long delayed windows are address-only, not expanded spatial searches.
             in_month = month_boundary(day, -policy['months']) <= date.fromisoformat(c['date']) <= end
-            conditions = [exact and address and at, exact and at, delta == 0 and address and compatible,
+            conditions = [exact and address, exact and at, delta == 0 and address and compatible,
                           abs(delta) <= policy['nearDays'] and near and distance <= policy['tightMetres'] and compatible,
                           address and compatible, in_month and near and compatible, exact or address or in_month and near]
             tier = next((i for i, condition in enumerate(conditions) if condition), None)
@@ -144,7 +159,8 @@ def review(police, crashes, policy):
             status = 'contradictory-evidence-only'
         elif len(top) != 1 or top[0]['competingPoliceIds']:
             status = 'ambiguous'
-        elif top[0]['rank'] == 0 and not top[0]['conflicts']:
+        elif (top[0]['rank'] <= 1 and 'state-export-version-conflict' not in top[0]['conflicts']
+              and (top[0]['addressTokenAgreement'] or not row['police']['address'] or not top[0]['source']['road'])):
             status = 'distinctive-circumstantial-lead'
         elif top[0]['rank'] < 6:
             status = 'candidate-only'

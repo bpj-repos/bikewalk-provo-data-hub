@@ -128,10 +128,10 @@ def make_collection(old, state, policy, now, evidence_path, report_hash):
         targets=set(available)
         if len(targets)!=1:raise ValueError('Strict match has ambiguous state observations')
         links.append({'policeId':police_id,'udotId':targets.pop(),'reviewer':'manually triggered update pipeline',
-                      'reviewedAt':now,'reason':'Unique uncontested exact date/clock/address and compatible AT evidence',
+                      'reviewedAt':now,'reason':'Uncontested date and second with matching roads or an unavailable address',
                       'evidenceType':'owner-authorized-circumstantial','documentaryIdentityConfirmed':False,
-                      'rule':'exact-clock-address','reviewReportSha256':report_hash,'evidence':str(evidence_path)+'#'+local_id,
-                      'authorization':'Owner approved automatic strict-rule linking for manually triggered updates, November 3, 2026'})
+                      'rule':c['tier'],'reviewReportSha256':report_hash,'evidence':str(evidence_path)+'#'+local_id,
+                      'authorization':'Owner approved automatic strict-rule linking for manually triggered updates, November 7, 2026'})
     combined=combine_observations(state_obs,links)
     # Keep an existing state group ID when it gains another source representation.
     old_states={}

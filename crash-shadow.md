@@ -105,3 +105,19 @@ The eighteen date-only records are present in the review. The workbook updater
 currently expects a timestamp, so these records need a date-precision intake
 path before entering the managed collection. The operational pointer stayed on
 its original pin during this trial.
+
+## Police/state source precedence, November 7 update
+
+For a linked crash the portal supplies occurrence time and structured crash data.
+If the linked state record is UDOT-only, its occurrence time is used until a
+corroborated portal observation is available. The private group's resolvedCrash
+fields identify the occurrence source and the PD source for its reported travel
+mode. Preserve the original police and state classifications even when they
+disagree. A later revision may require reviewing identity separately.
+
+Matching policy version 2 uses a unique, uncontested match on date and clock to
+the second. A pair of matching named roads qualifies as intersection evidence.
+A police/state mode difference stays visible and no longer vetoes an otherwise
+corroborated link. With two supplied but nonmatching roads, the clock-only
+candidate stays in review. Missing report times remain unknown. Case-level
+decisions about date-only leads are recorded separately from automatic links.

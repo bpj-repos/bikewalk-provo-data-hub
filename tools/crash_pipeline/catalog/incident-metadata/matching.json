@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "nearDays": 1,
   "months": 1,
   "delayedLookbackDays": 365,

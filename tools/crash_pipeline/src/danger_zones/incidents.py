@@ -55,12 +55,17 @@ def combine_observations(observations: list[dict], reviewed_links: list[dict]) -
                 or police_id in used or udot_id in used):
             raise ValueError("Reviewed links require documented or owner-authorized strict-rule evidence, unused source IDs, and review provenance")
         if link['evidenceType'] == 'owner-authorized-circumstantial' and (
-                link.get('rule') != 'exact-clock-address' or not link.get('reviewReportSha256') or not link.get('authorization')):
+                link.get('rule') not in {'exact-clock-address','exact-clock'} or not link.get('reviewReportSha256') or not link.get('authorization')):
             raise ValueError('Circumstantial links require strict-rule report provenance and explicit owner authorization')
         _date(link["reviewedAt"])
         used.update([police_id, udot_id])
         approved_pairs.add((police_id, udot_id))
-        groups.append({"id": udot_id, "observations": [by_id[udot_id], by_id[police_id]], "reviewedLink": link})
+        state, police = by_id[udot_id], by_id[police_id]
+        occurrence = state.get("statePortal") or state
+        mode = police["metadata"].get("mode", {}).get("raw") or police.get("mode")
+        resolved = {"occurredAt": occurrence["observedAt"], "occurrenceSource": occurrence["id"],
+                    "reportedTravelMode": mode, "modeSource": police_id}
+        groups.append({"id": udot_id, "observations": [state, police], "reviewedLink": link, "resolvedCrash": resolved})
     groups.extend({"id": identifier, "observations": [item]} for identifier, item in by_id.items() if identifier not in used)
 
     geod = Geod(ellps="WGS84")

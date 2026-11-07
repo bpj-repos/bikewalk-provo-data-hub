@@ -105,8 +105,33 @@ def prepare(repo, years):
     return rows, issues
 
 
-def bundle(repo, years):
+PATCH_VERSION = '1.0.1'
+PATCH_NOTE = ('For 2026, combined scooter observations are the sum of the two scooter session fields. '
+              'At all 14 stations the original combined field equals Tuesday scooters plus Saturday Other. '
+              'The corrected total is 283 (186 Tuesday and 97 Saturday); the original field sums to 236. '
+              'Version 1.0.0 preserves the original values.')
+
+
+def correct_scooters(rows):
+    by_station = {}
+    for row in rows:
+        if row['year'] == 2026:
+            by_station.setdefault(row['station_id'], {})[row['source_field']] = row
+    for fields in by_station.values():
+        sessions = [fields[key] for key in ('y26Scoot_T', 'y26Scoot_Sat')]
+        combined = fields['y26Scoot']
+        if all(r['status'] == 'observed' and type(r['value']) is int for r in sessions):
+            combined.update(value=sum(r['value'] for r in sessions), status='observed')
+        else:
+            combined.update(value=None, status='unresolved')
+
+
+def bundle(repo, years, *, corrected=False):
     rows, issues = prepare(repo,years)
+    version = PATCH_VERSION if corrected else VERSION
+    prefix = f'datasets/{DATASET}/{version}/'
+    if corrected:
+        correct_scooters(rows)
     files = {'series.csv':csv_data(rows,FIELDS)}
     for year in years:
         files[f'{year}.csv'] = csv_data([r for r in rows if r['year']==year],FIELDS)
@@ -115,27 +140,36 @@ def bundle(repo, years):
     files['mapping.json'] = encoded({str(y):load('crosswalk.json')[str(y)] for y in years})
     files['protocol.md'] = (META/'protocol.md').read_bytes()
     files['changes.md'] = b'Initial release of verified annual station measures. See protocol and mapping for limitations.\n'
-    manifest = dict(name=DATASET,version=VERSION,title='Provo annual active transportation counts',
+    if corrected:
+        mapping=json.loads(files['mapping.json'])
+        mapping['2026']['y26Scoot'].update(decision='derived sum of two observed session counts',
+                                          inputs=['y26Scoot_T','y26Scoot_Sat'])
+        files['mapping.json']=encoded(mapping)
+        files['changes.md']=(PATCH_NOTE+'\n').encode()
+        files['protocol.md']=files['protocol.md'].replace(
+            b'Combined values are source-reported. The 2026 combined scooter column sums to 236; the session scooter columns sum to 283. Preserve both measures.',
+            ('Combined values are source-reported except for 2026 scooters. '+PATCH_NOTE).encode())
+    manifest = dict(name=DATASET,version=version,title='Provo annual active transportation counts',
         coverage=years, synthetic=False, sourceSnapshot=load('sources.json')['commit'],
         sources=[i for i in load('sources.json')['inputs'] if i['year'] in years or i['year'] is None],
         preparation='Annual station export values aligned to documented source fields; unresolved values withheld.',
         attribution='BikeWalk Provo and Provo City active transportation count contributors',
         licenses=[dict(name='CC0-1.0',path='https://creativecommons.org/publicdomain/zero/1.0/')],
-        citation=f'BikeWalk Provo. Provo annual active transportation counts, {VERSION}. https://bikewalk-provo-data-hub.vercel.app/{PREFIX}datapackage.json',
+        citation=f'BikeWalk Provo. Provo annual active transportation counts, {version}. https://bikewalk-provo-data-hub.vercel.app/{prefix}datapackage.json',
         resources=[dict(name=Path(k).stem,path=k,bytes=len(v),hash='sha256:'+hashlib.sha256(v).hexdigest())
                    for k,v in files.items()])
     files['datapackage.json']=encoded(manifest)
-    tree=expected(VERSIONS)
+    tree=bundle(repo,years)[0] if corrected else expected(VERSIONS)
     catalog=json.loads(tree['catalog.json'])
     catalog['synthetic']=False
     dataset=catalog['datasets'][0]
-    dataset['current']=VERSION
-    dataset['releases'].append(dict(version=VERSION,manifest='/'+PREFIX+'datapackage.json',
+    dataset['current']=version
+    dataset['releases'].append(dict(version=version,manifest='/'+prefix+'datapackage.json',
                               sha256=hashlib.sha256(files['datapackage.json']).hexdigest()))
-    if dataset['releases'][-1] != load('approved-pin.json'):
-        raise ValueError('Release differs from the approved 1.0.0 pin')
+    if dataset['releases'][-1] != load('approved-pin-1.0.1.json' if corrected else 'approved-pin.json'):
+        raise ValueError(f'Release differs from the approved {version} pin')
     tree['catalog.json']=encoded(catalog)
-    tree.update({PREFIX+k:v for k,v in files.items()})
+    tree.update({prefix+k:v for k,v in files.items()})
     return tree,issues
 
 
@@ -144,7 +178,7 @@ if __name__=='__main__':
     p.add_argument('source_repo',type=Path)
     p.add_argument('output',type=Path)
     args=p.parse_args()
-    tree,issues=bundle(args.source_repo,load('coverage.json'))
+    tree,issues=bundle(args.source_repo,load('coverage.json'),corrected=True)
     # Stage privately. A release owner separately approves publication of this exact tree.
     args.output.mkdir(parents=True,exist_ok=False)
     for name,data in tree.items():

@@ -74,3 +74,35 @@ class RealCounts(unittest.TestCase):
     def test_coverage_change_cannot_replace_pin(self):
         with self.assertRaisesRegex(ValueError, 'approved'):
             counts.bundle(self.repo,self.years[:-1])
+
+    def test_official_scooter_patch(self):
+        tree,_ = counts.bundle(self.repo,self.years,corrected=True)
+        for path,data in self.tree.items():
+            if path!='catalog.json':
+                self.assertEqual(tree[path],data)
+        path=f'datasets/{counts.DATASET}/1.0.1/'
+        patched=list(csv.DictReader(io.StringIO(tree[path+'series.csv'].decode())))
+        expected=self.rows('series.csv')
+        self.assertEqual(len(expected), len(patched))
+        corrected=[]
+        for old,new in zip(expected,patched):
+            if old['year']=='2026' and old['source_field']=='y26Scoot':
+                self.assertEqual({**old,'value':new['value']},new)
+                corrected.append(int(new['value']))
+            else:
+                self.assertEqual(old,new)
+        self.assertEqual(len(corrected),14)
+        self.assertEqual(sum(corrected),283)
+        annual=list(csv.DictReader(io.StringIO(tree[path+'2026.csv'].decode())))
+        self.assertEqual(annual,[r for r in patched if r['year']=='2026'])
+
+    def test_scooter_zero_and_missing(self):
+        def total(value,status):
+            rows=[dict(year=2026,station_id=1,source_field=field,value=v,status=s)
+                for field,v,s in [('y26Scoot_T',0,'observed'),('y26Scoot_Sat',value,status),
+                                  ('y26Scoot',10,'observed')]]
+            counts.correct_scooters(rows)
+            return rows[-1]['value'],rows[-1]['status']
+        self.assertEqual(total(0,'observed'),(0,'observed'))
+        self.assertEqual(total(None,'missing'),(None,'unresolved'))
+        self.assertEqual(total(None,'unresolved'),(None,'unresolved'))

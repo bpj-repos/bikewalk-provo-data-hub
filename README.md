@@ -19,13 +19,13 @@ To deploy, create a fresh empty staging directory outside the repository, build 
 
 The collection lead signs off the protocol and historical mappings. The hub maintainer prepares and validates candidates. The BikeWalk release owner approves redistribution and promotion. Each app maintainer tests and adopts a pin independently. Source corrections enter through the internal release process. The public host exposes static files.
 
-## Annual counts 1.0.0
+## Annual counts 1.0.1
 
-[Public release manifest](https://bikewalk-provo-data-hub.vercel.app/datasets/annual-transportation-counts/1.0.0/datapackage.json) · [Release decision](counts/REVIEW.md)
+[Public release manifest](https://bikewalk-provo-data-hub.vercel.app/datasets/annual-transportation-counts/1.0.1/datapackage.json) · [Release decision](counts/REVIEW.md)
 
 With the canonical BikeWalk repository available locally, set BWP_SOURCE_REPO to its absolute path. Run:
 
     python3 -m unittest
     python3 counts.py "$BWP_SOURCE_REPO" /path/to/new/private-build
 
-Export BWP_SOURCE_REPO before running the tests. counts.py verifies pinned input blobs, CSV/JSON parity, schema coverage and the approved real release hash. It produces an exact public tree containing both demonstrations and the real release. review-issues.json belongs in private storage. The synthetic-only commands above reproduce the prior host for rollback; verify_host.py is specific to that historical production state. For the current production deployment compare all anonymous downloads to the generated public tree using check_public.py.
+Export BWP_SOURCE_REPO before running the tests. counts.py verifies pinned input blobs, CSV/JSON parity, schema coverage and the approved real release hash. It produces an exact public tree containing both demonstrations and both real releases. Version 1.0.1 corrects the 2026 combined scooter measure using its two session counts; 1.0.0 retains the original field. review-issues.json belongs in private storage. The synthetic-only commands above reproduce the prior host for rollback; verify_host.py is specific to that historical production state. For the current production deployment compare all anonymous downloads to the generated public tree using check_public.py.

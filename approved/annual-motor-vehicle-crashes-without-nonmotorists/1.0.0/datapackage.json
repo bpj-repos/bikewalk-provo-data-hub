@@ -1,0 +1,48 @@
+{
+  "name": "annual-motor-vehicle-crashes-without-nonmotorists",
+  "version": "1.0.0",
+  "title": "Provo motor vehicle crashes with no reported nonmotorist participants by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-09-30",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2018 to Oct 31, 2026 for 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026",
+    "Jan 01, 2018 to Nov 01, 2026 for 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Provo motor vehicle crashes with no reported nonmotorist participants by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/annual-motor-vehicle-crashes-without-nonmotorists/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 172,
+      "hash": "sha256:3f2689527ae7027c8b3f73239909e2124c429b8fd6b798cafd05b7bb0e540eff"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 464,
+      "hash": "sha256:3c6d62725274ec245df1c32ec7d6f57caa8f2b4dd891fc333ebb3d97f44f63a3"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 1500,
+      "hash": "sha256:c97d69a09856a657f1311ad49a8e6728c4a8cb64b1228b38910067b00b3285b7"
+    }
+  ]
+}

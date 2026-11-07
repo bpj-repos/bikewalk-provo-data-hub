@@ -1,0 +1,20 @@
+{
+  "fields": [
+    {
+      "description": "Local calendar year of the portal crash date.",
+      "name": "year",
+      "type": "integer"
+    },
+    {
+      "description": "Distinct Provo state crash IDs meeting the candidate rule.",
+      "name": "crashes",
+      "type": "integer"
+    },
+    {
+      "description": "Year treated as a full calendar year in this series.",
+      "name": "complete_year",
+      "type": "boolean"
+    }
+  ],
+  "primaryKey": "year"
+}

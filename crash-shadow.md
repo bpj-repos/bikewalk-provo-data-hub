@@ -42,11 +42,43 @@ Of 13,635 distinct Provo records, 12,178 qualified, 680 had a recorded nonmotori
 
 ## Current private candidate
 
-The rebuilt series is in `private/crashes/motor-vehicle-candidate-20261107-parked`, with manifest SHA-256 `e30a0f432e5491a7ad911b4354c29aae42934834fbf9715876b2365e74b1148e`. It uses the same city receipts. It includes 663 previously held crashes and holds 13 previously included ones. Of 13,635 distinct city crashes, 12,828 qualify, 680 are excluded for reported nonmotorist involvement, and 127 are held. The [parked-vehicle review](parked-vehicle-review.md) verifies every annual total and every held case ID and year. The original candidate remains available for comparison. Neither candidate is published.
+The rebuilt series is in `private/crashes/motor-vehicle-candidate-20261107-parked`, with manifest SHA-256 `e30a0f432e5491a7ad911b4354c29aae42934834fbf9715876b2365e74b1148e`. It uses the same city receipts. It includes 663 previously held crashes and holds 13 previously included ones. Of 13,635 distinct city crashes, 12,828 qualify, 680 are excluded for reported nonmotorist involvement, and 127 are held. The [parked-vehicle review](parked-vehicle-review.md) verifies every annual total and every held case ID and year. The original candidate remains available for comparison. Private review files remain restricted. Approved annual aggregates are published separately below.
+
+## Published annual releases, November 7, 2026
+
+The release owner approved both 1.0.0 packages, 2018–2025 calendar-year coverage,
+provisional 2026 through the latest event of September 30, and the attribution
+terms in each manifest. Only annual statistics, dictionaries, methods and
+manifests are public. The two series have independent pins in releases.json.
+
+| Dataset | Manifest SHA-256 |
+|---|---|
+| annual-at-crash-aggregates | af08b4fb7b7a9264a160d555341bab8fc791d26513de8c9933eb75574f8e1d19 |
+| annual-motor-vehicle-crashes-without-nonmotorists | 909f7b37b708b434a7e301bd07d223769895c8c2b5ece46d52316ba98a8ab35e |
+
+From the hub root, use the crash Python environment with
+`PYTHONPATH=.:tools/crash_pipeline/src python -B crash_receipt_drill.py`.
+The drill restored the first managed collection, supplied the second retained city
+workbook to the offline updater, repeated the receipt and rolled back. The only
+annual change was in 2026, from 935 to 939 qualifying motor vehicle crashes.
+All nine AT totals and mode columns, all review counts and all prior years agreed.
+On the published inputs the 680 distinct AT IDs and years matched the 680
+exclusions, and all 127 held crashes were outside both populations.
+
+Rebuild the public packages in a new private directory with
+`PYTHONPATH=tools/crash_pipeline/src python -B crash_packages.py MANIFEST MANIFEST_SHA MOTOR_CANDIDATE MOTOR_SHA private/crashes/NEW_DIRECTORY`.
+The managed pin and motor candidate pin are documented above. The two versions can
+advance separately. Two builds reproduced the eight approved files. The AT CSV
+also matched the existing Projects download byte for byte.
+
+Deployment `dpl_B1sh32zRnndXSF9U1soJeGErNPAK` passed the staged and anonymous
+production checks for all 67 files, including previous pins. Its rollback target
+is `dpl_2Z29JRY1sLYVBkXpSnRfw62gyFhg`. Team usage for November 1–7 showed
+$5.1267 effective and $0 billed immediately before deployment.
 
 ## Remaining work
 
-1. Review the remaining unresolved cases and year coverage with the data steward. Exercise both candidates on a corrected or newly delivered city workbook and review the differences by year. Confirm citation, reuse terms and exact manifests for public release.
-2. Publish independent aggregate pins, add both downloads to the Projects Data Hub page and migrate the existing crash trends report to the AT pin. Verify chart, CSV and rollback parity. Projects can adopt each version on its own schedule.
+1. Review the remaining unresolved cases and year coverage with the data steward. Exercise future city deliveries with the same year-by-year comparison.
+2. Adopt the published independent aggregate pins, add both downloads to the Projects Data Hub page and migrate the existing crash trends report to the AT pin. Verify chart, CSV and rollback parity. Projects can adopt each version on its own schedule.
 3. Establish an independently recoverable backup for the restricted sources and test it with a second maintainer's access. Move the operational writer after verifying private readers for fatalities, incident maps and the Streets Watch crash-detail export. Retire the legacy writer once those callers are accounted for.
 4. For subsequent expansion, evaluate minimized concern crash details and the fatalities map as separate products, each with its own disclosure and reuse review. Continue annual counts updates on receipt and monthly Safe Routes review while the crash releases progress.

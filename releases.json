@@ -9,6 +9,16 @@
       "dataset": "safe-routes-to-school",
       "version": "1.1.0",
       "sha256": "aae54af7a1d4cfa9cb253512d7ab058b30aa329f05fa880286600626e6ff0c78"
+    },
+    {
+      "dataset": "annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "af08b4fb7b7a9264a160d555341bab8fc791d26513de8c9933eb75574f8e1d19"
+    },
+    {
+      "dataset": "annual-motor-vehicle-crashes-without-nonmotorists",
+      "version": "1.0.0",
+      "sha256": "909f7b37b708b434a7e301bd07d223769895c8c2b5ece46d52316ba98a8ab35e"
     }
   ],
   "withdrawn": []

@@ -200,7 +200,7 @@ def prepare(receipt,output,version):
     files['dictionary.json']=encoded(FIELDS if version=='1.0.0' else {**FIELDS,**CAMPUS_FIELDS})
     files['sources.json']=encoded(dict(receipts=sources,filter=WHERE,archivedSnapshot=ARCHIVE_ID,review=audit))
     files['protocol.md']=('Provo approved school travel plans. '+NOTICE+'\nCurrent records take precedence within each school and layer. Reviewed archived Franklin and Timpanogos features can fill missing school layers. Timpanogos council minutes document school approval; coordinates are from the UDOT archive. Sort order is by layer-qualified provider ID.\n').encode()
-    if version!='1.0.0':
+    if version=='1.1.0':
         files['changes.md']=b"Adds seven Treeside routes and their school point for the planned campus at 235 E 1600 S. The operating campus is at 34 E 1700 S. The fourteen plan features remain under review. All other geographic records are unchanged from 1.0.0.\n"
     manifest=dict(name=DATASET,version=version,title='Provo Safe Routes to School',attribution='Utah Department of Transportation; Provo school plan evidence compiled by BikeWalk Provo.',reuse='BikeWalk has confirmed source-specific approval to redistribute these layers. Retain UDOT attribution and use notice.',notice=NOTICE,sourceRetrievedAt=sources['safe-routes-schools.json']['retrievedAt'],providerApprovalDate=max(approval_dates),citation=f'BikeWalk Provo. Provo Safe Routes to School, {version}. {HOST}/datasets/{DATASET}/{version}/datapackage.json',resources=[dict(name=Path(k).stem,path=k,bytes=len(b),hash='sha256:'+sha(b)) for k,b in sorted(files.items())])
     files['datapackage.json']=encoded(manifest)

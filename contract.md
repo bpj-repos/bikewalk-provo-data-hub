@@ -1,12 +1,14 @@
 # Annual transportation counts contract
 
+The [cross-project ownership contract](ownership.md) assigns responsibility for changes to shared data and its consumers.
+
 Publish one version of the entire series under annual-transportation-counts. The mutable /catalog.json points to the current approved version and lists older pins. Every release has a stable /datasets/annual-transportation-counts/<version>/datapackage.json URL. Its resources have relative paths, byte sizes and SHA-256 hashes. Cite BikeWalk Provo, dataset title, exact version and pinned URL. Keep the prior release accessible when updating the catalog.
 
 ## What each release contains
 
 Provide a complete UTF-8 CSV, a CSV for every covered year derived from exactly the same rows, a typed dictionary, protocol and historical field mappings, changes and citation. The manifest declares coverage, source dates, preparation, attribution and approved reuse terms. One observation measure is identified by year, source-qualified station, period, mode, breakdown, unit and original source field. Distinguish combined periods and all-mode totals from components. Observations count passages. Recorded zero is numeric zero. Missing observation and unavailable historical category both have an empty value and distinct status codes.
 
-Use 2026 as the reference protocol. Preserve older source IDs and meanings, identify directly comparable or documented convertible measures, and explain uncertain session hours, crossing lines, observer categories and station matches. Additional years require verified provenance. Source dates may vary by delivery and year; document them in the mapping notes. The pilot's 2026 baseline is 14 stations and 6,186 total observations. Combined scooters total 236; the two daily fields sum to 283. Preserve each series and explicitly name which is used.
+Use 2026 as the reference protocol. Preserve older source IDs and meanings, identify directly comparable or documented convertible measures, and explain uncertain session hours, crossing lines, observer categories and station matches. Additional years require verified provenance. Source dates may vary by delivery and year; document them in the mapping notes. The pilot's 2026 baseline is 14 stations and 6,186 total observations. Release 1.0.0 preserves the original combined scooter field of 236. Beginning in 1.0.1, the official combined measure is 283, derived from 186 Tuesday and 97 Saturday observations.
 
 ## Version and promotion decisions
 

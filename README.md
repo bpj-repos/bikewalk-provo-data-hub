@@ -2,7 +2,7 @@
 
 The private repository produces independently deployable, read-only data releases. Projects will present the public catalog. Application maintainers pin a manifest URL and SHA-256 and verify resource hashes before adopting a release. The current public demonstration contains entirely invented data.
 
-[Public synthetic catalog](https://bikewalk-provo-data-hub.vercel.app/catalog.json) · [Counts release contract](contract.md) · [Hosting evidence](hosting.md) · [Wave 1 inventory](wave-1.md)
+[Public synthetic catalog](https://bikewalk-provo-data-hub.vercel.app/catalog.json) · [Counts release contract](contract.md) · [Data ownership](ownership.md) · [Hosting evidence](hosting.md) · [Wave 1 inventory](wave-1.md)
 
 ## Build and verify
 

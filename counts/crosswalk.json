@@ -1,0 +1,1255 @@
+{
+  "2019": {
+    "OBJECTID": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "StreetName": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "x": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "y": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "Y19BicycleF_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19BicycleM_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19Bicycle_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19Ped_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19Other_T": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19BicycleF_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19BicycleM_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19Bicycle_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19Ped_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19Other_Sat": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19Total_T": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19Total_Sat": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y19Total": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    }
+  },
+  "2021": {
+    "OBJECTID": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "StreetName": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "x": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "y": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "Y21BicycleF_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21BicycleM_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Bicycle_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Ped_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Scoot_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Other_T": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21BicycleF_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21BicycleM_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Bicycle_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Ped_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Scoot_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Other_Sat": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Total_T": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Total_Sat": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y21Total": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    }
+  },
+  "2022": {
+    "OBJECTID": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "StreetName": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "x": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "y": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "Y22BicycleF_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22BicycleM_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Bicycle_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22PedF_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22PedM_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Ped_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22ScootF_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22ScootM_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Scoot_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Other_T": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22BicycleF_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22BicycleM_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Bicycle_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22PedF_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22PedM_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Ped_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22ScootF_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22ScootM_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Scoot_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Other_Sat": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Total_T": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Total_Sat": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y22Total": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    }
+  },
+  "2023": {
+    "OBJECTID": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "StreetName": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "x": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "y": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "Y23BicycleF_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23BicycleM_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Bicycle_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23PedF_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23PedM_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Ped_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23ScootF_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23ScootM_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Scoot_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Other_T": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23BicycleF_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23BicycleM_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Bicycle_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23PedF_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23PedM_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Ped_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23ScootF_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23ScootM_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Scoot_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Other_Sat": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Total_T": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Total_Sat": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y23Total": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    }
+  },
+  "2024": {
+    "OBJECTID": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "StreetName": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "x": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "y": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "Y24BicycleF_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24BicycleM_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Bicycle_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Ped_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24PedF_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24PedM_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Scoot_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24ScootF_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24ScootM_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "F24Other_T": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24BicycleF_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "F24BicycleM_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "F24Bicycle_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "F24Ped_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24PedF_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24PedM_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Scoot_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24ScootF_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24ScootM_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "YOther_Sat": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Total_T": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Total_Sat": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Total": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Bicycle": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Ped": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Scoot": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24Other": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24BicycleF": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y24BicycleM": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    }
+  },
+  "2025": {
+    "OBJECTID": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "StreetName": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "x": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "y": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "Y25BicyleF_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25BicycleM_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Bicycle_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25PedF_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25PedM_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Ped_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25ScootF_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25ScootM_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Scoot_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Other_T": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25BicycleF_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25BicycleM_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Bicycle_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25PedF_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25PedM_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Ped_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25ScootF_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25ScootM_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Scoot_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Other_Sat": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Total_T": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Total_Sat": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Total": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Bicycle": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Ped": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Scoot": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25Other": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25BicycleF": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "Y25BicycleM": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    }
+  },
+  "2026": {
+    "StreetName": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "Y26BicycleF_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26BicycleM_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Bicycle_T": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26PedF_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26PedM_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Ped_T": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26ScootF_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26ScootM_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Scoot_T": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Other_T": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26BicycleF_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26BicycleM_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Bicycle_Sat": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26PedF_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26PedM_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Ped_Sat": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26ScootF_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "F",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26ScootM_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "M",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Scoot_Sat": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Other_Sat": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Total_T": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_1",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Total_Sat": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "session_2",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Total": {
+      "role": "measure",
+      "mode": "all",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Bicycle": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Ped": {
+      "role": "measure",
+      "mode": "walking",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Scoot": {
+      "role": "measure",
+      "mode": "scooter",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26Other": {
+      "role": "measure",
+      "mode": "other",
+      "breakdown": "total",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26BicycleF": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "F",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "y26BicycleM": {
+      "role": "measure",
+      "mode": "bicycle",
+      "breakdown": "M",
+      "slot": "combined",
+      "decision": "source count mapped directly; cross-year protocol equivalence unverified"
+    },
+    "x": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "y": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    },
+    "FID": {
+      "role": "station metadata",
+      "decision": "retain ID and name; omit coordinates"
+    }
+  }
+}

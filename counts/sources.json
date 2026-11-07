@@ -1,0 +1,150 @@
+{
+  "repository": "bpj-repos/bikewalk-provo",
+  "commit": "5f46d516876cd7d71a7a87f819e7b3eddf3c9135",
+  "inputs": [
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2019.csv",
+      "year": 2019,
+      "role": "historical ArcGIS view",
+      "sha256": "85253b93e7562e99336e709cea4d1040903806fa85fdb1a3af182d3bdb26f300",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2019.json",
+      "year": 2019,
+      "role": "historical ArcGIS view",
+      "sha256": "b49d57e1b00fba1e234ae7cf1620048e431d581edc8d1f6c3f2257190bb3eac6",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2021.csv",
+      "year": 2021,
+      "role": "historical ArcGIS view",
+      "sha256": "5398853da52d2d2ce20cab2840ad3b5cf4287adbb5ea7f0ce4b624dc4ba0ca41",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2021.json",
+      "year": 2021,
+      "role": "historical ArcGIS view",
+      "sha256": "4dd85d7e3bac78a0578f716b70f1a54ee0d0ef2501aa58182b6b3a7bc0ceda64",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2022.csv",
+      "year": 2022,
+      "role": "historical ArcGIS view",
+      "sha256": "3a12025a0f5f3d6298fdab3b5a8367c2a7746a4c0947c0fb120e22eadedd0cb2",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2022.json",
+      "year": 2022,
+      "role": "historical ArcGIS view",
+      "sha256": "da527f33f7f21a8c8f853adefdafc05c3931d9fb35e579c913bc1ab43528d770",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2023.csv",
+      "year": 2023,
+      "role": "historical ArcGIS base",
+      "sha256": "2e0f3fbbb06b914b5ded2be39c53c6e05a24c02fdee650ba8c4a1dcc5d14a8e5",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2023.json",
+      "year": 2023,
+      "role": "historical ArcGIS base",
+      "sha256": "a9409ebcf1df52fec10812ae77bbb7dbe10ce000531c74a0930fa07b25ff08b8",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2024.csv",
+      "year": 2024,
+      "role": "historical ArcGIS base",
+      "sha256": "baebcc92d0fc0a0773e0d52a38f4d7bc9f6cf021b907271356cf5540e33e4caf",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2024.json",
+      "year": 2024,
+      "role": "historical ArcGIS base",
+      "sha256": "b5adec92289fb528a3071a085c71b727839bef16b1eec44997a012cc87e5a253",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2025.csv",
+      "year": 2025,
+      "role": "historical ArcGIS base",
+      "sha256": "4c49401cbe82eb23e3ab72bd3d8bd948bad7499f4800c7542d6df44e3d35ff6c",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2025.json",
+      "year": 2025,
+      "role": "historical ArcGIS base",
+      "sha256": "c613d4bf1b18c9bd2fd8183fb6b906b64703aaccf14bed8caf6c13784bd604c4",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2026.csv",
+      "year": 2026,
+      "role": "2026 hosted station layer",
+      "sha256": "b758ccb5b5d3168805f12b7103987be3ee60a482cc21c10c8ab1bb937240517f",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "apps/maps/public/data/active-transportation-counts/2026.json",
+      "year": 2026,
+      "role": "2026 hosted station layer",
+      "sha256": "9ada4cd21be88e3f310b5fbf123f7beda09e09962a5090d53218c4bc268cba3e",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "docs/history/republished-posts/2019-11-13-provo-city-and-bikewalk-provo-conduct-bike-and-walk-count/assets/count-Bike-Ped-Count-2019-Locations.pptx",
+      "year": 2019,
+      "role": "protocol and station evidence",
+      "sha256": "011141c0d59416f1420ddc150d9f21ea422a932167beb62301ebd59ce4e2b43f",
+      "snapshot_commit_date": "2026-11-01",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "docs/history/republished-posts/2019-11-13-provo-city-and-bikewalk-provo-conduct-bike-and-walk-count/assets/count-Provo-NBPD-Data-Spreadsheet.xls",
+      "year": 2019,
+      "role": "protocol and station evidence",
+      "sha256": "2748655b3c7613687734a39e59ed600284d68a97db19ba6df18a5d931ceba2a4",
+      "snapshot_commit_date": "2026-11-01",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "docs/active-transportation-counts-rollout.md",
+      "year": null,
+      "role": "protocol evidence",
+      "sha256": "a2bba9ff0a0d296965b39a466d647aaafece5aef08acec4d306eb995751cbd1a",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    },
+    {
+      "path": "docs/active-transportation-counts-2026-inventory.md",
+      "year": null,
+      "role": "protocol evidence",
+      "sha256": "aefeb9f53ee288e633ce530d3f374b8d696af5f4aa2563c9432eed8ec2b3b19f",
+      "snapshot_commit_date": "2026-11-06",
+      "inventory_date": "2026-11-07"
+    }
+  ]
+}

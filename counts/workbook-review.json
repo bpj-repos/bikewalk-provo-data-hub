@@ -1,0 +1,281 @@
+[
+  {
+    "id": 1,
+    "workbook_station": "Provo River Trail (Paul Ream Park)",
+    "export_station": "Provo River Trail & 500 N",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 1,
+    "workbook_station": "Provo River Trail (Paul Ream Park)",
+    "export_station": "Provo River Trail & 500 N",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 2,
+    "workbook_station": "Rec Center Crosswalk (500 N 300 W)",
+    "export_station": "500 N 300 W Crossing",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 2,
+    "workbook_station": "Rec Center Crosswalk (500 N 300 W)",
+    "export_station": "500 N 300 W Crossing",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 3,
+    "workbook_station": "800 N (60 E)",
+    "export_station": "800 N 50 E",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 3,
+    "workbook_station": "800 N (60 E)",
+    "export_station": "800 N 50 E",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 4,
+    "workbook_station": "200 E Bikeway (770 N)",
+    "export_station": "770 N 200 E",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 4,
+    "workbook_station": "200 E Bikeway (770 N)",
+    "export_station": "770 N 200 E",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 5,
+    "workbook_station": "University Avenue (590 N)",
+    "export_station": "590 N University Ave",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": false,
+    "differences": {}
+  },
+  {
+    "id": 5,
+    "workbook_station": "University Avenue (590 N)",
+    "export_station": "590 N University Ave",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 6,
+    "workbook_station": "Center Street (75 W)",
+    "export_station": "75 W Center Street",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 6,
+    "workbook_station": "Center Street (75 W)",
+    "export_station": "75 W Center Street",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": false,
+    "differences": {
+      "Y19Bicycle_Sat": [
+        null,
+        0
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "workbook_station": "Center Street (25 E)",
+    "export_station": "25 E Center Street",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 7,
+    "workbook_station": "Center Street (25 E)",
+    "export_station": "25 E Center Street",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": false,
+    "differences": {
+      "Y19Bicycle_Sat": [
+        null,
+        0
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "workbook_station": "Provo Central Station (590 S Freedom Boulevard)",
+    "export_station": "590 S Freedom Blvd",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 8,
+    "workbook_station": "Provo Central Station (590 S Freedom Boulevard)",
+    "export_station": "590 S Freedom Blvd",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 9,
+    "workbook_station": "700 N (410 E)",
+    "export_station": "700 N 410 E",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 9,
+    "workbook_station": "700 N (410 E)",
+    "export_station": "700 N 410 E",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 10,
+    "workbook_station": "900 E (Heritage Halls)",
+    "export_station": "Heritage Halls & 900 E",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {
+      "Y19Ped_T": [
+        145.0,
+        87
+      ],
+      "Y19Other_T": [
+        10.0,
+        7
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "workbook_station": "900 E (Heritage Halls)",
+    "export_station": "Heritage Halls & 900 E",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 11,
+    "workbook_station": "900 E (MTC)",
+    "export_station": "MTC & 900 E",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": true,
+    "differences": {}
+  },
+  {
+    "id": 11,
+    "workbook_station": "900 E (MTC)",
+    "export_station": "MTC & 900 E",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": false,
+    "differences": {}
+  },
+  {
+    "id": 12,
+    "workbook_station": "910 E University Parkway (Wymount)",
+    "export_station": "910 E University Pkwy",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": false,
+    "differences": {}
+  },
+  {
+    "id": 12,
+    "workbook_station": "910 E University Parkway (Wymount)",
+    "export_station": "910 E University Pkwy",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": false,
+    "differences": {}
+  },
+  {
+    "id": 13,
+    "workbook_station": "500 N (50 E)",
+    "export_station": "500 N 50 E",
+    "slot": 1,
+    "date": "Thursday, 9/12",
+    "window": "5pm-7pm",
+    "has_count": false,
+    "differences": {}
+  },
+  {
+    "id": 13,
+    "workbook_station": "500 N (50 E)",
+    "export_station": "500 N 50 E",
+    "slot": 2,
+    "date": "Saturday, 9/14",
+    "window": "12pm-2pm",
+    "has_count": true,
+    "differences": {}
+  }
+]

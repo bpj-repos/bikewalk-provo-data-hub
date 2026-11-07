@@ -1,0 +1,247 @@
+[
+  {
+    "year": 2019,
+    "station": 6,
+    "field": "Y19Bicycle_Sat",
+    "source_value": 0,
+    "reason": "Workbook/export disagreement; Value stored without a session total"
+  },
+  {
+    "year": 2019,
+    "station": 7,
+    "field": "Y19Bicycle_Sat",
+    "source_value": 0,
+    "reason": "Workbook/export disagreement; Value stored without a session total"
+  },
+  {
+    "year": 2019,
+    "station": 10,
+    "field": "Y19Ped_T",
+    "source_value": 87,
+    "reason": "Workbook/export disagreement"
+  },
+  {
+    "year": 2019,
+    "station": 10,
+    "field": "Y19Other_T",
+    "source_value": 7,
+    "reason": "Workbook/export disagreement"
+  },
+  {
+    "year": 2019,
+    "station": 10,
+    "field": "Y19Total_T",
+    "source_value": 116,
+    "reason": "Total overlaps disputed Heritage Halls counts"
+  },
+  {
+    "year": 2019,
+    "station": 10,
+    "field": "Y19Total",
+    "source_value": 366,
+    "reason": "Total overlaps disputed Heritage Halls counts"
+  },
+  {
+    "year": 2021,
+    "station": 7,
+    "field": "Y21Scoot_Sat",
+    "source_value": 0,
+    "reason": "Value stored without a session total"
+  },
+  {
+    "year": 2022,
+    "station": 11,
+    "field": "Y22Bicycle_T",
+    "source_value": 0,
+    "reason": "Value stored without a session total"
+  },
+  {
+    "year": 2022,
+    "station": 13,
+    "field": "Y22Bicycle_Sat",
+    "source_value": 0,
+    "reason": "Value stored without a session total"
+  },
+  {
+    "year": 2023,
+    "station": 13,
+    "field": "Y23PedF_T",
+    "source_value": 47,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2023,
+    "station": 13,
+    "field": "Y23PedM_T",
+    "source_value": 57,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 1,
+    "field": "Y24PedF_T",
+    "source_value": 42,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 1,
+    "field": "Y24PedM_T",
+    "source_value": 46,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 3,
+    "field": "Y24PedF_T",
+    "source_value": 150,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 3,
+    "field": "Y24PedM_T",
+    "source_value": 100,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 4,
+    "field": "Y24PedF_T",
+    "source_value": 219,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 4,
+    "field": "Y24PedM_T",
+    "source_value": 179,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 5,
+    "field": "Y24PedF_T",
+    "source_value": 119,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 5,
+    "field": "Y24PedM_T",
+    "source_value": 122,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 6,
+    "field": "Y24PedF_T",
+    "source_value": 172,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 6,
+    "field": "Y24PedM_T",
+    "source_value": 188,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 7,
+    "field": "Y24PedF_T",
+    "source_value": 90,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 7,
+    "field": "Y24PedM_T",
+    "source_value": 87,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 8,
+    "field": "Y24PedF_T",
+    "source_value": 16,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 8,
+    "field": "Y24PedM_T",
+    "source_value": 48,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 9,
+    "field": "Y24PedF_T",
+    "source_value": 101,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 9,
+    "field": "Y24PedM_T",
+    "source_value": 100,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 10,
+    "field": "Y24PedF_T",
+    "source_value": 149,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 10,
+    "field": "Y24PedM_T",
+    "source_value": 193,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 11,
+    "field": "Y24PedF_T",
+    "source_value": 39,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 11,
+    "field": "Y24PedM_T",
+    "source_value": 49,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 12,
+    "field": "Y24PedF_T",
+    "source_value": 105,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 12,
+    "field": "Y24PedM_T",
+    "source_value": 82,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 13,
+    "field": "Y24PedF_T",
+    "source_value": 38,
+    "reason": "Recorded breakdown does not reconcile"
+  },
+  {
+    "year": 2024,
+    "station": 13,
+    "field": "Y24PedM_T",
+    "source_value": 51,
+    "reason": "Recorded breakdown does not reconcile"
+  }
+]

@@ -1,0 +1,1 @@
+{"framework":null,"buildCommand":null,"installCommand":null,"outputDirectory":"public","headers":[{"source":"/(.*)","headers":[{"key":"Access-Control-Allow-Origin","value":"*"},{"key":"X-Content-Type-Options","value":"nosniff"}]},{"source":"/(.*).csv","headers":[{"key":"Content-Type","value":"text/csv; charset=utf-8"}]}]}

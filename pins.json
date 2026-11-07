@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "datasets": [
+    {
+      "id": "annual-transportation-counts",
+      "current": "1.0.0-demo.2",
+      "releases": [
+        {
+          "version": "1.0.0-demo.1",
+          "manifest": "/datasets/annual-transportation-counts/1.0.0-demo.1/datapackage.json",
+          "sha256": "83b284444df0ea87835b112049496b64e54b1bb9d17074208a38a7c51077e0c0"
+        },
+        {
+          "version": "1.0.0-demo.2",
+          "manifest": "/datasets/annual-transportation-counts/1.0.0-demo.2/datapackage.json",
+          "sha256": "6f9e4d6222310cf18e91685e1fcbfac3a8e66cb243bfa8654458c9583e9b0f67"
+        }
+      ]
+    }
+  ]
+}

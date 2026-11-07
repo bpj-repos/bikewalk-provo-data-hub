@@ -24,6 +24,8 @@ jobs:
           date -u +%FT%TZ > private/attempt.txt
           python3 safe_routes.py receive private/receipt udot-safe-routes-to-school-785cfb00279ee95b
           python3 safe_routes.py prepare private/receipt private/candidate --version "review-${GITHUB_RUN_ID}"
+          python3 review_campus.py private/receipt > private/treeside-review.json
+          cat private/treeside-review.json >> "$GITHUB_STEP_SUMMARY"
           python3 review_routes.py private/candidate > private/review.json
           date -u +%FT%TZ > private/success.txt
           cat private/review.json >> "$GITHUB_STEP_SUMMARY"

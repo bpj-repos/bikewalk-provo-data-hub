@@ -1,0 +1,29 @@
+{
+  "providerAddresses": [
+    "235 East 1600 South"
+  ],
+  "features": {
+    "safe-routes-schools:0bbb439b-1900-4ba0-b04b-d73738cc1c98": "87df9fbd35abe1e173890f9c4ef3f64c5f4649d17d1050f3fa38a1471d86e741",
+    "safe-school-routes:bf00667e-567d-4156-ba76-a96af3d2f5ef": "9cc0c6ed74c4da9ca8f7f46c88813b4000f0a5a3975dd374e2fdb0d01c00f549",
+    "safe-school-routes:0b45ff6f-8999-4a9e-9b2c-1f0c2a61a2b6": "dd5e30df5aa2c7395f32a01633b4af6e2d332a5a6b9ef1ea1b6ed288b267f24e",
+    "safe-school-routes:dd053e06-ab14-475f-ac43-930db755c88a": "0dfb1de514e5b87c5877814350b3ea41b7655620f9edcde20fd60d30c7c2e2f4",
+    "safe-school-routes:996b61da-4f52-4ff5-a956-cc26003a37b4": "231331e7c80b689344a6c4ca3decfcc16833244821cb4460a37633928e1195af",
+    "safe-school-routes:c96a4d11-db8b-4f9e-b882-0e2584a77804": "def184cfffdc0ae178cfa18d19f568f722daa250db2e9ccd9466cc17ef007f64",
+    "safe-school-routes:8223685c-f360-4a97-8a1d-05ec3a0af7ae": "63afdd5b1788938a4f3ef08cdb4a6cc8395aedbf996e441f18a87b1ef9cd1f6d",
+    "safe-school-routes:1aefab4d-fdde-458e-92a8-736f834d3001": "362e381f94a7cd2af1ee8fba0d5cc230b40e7d566ac5a1f3cc393a1e177a5058",
+    "safe-route-plan-features:7997c0bf-763e-4e0f-8f64-5c905cdc8e1e": "b5e014f3372c5267190db376017b6a96631476905ef6b774f02dea1bc5ead5e0",
+    "safe-route-plan-features:9d57aa71-40a3-43a3-bd26-635bb1e24732": "1365ac0842742c407e29222e80dcaecfe519b72cfb18d5211e2d5699bddf8ee9",
+    "safe-route-plan-features:cd9839d4-6dcb-4b20-a9ff-0fd869d77a94": "ba89e722e64aa095109c339582fd456f5cd51ab554666ac4ace2a9b765421894",
+    "safe-route-plan-features:ae25049d-a76c-468b-b785-6f98f1666be6": "0a4750b05cbf34c804e6cd937c6b0cca1605bd548a0fc38b45c48dbb3a20b000",
+    "safe-route-plan-features:f492e1dc-ee6a-4f51-993d-2ce254ef8ff9": "d4775f947ff8ca6352cb932d74afb84a933c9907b412a574a7b01ef1806aaa75",
+    "safe-route-plan-features:bbf68391-0bb0-4c43-940f-1ccf940f2313": "c6190c8ce177f354c8962e799f3a198725e556842fae663bcbcf3f222d9bcdd4",
+    "safe-route-plan-features:57c7eb1a-db8a-4f6e-b015-e1c08c827d96": "487d9033893482bd861485b69dadcf2458791dfaa63238606df1c968dfe55a45",
+    "safe-route-plan-features:4ea89b48-a1b1-4bd5-adb5-58e7d580fab4": "01c0a2e250be8cecb0d01d1db3bbeb95fb6192232c94fa7defc76b3716fdad1f",
+    "safe-route-plan-features:e845817d-f9c5-4607-909d-7336325d8950": "f20b037d18b86541e3a65ed384c05bba379713e9bf75036b518fb87a0c393ac5",
+    "safe-route-plan-features:93e8b0e1-18e5-4674-bef1-fe2236ee4a06": "8276d99101bb8cefea49b43d3015ac24bcf5582c25e8f1fa63953e6922a09d75",
+    "safe-route-plan-features:55ec705a-7aec-4b9d-8471-5bbf08869ed3": "a8bf530dcaa43ef936d6f2514a55929e5d90aa50bf0c85b753685e3af7821e7e",
+    "safe-route-plan-features:97cab918-1e1d-46a5-afe3-eca3b287553f": "9f5eae230939ebe3a121e3cfa93a3ba6fcad74fb1220c5d85f22276739906e03",
+    "safe-route-plan-features:eef8e2e0-9649-4d61-ab05-fcdc1858a112": "3cdfe346e6ee24020f233318da6079c094cf755ff62857ba1fc2abb0f11a65f1",
+    "safe-route-plan-features:76db2904-778d-419f-9f99-61d735bbe580": "11492ed3dc4730992f377029978da3e0b37630f5c52032df81b89a5e03cb3d54"
+  }
+}

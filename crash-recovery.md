@@ -44,4 +44,12 @@ Carry the package-relative catalogs and captured references loaded by those modu
 | `fatality_map` and `crash_enrichment` | Separate pinned private inputs or bundle exports. Streets Watch imports minimized details by state ID. |
 | Incident map summary, derived previews and parking research | Follow their own reviewed inputs. Parking screening uses the full portal workbook. Inventory local research tools and one-off consumers again before retiring the old writer. |
 
-**Portability finding.** The updater verifies receipt paths embedded in cumulative state against their original absolute filenames. Its rollback follows absolute predecessor-pointer paths. Reading the annual series worked from a relocated bundle. For the writer transfer, resolve each historical reference under an explicit restore root and verify its checksum there. Preserve original provenance and immutable manifests. Exercise an offline no-change update and rollback with the original paths inaccessible before switching writers.
+## Rehearse the writer and rollback
+
+Use a separate producer checkout of the canonical BikeWalk repository at commit `dcba0a9` and keep the baseline checkout at the commit above. From the hub run:
+
+    /path/to/bikewalk-provo/tools/.venv-maps/bin/python -IB crash_restore.py reference /path/to/retained-repo-layout --producer-src /path/to/producer/tools/danger_zone_pipeline/src --exercise-writer
+
+The fixture runs the normal updater CLI against a temporary restored tree. It denies Python file opens under the original crash data directories and the original reconciliation evidence directory. It compares all incident records and the annual report with the pinned collection, checks that a repeated offline update preserves the active pointer bytes, and exercises rollback through both newly written and historical predecessor pointers. The canonical runbook in `docs/incidents-metadata/update-pipeline.md` gives the operator commands for an actual restore.
+
+On November 7, 2026 the committed producer passed all 200 pipeline tests and the drill above. The isolated offline release `incidents-b4b7b930184d52b5c01e` preserved the full incident records and aggregate report. A repeat kept the active pointer byte-identical. Two rollbacks recovered `incidents-e5a4665997a4cac4f5be` and `incidents-53ed6405327df2765eca`. The original active pin stayed at `c614ca99200bc25ce4d77491061e0d23529f59be24e42bcbff0f16759f4ca979`. This was a same-machine drill under the existing operator account.

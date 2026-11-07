@@ -70,7 +70,75 @@ def restore(retained, checkout, dest):
     return len(restored)
 
 
-def run(checkout, retained, producer_src):
+def exercise_writer(dest, producer_src, retained):
+    """Run the real CLI against restored files, denying access to original data."""
+    release, digest = next(iter(PINS.items()))
+    relative = RELEASES / release
+    manifest = json.loads(verified(dest / relative / "manifest.json", digest))
+    historical = ORIGINAL / relative
+    pointer = {
+        "snapshotId": release, "counts": manifest["counts"],
+        "path": str(historical / "collection.json"), "sha256": manifest["files"]["collection.json"],
+        "releaseManifest": {"path": str(historical / "manifest.json"), "sha256": digest},
+        "reviewedLinksSource": {"path": str(historical / "reviewed-links.json"),
+                                "sha256": manifest["files"]["reviewed-links.json"]},
+    }
+    active = dest / PRIVATE / "datastores/combined-incidents.json"
+    active.parent.mkdir()
+    active.write_text(json.dumps(pointer))
+    blocked = [root / path for root in {ORIGINAL, retained} for path in
+               (PRIVATE, "tools/.danger-zone-data", "docs/incidents-metadata/reconciliation-20261103")]
+    driver = """
+import json, os, runpy, sys
+from pathlib import Path
+blocked = [Path(p) for p in json.loads(sys.argv[1])]
+def deny_original(event, args):
+    if event == 'open' and isinstance(args[0], (str, bytes)):
+        path = Path(os.fsdecode(args[0])).resolve()
+        if any(path.is_relative_to(root) for root in blocked):
+            raise PermissionError('Attempted to open original data during recovery')
+sys.addaudithook(deny_original)
+sys.path.insert(0, sys.argv[2])
+sys.argv = sys.argv[2:]
+runpy.run_module('danger_zones.update_incidents', run_name='__main__')
+"""
+    def invoke(action):
+        output = subprocess.check_output(
+            [sys.executable, "-IB", "-c", driver, json.dumps(list(map(str, blocked))), str(producer_src),
+             "--restore-path", str(ORIGINAL), str(dest), action], cwd=dest, text=True)
+        return json.loads(output)
+
+    first = invoke("--offline")
+    if first["status"] != "accepted":
+        raise ValueError("Expected a release with the updated producer identity")
+    bundle = Path(first["bundle"])
+    changes = json.loads((bundle / "changes.json").read_bytes())
+    if any(changes[k] for k in ("changedSourceRecords", "newLinks", "newIncidentGroups", "enrichmentChangedGroups")):
+        raise ValueError("Unexpected changes after relocation")
+    from danger_zones.research_reports import crash_report
+    before = json.loads((dest / relative / "collection.json").read_bytes())
+    after = json.loads((bundle / "collection.json").read_bytes())
+    if before["records"] != after["records"] or crash_report(before, 2025) != crash_report(after, 2025):
+        raise ValueError("Relocation changed incident records or annual aggregates")
+    accepted = active.read_bytes()
+    if invoke("--offline")["status"] != "unchanged" or active.read_bytes() != accepted:
+        raise ValueError("Repeated offline run changed the active pointer")
+    if invoke("--rollback")["releaseId"] != release:
+        raise ValueError("Failed to restore the original pin")
+    restored = json.loads(active.read_bytes())
+    for ref in (restored, restored["reviewedLinksSource"], restored["releaseManifest"]):
+        path = Path(ref["path"])
+        if not path.is_relative_to(dest):
+            raise ValueError("Rollback left a pointer outside the restored tree")
+        verified(path, ref["sha256"])
+    if invoke("--rollback")["releaseId"] != manifest["predecessor"]["snapshotId"]:
+        raise ValueError("Rollback through a historical absolute pointer failed")
+    for name, expected in PINS.items():
+        verified(dest / RELEASES / name / "manifest.json", expected)
+    print("Verified offline update, repeat, and two rollbacks with original data inaccessible")
+
+
+def run(checkout, retained, producer_src, writer=False):
     if subprocess.check_output(["git", "-C", checkout, "rev-parse", "HEAD"], text=True).strip() != COMMIT:
         raise ValueError("Use the documented baseline checkout")
     if subprocess.check_output(["git", "-C", checkout, "status", "--porcelain", "--", "tools/danger_zone_pipeline"]):
@@ -78,6 +146,7 @@ def run(checkout, retained, producer_src):
     producer_src = producer_src or checkout / "tools/danger_zone_pipeline/src"
     if not (producer_src / "danger_zones/research_reports.py").is_file():
         raise ValueError("Missing producer source package")
+    producer_src = producer_src.resolve()
     sys.path.insert(0, str(producer_src))
     from danger_zones.research_reports import crash_report
     from danger_zones.incident_updates import flatten
@@ -85,7 +154,7 @@ def run(checkout, retained, producer_src):
 
     expected = verified(checkout / "apps/maps/public/data/research/crashes.csv", CSV_HASH)
     with tempfile.TemporaryDirectory(prefix="bwp-crash-restore-") as temp:
-        dest = Path(temp)
+        dest = Path(temp).resolve()
         count = restore(retained, checkout, dest)
         for release, digest in PINS.items():
             bundle = dest / RELEASES / release
@@ -106,6 +175,8 @@ def run(checkout, retained, producer_src):
                 raise ValueError(f"Private collection parity failed: {release}")
             print(release, *counts, len(rows), CSV_HASH)
         print(f"Verified {count} managed releases and their predecessor references")
+        if writer:
+            exercise_writer(dest, producer_src, retained)
 
 
 if __name__ == "__main__":
@@ -113,5 +184,6 @@ if __name__ == "__main__":
     parser.add_argument("checkout", type=Path, help="Clean canonical code checkout at baseline commit")
     parser.add_argument("retained", type=Path, help="Recovery root containing tools/.danger-zone-private")
     parser.add_argument("--producer-src", type=Path, help="Test a trusted relocated danger_zones package against the same fixture")
+    parser.add_argument("--exercise-writer", action="store_true", help="Also exercise the portable producer CLI with original data inaccessible")
     args = parser.parse_args()
-    run(args.checkout.resolve(), args.retained.resolve(), args.producer_src)
+    run(args.checkout.resolve(), args.retained.resolve(), args.producer_src, args.exercise_writer)

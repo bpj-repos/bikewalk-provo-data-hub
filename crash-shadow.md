@@ -82,3 +82,26 @@ $5.1267 effective and $0 billed immediately before deployment.
 2. Adopt the published independent aggregate pins, add both downloads to the Projects Data Hub page and migrate the existing crash trends report to the AT pin. Verify chart, CSV and rollback parity. Projects can adopt each version on its own schedule.
 3. Establish an independently recoverable backup for the restricted sources and test it with a second maintainer's access. Move the operational writer after verifying private readers for fatalities, incident maps and the Streets Watch crash-detail export. Retire the legacy writer once those callers are accounted for.
 4. For subsequent expansion, evaluate minimized concern crash details and the fatalities map as separate products, each with its own disclosure and reuse review. Continue annual counts updates on receipt and monthly Safe Routes review while the crash releases progress.
+
+## Forwarded Provo PD reports
+
+On November 7, the maintainer used the Gmail originals of three forwarded police
+tables to review 29 distinct agency cases from August through October 2026. Raw
+messages and case evidence live under the ignored private crash intake. Each
+email contains an inline table and the same signature image. August supplies
+clock times. September and October supply report dates only.
+
+From the hub root and its crash Python environment, run
+`PYTHONPATH=tools/crash_pipeline/src python -B tools/crash_pipeline/reviews/forwarded_police.py MANIFEST PIN STREET_PARQUET STREET_SHA NEW_PRIVATE_DIRECTORY FORWARD.eml ...`.
+The review checks the pinned police and state lookup, includes existing police
+records when testing for competing claims, and writes a private JSON review and
+case CSV. Case numbers are agency IDs. State IDs require separate linkage evidence.
+
+A separate private managed-updater trial used the eleven time-bearing August rows
+in a derived workbook, preserving the original message and workbook hashes. The
+six accepted pairs agreed with the all-month review, all 50 existing links survived,
+a repeat retained the identical pointer, and the annual AT report reproduced.
+The eighteen date-only records are present in the review. The workbook updater
+currently expects a timestamp, so these records need a date-precision intake
+path before entering the managed collection. The operational pointer stayed on
+its original pin during this trial.

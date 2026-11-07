@@ -44,6 +44,8 @@ def build(repo, output, approvals=None):
         if any(r['version']==version for r in d['releases']):
             raise ValueError('Cannot replace a pin')
         files=checked_package(ROOT/'approved'/dataset/version,entry)
+        if json.loads(files['datapackage.json']).get('synthetic'):
+            raise ValueError('Cannot promote a drill fixture')
         tree.update({path+k:v for k,v in files.items()})
         d['releases'].append(dict(version=version,manifest='/'+path+'datapackage.json',sha256=entry['sha256']))
         d['current']=version

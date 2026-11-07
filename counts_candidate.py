@@ -35,7 +35,8 @@ def parse(data):
             raise ValueError('Invalid row identity or status')
         if r['unit'] != 'observations' or r['slot'] not in {'combined','session_1','session_2'}:
             raise ValueError('Unreviewed unit or session')
-        if (not r['value'].isascii() or not r['value'].isdigit()) if r['status']=='observed' else r['value'] != '':
+        valid = r['value'].isascii() and r['value'].isdigit() if r['status']=='observed' else r['value']==''
+        if not valid:
             raise ValueError('Invalid observation')
         rows[key] = r
     return rows
@@ -45,12 +46,22 @@ def candidate(repo, receipt, output):
     spec = json.loads(receipt.read_bytes())
     year = str(spec['year'])
     version = spec['version']
-    check_version(counts.PATCH_VERSION, version, spec['change'])
+    from build_hub import ROOT, checked_package
+    ledger=json.loads((ROOT/'releases.json').read_bytes())
+    withdrawn={(r['dataset'],r['version']) for r in ledger['withdrawn']}
+    versions=[counts.PATCH_VERSION]+[r['version'] for r in ledger['approved'] if r['dataset']==counts.DATASET]
+    previous=next(v for v in reversed(versions) if (counts.DATASET,v) not in withdrawn)
+    check_version(previous, version, spec['change'])
+    if version in versions:
+        raise ValueError('A cited version cannot be reused')
     if spec['change'] == 'breaking':
         raise ValueError('Implement and review a new schema adapter for breaking changes')
     tree, _ = counts.bundle(repo, counts.load('coverage.json'), corrected=True)
     prefix = f'datasets/{counts.DATASET}/{counts.PATCH_VERSION}/'
     files = {p[len(prefix):]:b for p,b in tree.items() if p.startswith(prefix)}
+    if previous != counts.PATCH_VERSION:
+        entry=next(r for r in ledger['approved'] if r['dataset']==counts.DATASET and r['version']==previous)
+        files=checked_package(ROOT/'approved'/counts.DATASET/previous,entry)
     manifest = json.loads(files.pop('datapackage.json'))
     source = spec['source']
     if not all(source.get(k) for k in ('origin','received','sha256','path')) or not spec['note'].strip():
@@ -86,7 +97,7 @@ def candidate(repo, receipt, output):
     files['series.csv']=counts.csv_data([r for y in years for r in parse(files[f'{y}.csv']).values()],counts.FIELDS)
     files['mapping.json']=encoded(mapping)
     files['changes.md']=(spec['note'].strip()+'\n').encode()
-    manifest.update(version=version,coverage=years,citation=manifest['citation'].replace(counts.PATCH_VERSION,version))
+    manifest.update(version=version,coverage=years,synthetic=spec.get('fixture',False),citation=manifest['citation'].replace(previous,version))
     manifest['sources'].append({k:source[k] for k in ('origin','received','sha256')})
     manifest['resources']=[dict(name=Path(k).stem,path=k,bytes=len(b),hash='sha256:'+digest(b)) for k,b in sorted(files.items())]
     files['datapackage.json']=encoded(manifest)

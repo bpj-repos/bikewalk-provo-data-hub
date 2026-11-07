@@ -1,10 +1,12 @@
 # BikeWalk Provo Data Hub
 
-The private repository produces independently deployable, read-only data releases. Projects will present the public catalog. Application maintainers pin a manifest URL and SHA-256 and verify resource hashes before adopting a release. The current public demonstration contains entirely invented data.
+The private repository produces independently deployable, read-only data releases. Projects will present the public catalog. Application maintainers pin a manifest URL and SHA-256 and verify resource hashes before adopting a release. The public catalog includes annual counts and Provo Safe Routes to School.
 
-[Public synthetic catalog](https://bikewalk-provo-data-hub.vercel.app/catalog.json) · [Counts release contract](contract.md) · [Data ownership](ownership.md) · [Hosting evidence](hosting.md) · [Wave 1 inventory](wave-1.md)
+[Public catalog](https://bikewalk-provo-data-hub.vercel.app/catalog.json) · [Counts release contract](contract.md) · [Data ownership](ownership.md) · [Hosting evidence](hosting.md) · [Wave 1 inventory](wave-1.md)
 
-## Build and verify
+See [Maintainer operations](OPERATIONS.md) for the production build and recovery drill, and [Safe Routes coverage](coverage.md) for the verified campus scope.
+
+## Historical synthetic proof
 
 Run with Python 3 and its standard library from the repository root:
 

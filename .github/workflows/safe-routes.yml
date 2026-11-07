@@ -1,0 +1,40 @@
+name: Monthly Safe Routes source review
+on:
+  schedule:
+    - cron: '41 14 1 * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore reviewed archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download source-receipts-safe-routes-20261107 -p safe-routes-july.tar.gz
+          echo '82073f45eb74cf9b5e68777e03fdd26f506e63ad8967bc9d7401a93560e69354  safe-routes-july.tar.gz' | sha256sum -c
+          tar xzf safe-routes-july.tar.gz
+      - name: Prepare private candidate and review changes
+        run: |
+          mkdir -p private
+          date -u +%FT%TZ > private/attempt.txt
+          python3 safe_routes.py receive private/receipt udot-safe-routes-to-school-785cfb00279ee95b
+          python3 safe_routes.py prepare private/receipt private/candidate --version "review-${GITHUB_RUN_ID}"
+          python3 review_routes.py private/candidate > private/review.json
+          date -u +%FT%TZ > private/success.txt
+          cat private/review.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Review additional campuses and boundary crossings
+        run: |
+          python3 -m pip install shapely==2.1.2
+          python3 audit_coverage.py > private/coverage-review.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: safe-routes-review-${{ github.run_id }}
+          path: private/
+          retention-days: 30
+

@@ -1,0 +1,13 @@
+{
+  "schoolId": "Nullable provider school identifier. Missing IDs are preserved.",
+  "schoolName": "Provider school label.",
+  "approved": "Approval at the source snapshot date.",
+  "approvalDate": "Provider plan approval timestamp.",
+  "featureType": "Provider category for a mapped plan point.",
+  "sourceStatus": "current-udot, archived-udot-approved, or archived-udot-school-confirmed.",
+  "sourceRetrievedAt": "UTC retrieval time of the geometry source.",
+  "evidence": "Geometry source URL; the manifest identifies the checksummed receipt.",
+  "schoolApprovalEvidenceUrl": "Optional independent evidence of school plan approval.",
+  "schoolApprovalEvidenceAt": "Date of independent school approval.",
+  "id": "GeoJSON feature ID, UDOT layer plus GlobalID or its layer object ID."
+}

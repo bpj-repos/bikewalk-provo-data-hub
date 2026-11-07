@@ -1,1 +1,10 @@
-{"approved":[],"withdrawn":[]}
+{
+  "approved": [
+    {
+      "dataset": "safe-routes-to-school",
+      "version": "1.0.0",
+      "sha256": "05c1be8022b547c2f4f4aaae4758582f4340da1c7cfec041302cf6a7a506ab1c"
+    }
+  ],
+  "withdrawn": []
+}

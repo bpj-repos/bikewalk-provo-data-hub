@@ -1,0 +1,55 @@
+{
+  "name": "safe-routes-to-school",
+  "version": "1.0.0",
+  "title": "Provo Safe Routes to School",
+  "attribution": "Utah Department of Transportation; Provo school plan evidence compiled by BikeWalk Provo.",
+  "reuse": "BikeWalk has confirmed source-specific approval to redistribute these layers. Retain UDOT attribution and use notice.",
+  "notice": "UDOT supplies these data for informational use and requires field verification before project use. Source accuracy, completeness and usefulness are not warranted. These layers contain no legal school-zone speed limits or operating schedules.",
+  "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+  "providerApprovalDate": "2026-09-17T18:00:00+00:00",
+  "citation": "BikeWalk Provo. Provo Safe Routes to School, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/safe-routes-to-school/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "coverage",
+      "path": "coverage.md",
+      "bytes": 4523,
+      "hash": "sha256:86e6cfc2fde769b56954afa9f5358651046af81e7f7e141f11bdc2c3c2061ada"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 788,
+      "hash": "sha256:f1766fb22da66c421dcab0b9f0a8059989ea7f8dcdd98ad42850e7b269a10468"
+    },
+    {
+      "name": "protocol",
+      "path": "protocol.md",
+      "bytes": 561,
+      "hash": "sha256:6ad6504bb1c883d13f05a8b411b5c1154f8958af1df7e768a3f83bcb07e0e6ec"
+    },
+    {
+      "name": "safe-route-plan-features",
+      "path": "safe-route-plan-features.geojson",
+      "bytes": 571335,
+      "hash": "sha256:e2ae4c9e73d1426ac4aabf11e5ae4f73e83ee83befc583cb37bab901ef64d4ee"
+    },
+    {
+      "name": "safe-routes-schools",
+      "path": "safe-routes-schools.geojson",
+      "bytes": 10134,
+      "hash": "sha256:766a203e5ee2496078cfa5fa6ac37e3b994737b57f55de3898bbaff0eea58769"
+    },
+    {
+      "name": "safe-school-routes",
+      "path": "safe-school-routes.geojson",
+      "bytes": 185539,
+      "hash": "sha256:b87f4e288cfae1d99ed3a51507195d2cea8e8505caf2cd534282b077cbe80897"
+    },
+    {
+      "name": "sources",
+      "path": "sources.json",
+      "bytes": 3987,
+      "hash": "sha256:4c2524ea1e0f24d9ed5351c3811753b26eebc6234c6ed803027f480aecd21d34"
+    }
+  ]
+}

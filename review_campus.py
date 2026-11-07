@@ -1,4 +1,4 @@
-"""Report changes to held Treeside records and the provider's campus address."""
+"""Report changes to reviewed Treeside records and the provider's campus address."""
 import argparse
 import hashlib
 import json
@@ -31,5 +31,8 @@ def review(receipt):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('receipt',type=Path)
-    print(json.dumps(review(p.parse_args().receipt),indent=2))
+    result=review(p.parse_args().receipt)
+    print(json.dumps(result,indent=2))
+    if result['addressNow']!=result['addressBefore'] or result['changedIDs']:
+        raise SystemExit('Treeside campus evidence changed; review before releasing a new candidate')
 

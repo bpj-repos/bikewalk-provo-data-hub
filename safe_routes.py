@@ -148,6 +148,29 @@ def features(key, current, archives, sources):
     return [result[k] for k in sorted(result)],sorted(rejected)
 
 
+PLANNED_CAMPUS = dict(campusStatus='planned', campusAddress='235 E 1600 S',
+                      currentCampusAddress='34 E 1700 S',
+                      campusEvidence='https://ucsfa.utah.gov/wp-content/uploads/08-11-2026-UCSFA-Meeting-Materials.pdf#page=13')
+CAMPUS_FIELDS = {
+    'campusStatus':'planned identifies geometry intended for a future campus.',
+    'campusAddress':'Address served by the planned routes.',
+    'currentCampusAddress':'Operating school address at the time of review. These routes do not give directions there.',
+    'campusEvidence':'Source that connects the plan address to the future campus.'
+}
+
+
+def reviewed_treeside(key, records, version):
+    if version=='1.0.0' or key=='safe-route-plan-features':
+        return []
+    # Only the geometry and attributes reviewed for this campus may inherit its designation.
+    baseline=json.loads(Path(__file__).with_name('treeside-baseline.json').read_bytes())['features']
+    expected={k:v for k,v in baseline.items() if k.startswith(key+':')}
+    actual={key+':'+f['properties']['GlobalID']:sha(json.dumps(f,sort_keys=True,separators=(',',':')).encode()) for f in records}
+    if actual!=expected or len(actual)!=len(records):
+        raise ValueError('Treeside provider records changed; review campus attribution before release')
+    return records
+
+
 def prepare(receipt,output,version):
     sources=json.loads((receipt/'receipt.json').read_bytes())
     def read(name):
@@ -163,15 +186,22 @@ def prepare(receipt,output,version):
         current=json.loads(read(key+'.json'))
         # The Treeside plan's mapped address differs from the verified current campus.
         held=[r for r in current if r['properties']['NAME_DISTRICT']=='CHARTER' and r['properties'].get('ID_SCHOOL')==773]
-        current=[r for r in current if r not in held]
+        included=reviewed_treeside(key,held,version)
+        current=[r for r in current if r not in held or r in included]
+        held=[r for r in held if r not in included]
         rows,rejected=features(key,current,json.loads(read('archive-'+key+'.json')),sources)
+        for row in rows:
+            if row['properties']['schoolId']==773 and included:
+                row['properties'].update(PLANNED_CAMPUS)
         files[key+'.geojson']=encoded(dict(type='FeatureCollection',features=rows))
         approval_dates.extend(r['properties']['approvalDate'] for r in rows)
         audit[key]=dict(features=len(rows),campusReview=[r['properties']['GlobalID'] for r in held],rejected=rejected,missingSchoolId=sum(r['properties']['schoolId'] is None for r in rows),supplements=sum(r['properties']['sourceStatus']!='current-udot' for r in rows))
-    files['coverage.md']=Path(__file__).with_name('coverage.md').read_bytes()
-    files['dictionary.json']=encoded(FIELDS)
+    files['coverage.md']=Path(__file__).with_name('coverage.md' if version=='1.0.0' else 'coverage-planned.md').read_bytes()
+    files['dictionary.json']=encoded(FIELDS if version=='1.0.0' else {**FIELDS,**CAMPUS_FIELDS})
     files['sources.json']=encoded(dict(receipts=sources,filter=WHERE,archivedSnapshot=ARCHIVE_ID,review=audit))
     files['protocol.md']=('Provo approved school travel plans. '+NOTICE+'\nCurrent records take precedence within each school and layer. Reviewed archived Franklin and Timpanogos features can fill missing school layers. Timpanogos council minutes document school approval; coordinates are from the UDOT archive. Sort order is by layer-qualified provider ID.\n').encode()
+    if version!='1.0.0':
+        files['changes.md']=b"Adds seven Treeside routes and their school point for the planned campus at 235 E 1600 S. The operating campus is at 34 E 1700 S. The fourteen plan features remain under review. All other geographic records are unchanged from 1.0.0.\n"
     manifest=dict(name=DATASET,version=version,title='Provo Safe Routes to School',attribution='Utah Department of Transportation; Provo school plan evidence compiled by BikeWalk Provo.',reuse='BikeWalk has confirmed source-specific approval to redistribute these layers. Retain UDOT attribution and use notice.',notice=NOTICE,sourceRetrievedAt=sources['safe-routes-schools.json']['retrievedAt'],providerApprovalDate=max(approval_dates),citation=f'BikeWalk Provo. Provo Safe Routes to School, {version}. {HOST}/datasets/{DATASET}/{version}/datapackage.json',resources=[dict(name=Path(k).stem,path=k,bytes=len(b),hash='sha256:'+sha(b)) for k,b in sorted(files.items())])
     files['datapackage.json']=encoded(manifest)
     output.mkdir(parents=True,exist_ok=False)

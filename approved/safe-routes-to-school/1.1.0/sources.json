@@ -1,0 +1,81 @@
+{
+  "receipts": {
+    "safe-routes-schools.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3",
+      "retrievedAt": "2026-11-07T20:07:54.519796+00:00",
+      "sha256": "0341011d4fa6e97e7cb29dc0d47d63e01889efce58eb1db431a59c43a9bb1b66"
+    },
+    "archive-safe-routes-schools.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3",
+      "retrievedAt": "2026-07-21T02:01:23.184589Z",
+      "sha256": "3234fd4864174175ddb1f32add25fd4f647699517eafc4ab44d6de22242e9a63"
+    },
+    "safe-school-routes.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Routes_Public_View/FeatureServer/2",
+      "retrievedAt": "2026-11-07T20:07:54.519796+00:00",
+      "sha256": "8367186cb1173651314ce858a54fd8504fb2ce076cf9e6ce5a3a58a0bc9208e4"
+    },
+    "archive-safe-school-routes.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Routes_Public_View/FeatureServer/2",
+      "retrievedAt": "2026-07-21T02:01:23.184589Z",
+      "sha256": "8a15e6dcb4880ae6ba37b3126e8220561bfa0d83aad399378a65a4134112c0a3"
+    },
+    "safe-route-plan-features.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Features_Public_View/FeatureServer/1",
+      "retrievedAt": "2026-11-07T20:07:54.519796+00:00",
+      "sha256": "f83f3905364c19bb72b9fa4d5a421986440330e69dab2d87a601df72dda43ecf"
+    },
+    "archive-safe-route-plan-features.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Features_Public_View/FeatureServer/1",
+      "retrievedAt": "2026-07-21T02:01:23.184589Z",
+      "sha256": "ccfbd18dd9133a67f1c70a013d3438db2fdb44ef250e7e14818fa6d68411a529"
+    },
+    "school-approval.json": {
+      "url": "https://timpanogos.provo.edu/january-12-2026-community-council-agenda-minutes/",
+      "retrievedAt": "2026-11-07",
+      "sha256": "8db4f12a56a6a924de79ff6e2b02aa75cb8c5e802f1883ed614f234e7798de64"
+    }
+  },
+  "filter": "APPROVED = 'Yes' AND (NAME_DISTRICT = 'Provo' OR (NAME_DISTRICT = 'CHARTER' AND ID_SCHOOL = 773 AND NAME_SCHOOL = 'Treeside Charter School'))",
+  "archivedSnapshot": "udot-safe-routes-to-school-785cfb00279ee95b",
+  "review": {
+    "safe-routes-schools": {
+      "features": 16,
+      "campusReview": [],
+      "rejected": [],
+      "missingSchoolId": 0,
+      "supplements": 0
+    },
+    "safe-school-routes": {
+      "features": 195,
+      "campusReview": [],
+      "rejected": [
+        "udot:safe-school-routes:354754fb-2cad-4f62-8d0d-dd28eb346938"
+      ],
+      "missingSchoolId": 6,
+      "supplements": 0
+    },
+    "safe-route-plan-features": {
+      "features": 800,
+      "campusReview": [
+        "7997c0bf-763e-4e0f-8f64-5c905cdc8e1e",
+        "9d57aa71-40a3-43a3-bd26-635bb1e24732",
+        "cd9839d4-6dcb-4b20-a9ff-0fd869d77a94",
+        "ae25049d-a76c-468b-b785-6f98f1666be6",
+        "f492e1dc-ee6a-4f51-993d-2ce254ef8ff9",
+        "bbf68391-0bb0-4c43-940f-1ccf940f2313",
+        "57c7eb1a-db8a-4f6e-b015-e1c08c827d96",
+        "4ea89b48-a1b1-4bd5-adb5-58e7d580fab4",
+        "e845817d-f9c5-4607-909d-7336325d8950",
+        "93e8b0e1-18e5-4674-bef1-fe2236ee4a06",
+        "55ec705a-7aec-4b9d-8471-5bbf08869ed3",
+        "97cab918-1e1d-46a5-afe3-eca3b287553f",
+        "eef8e2e0-9649-4d61-ab05-fcdc1858a112",
+        "76db2904-778d-419f-9f99-61d735bbe580"
+      ],
+      "rejected": [],
+      "missingSchoolId": 3,
+      "supplements": 0
+    }
+  }
+}

@@ -1,0 +1,329 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:09a658bd-596b-4acc-bc7a-fb82393dc9f0",
+      "properties": {
+        "schoolId": 194,
+        "schoolName": "Spring Creek Elementary",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.62601297356,
+          40.2091060018672
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:0bbb439b-1900-4ba0-b04b-d73738cc1c98",
+      "properties": {
+        "schoolId": 773,
+        "schoolName": "Treeside Charter School",
+        "approved": true,
+        "approvalDate": "2026-10-05T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3",
+        "campusStatus": "planned",
+        "campusAddress": "235 E 1600 S",
+        "currentCampusAddress": "34 E 1700 S",
+        "campusEvidence": "https://ucsfa.utah.gov/wp-content/uploads/08-11-2026-UCSFA-Meeting-Materials.pdf#page=13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.654952811139,
+          40.214077449146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:16cdd21c-ccd2-41d5-8367-ec46e4ec1877",
+      "properties": {
+        "schoolId": 65,
+        "schoolName": "Wasatch Elementary",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.641772963005,
+          40.2479469871269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:2deae64b-ab72-49e0-b813-4d327f1be1fb",
+      "properties": {
+        "schoolId": 266,
+        "schoolName": "Canyon Crest Elementary",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.652367017933,
+          40.2955800016092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:2fa93923-07b9-4a46-934f-a35372eb7895",
+      "properties": {
+        "schoolId": 191,
+        "schoolName": "Sunset View",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.686144239542,
+          40.2263518930311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:348050fd-371e-43f4-9820-262e0bf4f0d2",
+      "properties": {
+        "schoolId": 920,
+        "schoolName": "Shoreline Middle School",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.679915777134,
+          40.2214999157905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:5708d9d4-e276-4c93-b722-fbe75f783a43",
+      "properties": {
+        "schoolId": 226,
+        "schoolName": "Franklin Elementary",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.670041015415,
+          40.2290410179194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:6d26ce4e-6335-4836-aa6d-49c612f4c0a7",
+      "properties": {
+        "schoolId": 114,
+        "schoolName": "Lakeview",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.710723001721,
+          40.2511889814614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:9b3d1880-372b-4809-bdc5-958241e66d4a",
+      "properties": {
+        "schoolId": 98,
+        "schoolName": "Westridge Elementary",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.688358994463,
+          40.2542230206511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:a883946d-0192-4c77-bf09-597600638af9",
+      "properties": {
+        "schoolId": 723,
+        "schoolName": "Centennial Middle School",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65353201877,
+          40.2651829880165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:b13bba5c-150d-4728-9a36-8ccfd133721a",
+      "properties": {
+        "schoolId": 633,
+        "schoolName": "Provost Elementary",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.641194024856,
+          40.2251829953157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:b1914a69-e004-434a-b71a-ae248abd21ec",
+      "properties": {
+        "schoolId": 257,
+        "schoolName": "Timpanogos",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.668309984321,
+          40.2397840194938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:cae4fb26-c0e7-4e4e-8d58-6fe4b763e405",
+      "properties": {
+        "schoolId": 207,
+        "schoolName": "Rock Canyon Elementary",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.650354816173,
+          40.2652518735806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:db749af0-8e68-4ef8-9041-6b080fd6655a",
+      "properties": {
+        "schoolId": 116,
+        "schoolName": "Provo Peaks",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.647415995465,
+          40.2344760111536
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:e4a2da45-8357-49f3-9e4d-8526cb73f303",
+      "properties": {
+        "schoolId": 190,
+        "schoolName": "Amelia Earhart Elementary",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.704504970224,
+          40.2304770054175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "udot:safe-routes-schools:f4233263-983f-43eb-862f-26863d9f92a2",
+      "properties": {
+        "schoolId": 115,
+        "schoolName": "Edgemont Elementary",
+        "approved": true,
+        "approvalDate": "2026-09-17T18:00:00+00:00",
+        "sourceStatus": "current-udot",
+        "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+        "evidence": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.648627012503,
+          40.2810420098471
+        ]
+      }
+    }
+  ]
+}

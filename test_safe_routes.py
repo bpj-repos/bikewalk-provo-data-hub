@@ -44,3 +44,21 @@ class SafeRoutes(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_geometry(dict(type='Point',coordinates=[0,0]),KEY)
 
+
+class PlannedCampus(unittest.TestCase):
+    def test_reviewed_release_adds_only_planned_geometry(self):
+        import json
+        from pathlib import Path
+        from safe_routes import DATASET, LAYERS, PLANNED_CAMPUS, reviewed_treeside
+        base=Path(__file__).parent/'approved'/DATASET
+        for key,count in zip(LAYERS,(1,7,0)):
+            def records(version):
+                return json.loads((base/version/(key+'.geojson')).read_bytes())['features']
+            old,new=records('1.0.0'),records('1.1.0')
+            self.assertEqual([r for r in new if r['properties']['schoolId']!=773],old)
+            added=[r for r in new if r['properties']['schoolId']==773]
+            self.assertEqual(len(added),count)
+            for r in added:
+                self.assertTrue(PLANNED_CAMPUS.items() <= r['properties'].items())
+        with self.assertRaisesRegex(ValueError,'records changed'):
+            reviewed_treeside('safe-school-routes',[], 'review-next')

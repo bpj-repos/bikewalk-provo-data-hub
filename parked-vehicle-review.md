@@ -32,3 +32,7 @@ Reproduce with the hub crash environment from the repository root:
     PYTHONPATH=tools/crash_pipeline/src python tools/crash_pipeline/reviews/parked_units.py private/crashes/motor-vehicle-candidate-20261107 /absolute/path/to/retained/incident-inputs
 
 This analysis preserves the original private candidate and release pins.
+
+## Applied to the full series
+
+The private builder now applies the recommended rule to all years. To verify the rebuilt candidate against the original review, run the command above with `--verify-candidate private/crashes/motor-vehicle-candidate-20261107-parked`. On November 7, 2026, the check matched all nine annual totals and the exact 127 held case IDs and their years. The rebuilt CSV totals 12,828; the excluded count remains 680. See the [handoff](crash-shadow.md#current-private-candidate) for the candidate manifest pin.

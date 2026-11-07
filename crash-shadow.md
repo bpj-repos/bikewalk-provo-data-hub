@@ -24,7 +24,7 @@ From the hub, using the documented environment:
 
 For this candidate use the manifest at `incident-updates/releases/incidents-e5a4665997a4cac4f5be/manifest.json`, checksum `c614ca99200bc25ce4d77491061e0d23529f59be24e42bcbff0f16759f4ca979`, and the `incident-inputs` directory in the retained private store. The command reads the original city workbooks, verifies their hashes, parses them with the shared portal adapter and overlays deliveries by state crash ID in intake order. Two city receipts contained 13,631 and 13,635 records. County lookup deliveries are excluded. The latest city event in this candidate is September 30, 2026.
 
-The output is under `private/crashes/motor-vehicle-candidate-20261107`. Two builds reproduced the same CSV, dictionary, methodology, manifest and private review file. Manifest SHA-256: `c05fa83f8afa979ca1b5c0026ef35c8d488060d4966adc7cf7b2a10fbe48a6c8`. The review file contains state IDs and belongs only in restricted storage. This candidate has no public version, approved reuse terms or download pin.
+The original, pre-review output is under `private/crashes/motor-vehicle-candidate-20261107`. Two builds reproduced the same CSV, dictionary, methodology, manifest and private review file. Manifest SHA-256: `c05fa83f8afa979ca1b5c0026ef35c8d488060d4966adc7cf7b2a10fbe48a6c8`. The review file contains state IDs and belongs only in restricted storage. This candidate has no public version, approved reuse terms or download pin.
 
 | Year | Included motor vehicle crashes | Reported nonmotorist | Unresolved |
 |---|---:|---:|---:|
@@ -38,11 +38,15 @@ The output is under `private/crashes/motor-vehicle-candidate-20261107`. Two buil
 | 2025 | 1,366 | 81 | 91 |
 | 2026 (partial) | 884 | 77 | 64 |
 
-Of 13,635 distinct Provo records, 12,178 qualified, 680 had a recorded nonmotorist, and 777 remain unresolved. The conservative candidate requires an occupant linked to every reported vehicle. Of the 747 cases with incomplete participant-to-vehicle links, 667 have complete links for the listed people and only parked units among the vehicles lacking a listed occupant. A parked vehicle can be empty. Review whether the source's parked maneuver plus explicit negative involvement flags is enough to accept a case with that pattern. The remaining unresolved reasons are 29 missing participant rosters and one inconsistent or missing vehicle count. These counts describe the retained receipts and the proposed rule.
+Of 13,635 distinct Provo records, 12,178 qualified, 680 had a recorded nonmotorist, and 777 were unresolved in the original candidate. That candidate required an occupant linked to every reported vehicle. Of the 747 cases with incomplete participant-to-vehicle links, 667 have complete links for the listed people and only parked units among the vehicles lacking a listed occupant. A parked vehicle can be empty. The parked-vehicle review below resolves how to treat that pattern. The remaining unresolved reasons are 29 missing participant rosters and one inconsistent or missing vehicle count. These counts describe the retained receipts and the proposed rule.
+
+## Current private candidate
+
+The rebuilt series is in `private/crashes/motor-vehicle-candidate-20261107-parked`, with manifest SHA-256 `e30a0f432e5491a7ad911b4354c29aae42934834fbf9715876b2365e74b1148e`. It uses the same city receipts. It includes 663 previously held crashes and holds 13 previously included ones. Of 13,635 distinct city crashes, 12,828 qualify, 680 are excluded for reported nonmotorist involvement, and 127 are held. The [parked-vehicle review](parked-vehicle-review.md) verifies every annual total and every held case ID and year. The original candidate remains available for comparison. Neither candidate is published.
 
 ## Remaining work
 
-1. Review parked vehicles, linkage anomalies and the coverage rule with the data steward. Exercise both candidates on a corrected or newly delivered city workbook and review the differences by year. Confirm citation, reuse terms and exact manifests for public release.
+1. Review the remaining unresolved cases and year coverage with the data steward. Exercise both candidates on a corrected or newly delivered city workbook and review the differences by year. Confirm citation, reuse terms and exact manifests for public release.
 2. Publish independent aggregate pins, add both downloads to the Projects Data Hub page and migrate the existing crash trends report to the AT pin. Verify chart, CSV and rollback parity. Projects can adopt each version on its own schedule.
 3. Establish an independently recoverable backup for the restricted sources and test it with a second maintainer's access. Move the operational writer after verifying private readers for fatalities, incident maps and the Streets Watch crash-detail export. Retire the legacy writer once those callers are accounted for.
 4. For subsequent expansion, evaluate minimized concern crash details and the fatalities map as separate products, each with its own disclosure and reuse review. Continue annual counts updates on receipt and monthly Safe Routes review while the crash releases progress.

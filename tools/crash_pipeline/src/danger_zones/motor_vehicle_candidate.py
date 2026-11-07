@@ -24,8 +24,11 @@ A newer delivery replaces overlapping records and preserves earlier history outs
 Include any reported motor vehicle type, including trucks and motorcycles, and single-vehicle crashes.
 Require a positive reported vehicle count, a matching roster of distinct vehicle units, known driver/passenger
 roles linked to those units, and explicit negative pedestrian and cyclist involvement for both flags
-in the available crash or rollup fields. For this conservative candidate, each vehicle unit must have
-a linked reported occupant. An unoccupied or incompletely documented vehicle goes to review.
+in the available crash or rollup fields. Every reported person must link to a listed vehicle. A vehicle
+without a linked person is eligible only when its maneuver code is 13 and its label is Parked.
+For otherwise eligible crashes, hold any first or most harmful event coded 22, 23 or 24 for review
+because it conflicts with the reported participant evidence. Also hold crashes where every vehicle
+has maneuver code 13 because involvement of a vehicle in transport is unresolved.
 A directly reported nonmotorist or corroborated positive involvement flag excludes the crash. Contradictory
 flags, uncertain roles, incomplete rosters and otherwise insufficient participant evidence go to private review.
 The portal export supplies recorded participants and has no independent participant-completeness indicator.
@@ -34,7 +37,8 @@ no included crashes has a zero; a year with no city records has no row.
 """
 
 
-def classify(meta):
+def classify_baseline(meta):
+    """Original linkage rule, also used to reproduce the pinned parked-unit review."""
     crash, people, vehicles = meta["crash"], meta["persons"], meta["vehicles"]
     sources = [crash, *meta["rollups"]]
     flags = [{s.get(key) for s in sources if s.get(key) not in (None, "")}
@@ -65,6 +69,31 @@ def classify(meta):
     if units != {str(p.get("vehicleNumber")) for p in people}:
         return "unresolved", "incomplete participant-to-vehicle links"
     return "included", "motorists only"
+
+
+def classify(meta):
+    status, reason = classify_baseline(meta)
+    vehicles = meta["vehicles"]
+    if status != "included":
+        if reason != "incomplete participant-to-vehicle links":
+            return status, reason
+        occupants = {str(p.get("vehicleNumber")) for p in meta["persons"]}
+        units = {str(v.get("vehicleNumber")) for v in vehicles}
+        if not occupants <= units:
+            return status, reason
+        for vehicle in vehicles:
+            if str(vehicle.get("vehicleNumber")) not in occupants and (
+                str(vehicle.get("vehicleManeuver")) != "13" or vehicle.get("vehicleManeuver_label") != "Parked"
+            ):
+                return status, reason
+        reason = "motorists only with an unlinked parked unit"
+
+    events = [meta["crash"].get("firstHarmfulEvent"), *(v.get("mostHarmfulEvent") for v in vehicles)]
+    if any(str(event) in {"22", "23", "24"} for event in events):
+        return "unresolved", "nonmotorist harmful event conflicts with reported participants"
+    if all(str(v.get("vehicleManeuver")) == "13" for v in vehicles):
+        return "unresolved", "all vehicles coded parked"
+    return "included", reason
 
 
 def json_file(path, data):

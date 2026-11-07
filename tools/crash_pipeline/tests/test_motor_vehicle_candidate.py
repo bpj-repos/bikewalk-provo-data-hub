@@ -31,3 +31,31 @@ class MotorVehicleTests(unittest.TestCase):
             m = case()
             mutation(m)
             self.assertEqual(classify(m)[0], "unresolved")
+
+    def test_only_unlinked_parked_units_get_the_exception(self):
+        m = case()
+        m["crash"]["numberOfVehicles"] = "2"
+        parked = {"vehicleNumber": "2", "vehicleManeuver": "13", "vehicleManeuver_label": "Parked"}
+        m["vehicles"].append(parked)
+        self.assertEqual(classify(m)[0], "included")
+        for key, value in [("vehicleManeuver", "10"), ("vehicleManeuver_label", "Parking Maneuvers")]:
+            with self.subTest(key=key):
+                m["vehicles"][-1] = {**parked, key: value}
+                self.assertEqual(classify(m)[0], "unresolved")
+        m["vehicles"][-1] = parked
+        m["persons"][0]["vehicleNumber"] = "3"
+        self.assertEqual(classify(m)[0], "unresolved")
+
+    def test_conflicts_hold_both_fully_linked_and_parked_exception_cases(self):
+        for extra_parked in (False, True):
+            m = case()
+            if extra_parked:
+                m["crash"]["numberOfVehicles"] = "2"
+                m["vehicles"].append({"vehicleNumber": "2", "vehicleManeuver": "13", "vehicleManeuver_label": "Parked"})
+            for source, field in [(m["crash"], "firstHarmfulEvent"), (m["vehicles"][-1], "mostHarmfulEvent")]:
+                for code in ("22", "23", "24"):
+                    source[field] = code
+                    self.assertEqual(classify(m)[0], "unresolved")
+                del source[field]
+            m["vehicles"][0].update(vehicleManeuver="13", vehicleManeuver_label="Parked")
+            self.assertEqual(classify(m), ("unresolved", "all vehicles coded parked"))

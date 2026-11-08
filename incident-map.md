@@ -30,4 +30,4 @@ The hub owns normalization, source interpretation and prepared summaries. Projec
 
 Five files total 17,262,595 bytes including the manifest. Ten thousand full downloads would be about 173 GB before overhead; use actual usage before expanding this detailed product. November 1–8 team usage before staging: $5.7928 effective, $0.00 billed to cent precision (billing can lag). Static hosting adds no functions, storage product, seats or add-ons. The existing allowance is shared. Keep the geographic dataset's existing source-specific permissions and attribution; no CC0 grant is inferred from the counts release.
 
-Deployment and final verification are recorded in `completion.md` after promotion.
+Deployment and final production verification are recorded in `completion.md`: hub dpl_A7PATyGdRNAdiPdUEVzuQVKPWSmY and Projects dpl_AtcJ8ZDGZGs95BaVALkuavmoxFzV. All 80 hub files, unchanged map bytes, anonymous adoption, clean-path restore and 24 real-data responsive browser cases passed. Both exact-commit CI workflows passed. The release is live.

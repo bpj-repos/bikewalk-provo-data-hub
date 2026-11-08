@@ -1,6 +1,6 @@
 # Crash updater transfer and private annual candidate
 
-November 7, 2026. The private hub hosts the updater, matching and enrichment policy, dependency pins, reference captures and crash regression tests under `tools/crash_pipeline`. The source transfer came from BikeWalk commit `dcba0a96ff265a51a5d21b5797a94205c31b8541`. The hub producer used for the comparison is `99addc7`. The existing canonical producer still owns the operational pointer during this parallel-run phase.
+November 7, 2026. The private hub hosts the updater, matching and enrichment policy, dependency pins, reference captures and crash regression tests under `tools/crash_pipeline`. The source transfer came from BikeWalk commit `dcba0a96ff265a51a5d21b5797a94205c31b8541`. The hub producer used for the comparison is `99addc7`. The canonical producer owned the pointer during that parallel run. Routine updates now use the [hub writer and recovered operational tree](crash-operations.md).
 
 ## Run the producer
 
@@ -76,12 +76,9 @@ production checks for all 67 files, including previous pins. Its rollback target
 is `dpl_2Z29JRY1sLYVBkXpSnRfw62gyFhg`. Team usage for November 1–7 showed
 $5.1267 effective and $0 billed immediately before deployment.
 
-## Remaining work
+## After the parallel run
 
-1. Review the remaining unresolved cases and year coverage with the data steward. Exercise future city deliveries with the same year-by-year comparison.
-2. Adopt the published independent aggregate pins, add both downloads to the Projects Data Hub page and migrate the existing crash trends report to the AT pin. Verify chart, CSV and rollback parity. Projects can adopt each version on its own schedule.
-3. Establish an independently recoverable backup for the restricted sources and test it with a second maintainer's access. Move the operational writer after verifying private readers for fatalities, incident maps and the Streets Watch crash-detail export. Retire the legacy writer once those callers are accounted for.
-4. For subsequent expansion, evaluate minimized concern crash details and the fatalities map as separate products, each with its own disclosure and reuse review. Continue annual counts updates on receipt and monthly Safe Routes review while the crash releases progress.
+Projects adopted both annual releases. The independent recovery, single-writer cutover, consumer checks and separate Streets Watch export are recorded in [Private crash updates and recovery](crash-operations.md). Continue review on new city or police deliveries. A second human’s access and off-machine disaster recovery remain unverified.
 
 ## Forwarded Provo PD reports
 

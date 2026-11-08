@@ -4,7 +4,7 @@ The private repository produces independently deployable, read-only data release
 
 [Public catalog](https://bikewalk-provo-data-hub.vercel.app/catalog.json) · [Counts release contract](contract.md) · [Data ownership](ownership.md) · [Hosting evidence](hosting.md) · [Wave 1 inventory](wave-1.md)
 
-See [Crash updater migration and candidate review](crash-shadow.md) for the private crash producer and the two planned annual series.
+Use [Private crash updates and recovery](crash-operations.md) for the operational writer, consumer checks and recovery commands. The [migration record](crash-shadow.md) covers the two published annual crash series.
 
 See [Maintainer operations](OPERATIONS.md) for the production build and recovery drill, and [Safe Routes coverage](coverage.md) for the verified campus scope.
 

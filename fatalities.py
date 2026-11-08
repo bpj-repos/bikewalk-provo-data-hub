@@ -9,11 +9,14 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from zoneinfo import ZoneInfo
 
+from danger_zones.crash_portal import read_portal
 from danger_zones.incident_updates import flatten
 from danger_zones.research_reports import crash_modes
 
 NAME = 'provo-active-transportation-fatal-crashes'
 ROOT = Path(__file__).resolve().parent
+ARCHIVE_SHA = '99eedb508fd52388f7c44dfaf7645e4b7816f53ceeb55a562be8458587c424c7'
+ARCHIVE = ROOT/'private/crashes/operational-20261107/tools/.danger-zone-private/sources/portal-historical-review'/ARCHIVE_SHA/'records.xlsx'
 MODES = {'3': 'pedestrian', '4': 'bicycle', '5': 'other-conveyance'}
 DICTIONARY = {
     'id': 'String. State crash identifier, one feature per crash.',
@@ -37,7 +40,7 @@ def checked(path, expected):
     return json.loads(raw)
 
 
-def feature(group):
+def feature(group, first_year=2018):
     observations = list(flatten({'records': [group]}).values())
     portals = [o for o in observations if o['sourceKey'] == 'utah-crash-portal']
     udot = [o for o in observations if o['sourceKey'] == 'udot-crashes']
@@ -68,11 +71,36 @@ def feature(group):
     stamp = datetime.fromisoformat(source['observedAt'])
     if stamp.tzinfo is None:
         raise ValueError('Missing time offset: ' + identifier)
-    if stamp.astimezone(ZoneInfo('America/Denver')).year < 2018:
+    if stamp.astimezone(ZoneInfo('America/Denver')).year < first_year:
         return None
     return {'type': 'Feature', 'id': identifier, 'geometry': {'type': 'Point', 'coordinates': [round(lon,4), round(lat,4)]},
             'properties': {'month': stamp.astimezone(ZoneInfo('America/Denver')).strftime('%Y-%m'),
                            'mode': modes.pop(), 'fatalities': len(dead)}}
+
+
+ARCHIVE_METHOD = """One feature represents one state-recorded fatal active transportation crash assigned to Provo. The 2010–2017 source is a separate all-severity Provo portal export. From 2018 the source is the managed collection. Both use the same state ID, Mountain Time occurrence month, portal coordinates rounded to four decimals, and person records (injury level 5) for the death count and mode. Compare any UDOT count in the same group when available. Older crash-sheet involvement flags are blank; the Rollups table and person types preserve active transportation involvement. This release does not treat missing flags as negative. Older vehicle labels, road functional class, person circumstances and demographic completeness differ across periods. The layer supports comparing the published measures for recorded crashes. It cannot establish changes in exposure, reporting completeness or risk. The archival eight each have a portal fatal severity and one corresponding pedestrian or pedalcyclist death. Independent UDOT counts were unavailable for those eight. State records may be revised.
+"""
+
+
+def archival_features(path, managed):
+    if hashlib.sha256(path.read_bytes()).hexdigest() != ARCHIVE_SHA:
+        raise ValueError('Historical workbook checksum mismatch')
+    records, filters = read_portal(path, validate=True)
+    selection = filters['Date Selection']
+    if not selection.startswith('Jan 01, 2010 to Dec 31, 2017 '):
+        raise ValueError('Historical source period differs')
+    known_ids = {o['sourceRecordId'] for o in flatten(managed).values()
+                 if o['sourceKey'] in {'udot-crashes', 'utah-crash-portal'}}
+    additions = []
+    for record in records:
+        if not 2010 <= datetime.fromisoformat(record['observedAt']).year <= 2017:
+            raise ValueError('Observation outside archive period')
+        item = feature({'observations':[record]}, first_year=2010)
+        if item:
+            if item['id'] in known_ids:
+                raise ValueError('Historical ID also in managed data: ' + item['id'])
+            additions.append(item)
+    return additions, selection
 
 
 def build(manifest_file, pin, output, version):
@@ -85,10 +113,14 @@ def build(manifest_file, pin, output, version):
     if data['snapshotId'] != manifest['releaseId']:
         raise ValueError('Release identity mismatch')
     features = sorted((f for group in data['records'] if (f := feature(group))), key=lambda f: f['id'])
+    extended = tuple(int(n) for n in version.split('.')) >= (1,1,0)
+    if extended:
+        archive, selection = archival_features(ARCHIVE, data)
+        features = sorted([*features, *archive], key=lambda f:f['id'])
     if not features or len(features) != len({f['id'] for f in features}):
         raise ValueError('Empty layer or duplicate state crash ID')
     files = {'fatal-crashes.geojson': encoded({'type': 'FeatureCollection', 'features': features}),
-             'dictionary.json': encoded(DICTIONARY), 'method.txt': METHOD.encode()}
+             'dictionary.json': encoded(DICTIONARY), 'method.txt': (ARCHIVE_METHOD if extended else METHOD).encode()}
     resources = [{'name': Path(k).stem,'path':k,'bytes':len(v),'hash':'sha256:'+hashlib.sha256(v).hexdigest()} for k,v in files.items()]
     package = dict(name=NAME, version=version, title='Fatal active transportation crashes in Provo',
                    source='https://utaps.shinyapps.io/DataPortalAWS/', attribution='Utah Crash Data Portal and UDOT. Prepared by BikeWalk Provo.',
@@ -99,6 +131,10 @@ def build(manifest_file, pin, output, version):
                    records=len(features), fatalities=sum(f['properties']['fatalities'] for f in features),
                    citation=f'BikeWalk Provo. Fatal active transportation crashes in Provo, {version}. https://bikewalk-provo-data-hub.vercel.app/datasets/{NAME}/{version}/datapackage.json',
                    sourceRelease=manifest['releaseId'], resources=resources)
+    if extended:
+        package['coverage'] = 'State portal Provo city assignments, starting in 2010. Recent records are provisional.'
+        package['citySourceSelections'].insert(0, selection)
+        package['historicalSource'] = {'period':'2010–2017', 'workbookSha256':ARCHIVE_SHA}
     output.parent.mkdir(mode=0o700,parents=True,exist_ok=True)
     with TemporaryDirectory(dir=output.parent) as temp:
         stage = Path(temp)/'package'
@@ -114,6 +150,6 @@ if __name__ == '__main__':
     parser.add_argument('manifest',type=Path)
     parser.add_argument('sha256')
     parser.add_argument('output',type=Path)
-    parser.add_argument('--version', default='1.0.0')
+    parser.add_argument('--version', required=True, help='Use 1.0.0 to reproduce the original coverage or 1.1.0 for the historical extension')
     args = parser.parse_args()
     build(args.manifest, args.sha256, args.output, args.version)

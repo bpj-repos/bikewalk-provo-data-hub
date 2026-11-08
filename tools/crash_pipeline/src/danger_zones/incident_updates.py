@@ -88,12 +88,13 @@ def candidate_rows(state):
     return list(candidates.values())
 
 
-def make_collection(old, state, policy, now, evidence_path, report_hash):
+def make_collection(old, state, policy, now, evidence_path, report_hash, decisions=()):
     observations=deepcopy(state['observations'])
     locals=local_rows(observations.values())
     review_rows=review(locals,candidate_rows(state),policy)
     indexed={r['police']['id']:r for r in review_rows}
     old_links=[deepcopy(g['reviewedLink']) for g in old['records'] if g.get('reviewedLink')]
+    old_links.extend(deepcopy(decisions))
     problems=[]
     for link in old_links:
         row=indexed.get(link['policeId'].split(':',1)[1]);state_id=link['udotId'].split(':',1)[1]
@@ -164,11 +165,12 @@ def changes_between(old,new,review_rows):
     absorbed=[{'previousId':id,'destinationId':dest[0]} for id in sorted(old_groups-new_groups)
               if (dest:=sorted({membership[o] for o,g in old_membership.items() if g==id and o in membership})) and len(dest)==1]
     prior_links={g['reviewedLink']['policeId'] for g in old['records'] if g.get('reviewedLink')}
+    linked={g['reviewedLink']['policeId'] for g in new['records'] if g.get('reviewedLink')}
     return {'addedSourceRecords':sorted(set(b)-set(a)),
             'changedSourceRecords':[{'id':k,'changedFields':changed_fields(a[k],b[k])} for k in sorted(set(a)&set(b)) if fingerprint(a[k])!=fingerprint(b[k])],
             'newIncidentGroups':sorted(new_groups-old_groups), 'absorbedGroups':absorbed,
             'newLinks':[g['reviewedLink'] for g in new['records'] if g.get('reviewedLink') and g['reviewedLink']['policeId'] not in prior_links],
-            'unresolvedCandidates':[{'policeId':r['police']['id'],'status':r['status'],'candidateIds':[c['stateId'] for c in r['candidates']]} for r in review_rows if r['status']!='distinctive-circumstantial-lead'],
+            'unresolvedCandidates':[{'policeId':r['police']['id'],'status':r['status'],'candidateIds':[c['stateId'] for c in r['candidates']]} for r in review_rows if 'provo-police-incidents:'+r['police']['id'] not in linked],
             'validationIssues':[{'policeId':r['police']['id'],'flags':r['validationFlags']} for r in review_rows if r['validationFlags']]}
 
 

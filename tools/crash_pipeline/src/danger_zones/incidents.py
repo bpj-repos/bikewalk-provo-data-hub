@@ -57,7 +57,7 @@ def combine_observations(observations: list[dict], reviewed_links: list[dict]) -
     approved_pairs = set()
     for link in reviewed_links:
         police_id, udot_id = link["policeId"], link["udotId"]
-        if (link.get("evidenceType") not in {"shared-identifier", "agency-crosswalk", "documentary-confirmation", "owner-authorized-circumstantial"}
+        if (link.get("evidenceType") not in {"shared-identifier", "agency-crosswalk", "documentary-confirmation", "owner-authorized-circumstantial", "manual-case-review"}
                 or not link.get("evidence")
                 or not link.get("reviewer") or not link.get("reason") or not link.get("reviewedAt")
                 or police_id not in by_id or udot_id not in by_id
@@ -68,6 +68,10 @@ def combine_observations(observations: list[dict], reviewed_links: list[dict]) -
         if link['evidenceType'] == 'owner-authorized-circumstantial' and (
                 link.get('rule') not in {'exact-clock-address','exact-clock'} or not link.get('reviewReportSha256') or not link.get('authorization')):
             raise ValueError('Circumstantial links require strict-rule report provenance and explicit owner authorization')
+        if link['evidenceType'] == 'manual-case-review' and (
+                link.get('confidence') not in {'strong','probable'} or not link.get('authorization')
+                or not link.get('decisionReceiptSha256') or link.get('documentaryIdentityConfirmed') is not False):
+            raise ValueError('Manual case review requires an authorized, graded decision receipt')
         _date(link["reviewedAt"])
         used.update([police_id, udot_id])
         approved_pairs.add((police_id, udot_id))

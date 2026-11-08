@@ -148,6 +148,40 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(self.run_update(police_workbooks=[source],data_root=self.root)['status'],'unchanged')
         self.assertEqual(self.pointer.read_bytes(),original)
 
+    def test_reviewed_match_receipt_is_pinned_repeatable_and_reversible(self):
+        local = police_record()
+        local['observedAt'] = '2025-03-05'
+        local['metadata']['observedAt'] = {'localDate':'2025-03-05','localTime':None,'utc':None}
+        self.old['records'].append({'id':local['id'], 'observations':[local]})
+        write_json(self.old_path, self.old)
+        write_json(self.pointer, {'path':str(self.old_path),'sha256':sha256_file(self.old_path),'snapshotId':'original'})
+        county = portal_workbook(self.root/'county.xlsx', [portal_record('7')], city='All')
+        first = self.run_update(portal_workbooks=[county])
+        prior_pointer = self.pointer.read_bytes()
+        receipt = self.root/'review.json'
+        decision = {'policeCase':'P1','stateId':'7','confidence':'probable',
+                    'reason':'Next-day report with the same numbered address','evidence':'private case comparison'}
+        packet = {'collectionSHA256':read_json(self.pointer)['sha256'], 'reviewer':'reviewer',
+                  'reviewedAt':'2026-11-07T19:00:00-07:00','authorization':'owner decision','matches':[decision]}
+        for invalid in ({**packet,'matches':[decision, decision]}, {**packet,'collectionSHA256':'stale'}):
+            write_json(receipt, invalid)
+            with self.assertRaises(ValueError):
+                self.run_update(reviewed_matches=receipt)
+            self.assertEqual(self.pointer.read_bytes(), prior_pointer)
+        write_json(receipt, packet)
+        result = self.run_update(reviewed_matches=receipt)
+        bundle = Path(result['bundle'])
+        link, = read_json(bundle/'reviewed-links.json')
+        self.assertEqual((link['udotId'],link['confidence'],link['decisionReceiptSha256']),
+                         ('utah-crash-portal:7','probable',sha256_file(receipt)))
+        self.assertFalse(link['documentaryIdentityConfirmed'])
+        self.assertFalse(read_json(bundle/'changes.json')['unresolvedCandidates'])
+        published = self.pointer.read_bytes()
+        self.assertEqual(self.run_update(reviewed_matches=receipt)['status'],'unchanged')
+        self.assertEqual(self.pointer.read_bytes(),published)
+        self.assertEqual(rollback(self.root)['releaseId'],first['releaseId'])
+        self.assertEqual(self.pointer.read_bytes(),prior_pointer)
+
     def test_accept_repeat_checksum_and_rollback(self):
         before=self.pointer.read_bytes();r=self.run_update();self.assertEqual(r['status'],'accepted')
         pointer=self.pointer.read_bytes();manifest=read_json(Path(read_json(self.pointer)['releaseManifest']['path']))

@@ -166,3 +166,12 @@ distinct point; ambiguous and absent addresses stay unmapped. A later reference
 rechecks UGRC matches. Address points approximate an address, not the spot in
 the roadway where a crash took place. Keep case-level addresses and results
 private; no public aggregate pin changes.
+
+Use `--offline --reviewed-matches RECEIPT.json` on the private updater to
+accept individually reviewed pairs. Record the reviewed collection SHA-256 in
+`collectionSHA256`, the reviewer, `reviewedAt` with timezone, and the owner's
+authorization. Each entry in `matches` gives the police case, portal state ID,
+confidence (strong or probable), reason, and supporting evidence. The updater
+retains the receipt with the release, checks one-to-one identity, and preserves
+the confidence level on the merged record. Repeat the same receipt to verify
+the release, or use the existing rollback command to restore its predecessor.

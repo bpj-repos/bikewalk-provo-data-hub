@@ -44,3 +44,7 @@ python tools/crash_pipeline/reviews/fatalities_archive.py NEW_PACKAGE APPROVED_1
 ```
 
 The comparison uses the recent Provo workbook with SHA-256 `3405efb346c9b839a21a7812679b1a8dd6d504a8f24d775b985ef54c1b59ad14`. The separate annual crash series retain their own source scope and pins.
+
+The release owner approved publication of 1.1.0 and Projects adoption under the existing geographic reuse terms. The manifest SHA-256 is `122e4f56a86b0a94f21eccbced54904754522493d1caa57f7a92a5f2623e73b0`. Hub commit `535d0ed` and deployment `dpl_7GFzG2Vs4Tw3yhKdoCb2wEZ6uXFw` serve the release. All 75 files matched on staging and production, including version 1.0.0. The preceding hub deployment is `dpl_GqJKbk9sCMynxZBh1ZCyanCH8Crp`.
+
+Projects commit `4093e07` and deployment `dpl_B4wpBcfUh7rcr7jPVLZosYmUAow1` serve the adopted snapshot. The preceding Projects deployment is `dpl_FurKqeewfnWS1GEf8uHeXktRwFQh`. The public map matched the hub for all 25 features, preserved the original 17 complete records in their previous order, and exposed both download links. The production smoke check and six desktop, phone and tablet browser tests passed, including selection of a historical crash.

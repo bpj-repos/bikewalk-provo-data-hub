@@ -34,3 +34,5 @@ Stop new writes by acquiring the active updater lock. Restore the pre-migration 
 ## Recorded checks
 
 The final suite passed all 156 tests with no skips. Two full catalog rebuilds matched all 80 baseline public files. Both compatibility commands passed from another working directory. The historical map package reproduced its original manifest and layer hashes. Seven focused workspace tests cover multiple destinations, legacy restore behavior, checksums, ambiguous and unmapped paths, traversal, symlink escapes, relative definition roots and installed-command defaults. The isolated and active update/repeat/rollback/reapply checks preserved all 1,139 incident records. All 1,036 original private files were verified before archival.
+
+The source reorganization is commit ddf77fc, and the companion BikeWalk consumer documentation update is 34e7d59. The hub HTTPS OAuth credential rejected the workflow-file update for missing workflow scope. Pushing the same commit through the existing authorized GitHub SSH identity succeeded. The remote main branch was verified against the local commit.

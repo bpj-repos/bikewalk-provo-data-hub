@@ -16,6 +16,7 @@ import pyarrow.parquet as pq
 from shapely import from_wkb
 from .config import DEFAULT_DATA_ROOT, DEFAULT_PRIVATE_DATA_ROOT, PACKAGE_ROOT
 from .crash_portal import read_portal
+from .address_points import apply_address_points
 from .incidents import _date
 from .incident_updates import flatten, fingerprint, upsert, police_observations, local_rows, candidate_rows, make_collection, changes_between
 from .match_review import POLICY, review, validate_policy, previous_year
@@ -45,7 +46,7 @@ def read_gzip(path):
 
 def tool_hash():
     names=['update_incidents.py','incident_updates.py','match_review.py','incidents.py','crash_portal.py',
-           'police.py','police_forward.py','police_datastore.py','police_portal_candidates.py','pipeline.py','normalize.py','arcgis.py',
+           'police.py','police_forward.py','police_datastore.py','address_points.py','police_portal_candidates.py','pipeline.py','normalize.py','arcgis.py',
            'incident_conversions.py','normalize_incidents.py','derived_incidents.py','crash_enrichment.py','common_structure.py','util.py','config.py','registry.py','geoparquet.py']
     return sha256_json({'modules':{n:sha256_file(Path(__file__).parent/n) for n in names},
                         'catalog':{name:sha256_file(PACKAGE_ROOT/'catalog/incident-metadata'/name) for name in ['fields.yml','common.yml','derived.yml']},
@@ -160,6 +161,7 @@ def udot_observations(path):
 
 def input_fingerprint(state):
     return sha256_json({'observations':{k:fingerprint(v) for k,v in sorted(state['observations'].items())},
+                        'addressReference':state.get('addressReference'),
                         'portal':{k:fingerprint(v) for k,v in sorted(state['portal'].items())},
                         'udotLookup':{k:fingerprint(v) for k,v in sorted(state.get('udotLookup',{}).items())}})
 
@@ -183,7 +185,7 @@ def load_state(pointer,old,private_root):
     return state,manifest
 
 
-def apply_inputs(state,private_root,data_root,run_dir,portal_workbooks,police_workbooks,offline,refresh):
+def apply_inputs(state,private_root,data_root,run_dir,portal_workbooks,police_workbooks,offline,refresh,address_points):
     known={d['sha256'] for d in state['inputs']}
     if not offline:
         imported=refresh(run_dir/'udot')
@@ -216,6 +218,7 @@ def apply_inputs(state,private_root,data_root,run_dir,portal_workbooks,police_wo
         state['sources']=[s for s in state['sources'] if s['sourceKey']!=source_key]+[source]
     store_path=run_dir/'police/datastores/provo-police-incidents.json'
     ingested={i['workbookSha256'] for i in state['policeStore'].get('ingestions',[])}
+    changed_store = False
     for path in police_workbooks:
         digest=sha256_file(path)
         if digest in ingested:continue
@@ -223,12 +226,24 @@ def apply_inputs(state,private_root,data_root,run_dir,portal_workbooks,police_wo
         write_json(store_path,state['policeStore'])
         import_police_workbook(Path(desc['path']),run_dir/'police',data_root=data_root,datastore_path=store_path,local_geocode=True,source_name=path.name)
         state['policeStore']=read_json(store_path)
-        upsert(state['observations'],police_observations(state['policeStore']))
+        changed_store = True
         state['inputs'].append(desc);ingested.add(digest)
+    if address_points:
+        ref = retain_input(address_points, private_root, 'provo-address-points')
+        if not any(d['kind'] == ref['kind'] and d['sha256'] == ref['sha256'] for d in state['inputs']):
+            state['inputs'].append(ref)
+        state['addressReference'] = ref['sha256']
+    if state.get('addressReference') and (changed_store or address_points):
+        ref = next(d for d in state['inputs'] if d['kind'] == 'provo-address-points' and d['sha256'] == state['addressReference'])
+        apply_address_points(state['policeStore'], read_json(Path(ref['path'])), ref['sha256'])
+        write_json(store_path, state['policeStore'])
+        changed_store = True
+    if changed_store:
+        upsert(state['observations'],police_observations(state['policeStore']))
         retained_store=retain_input(store_path,private_root,'police-store')
         source={'sourceKey':'provo-police-incidents','path':retained_store['path'],'sha256':sha256_file(store_path),
                 'snapshotId':sha256_file(store_path),'sourceCurrentThrough':state['policeStore']['sourceCurrentThrough'],
-                'retrievedAt':desc['retrievedAt'],'checkedAt':isoformat(utc_now())}
+                'retrievedAt':state['policeStore']['updatedAt'],'checkedAt':isoformat(utc_now())}
         state['sources']=[s for s in state['sources'] if s['sourceKey']!='provo-police-incidents']+[source]
 
 
@@ -241,7 +256,7 @@ def write_changes(path,changes):
                 writer.writerow([kind,item if isinstance(item,str) else item.get('id',item.get('policeId',item.get('previousId',item.get('policeId','')))),'' if isinstance(item,str) else json.dumps(item,sort_keys=True)])
 
 
-def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROOT,*,portal_workbooks=(),police_workbooks=(),offline=False,refresh=import_udot_crashes,restore=None):
+def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROOT,*,portal_workbooks=(),police_workbooks=(),address_points=None,offline=False,refresh=import_udot_crashes,restore=None):
     private_root=Path(private_root).resolve();data_root=Path(data_root).resolve()
     if restore and not private_root.is_relative_to(restore.root):
         raise ValueError("Private data root must be inside the restored repository")
@@ -268,7 +283,7 @@ def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROO
                 if source.get('path') and source.get('sha256') and sha256_file(Path(source['path']))!=source['sha256']:
                     raise ValueError('Pinned source checksum mismatch: '+source['path'])
             old_lookup={k:fingerprint(v) for k,v in {**state.get('udotLookup',{}),**state['portal']}.items()}
-            apply_inputs(state,private_root,data_root,run_dir,list(map(Path,portal_workbooks)),list(map(Path,police_workbooks)),offline,refresh)
+            apply_inputs(state,private_root,data_root,run_dir,list(map(Path,portal_workbooks)),list(map(Path,police_workbooks)),offline,refresh,address_points)
             policy=read_json(POLICY);validate_policy(policy)
             content_fingerprint=input_fingerprint(state);tools=tool_hash();policy_hash=sha256_file(POLICY)
             if tools!=start_tools or policy_hash!=start_policy:raise ValueError('Tool or policy changed during update')
@@ -395,6 +410,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--portal-workbook',type=Path,action='append',default=[])
     parser.add_argument('--police-input','--police-workbook',dest='police_workbook',help='Police .xlsx, .numbers or forwarded .eml (repeatable)',type=Path,action='append',default=[])
+    parser.add_argument('--address-points',type=Path,help='Retain a new UGRC Provo snapshot for offline exact-address lookup, including earlier receipts')
     parser.add_argument('--offline',action='store_true')
     parser.add_argument('--rollback',action='store_true',help='Restore the verified predecessor pointer; no downloads')
     parser.add_argument('--private-data-root',type=Path)
@@ -405,8 +421,8 @@ def main():
     restore = RestorePaths(args.restore_path) if args.restore_path else None
     private_root = args.private_data_root or (restore.root/'tools/.danger-zone-private' if restore else DEFAULT_PRIVATE_DATA_ROOT)
     data_root = args.data_root or (restore.root/'tools/.danger-zone-data' if restore else DEFAULT_DATA_ROOT)
-    if args.rollback and (args.offline or args.portal_workbook or args.police_workbook):parser.error('--rollback cannot be combined with update inputs or --offline')
-    result=rollback(private_root,restore=restore) if args.rollback else run_update(private_root,data_root,restore=restore,portal_workbooks=args.portal_workbook,police_workbooks=args.police_workbook,offline=args.offline)
+    if args.rollback and (args.offline or args.portal_workbook or args.police_workbook or args.address_points):parser.error('--rollback cannot be combined with update inputs or --offline')
+    result=rollback(private_root,restore=restore) if args.rollback else run_update(private_root,data_root,restore=restore,portal_workbooks=args.portal_workbook,police_workbooks=args.police_workbook,address_points=args.address_points,offline=args.offline)
     print(json.dumps(result,indent=2))
 
 

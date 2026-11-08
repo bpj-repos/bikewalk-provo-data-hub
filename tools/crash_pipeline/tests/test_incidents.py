@@ -33,6 +33,33 @@ class IncidentTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             combine_observations(observations(), [{**link, "udotId": "udot-crashes:missing"}])
 
+    def test_merged_geography_follows_state_and_leaves_source_points_intact(self):
+        from danger_zones.query_incidents import select
+        obs = observations()
+        link = dict(policeId=obs[1]["id"], udotId=obs[0]["id"], evidenceType="agency-crosswalk",
+                    evidence="crosswalk", reviewer="owner", reason="verified", reviewedAt="2026-11-02T20:00:00Z")
+        # A corroborated portal point supersedes both the UDOT layer and the local address.
+        portal = {**obs[0], "sourceKey":"utah-crash-portal", "id":"utah-crash-portal:1",
+                  "coordinates":[-111.67,40.24], "metadata":{"crash":{}}}
+        obs[0]["statePortal"] = portal
+        local = obs[1]["coordinates"][:]
+        obs[1]["metadata"]["location"] = {"geocoding":{"status":"matched"}}
+        def near(pt):
+            return {"near":{"longitude":pt[0],"latitude":pt[1],"metres":1}}
+        group, = combine_observations(obs,[link])["records"]
+        self.assertEqual(group["resolvedCrash"]["coordinateSource"],portal["id"])
+        self.assertEqual(group["resolvedCrash"]["coordinates"],portal["coordinates"])
+        self.assertEqual(select([group],near(local))[0],[])
+        self.assertEqual(select([group],near(portal["coordinates"]))[0],[group])
+        self.assertEqual(obs[1]["coordinates"],local)
+        del obs[0]["statePortal"]
+        group, = combine_observations(obs,[link])["records"]
+        self.assertEqual(group["resolvedCrash"]["coordinateSource"],obs[0]["id"])
+        obs[0]["coordinates"] = None
+        group, = combine_observations(obs,[link])["records"]
+        self.assertIsNone(group["resolvedCrash"]["coordinates"])
+        self.assertEqual(select([group],near(local))[1]["unknown"],1)
+
     def test_owner_authorized_circumstantial_link_is_explicit_and_reversible(self):
         link={'policeId':'provo-police-incidents:P1','udotId':'udot-crashes:1','reviewer':'owner-directed review',
               'reviewedAt':'2026-11-03T20:00:00Z','reason':'Strict rule reviewed', 'evidenceType':'owner-authorized-circumstantial',

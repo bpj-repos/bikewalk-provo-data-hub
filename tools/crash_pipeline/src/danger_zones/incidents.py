@@ -75,6 +75,8 @@ def combine_observations(observations: list[dict], reviewed_links: list[dict]) -
         occurrence = state.get("statePortal") or state
         mode = police["metadata"].get("mode", {}).get("raw") or police.get("mode")
         resolved = {"occurredAt": occurrence["observedAt"], "occurrenceSource": occurrence["id"],
+                    "coordinates": occurrence["coordinates"],
+                    "coordinateSource": occurrence["id"] if occurrence["coordinates"] is not None else None,
                     "reportedTravelMode": mode, "modeSource": police_id}
         groups.append({"id": udot_id, "observations": [state, police], "reviewedLink": link, "resolvedCrash": resolved})
     groups.extend({"id": identifier, "observations": [item]} for identifier, item in by_id.items() if identifier not in used)

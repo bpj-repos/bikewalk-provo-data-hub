@@ -9,7 +9,7 @@ from pathlib import Path
 import re
 import sys
 import time
-from zoneinfo import ZoneInfo
+from .incidents import observation_day
 
 from pyproj import Geod
 from .config import DEFAULT_PRIVATE_DATA_ROOT
@@ -107,9 +107,7 @@ def facts(o, enrichment=None):
         if mode in {'bicycle','pedestrian','other-conveyance'}: modes.add(mode)
     date=None
     if o.get('observedAt'):
-        stamp=datetime.fromisoformat(o['observedAt'].replace('Z','+00:00'))
-        if stamp.tzinfo is None: raise ValueError('Observation timestamp must include timezone')
-        date=stamp.astimezone(ZoneInfo('America/Denver')).date().isoformat()
+        date=observation_day(o).isoformat()
     police=source=='provo-police-incidents'
     severity=str(raw.get('crashSeverity_label',raw.get('CRASH_SEVERITY_DESC',''))).casefold()
     fatal=None
@@ -215,7 +213,12 @@ def select(entries,query):
     validate(query);polygons=load_polygons(query);matched=[];counts=Counter({'matched':0,'notMatched':0,'unknown':0});evidence={}
     for group in entries:
         enrichments={o['observationId']:o for o in group.get('enrichment',{}).get('observations',[])}
-        results=[(o['id'],evaluate(query,facts(o,enrichments.get(o['id'])),polygons)) for o in views(group)]
+        results=[]
+        for o in views(group):
+            row=facts(o,enrichments.get(o['id']))
+            if 'coordinates' in group.get('resolvedCrash',{}):
+                row['_point']=group['resolvedCrash']['coordinates']
+            results.append((o['id'],evaluate(query,row,polygons)))
         status=disjunction([value for _,value in results]);counts['matched' if status is True else 'unknown' if status is None else 'notMatched']+=1
         if status is True:
             matched.append(group);evidence[group['id']]=[identifier for identifier,value in results if value is True]
@@ -252,7 +255,7 @@ def main():
                 'query':query,'querySha256':hashlib.sha256(args.query.read_bytes()).hexdigest(),
                 'inputEntries':len(entries),'counts':counts,'matchingObservationIds':evidence,
                 'elapsedSeconds':round(time.perf_counter()-started,4),
-                'semantics':'A single source observation must satisfy the entire query; results preserve complete merged entries.'}
+                'semantics':'A single observation must satisfy the query; spatial filters use the resolved crash location when present. Results preserve the complete entry.'}
         if args.output:
             with args.output.open('x') as f:f.write(result)
         else:sys.stdout.write(result)

@@ -139,3 +139,30 @@ Repeating a verified receipt skips its hash and returns the current release
 when the other inputs and rules are unchanged. Use the release manifest and
 the private verification record to check the receipt hashes, report counts,
 links and prior release.
+
+## Resolving crash coordinates
+
+For accepted police/state links use `resolvedCrash.coordinates` (longitude,
+latitude) and `coordinateSource`. The point comes from the corroborated Utah
+Crash Data Portal record, or the linked UDOT record when it is the only state
+source. A missing state point stays unknown. The private matching evidence
+still contains both original locations. Spatial queries on new linked groups
+use the resolved point across all observations. An address or nearby point
+alone never authorizes a merge.
+
+For an unmatched PD observation, use its accepted address point or Provo
+street-network intersection. To fill previously unresolved numbered addresses
+and enable the same lookup for later receipts, download a fresh city reference:
+
+    python -m danger_zones.address_points NEW_PRIVATE_FILE.json
+    python -m danger_zones.update_incidents --offline --address-points NEW_PRIVATE_FILE.json
+
+Use the usual private root or restore arguments. The first command retrieves
+the [UGRC address layer](https://services1.arcgis.com/99lidPhWCzftIe9K/arcgis/rest/services/UtahAddressPoints/FeatureServer/0)
+by city and county only; no report is sent. The updater retains the exact file
+and its hash for offline reuse. It preserves existing accepted points from
+previous methods. An exact normalized numbered address must resolve to one
+distinct point; ambiguous and absent addresses stay unmapped. A later reference
+rechecks UGRC matches. Address points approximate an address, not the spot in
+the roadway where a crash took place. Keep case-level addresses and results
+private; no public aggregate pin changes.

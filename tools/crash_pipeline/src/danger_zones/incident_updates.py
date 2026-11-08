@@ -1,7 +1,7 @@
 """Pure update transformations; no active pointers, downloads or publication."""
 from copy import deepcopy
 from collections import Counter
-from .incidents import _date, combine_observations
+from .incidents import _date, combine_observations, observation_day
 from .crash_portal import enrich_state_records, state_join_evidence
 from .match_review import review, load_portal
 from .util import sha256_json
@@ -33,7 +33,9 @@ def fingerprint(o):
             if m['crash'].get(key) is not None:m['crash'][key]=float(m['crash'][key])
         for key in ['persons','vehicles','rollups']:
             m[key] = sorted(m.get(key,[]),key=sha256_json)
-    return sha256_json({'observedAt':_date(o['observedAt']).isoformat(),'coordinates':o['coordinates'],
+    observed = o['observedAt']
+    when = observation_day(o) if len(observed) == 10 else _date(observed)
+    return sha256_json({'observedAt':when.isoformat(),'coordinates':o['coordinates'],
                         'mode':o.get('mode'),'modes':sorted(o.get('modes',[])), 'metadata':m})
 
 
@@ -49,7 +51,7 @@ def police_observations(store):
         geo=row['location']['geocoding'];c=geo.get('coordinates')
         result.append({'id':'provo-police-incidents:'+row['incidentId'],'sourceKey':'provo-police-incidents',
                        'sourceRecordId':row['incidentId'],'sourceSnapshotId':row['sourceVersions'][-1]['snapshotId'],
-                       'observedAt':row['observedAt']['utc'],'dateMeaning':'police workbook Date of Report',
+                       'observedAt':row['observedAt']['utc'] or row['observedAt']['localDate'],'dateMeaning':'police workbook Date of Report',
                        'coordinates':[c['lng'],c['lat']] if c and geo['mapEligible'] else None,
                        'mode':row['mode']['category'],'metadata':row})
     return result

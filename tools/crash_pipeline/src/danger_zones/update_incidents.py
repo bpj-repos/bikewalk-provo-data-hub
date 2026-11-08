@@ -45,7 +45,7 @@ def read_gzip(path):
 
 def tool_hash():
     names=['update_incidents.py','incident_updates.py','match_review.py','incidents.py','crash_portal.py',
-           'police.py','police_datastore.py','police_portal_candidates.py','pipeline.py','normalize.py','arcgis.py',
+           'police.py','police_forward.py','police_datastore.py','police_portal_candidates.py','pipeline.py','normalize.py','arcgis.py',
            'incident_conversions.py','normalize_incidents.py','derived_incidents.py','crash_enrichment.py','common_structure.py','util.py','config.py','registry.py','geoparquet.py']
     return sha256_json({'modules':{n:sha256_file(Path(__file__).parent/n) for n in names},
                         'catalog':{name:sha256_file(PACKAGE_ROOT/'catalog/incident-metadata'/name) for name in ['fields.yml','common.yml','derived.yml']},
@@ -221,7 +221,7 @@ def apply_inputs(state,private_root,data_root,run_dir,portal_workbooks,police_wo
         if digest in ingested:continue
         desc=retain_input(path,private_root,'police')
         write_json(store_path,state['policeStore'])
-        import_police_workbook(path,run_dir/'police',data_root=data_root,datastore_path=store_path,local_geocode=True)
+        import_police_workbook(Path(desc['path']),run_dir/'police',data_root=data_root,datastore_path=store_path,local_geocode=True,source_name=path.name)
         state['policeStore']=read_json(store_path)
         upsert(state['observations'],police_observations(state['policeStore']))
         state['inputs'].append(desc);ingested.add(digest)
@@ -394,7 +394,7 @@ def rollback(private_root=DEFAULT_PRIVATE_DATA_ROOT, *, restore=None):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--portal-workbook',type=Path,action='append',default=[])
-    parser.add_argument('--police-workbook',type=Path,action='append',default=[])
+    parser.add_argument('--police-input','--police-workbook',dest='police_workbook',help='Police .xlsx, .numbers or forwarded .eml (repeatable)',type=Path,action='append',default=[])
     parser.add_argument('--offline',action='store_true')
     parser.add_argument('--rollback',action='store_true',help='Restore the verified predecessor pointer; no downloads')
     parser.add_argument('--private-data-root',type=Path)

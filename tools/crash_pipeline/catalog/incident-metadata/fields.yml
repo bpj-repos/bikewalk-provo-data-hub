@@ -50,12 +50,12 @@ references:
     retrievedOn: '2026-11-02'
     capturePolicy: remote-document
   policeHeaders:
-    title: Retained Provo Police workbooks and positional importer
-    version: Two delivered workbooks, 2024–2026 records
+    title: Retained Provo Police deliveries and source importer
+    version: Workbooks and forwarded report tables, 2024–2026 records
     url: null
     capture: src/danger_zones/police.py
-    sha256: 59b9dc81c17f06d31704b2b6c30a14a27a7f006c75cfa4c00e1ccc3779a12976
-    retrievedOn: '2026-11-02'
+    sha256: caf9f282085c153348e23adddb32f3ce8a512b13d5ce1e9404548f9b6c5af00f
+    retrievedOn: '2026-11-07'
     capturePolicy: local-file
   arcgisMetadata:
     title: Retained UDOT Crash Locations 2025 layer metadata

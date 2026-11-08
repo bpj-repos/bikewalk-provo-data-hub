@@ -4,6 +4,7 @@ from pathlib import Path
 import tempfile
 import shutil
 from datetime import datetime
+from email.message import EmailMessage
 from openpyxl import Workbook
 from danger_zones.field_inventory import read_catalog
 import unittest
@@ -125,6 +126,28 @@ class PipelineTests(unittest.TestCase):
         self.bootstrap.start()
     def tearDown(self):self.bootstrap.stop();self.temp.cleanup()
     def run_update(self,**kwargs):return run_update(self.root,offline=kwargs.pop('offline',True),**kwargs)
+    def test_forward_preserves_report_date_without_inventing_midnight(self):
+        msg=EmailMessage()
+        msg.set_content("forward")
+        msg.add_alternative("<table><tr><td>number</td><td>dtrepor</td><td>agency</td><td>street</td><td>desc</td></tr>"
+                            "<tr><td>26PRW1234</td><td>3/4/2025</td><td>PRPD</td><td>200 N UNIVERSITY AVE</td>"
+                            "<td>Electric Bike</td></tr></table>",subtype="html")
+        source=self.root/'delivery.eml'
+        source.write_bytes(msg.as_bytes())
+        result=self.run_update(police_workbooks=[source],data_root=self.root)
+        bundle=Path(result['bundle'])
+        record=flatten(read_json(bundle/'collection.json'))['provo-police-incidents:26PRW1234']
+        self.assertEqual(record['observedAt'],'2025-03-04')
+        self.assertIsNone(record['metadata']['observedAt']['localTime'])
+        self.assertIsNone(record['metadata']['observedAt']['utc'])
+        self.assertEqual(record['mode'],'electric-bicycle')
+        version=record['metadata']['sourceVersions'][-1]
+        self.assertEqual((version['sourceRow'],version['workbookSha256']),(2,sha256_file(source)))
+        self.assertEqual(read_json(bundle/'reviewed-links.json'),[])
+        original=self.pointer.read_bytes()
+        self.assertEqual(self.run_update(police_workbooks=[source],data_root=self.root)['status'],'unchanged')
+        self.assertEqual(self.pointer.read_bytes(),original)
+
     def test_accept_repeat_checksum_and_rollback(self):
         before=self.pointer.read_bytes();r=self.run_update();self.assertEqual(r['status'],'accepted')
         pointer=self.pointer.read_bytes();manifest=read_json(Path(read_json(self.pointer)['releaseManifest']['path']))

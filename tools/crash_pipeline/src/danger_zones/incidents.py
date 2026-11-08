@@ -5,7 +5,7 @@ import argparse
 import json
 import subprocess
 import shutil
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -28,6 +28,17 @@ def _date(value: str) -> datetime:
     return result.astimezone(LOCAL_ZONE)
 
 
+def observation_day(item):
+    value = item['observedAt']
+    if item['sourceKey'] == 'provo-police-incidents' and len(value) == 10:
+        day = date.fromisoformat(value)
+        meta = item['metadata']['observedAt']
+        if meta['localDate'] != day.isoformat() or meta['localTime'] is not None or meta['utc'] is not None:
+            raise ValueError('Conflicting date-only police observation')
+        return day
+    return _date(value).date()
+
+
 def combine_observations(observations: list[dict], reviewed_links: list[dict]) -> dict:
     """Never infer identity: only explicit, reviewed links collapse observations."""
     by_id = {}
@@ -35,7 +46,7 @@ def combine_observations(observations: list[dict], reviewed_links: list[dict]) -
         identifier = item["id"]
         if identifier in by_id or identifier != f"{item['sourceKey']}:{item['sourceRecordId']}":
             raise ValueError("Observation IDs must be unique and source-namespaced")
-        _date(item["observedAt"])
+        observation_day(item)
         if item["coordinates"] is not None:
             lng, lat = item["coordinates"]
             if not (-180 <= lng <= 180 and -90 <= lat <= 90):
@@ -74,7 +85,7 @@ def combine_observations(observations: list[dict], reviewed_links: list[dict]) -
     for police in (item for item in observations if item["sourceKey"] == "provo-police-incidents"):
         if police["coordinates"] is None:
             continue
-        report_date = _date(police["observedAt"]).date()
+        report_date = observation_day(police)
         for crash in udot:
             if (police["id"], crash["id"]) in approved_pairs:
                 continue
@@ -141,7 +152,7 @@ def build_snapshot(data_root: Path, private_root: Path, links_path: Path | None 
         observations.append({
             "id": f"provo-police-incidents:{row['incidentId']}", "sourceKey": "provo-police-incidents",
             "sourceRecordId": row["incidentId"], "sourceSnapshotId": row["sourceVersions"][-1]["snapshotId"],
-            "observedAt": row["observedAt"]["utc"], "dateMeaning": "police workbook Date of Report",
+            "observedAt": row["observedAt"]["utc"] or row["observedAt"]["localDate"], "dateMeaning": "police workbook Date of Report",
             "coordinates": [c["lng"], c["lat"]] if c and geo["mapEligible"] else None,
             "mode": row["mode"]["category"], "metadata": row,
         })

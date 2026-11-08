@@ -101,9 +101,7 @@ A separate private managed-updater trial used the eleven time-bearing August row
 in a derived workbook, preserving the original message and workbook hashes. The
 six accepted pairs agreed with the all-month review, all 50 existing links survived,
 a repeat retained the identical pointer, and the annual AT report reproduced.
-The eighteen date-only records are present in the review. The workbook updater
-currently expects a timestamp, so these records need a date-precision intake
-path before entering the managed collection. The operational pointer stayed on
+The eighteen date-only records are present in the review. That trial used the earlier workbook-only updater. The forwarded-message intake below handles these records directly. The operational pointer stayed on
 its original pin during this trial.
 
 ## Police/state source precedence, November 7 update
@@ -121,3 +119,23 @@ A police/state mode difference stays visible and no longer vetoes an otherwise
 corroborated link. With two supplied but nonmatching roads, the clock-only
 candidate stays in review. Missing report times remain unknown. Case-level
 decisions about date-only leads are recorded separately from automatic links.
+
+## Importing a forwarded police delivery
+
+From the hub root, with the crash Python environment and a restored private
+collection, run:
+
+    PYTHONPATH=tools/crash_pipeline/src python -m danger_zones.update_incidents --offline --restore-path ORIGINAL_ROOT RESTORED_ROOT --police-input AUGUST.eml --police-input SEPTEMBER.eml --police-input OCTOBER.eml
+
+Supply inputs in receipt order. The updater accepts the original forwarded
+HTML report tables, .xlsx and .numbers. For email it records the message hash,
+source filename, original headers, table row and cell values. Case IDs identify
+local reports. For dates without a clock the datastore retains the local date,
+the matching clock and UTC timestamp are null, and the normalized Parquet row
+has a reported_date with a null observed_at. The private observation exposes
+that ISO calendar date to enrichment, where its precision is date.
+
+Repeating a verified receipt skips its hash and returns the current release
+when the other inputs and rules are unchanged. Use the release manifest and
+the private verification record to check the receipt hashes, report counts,
+links and prior release.

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from typing import Any
 
 import pyarrow as pa
@@ -367,7 +367,8 @@ POLICE_INCIDENT_SCHEMA = pa.schema(
     LINEAGE_FIELDS
     + [
         pa.field("incident_id", pa.string(), nullable=False),
-        pa.field("observed_at", pa.timestamp("ms", tz="America/Denver"), nullable=False),
+        pa.field("observed_at", pa.timestamp("ms", tz="America/Denver")),
+        pa.field("reported_date", pa.date32(), nullable=False),
         pa.field("location_raw", pa.string()),
         pa.field("mode_raw", pa.string(), nullable=False),
         pa.field("mode_category", pa.string(), nullable=False),
@@ -1312,13 +1313,14 @@ def normalize_police_mode(value: str) -> str:
     normalized = " ".join(value.strip().lower().split())
     if normalized == "bicycle":
         return "bicycle"
-    if normalized in {"e-bike", "ebike", "electric bicycle", "electric pocket bike"}:
+    if normalized in {"electric bike", "e-bike", "ebike", "electric bicycle", "electric pocket bike"}:
         return "electric-bicycle"
     if normalized == "electric wheelchair":
         return "mobility-device"
     if normalized == "pedestrian & electric scooter":
         return "pedestrian-and-scooter"
     if normalized in {
+        "e-scooter",
         "electric scooter",
         "motoroized foot scooter",
         "motorolized scooter",
@@ -1344,10 +1346,13 @@ def normalize_police_rows(
         incident_id = source.get("incident_id")
         observed_at = source.get("observed_at")
         mode_raw = source.get("mode_raw")
-        if not incident_id or not isinstance(observed_at, datetime) or not mode_raw:
+        if not incident_id or not isinstance(observed_at, date) or not mode_raw:
             rejected.append(str(incident_id or f"row-{source.get('source_row')}"))
             continue
-        if observed_at.tzinfo is None:
+        reported_date = observed_at.date() if isinstance(observed_at, datetime) else observed_at
+        if not isinstance(observed_at, datetime):
+            observed_at = None
+        elif observed_at.tzinfo is None:
             from zoneinfo import ZoneInfo
 
             observed_at = observed_at.replace(tzinfo=ZoneInfo("America/Denver"))
@@ -1365,6 +1370,7 @@ def normalize_police_rows(
                 "retrieved_at": retrieved_at,
                 "incident_id": source_record_id,
                 "observed_at": observed_at,
+                "reported_date": reported_date,
                 "location_raw": str(source["location_raw"]).strip()
                 if source.get("location_raw")
                 else None,

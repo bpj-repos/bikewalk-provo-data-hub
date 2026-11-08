@@ -46,7 +46,7 @@
           "sourceCurrentThrough": { "type": ["string", "null"] },
           "sourceRows": { "type": "integer", "minimum": 0 },
           "sourceFileName": { "type": "string" },
-          "sourceFormat": { "type": "string", "enum": ["numbers", "xlsx"] }
+          "sourceFormat": { "type": "string", "enum": ["numbers", "xlsx", "eml"] }
         },
         "additionalProperties": false
       }

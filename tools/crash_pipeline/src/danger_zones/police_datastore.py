@@ -250,6 +250,10 @@ class MapTilerPoliceGeocoder:
 
 
 def _normalized_datetime(value: Any) -> dict[str, Any]:
+    if isinstance(value, date) and not isinstance(value, datetime):
+        return {"sourceValue": _typed_json_value(value), "local": None, "utc": None,
+                "localDate": value.isoformat(), "localTime": None, "timeZone": "America/Denver",
+                "status": "date-only"}
     if not isinstance(value, datetime):
         return {
             "sourceValue": _typed_json_value(value),

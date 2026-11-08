@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 import shutil
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -13,6 +13,7 @@ from openpyxl.utils.cell import range_boundaries
 
 from .config import DEFAULT_DATA_ROOT
 from .geoparquet import write_parquet
+from .police_forward import read_forward_rows
 from .normalize import POLICE_INCIDENT_SCHEMA, normalize_police_rows
 from .pipeline import _artifact_entry, _finalize_raw_snapshot, _write_run_report, latest_artifact
 from .police_datastore import (
@@ -183,10 +184,11 @@ def import_police_workbook(
     datastore_path: Path | None = None,
     geocode: bool = False,
     local_geocode: bool = False,
+    source_name: str | None = None,
 ) -> dict[str, Any]:
     source_format = path.suffix.lower().lstrip(".")
-    if source_format not in {"numbers", "xlsx"}:
-        raise ValueError("The police importer accepts Apple Numbers or Excel .xlsx workbooks")
+    if source_format not in {"numbers", "xlsx", "eml"}:
+        raise ValueError("The police importer accepts Numbers, Excel .xlsx or forwarded PD .eml tables")
     if not path.is_file():
         raise FileNotFoundError(path)
     started_at = utc_now()
@@ -201,13 +203,13 @@ def import_police_workbook(
     shutil.copyfile(path, copied_path)
     workbook_sha256 = sha256_file(copied_path)
 
-    source_rows, table_inventory = (
-        _read_numbers(copied_path)
-        if source_format == "numbers"
-        else _read_xlsx(copied_path)
-    )
+    if source_format == "eml":
+        source_rows = read_forward_rows(copied_path)
+        table_inventory = [{"headers": source_rows[0]["source_headers"], "rows": len(source_rows)}]
+    else:
+        source_rows, table_inventory = (_read_numbers if source_format == "numbers" else _read_xlsx)(copied_path)
     for source_row in source_rows:
-        source_row["source_file_name"] = path.name
+        source_row["source_file_name"] = source_name or path.name
         source_row["source_format"] = source_format
     completed_at = utc_now()
     schema_fingerprint = sha256_json(
@@ -238,6 +240,10 @@ def import_police_workbook(
         if latest_observed.tzinfo is None:
             latest_observed = latest_observed.replace(tzinfo=ZoneInfo("America/Denver"))
         source_current_through = isoformat(latest_observed)
+    latest_day = max((r["observed_at"].isoformat()[:10] for r in source_rows
+                      if isinstance(r.get("observed_at"),date)), default=None)
+    if latest_day and (not observed_dates or latest_observed.date().isoformat() < latest_day):
+        source_current_through = None
     warnings = [
         "The workbook does not provide severity or event type.",
         "Original typed cell values are retained in the private JSON datastore alongside normalized fields.",
@@ -266,7 +272,7 @@ def import_police_workbook(
         private_data_root
         / "normalized"
         / "provo-police-incidents"
-        / "v1"
+        / "v2"
         / snapshot_id
         / "records.parquet"
     )
@@ -328,9 +334,9 @@ def import_police_workbook(
         datastore_path=destination,
         snapshot_id=snapshot_id,
         retrieved_at=started_at,
-        source_current_through=source_current_through,
+        source_current_through=source_current_through or latest_day,
         workbook_sha256=workbook_sha256,
-        source_file_name=path.name,
+        source_file_name=source_name or path.name,
         source_format=source_format,
         intersection_geocoder=intersection_geocoder,
         provider_geocoder=provider_geocoder,

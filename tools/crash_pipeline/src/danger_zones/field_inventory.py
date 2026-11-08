@@ -286,7 +286,7 @@ def write_outputs(result, output):
     (output / "inventory.md").write_text("\n".join(lines) + "\n")
 
 
-def read_catalog(path=CATALOG):
+def read_catalog(path=CATALOG, reference_root=PACKAGE_ROOT):
     catalog = yaml.safe_load(path.read_text())
     jsonschema.Draft202012Validator(read_json(SCHEMA)).validate(catalog)
     for concept in catalog["concepts"].values():
@@ -297,7 +297,7 @@ def read_catalog(path=CATALOG):
         if relation["from"] not in catalog["concepts"] or relation["to"] not in catalog["concepts"]:
             raise ValueError("Relationship references an unknown concept")
     for reference in catalog["references"].values():
-        if sha256_file(PACKAGE_ROOT / reference["capture"]) != reference["sha256"]:
+        if sha256_file(reference_root / reference["capture"]) != reference["sha256"]:
             raise ValueError(f"Reference capture checksum mismatch: {reference['capture']}")
     for table in catalog["tables"].values():
         for binding in table["fields"].values():

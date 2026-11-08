@@ -1,0 +1,103 @@
+version: 1
+scope: Source-qualified active-transportation derivations; no cross-source identity
+  decisions.
+references:
+- dictionary2021
+- codes2021
+- rollups2021
+- tables2021
+completeness: AT serious/fatal is false only with at least one identified AT person,
+  a known injury category for every identified AT person, and no unclassified exported
+  person. Positive documented serious/fatal injury remains true when other inputs
+  are partial. Never substitute crash totals.
+behaviorFlags:
+  classification.speed_related: speeding
+  classification.distracted_driving: distraction
+  classification.drowsy_driving: drowsiness
+  classification.dui: dui
+  classification.aggressive_driving: aggressive-driving
+  classification.disregard_control: disregarded-control
+  classification.wrong_way: wrong-way
+  classification.hit_and_run: hit-and-run
+  classification.alcohol_confirmed: alcohol-confirmed
+  classification.alcohol_suspected: alcohol-suspected
+  classification.drugs_confirmed: drugs-confirmed
+  classification.drugs_suspected: drugs-suspected
+driverCircumstances:
+  '0': null
+  '2': too-fast-for-conditions
+  '3': failure-to-yield
+  '4': failed-to-keep-lane
+  '7': disregarded-signs
+  '8': disregarded-signals
+  '9': disregarded-markings
+  '10': evasive-action
+  '11': followed-too-closely
+  '13': wrong-side-or-way
+  '14': improper-parking-stopping
+  '15': ran-off-road
+  '16': improper-backing
+  '17': improper-signal
+  '19': improper-turn
+  '20': hit-and-run
+  '22': reckless-driving
+  '23': aggressive-driving
+  '88': null
+  '89': null
+  '97': other
+  '99': null
+maneuvers:
+  '1': straight-ahead
+  '2': backing
+  '3': changing-lanes
+  '5': right-turn
+  '6': left-turn
+  '7': u-turn
+  '8': leaving-traffic
+  '9': entering-traffic
+  '10': stopped
+  '11': slowing
+  '13': parked
+  '14': parking
+  '15': negotiating-curve
+  '16': starting
+  '17': merging
+  '97': other
+  '99': null
+nonmotoristSettings:
+  '1': crossing
+  '2': crossing
+  '3': crossing
+  '4': crossing
+  '5': crossing
+  '6': travel-lane
+  '7': median-island
+  '8': roadside-shoulder
+  '10': sidewalk-path
+  '11': roadside-shoulder
+  '12': bicycle-facility
+  '13': sidewalk-path
+  '14': outside-right-of-way
+  '16': intersection-outside-crosswalk
+  '17': bicycle-facility
+  '18': driveway-access
+  '89': null
+  '96': null
+  '97': other
+  '99': null
+lighting:
+  Daylight: daylight
+  Dawn: dawn-dusk
+  Dusk: dawn-dusk
+  Dark - Lighted: dark-lighted
+  Dark - Not Lighted: dark-unlighted
+  Dark - Unknown Lighting: dark-lighting-unknown
+  Unknown: null
+  Not Provided: null
+  Invalid: null
+injuryLevels:
+  '1': No injury
+  '2': Possible injury
+  '3': Suspected Minor Injury
+  '4': Suspected Serious Injury
+  '5': Fatal

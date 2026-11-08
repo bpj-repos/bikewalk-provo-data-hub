@@ -34,6 +34,15 @@
           "value": "application/geo+json; charset=utf-8"
         }
       ]
+    },
+    {
+      "source": "/datasets/provo-active-transportation-incident-map/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     }
   ]
 }

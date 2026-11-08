@@ -1,0 +1,71 @@
+{
+  "name": "provo-active-transportation-incident-map",
+  "version": "1.0.0",
+  "title": "Reviewed active transportation incident map in Provo",
+  "records": 1195,
+  "coverage": {
+    "fromMonth": "2018-01",
+    "toMonth": "2026-09",
+    "selected": 1199,
+    "unmapped": 4
+  },
+  "sourceRelease": "provo-active-incidents-20261102-normalized-v1",
+  "sourceCoverage": [
+    {
+      "sourceKey": "udot-crashes",
+      "snapshotId": "udot-crashes-1cc5d0d7a69d4137",
+      "checkedAt": "2026-11-03T02:41:46.120642Z",
+      "sourceCurrentThrough": "2025-08-05T21:40:48Z",
+      "records": 999,
+      "warnings": [
+        "The service has no layer for 2026; newest discovered layer is 2025."
+      ]
+    },
+    {
+      "sourceKey": "provo-police-incidents",
+      "snapshotId": "d012deb982ce8f468f2e3b3cf09684886dc85f5883a2ef05c5f83fbbe4d3a2a8",
+      "checkedAt": "2026-08-13T03:23:30.330675Z",
+      "sourceCurrentThrough": "2026-07-30T04:21:33Z",
+      "records": 76,
+      "warnings": []
+    },
+    {
+      "sourceKey": "utah-crash-portal",
+      "snapshotId": "6c765763ae3af02d6a1a97839d88a86740ec267ad0620740abfa34a031496098",
+      "checkedAt": "2026-11-03T03:20:20.392061Z",
+      "sourceCurrentThrough": "2026-09-30T16:07:23-06:00",
+      "records": 680,
+      "warnings": []
+    }
+  ],
+  "preparation": "Reviewed historical normalized and derived snapshots; existing feature selection preserved.",
+  "attribution": "Provo Police Department, UDOT and Utah Crash Data Portal. Prepared by BikeWalk Provo.",
+  "reuse": "Existing source-specific publication permissions apply. This map extract does not grant rights beyond those source terms; it is not covered by the counts CC0 decision.",
+  "citation": "BikeWalk Provo. Reviewed active transportation incident map in Provo, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/provo-active-transportation-incident-map/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "incidents",
+      "path": "incidents.geojson",
+      "bytes": 17253370,
+      "hash": "sha256:9f5c4f56645ea7467e21cbff900d5831835d34a525304281f10c27c91f1c5a01"
+    },
+    {
+      "name": "map-manifest",
+      "path": "map-manifest.json",
+      "bytes": 2429,
+      "hash": "sha256:05a396090c68cfbc3f5221b9935274b33798312e3d3b4ff7aab4247f7b5f3327"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 2312,
+      "hash": "sha256:7a1d9f1f346f097a378c9d1b5e7ef3b5c68c9d69db6705b8363fcb6069b91f10"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 1829,
+      "hash": "sha256:babc869f34408fb83eac2f0c2fde05fa7f18322ef562f0671477f32bf633384c"
+    }
+  ]
+}

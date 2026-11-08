@@ -1,0 +1,52 @@
+{
+  "releaseId": "provo-active-incidents-20261102-normalized-v1",
+  "producerCommit": "38e63f3f5df12644829fd2c34a8dce2ffb060647",
+  "source": "Provo Police, UDOT and Utah DPS Crash Data Portal",
+  "sourceCurrentThrough": "2026-09",
+  "recordCount": 1199,
+  "mappedCount": 1195,
+  "omittedCount": 4,
+  "fromMonth": "2018-01",
+  "toMonth": "2026-09",
+  "sha256": "9f5c4f56645ea7467e21cbff900d5831835d34a525304281f10c27c91f1c5a01",
+  "approval": "Owner approved the 20 analytical omissions and requested the normalized, derived-field and map UI plans on November 2, 2026. Existing publication approval covers the source metadata retained here. Existing feature grouping and rounded coordinates are unchanged; no new links or raw source refresh.",
+  "combinedSnapshotId": "combined-incidents-719dee71114adbad",
+  "possibleMatchCount": 31,
+  "sourceCoverage": [
+    {
+      "sourceKey": "udot-crashes",
+      "snapshotId": "udot-crashes-1cc5d0d7a69d4137",
+      "checkedAt": "2026-11-03T02:41:46.120642Z",
+      "sourceCurrentThrough": "2025-08-05T21:40:48Z",
+      "records": 999,
+      "warnings": [
+        "The service has no layer for 2026; newest discovered layer is 2025."
+      ]
+    },
+    {
+      "sourceKey": "provo-police-incidents",
+      "snapshotId": "d012deb982ce8f468f2e3b3cf09684886dc85f5883a2ef05c5f83fbbe4d3a2a8",
+      "checkedAt": "2026-08-13T03:23:30.330675Z",
+      "sourceCurrentThrough": "2026-07-30T04:21:33Z",
+      "records": 76,
+      "warnings": []
+    },
+    {
+      "sourceKey": "utah-crash-portal",
+      "snapshotId": "6c765763ae3af02d6a1a97839d88a86740ec267ad0620740abfa34a031496098",
+      "checkedAt": "2026-11-03T03:20:20.392061Z",
+      "sourceCurrentThrough": "2026-09-30T16:07:23-06:00",
+      "records": 680,
+      "warnings": []
+    }
+  ],
+  "normalization": {
+    "baseReleaseId": "provo-active-incidents-20261102-portal",
+    "baseLayerSha256": "950c96a491f0727731f67b69fa4e75536f35482936ba8a77dbf6128d89f9e207",
+    "normalizedManifestSha256": "14333b7c2092b73f8483ebfdad747ce756136edf70de67ca15fd964ae3e485e3",
+    "derivedManifestSha256": "2c13fc37f69c5e0930aa7253a74570ad5403de2a2399560a48991bb0f01c3b6c",
+    "derivedRulesSha256": "17ed96bcf88617b9e13bcadde6f6705f974498f5bf0ef6d9c4482a869dde1130",
+    "contractSha256": "4d672910fb621e51aa00922e1cdc26c412d3f2f712d783186386c7457a86d205",
+    "catalogSha256": "5b831ba5629727db254b0d5bcdfae313dfa5a39cc95ee540b03c84407687dc63"
+  }
+}

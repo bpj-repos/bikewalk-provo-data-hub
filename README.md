@@ -1,8 +1,10 @@
 # BikeWalk Provo Data Hub
 
-The private repository produces independently deployable, read-only data releases. Projects will present the public catalog. Application maintainers pin a manifest URL and SHA-256 and verify resource hashes before adopting a release. The public catalog includes annual counts, Provo Safe Routes to School, both annual crash series and Provo fatal active transportation crashes.
+The private repository produces independently deployable, read-only data releases. Projects presents the public catalog. Application maintainers pin a manifest URL and SHA-256 and verify resource hashes before adopting a release. The public catalog includes annual counts, Provo Safe Routes to School, both annual crash series Provo fatal active transportation crashes, and the reviewed historical incident-map extract.
 
 [Public catalog](https://bikewalk-provo-data-hub.vercel.app/catalog.json) · [Counts release contract](contract.md) · [Data ownership](ownership.md) · [Hosting evidence](hosting.md) · [Wave 1 inventory](wave-1.md)
+
+See [Completion and maintenance status](completion.md) and [Incident map releases](incident-map.md).
 
 See [Fatalities release and scope](fatalities-release.md) for the geographic dataset and Projects adoption.
 

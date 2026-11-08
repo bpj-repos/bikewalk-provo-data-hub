@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "format": "GeoJSON FeatureCollection (RFC 7946)",
+  "identity": "Source identifiers in properties.details qualify each record. Array position is not a longitudinal identity.",
+  "fields": [
+    {
+      "name": "geometry",
+      "type": "Point",
+      "description": "Longitude, latitude; WGS84, rounded to four decimals. Approximate."
+    },
+    {
+      "name": "properties.mode",
+      "type": "string",
+      "description": "Reviewed reported travel category; source conflict remains in details and overview."
+    },
+    {
+      "name": "properties.month",
+      "type": "string",
+      "format": "YYYY-MM",
+      "description": "Historical display month. Inspect prepared dates for occurrence versus PD report date."
+    },
+    {
+      "name": "properties.source",
+      "type": "string",
+      "description": "Historical display label. Prepared filters.sources and details retain source-specific provenance."
+    },
+    {
+      "name": "properties.details",
+      "type": "object",
+      "description": "Approved source-prefixed scalar fields. Police, UDOT, Portal and Provenance namespaces. Missing/null is not a negative value; nested person/vehicle records are source-qualified text, not stable person identities."
+    },
+    {
+      "name": "properties.prepared.version",
+      "type": "integer",
+      "description": "Prepared-view schema version, currently 1."
+    },
+    {
+      "name": "properties.prepared.filters",
+      "type": "object",
+      "description": "Arrays: years, modeGroups, fineModes, crashSeverity, factors, lighting, sources. atSeverity is a string: serious-fatal, other, unknown. OR within a filter, AND across filters; an empty selected year/mode/source set matches nothing."
+    },
+    {
+      "name": "properties.prepared.overview",
+      "type": "object",
+      "description": "Source-qualified dates, location labels, injury/severity and circumstances arrays; boolean modeConflict; availability and timeNotes arrays. These are prepared shared interpretations, not app recalculations."
+    },
+    {
+      "name": "properties.summary",
+      "type": "array",
+      "description": "Sections {heading, entries:[{key,label,values:[{text,sources: string[]}]}]}. Only reviewed common concepts appear; full-precision location.point is excluded."
+    }
+  ]
+}

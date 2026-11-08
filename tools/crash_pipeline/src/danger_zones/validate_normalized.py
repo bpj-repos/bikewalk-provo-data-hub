@@ -9,8 +9,9 @@ from pathlib import Path
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from .common_structure import read_contract
-from .field_inventory import CATALOG, REPO
+from .common_structure import CONTRACT, read_contract
+from .config import PACKAGE_ROOT
+from .field_inventory import CATALOG, REPO, read_catalog
 from .util import read_json, sha256_file
 
 STATES = {'reported','not-supplied','null','blank','unknown','not-provided','not-applicable','invalid-source-value','incomplete-coordinate'}
@@ -51,14 +52,14 @@ def validate_records(records, contract):
     return {'records':len(seen),'tables':dict(tables),'states':dict(nulls)}
 
 
-def validate_snapshot(path):
-    manifest=read_json(path/'manifest.json');contract=read_contract()
+def validate_snapshot(path, contract_path=CONTRACT, catalog_path=CATALOG, reference_root=PACKAGE_ROOT):
+    manifest=read_json(path/'manifest.json')
+    contract=read_contract(contract_path, read_catalog(catalog_path, reference_root))
     if manifest.get('kind')!='unmerged-normalized-incident-observations' or manifest.get('schemaVersion')!=1:
         raise ValueError('Unknown normalized snapshot format')
-    from .common_structure import CONTRACT
-    if manifest['rules']['contractSha256']!=sha256_file(CONTRACT):
+    if manifest['rules']['contractSha256']!=sha256_file(contract_path):
         raise ValueError('Snapshot contract differs from current reviewed contract')
-    if manifest['rules']['catalogSha256']!=sha256_file(CATALOG):
+    if manifest['rules']['catalogSha256']!=sha256_file(catalog_path):
         raise ValueError('Snapshot source catalog differs from the current reviewed catalog')
     for name,expected in manifest['files'].items():
         if Path(name).name!=name or sha256_file(path/name)!=expected:

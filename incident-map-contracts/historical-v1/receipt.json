@@ -1,0 +1,21 @@
+{
+  "kind": "reviewed-incident-map",
+  "version": "1.0.0",
+  "normalized": {
+    "path": "inputs/tools/.danger-zone-private/normalization/v1/common-v1-20261102/manifest.json",
+    "sha256": "14333b7c2092b73f8483ebfdad747ce756136edf70de67ca15fd964ae3e485e3"
+  },
+  "derived": {
+    "path": "inputs/tools/.danger-zone-private/normalization/v1/derived-reviewed-20261102/manifest.json",
+    "sha256": "2c13fc37f69c5e0930aa7253a74570ad5403de2a2399560a48991bb0f01c3b6c"
+  },
+  "base": {
+    "path": "inputs/.private/portal-release-combined-incidents-719dee71114adbad/incidents.json",
+    "sha256": "950c96a491f0727731f67b69fa4e75536f35482936ba8a77dbf6128d89f9e207"
+  },
+  "mapManifest": {
+    "path": "map-manifest.json",
+    "sha256": "05a396090c68cfbc3f5221b9935274b33798312e3d3b4ff7aab4247f7b5f3327"
+  },
+  "definitions": "historical-v1"
+}

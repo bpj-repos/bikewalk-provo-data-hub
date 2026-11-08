@@ -24,6 +24,7 @@ python3.11 -IB recover-pins.py /absolute/path/to/new-private-restore
 From the hub root, replay the recovered state in isolation. Each historical origin maps to the new folder. Include the operational root when restoring a subsequent backup.
 
 ```sh
+RESTORE_TO=/absolute/path/to/new-private-restore/hub
 old=/Users/test/dev/bwp-data-hub/private/crashes
 PYTHONPATH=tools/crash_pipeline/src python -m danger_zones.update_incidents --offline \
   --restore-path /Users/test/Documents/ChatGPT/bikewalk-provo "$RESTORE_TO" \

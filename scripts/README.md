@@ -1,0 +1,29 @@
+# Operator commands
+
+Run module commands from the repository root. Use a new output directory for builders. Crash commands require the pinned pipeline environment and PYTHONPATH=.:pipelines/crashes/src.
+
+| Command | Purpose |
+|---|---|
+| `python3 -m scripts.adopt_routes --help` | Stage a verified Safe Routes pin for Projects or the Streets Watch legacy endpoint. |
+| `python3 -m scripts.audit_counts_sources SOURCE_REPO NEW_OUTPUT` | Audit pinned counts source holdings (requires xlrd). |
+| `python3 -m scripts.audit_coverage` | Audit UDOT coverage against Provo city limits and the state school roster (requires shapely). |
+| `python3 -m scripts.build_catalog --help` | Restore approved releases into a new private staging directory. |
+| `python3 -m scripts.build_counts_releases --help` | Prepare a counts release from checksummed Git blobs; never contacts a live service. |
+| `python3 -m scripts.build_demo_counts --help` | Build the synthetic hosting proof in a new directory. No private inputs. |
+| `python3 -m scripts.prepare_counts_candidate --help` | Prepare a private revision using reviewed, complete annual slices and pinned evidence. |
+| `python3 -m scripts.prepare_crash_releases --help` | Build private, aggregate-only release packages for owner review. |
+| `python3 -m scripts.prepare_fatalities_release --help` | Build a private candidate of fatal active-transportation crashes from a pinned hub release. |
+| `python3 -m scripts.prepare_incident_map_release --help` | Reproduce a reviewed incident-map package from checksummed private presentation inputs. |
+| `python3 -m scripts.rehearse_crash_receipt` | Replay the retained second Provo delivery in a temporary recovery tree. |
+| `python3 -m scripts.restore_crash_collections --help` | Offline restore and parity fixture for the two Wave 6 crash collection pins. |
+| `python3 -m scripts.review_campus --help` | Report changes to reviewed Treeside records and the provider's campus address. |
+| `python3 -m scripts.review_crash_receipt --help` | Compare a managed crash receipt with published annual series and the previous Streets Watch export. |
+| `python3 -m scripts.review_routes --help` | Compare a complete Safe Routes candidate to the approved hub package by feature identity. |
+| `python3 -m scripts.safe_routes --help` | Receive UDOT records privately and prepare the Provo Safe Routes package. |
+| `python3 -m scripts.update_crashes --help` | Update the active private crash workspace using verified historical path mappings. |
+| `python3 -m scripts.verify_demo_host --help` | Compare every anonymous HTTPS response with the verified synthetic build. |
+| `python3 -m scripts.verify_public_catalog --help` | Compare every restored file against production or an explicitly selected staging host. |
+
+The source-inventory audit accepts SOURCE_REPO and NEW_OUTPUT directly. The receipt rehearsal and coverage audit have no arguments. The coverage audit reads provider services over the network. Routine updates use the configured private collection. Publication builders and review commands create local output. Only the explicitly invoked updater or consumer apply operation changes active state. See the [operations guides](../docs/operations/README.md) before updates, adoption or publication.
+
+`reviews/` contains the forwarded-police, parked-vehicle and historical-fatalities verification commands. The forwarded_police and parked_units modules provide --help. The fatalities_archive module takes PACKAGE PREVIOUS_PACKAGE OLD_WORKBOOK NEW_WORKBOOK positional paths.

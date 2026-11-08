@@ -22,17 +22,17 @@ jobs:
         run: |
           mkdir -p private
           date -u +%FT%TZ > private/attempt.txt
-          python3 safe_routes.py receive private/receipt udot-safe-routes-to-school-785cfb00279ee95b
-          python3 safe_routes.py prepare private/receipt private/candidate --version "review-${GITHUB_RUN_ID}"
-          python3 review_campus.py private/receipt > private/treeside-review.json
+          python3 -m scripts.safe_routes receive private/receipt udot-safe-routes-to-school-785cfb00279ee95b
+          python3 -m scripts.safe_routes prepare private/receipt private/candidate --version "review-${GITHUB_RUN_ID}"
+          python3 -m scripts.review_campus private/receipt > private/treeside-review.json
           cat private/treeside-review.json >> "$GITHUB_STEP_SUMMARY"
-          python3 review_routes.py private/candidate > private/review.json
+          python3 -m scripts.review_routes private/candidate > private/review.json
           date -u +%FT%TZ > private/success.txt
           cat private/review.json >> "$GITHUB_STEP_SUMMARY"
       - name: Review additional campuses and boundary crossings
         run: |
           python3 -m pip install shapely==2.1.2
-          python3 audit_coverage.py > private/coverage-review.txt
+          python3 -m scripts.audit_coverage > private/coverage-review.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:

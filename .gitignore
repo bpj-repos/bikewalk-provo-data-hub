@@ -8,3 +8,7 @@ __pycache__/
 /tools/.danger-zone-data/
 /tools/crash_pipeline/.venv/
 *.egg-info/
+
+/build/
+/config/paths.local.json
+/pipelines/crashes/.venv/

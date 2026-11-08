@@ -1,0 +1,152 @@
+# BikeWalk Provo Data Hub system design
+
+As-built review dated November 8, 2026, against hub implementation `ae24a9b`, closeout evidence `643a969`, and canonical Projects adoption `94827605a72eb1bee5e31b5ce4efd9e1a1f9b36e`. This document describes the maintained architecture. Deployment IDs, live adoption checks and migration closeout belong in [completion.md](history/hub-migration-completion.md) and the product release records. Update this document with improvements, enhancements and refactors under [AGENTS.md](../AGENTS.md).
+
+
+The November 8 filesystem migration groups human documentation in docs, commands in scripts, reusable processing code in pipelines, definitions in data-definitions, approved packages in releases and regressions in tests. The [repository guide](../README.md) and [command index](../scripts/README.md) are the navigation entry points. The public URL layout, definitions and approved package bytes reproduce the pre-migration baseline. Local active crash data now lives under private/active/crashes, with restricted historical aliases and separate intake, candidates, reviews, exports, backups and archives. See [the migration runbook](operations/layout-migration.md).
+
+## System and trust boundaries
+
+The private GitHub repository `bpj-repos/bikewalk-provo-data-hub` owns shared source interpretation and publishes approved, versioned files over HTTPS. Its Vercel project is `bikewalk-provo-data-hub` in `brycepjs-projects`. The mutable catalog lists available versions and manifest hashes. Consumers explicitly select a version, verify its bytes and keep local snapshots. All source intake and hub writes run through private maintainer tools. Projects and Streets Watch control their own adoption and application state. [Public catalog](https://bikewalk-provo-data-hub.vercel.app/catalog.json) · [Ownership contract](ownership.md)
+
+```mermaid
+flowchart TD
+    S[Source stewards and received deliveries] --> R[Private originals, receipts and checksums]
+    R --> T[Hub normalization, matching and shared derivation]
+    T --> C[Private candidates and review differences]
+    C --> A[Release-owner approval of exact package and reuse terms]
+    A --> L[Approved packages and pin ledgers in private Git]
+    L --> B[scripts/build_catalog.py verifies and assembles full public tree]
+    B --> H[Verified static Vercel deployment and catalog]
+    H --> P[Projects verifies, reviews and adopts local snapshots]
+    H --> W[Streets Watch adopts Safe Routes snapshot]
+    T --> E[Reviewed minimized concern export]
+    E --> I[Streets Watch preview, backup, apply and rollback]
+```
+
+Original crash workbooks, forwarded messages, detailed observations, matching evidence, review exports and recovery archives stay in access-controlled private storage. Local `private/`, `build/`, configuration overrides, environments and Vercel link state are ignored by Git. An ignore rule prevents accidental tracking through ordinary Git operations, while deployment safety comes from uploading only a separately assembled `public/` tree and `vercel.json`. Dataset-specific public-field validators and owner review govern disclosure. Concern exports travel through a restricted handoff to the importer and its backups. [Ignore rules](../.gitignore) · [Private crash operations](operations/crash-updates-and-recovery.md)
+
+The source steward owns corrections at origin. The hub owns normalization, missingness, identities, shared measures, official subsets, public membership and withdrawal. Apps own annotations, concern membership, editorial additions and view filters. An app extension keys to source identity and release. Source-qualified station IDs are scoped to a year/layer. Crash source groups and reviewed links retain uncertainty and disagreement. An app reports a suspected shared-rule error for a corrected hub version. [Ownership contract](ownership.md)
+
+## Products and acquisition
+
+| Product and current public version | Input and maintained producer | Published scope and consumer |
+|---|---|---|
+| `annual-transportation-counts` 1.0.1 | `scripts/build_counts_releases.py` reads checksummed CSV/JSON Git blobs at the source commit in `data-definitions/annual-transportation-counts/sources.json`. `scripts/prepare_counts_candidate.py` accepts a receipt, unchanged delivery and reviewed normalized annual slice. | Series and per-year CSVs, dictionary, mapping, protocol and change notes. Known holdings cover 2019 and 2021–2026. Projects adopts 1.0.1. The 2026 all-mode and scooter totals are 6,186 and 283. |
+| `safe-routes-to-school` 1.1.0 | `scripts/safe_routes.py receive` queries three UDOT ArcGIS layers and retains current plus July archive inputs. `prepare`, `scripts/review_routes.py`, `scripts/review_campus.py` and `scripts/audit_coverage.py` support review. | Three GeoJSON layers with source/campus provenance, dictionary and coverage. Archived approved features and the planned Treeside campus have explicit status. Projects uses 1.1.0. Streets Watch independently uses 1.0.0. |
+| `annual-at-crash-aggregates` 1.0.0 | `scripts/update_crashes.py` maintains private inputs. `danger_zones.research_reports.crash_report` defines the population. `scripts/prepare_crash_releases.py` prepares the public package. | Annual CSV, dictionary and method. Distinct state crash IDs assigned to Provo with motor-vehicle and nonmotorist evidence. Mode lines overlap. Projects uses 1.0.0. |
+| `annual-motor-vehicle-crashes-without-nonmotorists` 1.0.0 | Same city receipts and parser, then `danger_zones.motor_vehicle_candidate` and `scripts/prepare_crash_releases.py`. | Annual CSV, dictionary and method. Requires affirmative vehicle and participant evidence, with reviewed parked-vehicle rules. Unresolved cases are held privately. Projects uses 1.0.0. |
+| `provo-active-transportation-fatal-crashes` 1.1.0 | `scripts/prepare_fatalities_release.py` reads a pinned managed release and the checksummed 2010–2017 portal archive. | 25 crash points and 26 deaths, occurrence month, mode and approximate coordinates. Projects uses 1.1.0. |
+| `provo-active-transportation-incident-map` 1.0.0 | `scripts/prepare_incident_map_release.py` reads retained normalized/derived snapshots, reviewed feature selection and a pinned map manifest. `data-definitions/historical-incident-map/historical-v1/` freezes definitions and reference captures. | Historical 2018–September 2026 extract with 1,195 mapped source groups and four unmapped groups. Prepared summaries preserve source differences. Projects uses 1.0.0, with production/browser verification in the migration record. |
+| Reviewed concern details, export schema 2 | `danger_zones.concern_details` verifies a private release and exports allowlisted enrichment plus accepted PD references. | A separate restricted handoff with seven field groups and reviewed match bases. Streets Watch imported 30 crashes across seven concerns, including four PD references. |
+
+Counts distinguish observed zero, missing, unresolved and historically unavailable measures. Combined/session totals and source-recorded breakdowns overlap. Historical timing and station correspondence limit comparisons. Version 1.0.0 preserves the original scooter total of 236, and 1.0.1 derives 283 from two observed sessions. Counts CC0 approval covers the defined product. Other products carry their own attribution and reuse terms. [Counts contract](../data-definitions/annual-transportation-counts/contract.md) · [Counts decision](decisions/counts-publication-2026-11-07.md) · [Coverage](../data-definitions/safe-routes-to-school/coverage-1.0.0.md)
+
+Crash intake refreshes UDOT on a normal run, reuses it with `--offline`, and accepts city portal workbooks and PD deliveries on receipt. Source acquisition checks membership/paging and retained hashes. The updater preserves observations, input history, reviewed identities, conflicts and predecessor pointers. Matching policy lives under `pipelines/crashes/src/danger_zones/`, with the registry, catalogs, schemas and reference captures beside it. Report dates, occurrence dates, unknown values and approximate geocoding retain their distinct meanings. [Crash operations](operations/crash-updates-and-recovery.md) · [Producer transfer](history/crash-producer-transfer.md)
+
+The two annual crash series currently cover 2018–2025 as full calendar years and provisional 2026. A recent event date describes the selected records' coverage. The historical map has a separate denominator and source pin. Its mapped groups can overlap in event identity across unreconciled sources, so official annual totals come from the annual package. Fatalities has its own historical extension and geographic selection. [Annual population](history/annual-crash-migration.md) · [Motor-only method](../releases/datasets/annual-motor-vehicle-crashes-without-nonmotorists/1.0.0/method.txt) · [Fatalities](datasets/fatal-crashes.md) · [Incident map](datasets/historical-incident-map.md)
+
+Transit, bike parking/lanes, counters and intersection captures remain research snapshots in canonical BikeWalk `docs/research/transportation-source-snapshots/`. Proposed research lives in `docs/research/TODO.md`. Each new processed hub product needs a defined population, provenance, reuse and disclosure decision, validation and consumer contract.
+
+## Release, approval and hosting
+
+`releases/baseline-pins/counts-*.json` pins the two real counts baselines, while `releases/baseline-pins/demo-counts.json` preserves the two synthetic predecessors. `releases/release-ledger.json` is the ordered approval and withdrawal ledger for additional packages in `releases/datasets/DATASET/VERSION/`. Each catalog release names `/datasets/DATASET/VERSION/datapackage.json` and its SHA-256. Each manifest binds resource names, byte sizes and SHA-256 hashes. Old published versions remain immutable and retrievable until a documented withdrawal. Corrections get a patch, compatible additions a minor version, and incompatible meaning, units or identity a major version. [Counts contract](../data-definitions/annual-transportation-counts/contract.md) · [Ledger](../releases/release-ledger.json)
+
+The collection lead verifies delivery completeness and protocol/mapping. The hub maintainer builds and checks candidates. The release owner approves the exact manifest hash, public fields and reuse terms. Candidate tools produce private packages and differences. Promotion records that approval, copies the reviewed package into `releases/datasets/`, and appends its pin. Counts candidates retain a private row-level review. Synthetic future-release fixtures remain private. Consumer adoption follows separately. [Maintainer operations](operations/maintainer-guide.md)
+
+`scripts/build_catalog.py` reconstructs both real counts releases and synthetic predecessors from pinned Git inputs, then adds approved packages. It verifies package identities, resource paths, sizes and hashes, rejects replacement pins and synthetic candidates, applies withdrawals and writes a new full tree. Dataset builders and tests enforce semantic contracts before approval. The assembler's checks protect approved bytes. It selects current versions by ledger order. Successful output is a new staging directory containing `public/` and `vercel.json`.
+
+Vercel serves that static output. `vercel.json` sets wildcard CORS, CSV/GeoJSON MIME types, `nosniff`, and the historical map's `noindex, nofollow, noarchive` response. The public surface consists of catalog, manifest and resource GETs. Private tools perform every update. Existing Vercel team allowance and usage are shared with other projects. Review actual usage before promotion or expansion. [Host configuration](../config/vercel.json) · [Hosting evidence](history/static-hosting-proof.md)
+
+From the hub root, using full source history and a fresh destination, the current restore command is
+
+```sh
+export BWP_SOURCE_REPO=/absolute/path/to/bikewalk-provo
+python3 -B -m unittest discover -s tests/hub -t .
+python3 -B -m scripts.build_catalog "$BWP_SOURCE_REPO" /tmp/new-hub-stage
+python3 -B -m scripts.verify_public_catalog /tmp/new-hub-stage/public
+```
+
+The last command compares local files with the production alias. During a release, compare the staged deployment first with `scripts/verify_public_catalog.py PUBLIC --stage STAGING_HTTPS_URL`. From the assembled staging directory, link to the existing project, run `vercel deploy --prod --skip-domain`, verify all files, hashes, MIME and CORS, then promote that exact deployment. Recheck the stable alias anonymously and record deployment ID, source commit and approved pins. The separate staged deployment permits validation before the stable alias changes. `scripts/build_demo_counts.py` and `scripts/verify_demo_host.py` reproduce the historical synthetic proof. [Promotion procedure](operations/maintainer-guide.md)
+
+For withdrawal, append safe notice/date and dataset/version to `releases/release-ledger.json` and deploy a newly assembled tree. The builder removes that version's files and marks the catalog entry withdrawn, selecting a remaining release when available. The operator checks affected URLs return 404, reviews shared bytes across all versions, handles caches/old deployments and notifies known consumers to remove copies. Historical rollback must honor the current withdrawal list. Hashes detect byte changes. The reviewed repository and approval process establish which pin to trust. [Withdrawal and restore procedure](operations/maintainer-guide.md)
+
+## Scheduling and consumer adoption
+
+`.github/workflows/safe-routes.yml` runs at `41 14 1 * *` UTC and supports manual dispatch. It downloads the pinned private July archive, receives provider layers, prepares a candidate and reviews campus/coverage changes. The private artifact has 30-day retention. Attempt/success files and run history distinguish an attempted check from success. Provider approval dates, retrieval times, source coverage and consumer adoption dates answer different freshness questions. Release review stays manual. Counts follows annual deliveries/corrections. Crash updates follow maintainer runs and received state/PD records. [Workflow](../.github/workflows/safe-routes.yml) · [Maintenance](operations/maintainer-guide.md)
+
+The canonical consumer is `bpj-repos/bikewalk-provo`, currently at `/Users/test/Documents/ChatGPT/bikewalk-provo`, with Projects in `apps/maps`. Its `scripts/hub-update.py` supports six dataset aliases. From that application directory
+
+```sh
+python3 scripts/hub-update.py status
+python3 scripts/hub-update.py stage incidents 1.0.0
+python3 scripts/hub-update.py apply REVIEW_SHA256
+npm test
+npm run build
+```
+
+Stage verifies the catalog entry, manifest, resources and adapter expectations, then records a private review digest and differences. Apply rechecks the catalog, staged bytes and current snapshot under a local lock. Counts/crash datasets use retained version directories and an atomic `current` symlink switch. Safe Routes uses a directory swap with an interruption backup. Repeated adoption is a no-op. Current adapters accept stable 1.x versions. Routes staging uses hub `scripts/adopt_routes.py`, requires the reviewed producer commit for a new version and accepts `BWP_HUB_CHECKOUT` for a relocated hub checkout.
+
+Projects builds from committed snapshots. Incident adoption writes the established `/data/demos/police-incidents/{incidents,manifest}.json` URLs after offline hash/field validation. The legacy local summary approval command refuses to overwrite a hub adoption. Projects owns filters, layout, camera and local editorial information keyed to state IDs. The build explicitly selects webpack. Consumer tests, browser checks, commit and deployment complete adoption. Rollback stages/applies a previously available pin or restores a verified complete application deployment, subject to withdrawals. Application instructions live in canonical `apps/maps/README.md`.
+
+Streets Watch (`bpj-repos/streets.watch`) serves its adopted Safe Routes layers from `data/safe-routes-legacy/`. Hub `scripts/adopt_routes.py PREVIOUS_MANIFEST NEW_OUTPUT VERSION MANIFEST_SHA PRODUCER_COMMIT` prepares its compatibility snapshot. Concern imports use `scripts/import-concern-crash-details.ts` in preview/apply/rollback modes with the restricted export hash and backup hash. Existing state IDs determine lookup. Per-concern transactions check the current history and rollback protects intervening edits. Each consumer chooses its release independently. [Concern integration](https://github.com/bpj-repos/streets.watch/blob/main/docs/CONCERN_CRASH_DETAILS.md)
+
+## Tests, recovery and laptop portability
+
+The standard-library root suite covers synthetic release integrity, real counts parity/pins and Safe Routes acquisition and contracts. Set `BWP_SOURCE_REPO` to exercise the real counts cases. The crash suite is separate and requires Python 3.11+ with the exact dependencies in `pipelines/crashes/pyproject.toml`. Install an editable copy into a dedicated environment with `python -m pip install -e ./pipelines/crashes`, or use `PYTHONPATH=.:pipelines/crashes/src` with an existing matching environment. Node is also required for incident public-field validation. To run the producer suite from the hub root
+
+```sh
+PYTHONPATH=.:pipelines/crashes/src python -B -m unittest discover \
+  -s tests/crashes -t .
+```
+
+Private-receipt tests can skip when holdings are unavailable. Record skips with results. The suite covers parsing, source matching, normalized/derived agreement, enrichment and public candidate checks. Recorded migration evidence includes 133 passing producer tests, two identical incident builds, corrupt-input rejection, 23 Projects JavaScript and three Python adoption tests. The closeout also records 24 passing real-data desktop/phone/tablet cases and production smoke checks. This documentation review separately ran all 16 root tests with real inputs, reconstructed 80 public files, and confirmed the six current versions and pins against the anonymous production catalog. Live migration/browser evidence is maintained in [completion.md](history/hub-migration-completion.md).
+
+There are three recovery levels
+
+| Recovery target | Retained material and procedure | Verified limit |
+|---|---|---|
+| Serve approved releases | Full hub and canonical BikeWalk Git histories, pinned counts blobs, `releases/datasets/` packages, ledgers and `scripts/build_catalog.py`. | Clean-checkout and independent-agent builds have been exercised on this host. Ordinary assembly uses Python/Git and avoids crash-environment dependencies. |
+| Rebuild Safe Routes from source | Private GitHub release `source-receipts-safe-routes-20261107`, checksummed assets and `scripts/safe_routes.py prepare`. | Authorized repository access is required. `OPERATIONS.md` lists exact asset hashes. The 30-day workflow artifact is temporary review output. |
+| Replay crash intake and historical detailed products | Restricted crash recovery archives, inventory/verifier, current operational tree, receipts, policy and dependencies. `crash-operations.md` gives exact restore roots, manifest pins and rollback commands. `data-definitions/historical-incident-map/historical-v1/receipt.json` supplies the source-free historical map recipe. | Independent-agent recovery used this machine and existing OS account. A clean clone at a different path reproduced all 14 map inputs, the package and full public tree. A separate human and off-machine recovery were explicitly deferred. The cutover archive needs supplementation for subsequent intake. |
+
+Routine crash writes enter through `python -m scripts.update_crashes`, with `--offline`, `--portal-workbook`, `--police-input`, `--reviewed-matches` or `--rollback` as documented. The active pointer is under `private/active/crashes/collection/datastores/combined-incidents.json`. Update and rollback share a filesystem lock, verify predecessors and retain audit records. `scripts/review_crash_receipt.py` compares the new pin against both published annual packages and the concern export last adopted by Streets Watch. Keep failed candidates for diagnosis and retain the last verified pointer. [Crash operations](operations/crash-updates-and-recovery.md)
+
+The managed release records its producer commit and fingerprints inputs, matching policy and tools. `danger_zones.update_incidents.tool_hash` covers an explicit module list, three incident catalogs and `pyproject.toml`. The source registry YAML and reference captures require separate review because they sit outside that file list. Preserve the full checkout and retained evidence when reproducing a private release. [Fingerprint implementation](../pipelines/crashes/src/danger_zones/update_incidents.py)
+
+Portability currently needs operator work. The maintained updater, receipt reviewer and fatalities builder select stable workspace locations through danger_zones.config. Ignored config/paths.local.json can override the defaults. Historical origins and their relative destinations are retained in private/active/crashes/path-map.json, backed up with the workspace. Recovery uses the pipeline module's repeatable `--restore-path ORIGINAL_ROOT RESTORED_ROOT`, optional `--restore-root WORKSPACE`, and explicit data roots to resolve immutable historical references. The pinned dependency list supplies reproducible versions, while setup still requires repository and archive access. Local `fcntl` locks coordinate processes sharing one filesystem. Administrators on separate laptops need an agreed writer/promotion owner to avoid divergent active state.
+
+## Prioritized future improvements
+
+These proposals follow the verified implementation above. Default to existing tools, static files and zero incremental service cost. Each item needs its own scoped change and evidence before adoption.
+
+| Priority | Proposed improvement | Yield and concrete acceptance check |
+|---|---|---|
+| 1 | Retain a current off-machine crash backup in an owner-approved private location, with checksummed inventory, producer commit and access instructions. Extend the existing recovery runbook and rehearse with a second authorized admin/agent on another laptop. | Addresses the largest recovery dependency. Restore current intake, reviewed links and historical map inputs into a new path, reproduce approved pins offline, repeat a receipt and roll back. Verify permissions and backup retrieval as part of the drill. |
+| 1 | Finish the cross-laptop bootstrap and access rehearsal using the stable operational roots and explicit path mappings implemented in the filesystem migration. Document writer handoff between administrators. | Removes maintainer-home-path assumptions. Two arbitrary checkout locations should run the same offline fixture and select the same verified pin. Preserve original receipt paths and manifests as evidence. |
+| 1 | Extend GitHub Actions to run appropriate hub tests and a deterministic public restore/check on changes. Add compact source/check/release status to the existing maintenance record and use workflow failure notifications. | Catches broken builds and missed checks before promotion. Exercise corruption, predecessor pins and withdrawals, report unavailable private fixtures, and retain approvals/evidence beyond the monthly artifact window. Reuse authorized inputs and review current Actions allowance first. |
+| 1 | Review the complete producer dependency/configuration fingerprint, including source registry and reference captures used by parsing and derivation. Extend the existing fingerprint and focused regressions where needed. | Makes changed interpretation trigger re-evaluation on repeated input. Change a relevant definition or source configuration under a fixed receipt and verify the updater recomputes or rejects it, with an explicit review before public release. |
+| 2 | Add concise consumer examples and a tested public download verifier using the current manifest/resource contract. Record known consumer contacts, adopted pins and withdrawal acknowledgments in a private register. | Helps spreadsheets, Python/R and GIS users adopt safely and helps operators reach adopters. A fresh consumer verifies a selected pin, reads a documented subset and rejects a corrupted resource. Explicitly state schema support, missingness, citation and source terms. |
+| 2 | Add reviewed static subsets or compact encodings when consumer demand justifies them, generated from the same approved records with parity tests. | The incident package is about 17.3 MB, so 10,000 complete downloads are about 173 GB before overhead. Measure requests and transfer, then consider year/area subsets or a slim map resource. Evaluate Parquet for analytical consumers and XLSX for a requested workbook experience. Retain semantic versions, pins and disclosure review. |
+| 2 | Strengthen approval records and promotion coordination as the admin group grows. Tie manifest hash, reviewer, producer commit, source receipt, deployment and consumer changes together in the existing Git/runbook process. | Makes a second agent's work reviewable and prevents competing promotions. Rehearse handoff and failure recovery with two admins while keeping one active private writer and a recorded stable deployment. |
+
+Consider a hosted query endpoint only after concrete consumers need queries that versioned downloads and static subsets cannot serve economically. Any future service needs its own access, cost, disclosure, availability and recovery design. Current evidence supports further consumers through the existing file contract first.
+
+### Agent workflow review, November 8, 2026
+
+Review of recent Bikeways acquisition, incident-map migration/recovery, crash-receipt comparison and Projects adoption found repeated work in locating the correct artifact, following provenance, assembling arguments and determining which checks remain. The following proposed tools would make those steps explicit and reproducible. Their names describe future entry points.
+
+| Priority | Repeated agent decision | Proposed automation and existing foundation |
+|---|---|---|
+| 1 | Which repository, dataset copy and command apply? | A `hub_status.py locate DATASET --role ROLE` command resolves research capture, operational collection, approved release or consumer adoption. Return verified paths, pins, coverage, supported commands and missing prerequisites from existing registries and pointers. Keep machine-specific roots configurable and derive hashes from authoritative files. |
+| 1 | How do I acquire, inspect and preserve a complete source? | A maintained `capture_source.py` with capture, inspect and resume operations produces raw responses, request parameters, completeness checks, field profiles and a checksummed receipt. Reuse `arcgis.fetch_layer`, snapshot-manifest helpers and `field_inventory.profile_field`. Resume only pages whose request identity and bytes verify. Make scope explicit. The existing `pipeline.import_ugrc_bikeways_lts` filters to the Provo city label and normalizes data, while the recent research capture retained statewide source responses. |
+| 1 | Which baseline export and outstanding cases belong to this delivery review? | Extend `scripts/review_crash_receipt.py` to consume a recorded consumer-adoption receipt containing the exact previous export, hash and watchlist. Reuse its existing annual-package and concern comparison. Missing or stale baselines become explicit blockers. |
+| 2 | Which source records and rules explain this crash or displayed value? | Extend `query_incidents.py` with exact source-qualified ID lookup and explanation output. Follow retained observations, accepted match evidence, definitions and release references. Include recorded product membership or exclusion reasons where available. |
+| 2 | Which release checks remain before completion? | Persist a release-verification report tied to exact commits and manifest pins. Reuse `scripts/build_catalog.py`, `scripts/verify_public_catalog.py` and consumer checks. Record each required check as passed, failed, skipped or pending with its evidence location. Include predecessor preservation and withdrawal checks. |
+| 2 | Which archive, recipe and path mappings reproduce this product? | A maintained recovery command verifies the archive, restores into a fresh directory, resolves historical paths, rebuilds and compares the expected package. Reuse existing restore-path handling, inventories and the tracked historical map recipe. Return a recovery report with unresolved prerequisites. |
+
+Discovery, source capture/profiling and review-baseline resolution are the first implementation candidates. Several required primitives already exist. The hub registry names a Bikeways importer and `pipeline.py` implements it, while `pyproject.toml` currently installs only the crash updater entry point. A command index should report actual callable capabilities and scope. Research receipts should carry a source identity that allows discovery alongside operational manifests.
+
+Use Projects' `hub-update.py` staging behavior as the interaction pattern. It verifies inputs, records a review digest and prints the exact apply command. Maintained hub commands should return structured `inputs`, `outputs`, `checks`, `blockers` and `nextCommand` fields, with command arguments represented as an array. Each operation revalidates referenced pins and current state before writing. These outputs can remove repeated argument construction and interpretation of prose logs. New definitions, disclosure decisions and disputed matches remain explicit review decisions supported by evidence.
+
+This review inspected selected operation histories and current code. The proposed commands remain unimplemented and unbenchmarked.

@@ -1,0 +1,6 @@
+{
+  "workspace": "private/active/crashes",
+  "collection": "private/active/crashes/collection",
+  "geography": "private/active/crashes/geography",
+  "mappings": "private/active/crashes/path-map.json"
+}

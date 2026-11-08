@@ -1,0 +1,56 @@
+{
+  "name": "provo-active-transportation-fatal-crashes",
+  "version": "1.0.0",
+  "title": "Fatal active transportation crashes in Provo",
+  "source": "https://utaps.shinyapps.io/DataPortalAWS/",
+  "attribution": "Utah Crash Data Portal and UDOT. Prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal, UDOT, and BikeWalk Provo when reusing this geographic dataset.",
+  "coverage": "State portal Provo city assignments, starting in 2018. Recent records are provisional.",
+  "citySourceSelections": [
+    "Jan 01, 2018 to Oct 31, 2026 for 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026",
+    "Jan 01, 2018 to Nov 01, 2026 for 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "observedMonths": [
+    "2018-03",
+    "2018-07",
+    "2018-09",
+    "2019-09",
+    "2021-01",
+    "2021-05",
+    "2022-07",
+    "2022-08",
+    "2022-12",
+    "2023-10",
+    "2024-11",
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-05",
+    "2026-06",
+    "2026-09"
+  ],
+  "records": 17,
+  "fatalities": 18,
+  "citation": "BikeWalk Provo. Fatal active transportation crashes in Provo, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/provo-active-transportation-fatal-crashes/1.0.0/datapackage.json",
+  "sourceRelease": "incidents-4fbbb5835c07b4789304",
+  "resources": [
+    {
+      "name": "fatal-crashes",
+      "path": "fatal-crashes.geojson",
+      "bytes": 5211,
+      "hash": "sha256:65be975b6f7be9af602ba96e430633f5b39f04aba497eb71b1c1f0d8ef458358"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 596,
+      "hash": "sha256:c142a82858db24acd00d25ec6217922a25cd657c96ff5a04415a642fb482cf10"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 634,
+      "hash": "sha256:7ef021745a28212b6828ce28ffcea12ff41b981a959a0e56faa99eaafd5153bf"
+    }
+  ]
+}

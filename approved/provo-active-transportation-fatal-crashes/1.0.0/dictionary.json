@@ -1,0 +1,7 @@
+{
+  "id": "String. State crash identifier, one feature per crash.",
+  "geometry": "GeoJSON Point in longitude, latitude order (WGS84). Portal location rounded to four decimal places. Approximate.",
+  "month": "String YYYY-MM. State occurrence month in Mountain Time.",
+  "mode": "Category of the person or people recorded killed: pedestrian, bicycle, or other-conveyance. The last includes wheelchairs, skaters and personal conveyances. It does not identify a specific device.",
+  "fatalities": "Integer. Number of people recorded killed in this crash, including multiple deaths in one crash."
+}

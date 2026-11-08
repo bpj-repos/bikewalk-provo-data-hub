@@ -42,3 +42,18 @@ Before retiring a receipt location, back up the full current operational tree an
 Projects adopts the two 1.0.0 annual packages independently. The restored AT series reproduced its nine rows (680 total), and the retained fatalities and incident-map inputs reproduced 17 incidents with 18 deaths and 1,195 mapped features respectively. The incident map uses its historical input pin.
 
 Streets Watch selects existing concern memberships by state ID. From the hub use `python -m danger_zones.concern_details --release RELEASE_DIRECTORY --manifest-sha256 HASH --output NEW_RESTRICTED_FILE` with `PYTHONPATH=tools/crash_pipeline/src` and `umask 077`. The payload includes seven public field groups. For a reviewed state/PD pair it also carries the case number and match basis. Preserve strong, probable, exact-time-and-address and documentary distinctions. Reviewed narratives and original PD records stay private. The Streets Watch [adoption instructions](https://github.com/bpj-repos/streets.watch/blob/main/docs/CONCERN_CRASH_DETAILS.md) cover its separate preview, backup, apply, replay and rollback.
+
+## Review the next state or PD receipt
+
+Run `update_crashes.py` with the delivered inputs as above. From the hub root, compare the resulting pin with both currently approved annual packages and the exact concern export that Streets Watch last adopted:
+
+```sh
+umask 077
+PYTHONPATH=tools/crash_pipeline/src python -B review_crash_receipt.py \
+  private/crashes/NEW_RECEIPT_REVIEW LAST_ADOPTED_DETAILS_JSON DETAILS_SHA256 \
+  --case OPEN_PD_CASE_1 --case OPEN_PD_CASE_2
+```
+
+Pass the watchlist from the previous restricted review using one `--case` per report. Inspect `comparison.json` for changed years, changed resource bytes, changed PD references, the open-case disposition and the motor-only held count. Re-examine candidate evidence for the open reports against new source rows. The watchlist check reports accepted links only. The existing matcher and review tools retain candidates. The generated annual packages are private comparisons under their previous version labels. When publication changes, rebuild with a new version and obtain approval for its pin. Run the Streets Watch importer in preview mode against the generated details file to see which live concerns would change.
+
+On November 7 the receipt check reproduced all nine rows and both complete annual manifests at 1.0.0. The managed release still has four open forwarded PD cases and 127 motor-only cases held for review. The concern export matched its adopted hash and the live preview found zero changed concerns. The restricted report is in `private/crashes/receipt-comparison-20261107`. The three forwarded messages from the established PD delivery channel were already ingested. The retained older portal workbook is a historical review input, not a new city update.

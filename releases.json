@@ -19,6 +19,11 @@
       "dataset": "annual-motor-vehicle-crashes-without-nonmotorists",
       "version": "1.0.0",
       "sha256": "909f7b37b708b434a7e301bd07d223769895c8c2b5ece46d52316ba98a8ab35e"
+    },
+    {
+      "dataset": "provo-active-transportation-fatal-crashes",
+      "version": "1.0.0",
+      "sha256": "fcc243f1d113810bd8b7180a3f8283008f73b7986e9f3212afb565352cec1a58"
     }
   ],
   "withdrawn": []

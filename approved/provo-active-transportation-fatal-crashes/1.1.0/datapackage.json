@@ -1,0 +1,69 @@
+{
+  "name": "provo-active-transportation-fatal-crashes",
+  "version": "1.1.0",
+  "title": "Fatal active transportation crashes in Provo",
+  "source": "https://utaps.shinyapps.io/DataPortalAWS/",
+  "attribution": "Utah Crash Data Portal and UDOT. Prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal, UDOT, and BikeWalk Provo when reusing this geographic dataset.",
+  "coverage": "State portal Provo city assignments, starting in 2010. Recent records are provisional.",
+  "citySourceSelections": [
+    "Jan 01, 2010 to Dec 31, 2017 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017",
+    "Jan 01, 2018 to Oct 31, 2026 for 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026",
+    "Jan 01, 2018 to Nov 01, 2026 for 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "observedMonths": [
+    "2010-09",
+    "2012-03",
+    "2013-02",
+    "2014-01",
+    "2015-01",
+    "2016-07",
+    "2016-12",
+    "2017-06",
+    "2018-03",
+    "2018-07",
+    "2018-09",
+    "2019-09",
+    "2021-01",
+    "2021-05",
+    "2022-07",
+    "2022-08",
+    "2022-12",
+    "2023-10",
+    "2024-11",
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-05",
+    "2026-06",
+    "2026-09"
+  ],
+  "records": 25,
+  "fatalities": 26,
+  "citation": "BikeWalk Provo. Fatal active transportation crashes in Provo, 1.1.0. https://bikewalk-provo-data-hub.vercel.app/datasets/provo-active-transportation-fatal-crashes/1.1.0/datapackage.json",
+  "sourceRelease": "incidents-4fbbb5835c07b4789304",
+  "resources": [
+    {
+      "name": "fatal-crashes",
+      "path": "fatal-crashes.geojson",
+      "bytes": 7616,
+      "hash": "sha256:d54f044459b3a8d2c268dc4ade314e3e659089dbcadcee422d6134c12db8633b"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 596,
+      "hash": "sha256:c142a82858db24acd00d25ec6217922a25cd657c96ff5a04415a642fb482cf10"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 1085,
+      "hash": "sha256:b019022bdebf62baac4a1bdf04179d3f3a31324c20c671d9faee228764ffb018"
+    }
+  ],
+  "historicalSource": {
+    "period": "2010–2017",
+    "workbookSha256": "99eedb508fd52388f7c44dfaf7645e4b7816f53ceeb55a562be8458587c424c7"
+  }
+}

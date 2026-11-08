@@ -24,6 +24,11 @@
       "dataset": "provo-active-transportation-fatal-crashes",
       "version": "1.0.0",
       "sha256": "fcc243f1d113810bd8b7180a3f8283008f73b7986e9f3212afb565352cec1a58"
+    },
+    {
+      "dataset": "provo-active-transportation-fatal-crashes",
+      "version": "1.1.0",
+      "sha256": "122e4f56a86b0a94f21eccbced54904754522493d1caa57f7a92a5f2623e73b0"
     }
   ],
   "withdrawn": []

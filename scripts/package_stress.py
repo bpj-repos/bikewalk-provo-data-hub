@@ -58,6 +58,18 @@ def package(base, stress, output, version, refreshed_sources=None):
     dictionary["bicycleStress"] = json.loads(
         (contract / "stress-dictionary.json").read_bytes()
     )
+    if refreshed_sources and inputs.get("ridingCondition"):
+        dictionary["bicycleStress"].update(
+            ridingCondition=inputs["ridingCondition"],
+            conditionBasis="bna, calibrated-facility, bracketed-same-way, native-utah or not-rated; identifies the basis of the displayed condition.",
+            anchorBnaRoad="BNA road anchoring a short fallback between consistent same-way transitions.",
+            utahFacility="Publisher facility used to select the Utah calibration stratum.",
+        )
+        files["stress-method.md"] += (
+            "\n## Riding conditions\n\n"
+            + inputs["ridingCondition"]
+            + " School designation describes the plan. Conditions describe modeled bicycle comfort, including how a crossing may feel. They do not measure traffic counts or guarantee safety.\n"
+        ).encode()
     files["dictionary.json"] = encoded(dictionary)
     files["coverage.md"] += (
         b"\nBicycle stress coverage by school is in stress-coverage.json. Counts refer to route-associated approaches; a shared location may appear on multiple routes. See stress-method.md.\n"

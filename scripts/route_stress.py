@@ -85,9 +85,9 @@ class Network:
             self.props.append(f["properties"])
         self.tree = STRtree(self.lines)
 
-    def match(self, point, direction):
+    def match(self, point, direction, *, distance=12):
         candidates = []
-        for idx in self.tree.query(point, predicate="dwithin", distance=12):
+        for idx in self.tree.query(point, predicate="dwithin", distance=distance):
             idx = int(idx)
             line = self.lines[idx]
             m = line.project(point)
@@ -129,7 +129,18 @@ def feature(id_, geom, props):
     )
 
 
-def build(base, ways, nodes, utah, output, *, osm_date="2026-11-07", utah_date="2026-10-09"):
+def build(
+    base,
+    ways,
+    nodes,
+    utah,
+    output,
+    *,
+    osm_date="2026-11-07",
+    utah_date="2026-10-09",
+    riding_conditions=False,
+    calibration=None,
+):
     routes = load(base / "safe-school-routes.geojson")["features"]
     plans = load(base / "safe-route-plan-features.geojson")["features"]
 
@@ -196,6 +207,7 @@ def build(base, ways, nodes, utah, output, *, osm_date="2026-11-07", utah_date="
                     runs.append([key, i, i + 1])
                 else:
                     runs[-1][2] = i + 1
+            part_start = len(segments)
             rid = f"{parent}:{part}"
             seen = []
             for ix, ((net, match, status), start, end) in enumerate(runs):
@@ -223,6 +235,24 @@ def build(base, ways, nodes, utah, output, *, osm_date="2026-11-07", utah_date="
                         if v not in range(5):
                             raise ValueError("Unknown Utah score")
                         props["utahLts"] = raw_score
+                        if riding_conditions:
+                            facility = str(p.get("Facility1") or "")
+                            model = (
+                                (calibration or {})
+                                .get("groups", {})
+                                .get(f"{v}|{facility}", {})
+                            )
+                            props["utahFacility"] = facility
+                            props["conditionBasis"] = model.get("basis", "native-utah")
+                            props["ridingCondition"] = model.get(
+                                "display",
+                                "calmer"
+                                if v <= 1
+                                else "moderate"
+                                if v == 2
+                                else "busier",
+                            )
+
                         props["directionBasis"] = "undirected"
                         scores = [v, v]
                     else:
@@ -243,6 +273,80 @@ def build(base, ways, nodes, utah, output, *, osm_date="2026-11-07", utah_date="
                 review[name][(props["source"] or "unassessed") + " source meters"] += (
                     piece.length
                 )
+            if riding_conditions:
+                # Identify through stretches that actually share a Utah way at the source switch.
+                # A confident BNA anchor informs only an already-rated, short, bracketed fallback.
+                anchors = defaultdict(list)
+                seams = []
+                for ix, (l, r) in enumerate(zip(runs, runs[1:])):
+                    if {l[0][0], r[0][0]} != {0, 1}:
+                        continue
+                    bi, ui = (ix, ix + 1) if l[0][0] == 0 else (ix + 1, ix)
+                    bkey, bs, be = runs[bi]
+                    bo = bkey[1][0]
+                    uo = runs[ui][0][1][0]
+                    m = l[2] * line.length / n
+                    a = tangent(line, max(0, m - 5))
+                    z = tangent(line, min(line.length, m + 5))
+                    if dot(a, z) < 0.96:
+                        continue
+                    q = line.interpolate(m)
+                    bline = nets[0].lines[bo]
+                    bm = bline.project(q)
+                    # Don't carry comfort across a BNA endpoint or junction.
+                    if min(bm, bline.length - bm) <= 12:
+                        continue
+                    check = max(
+                        bs * line.length / n,
+                        min(be * line.length / n, m + (-3 if bi == ix else 3)),
+                    )
+                    same, _ = nets[1].match(
+                        line.interpolate(check), tangent(line, check)
+                    )
+                    if not same or same[0] != uo:
+                        continue
+                    bprops = segments[part_start + bi]["properties"]
+                    if (
+                        None in (bprops["forward"], bprops["reverse"])
+                        or bprops["forward"] != bprops["reverse"]
+                    ):
+                        continue
+                    grade = (
+                        "calmer"
+                        if bprops["forward"] <= 1
+                        else "moderate"
+                        if bprops["forward"] == 2
+                        else "busier"
+                    )
+                    anchors[ui].append((grade, bprops["sourceId"]))
+                    seams.append((ui, grade))
+                for ui, evidence in anchors.items():
+                    p = segments[part_start + ui]["properties"]
+                    if (
+                        len(evidence) == 2
+                        and evidence[0] == evidence[1]
+                        and p["lengthMeters"] <= 30
+                    ):
+                        p.update(
+                            ridingCondition=evidence[0][0],
+                            conditionBasis="bracketed-same-way",
+                            anchorBnaRoad=evidence[0][1],
+                        )
+                for ui, expected in seams:
+                    p = segments[part_start + ui]["properties"]
+                    nscore = p["forward"]
+                    raw = (
+                        "calmer"
+                        if nscore <= 1
+                        else "moderate"
+                        if nscore == 2
+                        else "busier"
+                    )
+                    review[name]["sameWaySourceSwitches"] += 1
+                    review[name]["nativeSwitchDisagreements"] += int(raw != expected)
+                    review[name]["displaySwitchDisagreements"] += int(
+                        p["ridingCondition"] != expected
+                    )
             # Only straight continuations between connected, matched ways pass through an intersection.
             for ix, ((left, _, end), (right, start, _)) in enumerate(
                 zip(runs, runs[1:])
@@ -332,6 +436,27 @@ def build(base, ways, nodes, utah, output, *, osm_date="2026-11-07", utah_date="
                 - line.length
             ) > 0.001 * len(runs):
                 raise ValueError("Route length mismatch")
+    if riding_conditions:
+        for row in [*segments, *crossings]:
+            props = row["properties"]
+            known = [s for s in (props["forward"], props["reverse"]) if s is not None]
+            props["ridingCondition"] = props.get("ridingCondition") or (
+                "not-rated"
+                if not known
+                else "calmer"
+                if max(known) <= 1
+                else "moderate"
+                if max(known) == 2
+                else "busier"
+            )
+            props.setdefault("conditionBasis", "not-rated" if not known else "bna")
+            counts = review[props["schoolName"]]
+            if "lengthMeters" in props:
+                counts[props["ridingCondition"] + "ConditionMeters"] += props[
+                    "lengthMeters"
+                ]
+            else:
+                counts[props["ridingCondition"] + "ConditionCrossings"] += 1
     output.mkdir(parents=True, exist_ok=False)
     for key, rows in zip(KEYS, (segments, crossings)):
         if len({f["id"] for f in rows}) != len(rows):

@@ -357,7 +357,9 @@ def main(out):
     previous = current()
     old = ROOT / "releases/datasets" / safe_routes.DATASET / previous["version"]
     major, minor, patch = map(int, previous["version"].split("."))
-    version = f"{major}.{minor}.{patch + 1}"
+    version = (
+        "1.3.0" if previous["version"] == "1.2.0" else f"{major}.{minor}.{patch + 1}"
+    )
     archive = out / "safe-routes-july.tar.gz"
     run(
         "gh",
@@ -386,6 +388,9 @@ def main(out):
     inputs = out / "inputs"
     inputs.mkdir()
     source = capture(inputs, base)
+    source["ridingCondition"] = (
+        "Calmer and Busier follow the PeopleForBikes movement model. Utah fallback scores are calibrated against local BNA ratings by facility and native score. Unvalidated Utah strata retain the native band (0–1 Calmer, 2 Moderate, 3–4 Busier). Not rated means no defensible rating. See the calibration table and held-out errors in sources.json. Native values and the historic stress field remain available."
+    )
     model(inputs, source)
     network = [
         "neighborhood_ways.geojson",
@@ -393,6 +398,11 @@ def main(out):
         "utah-bikeways.geojson.gz",
     ]
     source["pinnedResources"] = {n: digest(inputs / n) for n in network}
+    from scripts.calibrate_route_stress import calibrate
+
+    source["calibration"] = calibrate(
+        base / "safe-school-routes.geojson", inputs / network[0], inputs / network[2]
+    )
     osm_date = source["modelInputs"]["utah.osm.pbf"]["snapshot"][:10]
     utah_date = source["utahBikeways"]["date"]
     stress = out / "stress"
@@ -402,16 +412,63 @@ def main(out):
         stress,
         osm_date=osm_date,
         utah_date=utah_date,
+        riding_conditions=True,
+        calibration=source["calibration"],
     )
     package = out / "package"
     package_stress.package(base, stress, package, version, source)
+    from scripts.unrated_route_review import review as unrated_review
+
+    lead_report = unrated_review(
+        stress / "safe-route-stress-segments.geojson",
+        inputs / network[0],
+        inputs / network[2],
+    )
+    write(out / "unrated-review.json", lead_report)
+    with (out / "school-coverage-review.txt").open("w") as result:
+        run(sys.executable, "-m", "scripts.audit_coverage", stdout=result)
     changes = compare(old, package, layers=[*safe_routes.LAYERS, *route_stress.KEYS])
     write(out / "changes.json", changes)
     summary = {
         k: {kind: len(ids) for kind, ids in counts.items()}
         for k, counts in changes.items()
     }
+    prior = json.loads((old / "sources.json").read_bytes())["bicycleStress"]
+    fields = (
+        "analyzer",
+        "database",
+        "publishedComparison",
+        "comparisonSha256",
+        "modelInputs",
+        "pinnedResources",
+        "speed",
+    )
+    source_changes = [k for k in fields if source.get(k) != prior.get(k)]
+    features = json.loads((stress / "safe-route-stress-segments.geojson").read_bytes())[
+        "features"
+    ]
+    switches = {"boundaries": 0, "nativeDifferences": 0, "calibratedDifferences": 0}
+    for left, right in zip(features, features[1:]):
+        a, b = left["properties"], right["properties"]
+        if (a["routeId"], a["part"]) != (b["routeId"], b["part"]) or {
+            a["source"],
+            b["source"],
+        } != {route_stress.BNA, route_stress.UTAH}:
+            continue
+        ut, bna = (a, b) if a["source"] == route_stress.UTAH else (b, a)
+        from scripts.calibrate_route_stress import native
+
+        switches["boundaries"] += 1
+        switches["nativeDifferences"] += int(
+            native(ut["forward"]) != bna["ridingCondition"]
+        )
+        switches["calibratedDifferences"] += int(
+            ut["ridingCondition"] != bna["ridingCondition"]
+        )
     report = dict(
+        sourceSwitches=switches,
+        sourceChanges=source_changes,
+        unratedScreen=lead_report["summary"],
         previous=previous,
         version=version,
         sha256=digest(package / "datapackage.json"),

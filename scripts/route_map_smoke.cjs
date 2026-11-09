@@ -10,7 +10,7 @@ const [url,stage] = process.argv.slice(2);
   for(const width of [390,1280]) {
    const ctx=await browser.newContext({viewport:{width,height:800}});
    if(stage){
-    const headers=execFileSync("vercel",["curl","/?x-vercel-set-bypass-cookie=true","--deployment",url,"--scope=brycepjs-projects","--","--head"],{stdio:["ignore","pipe","pipe"]}).toString();
+    const headers=execFileSync("vercel",["curl","/?x-vercel-set-bypass-cookie=true","--deployment",url,"--scope=brycepjs-projects","--","--head"],{cwd:require("node:path").resolve(process.cwd(),"../.."),stdio:["ignore","pipe","pipe"]}).toString();
     const cookies=[...headers.matchAll(/^set-cookie:\s*([^=;\s]+)=([^;\r\n]*)/gim)].map(m=>({name:m[1],value:m[2],url}));
     await ctx.addCookies(cookies);
    }

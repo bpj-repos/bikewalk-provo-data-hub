@@ -411,7 +411,7 @@ def publish(runid, pin, projects, verify_only):
             )
             print("Already published and verified:", version, pin)
             return
-        archive(folder, work, "source-receipts-safe-routes-" + version)
+        archive(folder, work, f"source-receipts-safe-routes-{version}-{pin[:12]}")
         if entry not in head_ledger["approved"]:
             if not release.exists():
                 with tempfile.TemporaryDirectory(dir=work) as t:

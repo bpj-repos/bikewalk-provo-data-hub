@@ -25,11 +25,12 @@ jobs:
           python -m scripts.refresh_route_sources private/refresh
           mkdir private/rebuild
           python -m scripts.rebuild_route_candidate private/refresh private/rebuild
-          python -c 'import json; r=json.load(open("private/refresh/review.json")); print("Candidate",r["version"],r["sha256"]); print("Source changes:",r["sourceChanges"]); print("Unrated screening:",r["unratedScreen"]); print(json.dumps(r["changes"],indent=2)); print("After review: python -m scripts.publish_route_update",__import__("os").environ["GITHUB_RUN_ID"],r["sha256"])' >> "$GITHUB_STEP_SUMMARY"
+          python -m scripts.route_refresh_summary private/refresh "$GITHUB_RUN_ID" | tee private/refresh/review.md >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         with:
           name: safe-routes-review-${{ github.run_id }}
           path: |
+            private/refresh/review.md
             private/refresh/review.json
             private/refresh/changes.json
             private/refresh/unrated-review.json

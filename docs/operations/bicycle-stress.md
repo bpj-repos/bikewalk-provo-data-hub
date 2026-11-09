@@ -7,3 +7,9 @@ To refresh the local network, use the analyzer and database image digests in str
 In the November 9 review all 35,211 line features had endpoint coordinates consistent with their from/to IDs. All three higher-stress through crossings also appeared as high-stress approaches in the separate published Provo 26.04 analysis: 300 North at 900 East for Provo Peaks, and the paths crossing 800 North and 100 North for Timpanogos. Opposite movements on the same nodes had different scores. Edgemont had 27 modeled lower-stress crossings and four unassessed plan records. Utah and local BNA disagreed on about 2.41 of the 3.92 km compared at Edgemont. Timpanogos had 8.28 km of unassessed route geometry. These are checks on model interpretation and alignment, not field verification.
 
 For withdrawal or rollback use the hub release ledger and the existing consumer swap workflow. Projects verifies and copies the two optional resources for 1.2.0; legacy Streets Watch keeps its independently pinned three layers. The canonical app's Data Hub lists the resources and map.
+
+## Release evidence, November 9, 2026
+
+Hub 1.2.0 manifest SHA-256 `f651204769e1467f01149996212af4f1a368165fa74ca13d34bf48ede083d83c` at producer commit `34d6821bec383fb6ceafb94077f5d99b980af237`. Two builds reproduced identical package bytes. The 18 hub and 140 crash tests passed. All 94 staging and public catalog files were verified for bytes, MIME type and CORS. Hub deployment `dpl_4Vyrr44cJhYJC2zim67zWYtcqKf8` was promoted to the stable data-hub alias.
+
+Projects adopted that exact pin in commit `32e19a072dd8b4d4cddeb163148650d41026d4c5`, deployment `dpl_9UDqLjYNRKoyMB2rdTBgnb2hHL6k`. Public release identity, all five geometry hashes, dataset listing, switch default and tapping the Timpanogos 800 North crossing were verified. The prior Projects commit was `a43ee341bc471a090bcb77f2f79cb991e193d9a1` with Safe Routes 1.1.0. Provider refresh and field verification are independent of release checks.

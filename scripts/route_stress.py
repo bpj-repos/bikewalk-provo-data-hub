@@ -438,6 +438,14 @@ def build(
                 raise ValueError("Route length mismatch")
     if riding_conditions:
         for row in [*segments, *crossings]:
+            # The projected inverse transform can vary by a few ulps between GEOS/PROJ platforms.
+            coords = row["geometry"]["coordinates"]
+            if row["geometry"]["type"] == "Point":
+                row["geometry"]["coordinates"] = [round(x, 7) for x in coords]
+            else:
+                row["geometry"]["coordinates"] = [
+                    [round(x, 7) for x in pt] for pt in coords
+                ]
             props = row["properties"]
             known = [s for s in (props["forward"], props["reverse"]) if s is not None]
             props["ridingCondition"] = props.get("ridingCondition") or (

@@ -1,0 +1,230 @@
+{
+  "receipts": {
+    "safe-routes-schools.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3",
+      "retrievedAt": "2026-11-09T19:29:31.282692+00:00",
+      "sha256": "0341011d4fa6e97e7cb29dc0d47d63e01889efce58eb1db431a59c43a9bb1b66"
+    },
+    "archive-safe-routes-schools.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Schools_Public_View/FeatureServer/3",
+      "retrievedAt": "2026-07-21T02:01:23.184589Z",
+      "sha256": "3234fd4864174175ddb1f32add25fd4f647699517eafc4ab44d6de22242e9a63"
+    },
+    "safe-school-routes.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Routes_Public_View/FeatureServer/2",
+      "retrievedAt": "2026-11-09T19:29:31.282692+00:00",
+      "sha256": "5f1a57e014d59ed1139aeb69753094f3661d878b6e276338e6786da7a35dbef0"
+    },
+    "archive-safe-school-routes.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Routes_Public_View/FeatureServer/2",
+      "retrievedAt": "2026-07-21T02:01:23.184589Z",
+      "sha256": "8a15e6dcb4880ae6ba37b3126e8220561bfa0d83aad399378a65a4134112c0a3"
+    },
+    "safe-route-plan-features.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Features_Public_View/FeatureServer/1",
+      "retrievedAt": "2026-11-09T19:29:31.282692+00:00",
+      "sha256": "cdd273ffc4688de26b13331aee70a9a10c727f8ea7eace22d8cbae4af5bddbd2"
+    },
+    "archive-safe-route-plan-features.json": {
+      "url": "https://services.arcgis.com/pA2nEVnB6tquxgOW/arcgis/rest/services/SR2S_Features_Public_View/FeatureServer/1",
+      "retrievedAt": "2026-07-21T02:01:23.184589Z",
+      "sha256": "ccfbd18dd9133a67f1c70a013d3438db2fdb44ef250e7e14818fa6d68411a529"
+    },
+    "school-approval.json": {
+      "url": "https://timpanogos.provo.edu/january-12-2026-community-council-agenda-minutes/",
+      "retrievedAt": "2026-11-07",
+      "sha256": "8db4f12a56a6a924de79ff6e2b02aa75cb8c5e802f1883ed614f234e7798de64"
+    }
+  },
+  "filter": "APPROVED = 'Yes' AND (NAME_DISTRICT = 'Provo' OR (NAME_DISTRICT = 'CHARTER' AND ID_SCHOOL = 773 AND NAME_SCHOOL = 'Treeside Charter School'))",
+  "archivedSnapshot": "udot-safe-routes-to-school-785cfb00279ee95b",
+  "review": {
+    "safe-routes-schools": {
+      "features": 16,
+      "campusReview": [],
+      "rejected": [],
+      "missingSchoolId": 0,
+      "supplements": 0
+    },
+    "safe-school-routes": {
+      "features": 195,
+      "campusReview": [],
+      "rejected": [
+        "udot:safe-school-routes:354754fb-2cad-4f62-8d0d-dd28eb346938"
+      ],
+      "missingSchoolId": 6,
+      "supplements": 0
+    },
+    "safe-route-plan-features": {
+      "features": 800,
+      "campusReview": [
+        "7997c0bf-763e-4e0f-8f64-5c905cdc8e1e",
+        "9d57aa71-40a3-43a3-bd26-635bb1e24732",
+        "cd9839d4-6dcb-4b20-a9ff-0fd869d77a94",
+        "ae25049d-a76c-468b-b785-6f98f1666be6",
+        "f492e1dc-ee6a-4f51-993d-2ce254ef8ff9",
+        "bbf68391-0bb0-4c43-940f-1ccf940f2313",
+        "57c7eb1a-db8a-4f6e-b015-e1c08c827d96",
+        "4ea89b48-a1b1-4bd5-adb5-58e7d580fab4",
+        "e845817d-f9c5-4607-909d-7336325d8950",
+        "93e8b0e1-18e5-4674-bef1-fe2236ee4a06",
+        "55ec705a-7aec-4b9d-8471-5bbf08869ed3",
+        "97cab918-1e1d-46a5-afe3-eca3b287553f",
+        "eef8e2e0-9649-4d61-ab05-fcdc1858a112",
+        "76db2904-778d-419f-9f99-61d735bbe580"
+      ],
+      "rejected": [],
+      "missingSchoolId": 3,
+      "supplements": 0
+    }
+  },
+  "bicycleStress": {
+    "method": "BikeWalk local Brokenspoke Analyzer 3.3.0",
+    "analyzer": "ghcr.io/peopleforbikes/brokenspoke-analyzer@sha256:0a0f64bbcef3f1263c14bd063d47a7f8ecbfa2e63eb9424752486ff3f364094d",
+    "analyzerVersion": "3.3.0",
+    "database": "ghcr.io/gui/pgrouting@sha256:8944935dc9f3d13374b4ec9ceb7cbacb075a050668f878df3caf908337481e55",
+    "publishedComparison": "https://files.storage.bna.peopleforbikes.org/united%20states/utah/provo/26.04/neighborhood_ways.geojson",
+    "publishedVersion": "26.04",
+    "comparisonSha256": "058ac7de4ffa80192bd20aae54fe82155b800b0909eec4e37befea2337d9eac0",
+    "speed": 25,
+    "utahBikeways": {
+      "url": "https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/Bikeways/FeatureServer/0",
+      "date": "2026-10-09",
+      "extent": "-111.726288751632,40.1961880205926,-111.61304057543201,40.309233372124304",
+      "count": 3105,
+      "sha256": "81ee1455cae113d9fbd14333449a2fd7e948cab6ce96125c2982a1ff3c9d0b20"
+    },
+    "modelInputs": {
+      "utah.osm.pbf": {
+        "origin": "https://download.geofabrik.de/north-america/us/utah-latest.osm.pbf",
+        "snapshot": "2026-11-08T21:21:00Z",
+        "sha256": "d09440ef11475f2f70473dd791569a6bbc39bd274f10429528185724e9556a38"
+      },
+      "boundary.json": {
+        "origin": "https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/UtahMunicipalBoundaries/FeatureServer/0",
+        "sha256": "77dfbdbe73a0e9002caa560cd1623fdaaedd39d53429583cfe61786f7a21deea"
+      }
+    },
+    "ridingCondition": "Calmer and Busier follow the PeopleForBikes movement model. Utah fallback scores are calibrated against local BNA ratings by facility and native score. Unvalidated Utah strata retain the native band (0–1 Calmer, 2 Moderate, 3–4 Busier). Not rated means no defensible rating. See the calibration table and held-out errors in sources.json. Native values and the historic stress field remain available.",
+    "pinnedResources": {
+      "neighborhood_ways.geojson": "4b3eb4366bbbb7aed77130f32461d3934028bebb887fea0566670b2415bd31bc",
+      "neighborhood_ways_intersections.geojson": "489f535f1c3a938cf0f2779ee4f15cb535fb297dc39bbb4299293ed4c09c77d0",
+      "utah-bikeways.geojson.gz": "81ee1455cae113d9fbd14333449a2fd7e948cab6ce96125c2982a1ff3c9d0b20"
+    },
+    "calibration": {
+      "method": "Five-meter BNA edge bins counted once across plans. Paired unambiguous Utah score and facility, both BNA directions assessed. Each named corridor or unnamed OSM way contributes up to 500 m of weight. Hold out whole corridors. A calibrated class needs at least 40 paired bins, five corridors, 80% corridor-balanced consensus, support in 80% of held-out folds, and at least 0.05 improvement in mean held-out ordinal error to override a native label. Unsupported groups retain the native band. BNA stays primary; crossings retain their own movement scores.",
+      "groups": {
+        "0|Trail or Pathway": {
+          "display": "calmer",
+          "basis": "calibrated-facility",
+          "sampleBins": 59,
+          "corridors": 10,
+          "bnaBusierBins": 0,
+          "validatedFolds": 9,
+          "baselineError": 0.0,
+          "heldOutError": 0.0
+        },
+        "1|Bike lane (2B)": {
+          "display": "busier",
+          "basis": "calibrated-facility",
+          "sampleBins": 2873,
+          "corridors": 65,
+          "bnaBusierBins": 2775,
+          "validatedFolds": 65,
+          "baselineError": 0.946,
+          "heldOutError": 0.054
+        },
+        "2|Bike lane (2B)": {
+          "display": "moderate",
+          "basis": "native-utah",
+          "sampleBins": 112,
+          "corridors": 3,
+          "bnaBusierBins": 111,
+          "validatedFolds": 0,
+          "baselineError": 0.5,
+          "heldOutError": 0.5
+        },
+        "2|Marked shared roadway (3B)": {
+          "display": "moderate",
+          "basis": "native-utah",
+          "sampleBins": 51,
+          "corridors": 2,
+          "bnaBusierBins": 22,
+          "validatedFolds": 0,
+          "baselineError": 0.5,
+          "heldOutError": 0.5
+        },
+        "2|Not Available": {
+          "display": "calmer",
+          "basis": "calibrated-facility",
+          "sampleBins": 5273,
+          "corridors": 138,
+          "bnaBusierBins": 286,
+          "validatedFolds": 138,
+          "baselineError": 0.5,
+          "heldOutError": 0.0647
+        },
+        "2|Shoulder bikeway (3A)": {
+          "display": "busier",
+          "basis": "calibrated-facility",
+          "sampleBins": 175,
+          "corridors": 7,
+          "bnaBusierBins": 165,
+          "validatedFolds": 7,
+          "baselineError": 0.5,
+          "heldOutError": 0.0571
+        },
+        "3|Not Available": {
+          "display": "busier",
+          "basis": "native-utah",
+          "sampleBins": 833,
+          "corridors": 15,
+          "bnaBusierBins": 608,
+          "validatedFolds": 1,
+          "baselineError": 0.2527,
+          "heldOutError": 0.2527
+        },
+        "3|Shoulder bikeway (3A)": {
+          "display": "busier",
+          "basis": "calibrated-facility",
+          "sampleBins": 581,
+          "corridors": 18,
+          "bnaBusierBins": 542,
+          "validatedFolds": 18,
+          "baselineError": 0.1178,
+          "heldOutError": 0.1178
+        },
+        "4|Buffered bike lane (2A)": {
+          "display": "busier",
+          "basis": "native-utah",
+          "sampleBins": 28,
+          "corridors": 1,
+          "bnaBusierBins": 28,
+          "validatedFolds": 0,
+          "baselineError": 0.0,
+          "heldOutError": 0.0
+        },
+        "4|Not Available": {
+          "display": "busier",
+          "basis": "calibrated-facility",
+          "sampleBins": 678,
+          "corridors": 8,
+          "bnaBusierBins": 668,
+          "validatedFolds": 8,
+          "baselineError": 0.0272,
+          "heldOutError": 0.0272
+        },
+        "4|Shoulder bikeway (3A)": {
+          "display": "busier",
+          "basis": "native-utah",
+          "sampleBins": 45,
+          "corridors": 1,
+          "bnaBusierBins": 45,
+          "validatedFolds": 0,
+          "baselineError": 0.0,
+          "heldOutError": 0.0
+        }
+      }
+    }
+  }
+}

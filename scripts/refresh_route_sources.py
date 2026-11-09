@@ -427,6 +427,10 @@ def main(out):
     write(out / "unrated-review.json", lead_report)
     with (out / "school-coverage-review.txt").open("w") as result:
         run(sys.executable, "-m", "scripts.audit_coverage", stdout=result)
+    from scripts.compare_published_bna import compare as compare_published
+
+    published_check = compare_published(stress, inputs)
+    write(out / "published-comparison.json", published_check)
     changes = compare(old, package, layers=[*safe_routes.LAYERS, *route_stress.KEYS])
     write(out / "changes.json", changes)
     summary = {
@@ -466,6 +470,11 @@ def main(out):
             ut["ridingCondition"] != bna["ridingCondition"]
         )
     report = dict(
+        publishedAgreement={
+            k: v
+            for k, v in published_check.items()
+            if k in ("segmentMeters", "crossingDirections")
+        },
         sourceSwitches=switches,
         sourceChanges=source_changes,
         unratedScreen=lead_report["summary"],

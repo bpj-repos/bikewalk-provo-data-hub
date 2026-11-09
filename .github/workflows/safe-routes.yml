@@ -33,6 +33,7 @@ jobs:
             private/refresh/review.json
             private/refresh/changes.json
             private/refresh/unrated-review.json
+            private/refresh/published-comparison.json
             private/refresh/campus.json
             private/refresh/school-coverage-review.txt
             private/refresh/inputs/

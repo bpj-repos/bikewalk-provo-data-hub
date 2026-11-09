@@ -178,6 +178,7 @@ def archive(folder, work, tag):
                 "campus.json",
                 "school-coverage-review.txt",
                 "unrated-review.json",
+                "published-comparison.json",
             ):
                 if (folder / name).is_file() or (folder / name).is_dir():
                     archive.add(folder / name, arcname=name, filter=stable)
@@ -214,12 +215,32 @@ def archive(folder, work, tag):
         raise ValueError("Durable source backup checksum mismatch")
 
 
-def clean(repo, paths):
+def unchanged_head(repo):
+    cmd(["git", "fetch", "origin", "main"], repo)
+    if git(repo, "rev-parse", "HEAD") != git(repo, "rev-parse", "FETCH_HEAD"):
+        raise ValueError(f"Refresh {repo} before promoting an older deployment")
+
+
+def clean(repo, paths, owned=()):
     if git(repo, "branch", "--show-current") != "main":
         raise ValueError(f"Use main in {repo}")
-    if git(repo, "diff", "--cached", "--name-only"):
+    if set(git(repo, "diff", "--cached", "--name-only").splitlines()) - set(owned):
         raise ValueError(f"Existing staged changes in {repo}")
-    if git(repo, "status", "--porcelain", "--", *paths):
+    dirty = cmd(
+        [
+            "git",
+            "status",
+            "--porcelain=v1",
+            "--untracked-files=all",
+            "-z",
+            "--",
+            *paths,
+        ],
+        repo,
+        output=True,
+    )
+    names = {r[3:].decode() for r in dirty.split(b"\0") if r}
+    if names - set(owned):
         raise ValueError(f"Local changes in the release paths in {repo}")
     cmd(["git", "fetch", "origin", "main"], repo)
     if git(repo, "rev-parse", "HEAD") != git(repo, "rev-parse", "FETCH_HEAD"):
@@ -331,8 +352,46 @@ def publish(runid, pin, projects, verify_only):
                     any(p == a or p.startswith(a + "/") for a in allowed) for p in paths
                 ):
                     cmd(["git", "push", "origin", "main"], repo)
-        clean(ROOT, ["."])
-        clean(projects, ["apps/maps"])
+        # Resume only publication-owned bytes after a failed test, commit, or push.
+        head_ledger = json.loads(git(ROOT, "show", "HEAD:releases/release-ledger.json"))
+        expected_ledger = json.loads(json.dumps(head_ledger))
+        if entry not in expected_ledger["approved"]:
+            expected_ledger["approved"].append(entry)
+        if ledger not in (head_ledger, expected_ledger):
+            raise ValueError("Unexpected local release ledger edits")
+        hub_owned = (
+            {"releases/release-ledger.json"} if ledger == expected_ledger else set()
+        )
+        if release.exists():
+            expected_files = checked_package(folder / "package", entry)
+            if {f.name for f in release.iterdir()} != set(expected_files) or any(
+                (release / n).read_bytes() != v for n, v in expected_files.items()
+            ):
+                raise ValueError("Existing release differs from approved candidate")
+            hub_owned.update(
+                str((release / n).relative_to(ROOT)) for n in expected_files
+            )
+        clean(ROOT, ["."], hub_owned)
+        app_owned = set()
+        if sha((routes / "datapackage.json").read_bytes()) == pin:
+            expected = {key + ".geojson" for key in GEO} | {
+                "manifest.json",
+                "datapackage.json",
+            }
+            if {f.name for f in routes.iterdir()} != expected:
+                raise ValueError("Unexpected Projects snapshot files")
+            if (
+                json.loads((routes / "manifest.json").read_bytes())["approval"]
+                != "BikeWalk approved hub pin " + pin
+            ):
+                raise ValueError("Unexpected Projects pin")
+            for key in GEO:
+                if (routes / (key + ".geojson")).read_bytes() != (
+                    folder / "package" / (key + ".geojson")
+                ).read_bytes():
+                    raise ValueError("Projects resource disagrees with approved data")
+            app_owned = {str((routes / n).relative_to(projects)) for n in expected}
+        clean(projects, ["apps/maps"], app_owned)
         if state.get("verified") and entry in ledger["approved"]:
             verify_app(
                 projects,
@@ -353,12 +412,16 @@ def publish(runid, pin, projects, verify_only):
             print("Already published and verified:", version, pin)
             return
         archive(folder, work, "source-receipts-safe-routes-" + version)
-        if entry not in ledger["approved"]:
-            shutil.copytree(folder / "package", release)
-            ledger["approved"].append(entry)
-            (ROOT / "releases/release-ledger.json").write_text(
-                json.dumps(ledger, indent=2) + "\n"
-            )
+        if entry not in head_ledger["approved"]:
+            if not release.exists():
+                with tempfile.TemporaryDirectory(dir=work) as t:
+                    ready = Path(t) / "package"
+                    shutil.copytree(folder / "package", ready)
+                    ready.rename(release)
+            ledger = expected_ledger
+            pending = work / "release-ledger.pending"
+            pending.write_text(json.dumps(ledger, indent=2) + "\n")
+            pending.replace(ROOT / "releases/release-ledger.json")
             cmd(
                 [
                     sys.executable,
@@ -379,7 +442,6 @@ def publish(runid, pin, projects, verify_only):
         )
         if not producer or sha((release / "datapackage.json").read_bytes()) != pin:
             raise ValueError("Published package mismatch")
-        stage = work / "hub-stage"
         ledger_sha = sha((ROOT / "releases/release-ledger.json").read_bytes())
         stage = work / ("hub-stage-" + ledger_sha[:12])
         if state.get("hubLedger") != ledger_sha:
@@ -387,7 +449,10 @@ def publish(runid, pin, projects, verify_only):
             state.pop("hubLive", None)
             save("hubLedger", ledger_sha)
         if not stage.exists():
-            build(projects, stage)
+            with tempfile.TemporaryDirectory(dir=work) as t:
+                ready = Path(t) / "hub"
+                build(projects, ready)
+                ready.rename(stage)
         if "hubURL" not in state:
             cmd(
                 [
@@ -404,6 +469,7 @@ def publish(runid, pin, projects, verify_only):
         verify = [sys.executable, ROOT / "scripts/verify_public_catalog.py", "public"]
         if not state.get("hubLive"):
             cmd([*verify, "--stage", state["hubURL"]], stage)
+            unchanged_head(ROOT)
             cmd(["vercel", "promote", state["hubURL"], "--yes", SCOPE], stage)
         cmd(verify, stage)
         save("hubLive", True)
@@ -419,6 +485,9 @@ def publish(runid, pin, projects, verify_only):
             if not review:
                 raise ValueError("Missing Projects review digest")
             cmd([*update, "apply", review[1].decode()], app)
+        if git(
+            projects, "status", "--porcelain", "--", "apps/maps/public/data/safe-routes"
+        ):
             cmd(["npm", "test"], app)
             cmd(["npm", "run", "build"], app)
             verified_push(
@@ -428,6 +497,10 @@ def publish(runid, pin, projects, verify_only):
             )
         app_sha = git(projects, "rev-parse", "HEAD")
         if "appURL" not in state or state.get("appSha") != app_sha:
+            cmd(
+                ["vercel", "link", "--yes", "--project", "bikewalk-provo-maps", SCOPE],
+                projects,
+            )
             cmd(
                 ["vercel", "pull", "--yes", "--environment=production", SCOPE], projects
             )
@@ -443,6 +516,7 @@ def publish(runid, pin, projects, verify_only):
             ["node", ROOT / "scripts/route_map_smoke.cjs", state["appURL"], "stage"],
             app,
         )
+        unchanged_head(projects)
         cmd(["vercel", "promote", state["appURL"], "--yes", SCOPE], projects)
         verify_app(projects, PROJECTS, pin, version, app_sha, producer, False)
         cmd(["node", ROOT / "scripts/route_map_smoke.cjs", PROJECTS], app)

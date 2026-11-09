@@ -26,7 +26,7 @@ with engine.begin() as conn:
         )
     ).scalar()
 bounds = box[4:-1].replace(" ", ",")
-osm = Path("/tmp/provo.osm")
+osm = Path(os.environ.get("BWP_MODEL_XML", "/tmp/provo.osm"))
 subprocess.run(
     [
         "osmium",
@@ -51,7 +51,7 @@ for schema, prefix, config in [
 ingestor.rename_neighborhood_tables(engine)
 runner.run_osm2pgsql(url, 32612, scripts / "pfb.style", osm, number_processes=2)
 compute.features(engine, scripts / "sql", 32612, 2680)
-compute.stress(engine, scripts / "sql", 25, 25)
+compute.stress(engine, scripts / "sql", 25, int(os.environ.get("BWP_CITY_SPEED", "25")))
 for table, fields in [
     (
         "neighborhood_ways",

@@ -5,9 +5,9 @@ from pathlib import Path
 
 from scripts.safe_routes import DATASET, LAYERS
 
-def compare(before,after):
+def compare(before,after,layers=LAYERS):
     diff={}
-    for layer in LAYERS:
+    for layer in layers:
         def index(folder):
             rows=json.loads((folder/(layer+'.geojson')).read_bytes())['features']
             result={r['id']:r for r in rows}

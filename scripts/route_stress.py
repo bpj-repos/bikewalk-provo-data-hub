@@ -129,7 +129,7 @@ def feature(id_, geom, props):
     )
 
 
-def build(base, ways, nodes, utah, output):
+def build(base, ways, nodes, utah, output, *, osm_date="2026-11-07", utah_date="2026-10-09"):
     routes = load(base / "safe-school-routes.geojson")["features"]
     plans = load(base / "safe-route-plan-features.geojson")["features"]
 
@@ -213,7 +213,7 @@ def build(base, ways, nodes, utah, output):
                     p = nets[net].props[match[0]]
                     props.update(
                         source=(BNA, UTAH)[net],
-                        sourceDate=("2026-11-07", "2026-10-09")[net],
+                        sourceDate=(osm_date, utah_date)[net],
                         sourceId=str(p["OBJECTID" if net else "road_id"]),
                         street=p.get("NAME" if net else "name"),
                     )
@@ -289,7 +289,7 @@ def build(base, ways, nodes, utah, output):
                     forwardBearing=bearing(v),
                     reverseBearing=bearing(w),
                     source=BNA,
-                    sourceDate="2026-11-07",
+                    sourceDate=osm_date,
                     sourceId=str(node),
                     approachIds=[a["road_id"], b["road_id"]],
                     street=a.get("name") or b.get("name"),

@@ -10,7 +10,7 @@ from scripts.safe_routes import DATASET, HOST
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def package(base, stress, output, version):
+def package(base, stress, output, version, refreshed_sources=None):
     manifest = json.loads((base / "datapackage.json").read_bytes())
     if manifest["name"] != DATASET:
         raise ValueError("Wrong base package")
@@ -31,7 +31,9 @@ def package(base, stress, output, version):
         if hashlib.sha256(files[name]).hexdigest() != pins[name]:
             raise ValueError("Stress annotations belong to different plan data")
     contract = ROOT / "data-definitions/safe-routes-to-school"
-    inputs = json.loads((contract / "stress-sources.json").read_bytes())
+    inputs = refreshed_sources or json.loads(
+        (contract / "stress-sources.json").read_bytes()
+    )
     for name, expected in inputs["pinnedResources"].items():
         if pins.get(name) != expected:
             raise ValueError("Unreviewed stress source: " + name)
@@ -46,6 +48,12 @@ def package(base, stress, output, version):
     sources["bicycleStress"] = inputs
     files["sources.json"] = encoded(sources)
     files["stress-method.md"] = (contract / "stress-method.md").read_bytes()
+    if refreshed_sources:
+        doc = files["stress-method.md"].decode().split("\n\n")
+        doc[2] = (
+            f"BikeWalk ran Brokenspoke {inputs['analyzerVersion']} on the Geofabrik Utah OSM snapshot {inputs['modelInputs']['utah.osm.pbf']['snapshot']}, with a 2,680 m buffer around the captured Provo boundary and {inputs['speed']} mph city residential default. The published Provo {inputs['publishedVersion']} network is a comparison input. Utah Bikeways ({inputs['utahBikeways']['date']}) supplies segment fallback within the route extent. See sources.json for image digests, source identities and checksums."
+        )
+        files["stress-method.md"] = "\n\n".join(doc).encode()
     dictionary = json.loads(files["dictionary.json"])
     dictionary["bicycleStress"] = json.loads(
         (contract / "stress-dictionary.json").read_bytes()
@@ -57,6 +65,10 @@ def package(base, stress, output, version):
     files["changes.md"] = (
         b"Adds modeled bicycle stress along routes and at identified crossing approaches, including explicit unassessed portions. The school plan layers retain their original identities and geometry.\n"
     )
+    if refreshed_sources:
+        files["changes.md"] = (
+            b"Refreshes the UDOT school plans, modeled bicycle approach and segment estimates, comparison sources and school coverage. Source vintages and checksums are recorded in sources.json.\n"
+        )
     manifest.update(
         version=version,
         citation=f"BikeWalk Provo. Provo Safe Routes to School, {version}. {HOST}/datasets/{DATASET}/{version}/datapackage.json",

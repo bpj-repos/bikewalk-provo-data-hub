@@ -34,6 +34,11 @@
       "dataset": "provo-active-transportation-incident-map",
       "version": "1.0.0",
       "sha256": "e9fdbe0101380792235c2ff1c43bccf0645c220730cf6d0ab12e8f403ea9df8e"
+    },
+    {
+      "dataset": "safe-routes-to-school",
+      "version": "1.2.0",
+      "sha256": "f651204769e1467f01149996212af4f1a368165fa74ca13d34bf48ede083d83c"
     }
   ],
   "withdrawn": []

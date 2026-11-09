@@ -1,0 +1,24 @@
+{
+  "method": "BikeWalk local run of PeopleForBikes Brokenspoke Analyzer 3.3.0; features and stress only",
+  "analyzer": "ghcr.io/peopleforbikes/brokenspoke-analyzer@sha256:0a0f64bbcef3f1263c14bd063d47a7f8ecbfa2e63eb9424752486ff3f364094d",
+  "database": "ghcr.io/gui/pgrouting@sha256:8944935dc9f3d13374b4ec9ceb7cbacb075a050668f878df3caf908337481e55",
+  "modelInputs": {
+    "utah.osm.pbf": {
+      "origin": "https://download.geofabrik.de/north-america/us/utah.html",
+      "snapshot": "2026-11-07T21:21:36Z",
+      "sha256": "f752d5c9d89e24432adc0fd549eacbfe9127c522989b46f4323abdba08bd7c51"
+    },
+    "boundary.json": {
+      "origin": "https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/UtahMunicipalBoundaries/FeatureServer/0",
+      "sha256": "462e903704ae0eca434933fc7091d65f99395028547bf243f98109191a3c7a51"
+    }
+  },
+  "utahBikeways": "https://gis.utah.gov/products/sgid/transportation/bikeways/",
+  "pinnedResources": {
+    "neighborhood_ways.geojson": "cda215a1d17a87372072f82a22f7ca8e40f8f6cbbb566796a6188671ef36ea06",
+    "neighborhood_ways_intersections.geojson": "c072411b82f9a1c26f1252fd6902208fe9fcbd8d31f4864dccd303a762e44ee6",
+    "utah-bikeways.geojson.gz": "9da0913ac6214ba51606b38c95f483fbfef14ce578768d5afa3bbbf743636f55"
+  },
+  "publishedComparison": "https://files.storage.bna.peopleforbikes.org/united%20states/utah/provo/26.04/neighborhood_ways.geojson",
+  "comparisonSha256": "058ac7de4ffa80192bd20aae54fe82155b800b0909eec4e37befea2337d9eac0"
+}

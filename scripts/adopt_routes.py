@@ -45,12 +45,17 @@ def adopt(previous,output,version,pin,producer):
     if 'releaseId' in compat:
         compat['releaseId']=f'{DATASET}-{version}'
     compat['sourceFreshness'][0].update(currentThrough=package['providerApprovalDate'],lastImportedAt=package['sourceRetrievedAt'],snapshotId=f'{DATASET}-{version}',warnings=warnings)
+    extra=[]
     if 'approval' in compat:
+        extra=[k for k in ('safe-route-stress-segments','safe-route-stress-crossings') if k+'.geojson' in files]
+        if extra and len(extra)!=2: raise ValueError('Incomplete bicycle stress package')
+        compat.pop('stressResources',None)
+        if extra: compat['stressResources']=extra
         compat.update(approval='BikeWalk approved hub pin '+pin,producerCommit=producer)
     output.mkdir(parents=True,exist_ok=False)
     (output/'manifest.json').write_bytes(encoded(compat))
     (output/'datapackage.json').write_bytes(raw)
-    for k in LAYERS:
+    for k in [*LAYERS,*extra]:
         (output/(k+'.geojson')).write_bytes(files[k+'.geojson'])
 
 if __name__=='__main__':

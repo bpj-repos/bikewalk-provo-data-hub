@@ -27,12 +27,25 @@ jobs:
           python3 -m scripts.review_campus private/receipt > private/treeside-review.json
           cat private/treeside-review.json >> "$GITHUB_STEP_SUMMARY"
           python3 -m scripts.review_routes private/candidate > private/review.json
-          date -u +%FT%TZ > private/success.txt
           cat private/review.json >> "$GITHUB_STEP_SUMMARY"
+      - name: Prepare bicycle stress annotations from pinned receipts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m pip install shapely==2.1.2 pyproj==3.7.2
+          gh release download source-receipts-safe-routes-stress-20261109 -p stress-network.tar.gz
+          echo 'a167a84a9893366a92c41d06bc988ec50b9c5ed5a92455ee38aee7eea9b58333  stress-network.tar.gz' | sha256sum -c
+          mkdir -p private/stress-inputs
+          tar xzf stress-network.tar.gz -C private/stress-inputs
+          python3 -m scripts.route_stress private/candidate private/stress-inputs/neighborhood_ways.geojson private/stress-inputs/neighborhood_ways_intersections.geojson private/stress-inputs/utah-bikeways.geojson.gz private/stress
+          python3 -m scripts.package_stress private/candidate private/stress private/combined --version "review-${GITHUB_RUN_ID}"
+          cat private/combined/stress-coverage.json >> "$GITHUB_STEP_SUMMARY"
+          echo "Pinned stress inputs: OSM 2026-11-07 / Utah 2026-10-09. Review provider updates and changed routes before promotion." >> "$GITHUB_STEP_SUMMARY"
       - name: Review additional campuses and boundary crossings
         run: |
           python3 -m pip install shapely==2.1.2
           python3 -m scripts.audit_coverage > private/coverage-review.txt
+          date -u +%FT%TZ > private/success.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:

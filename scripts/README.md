@@ -27,3 +27,9 @@ Run module commands from the repository root. Use a new output directory for bui
 The source-inventory audit accepts SOURCE_REPO and NEW_OUTPUT directly. The receipt rehearsal and coverage audit have no arguments. The coverage audit reads provider services over the network. Routine updates use the configured private collection. Publication builders and review commands create local output. Only the explicitly invoked updater or consumer apply operation changes active state. See the [operations guides](../docs/operations/README.md) before updates, adoption or publication.
 
 `reviews/` contains the forwarded-police, parked-vehicle and historical-fatalities verification commands. The forwarded_police and parked_units modules provide --help. The fatalities_archive module takes PACKAGE PREVIOUS_PACKAGE OLD_WORKBOOK NEW_WORKBOOK positional paths.
+
+| Bicycle stress | Command |
+| --- | --- |
+| Match pinned networks to route geometry | `python -m scripts.route_stress BASE WAYS NODES UTAH NEW_OUTPUT` with Shapely 2.1.2 and pyproj 3.7.2. |
+| Verify pins and build the augmented package | `python -m scripts.package_stress BASE STRESS NEW_OUTPUT --version VERSION` |
+| Recalculate the network inside pinned Brokenspoke | `scripts/model_bicycle_stress.py` inside the dedicated analyzer container. See [recovery](../docs/operations/bicycle-stress.md). |

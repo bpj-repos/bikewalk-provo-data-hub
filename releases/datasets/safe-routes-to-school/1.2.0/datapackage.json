@@ -1,0 +1,91 @@
+{
+  "name": "safe-routes-to-school",
+  "version": "1.2.0",
+  "title": "Provo Safe Routes to School",
+  "attribution": "Utah Department of Transportation; Provo school plan evidence compiled by BikeWalk Provo. Stress estimates by BikeWalk Provo using PeopleForBikes Brokenspoke Analyzer, © OpenStreetMap contributors, and Utah Geospatial Resource Center / Utah Bikeways.",
+  "reuse": "BikeWalk has confirmed source-specific approval to redistribute these layers. Retain UDOT attribution and use notice. OSM-derived stress data: ODbL 1.0. Utah Bikeways: CC BY 4.0. See stress-method.md for attribution and source-specific terms.",
+  "notice": "UDOT supplies these data for informational use and requires field verification before project use. Source accuracy, completeness and usefulness are not warranted. These layers contain no legal school-zone speed limits or operating schedules.",
+  "sourceRetrievedAt": "2026-11-07T20:07:54.519796+00:00",
+  "providerApprovalDate": "2026-10-05T18:00:00+00:00",
+  "citation": "BikeWalk Provo. Provo Safe Routes to School, 1.2.0. https://bikewalk-provo-data-hub.vercel.app/datasets/safe-routes-to-school/1.2.0/datapackage.json",
+  "resources": [
+    {
+      "name": "changes",
+      "path": "changes.md",
+      "bytes": 190,
+      "hash": "sha256:82809f63b1e7cac368ac7c75ee3b12efe5667946fb1eb49de31cb653dfc2f7a5"
+    },
+    {
+      "name": "coverage",
+      "path": "coverage.md",
+      "bytes": 4757,
+      "hash": "sha256:3ce806218a002bde48ba87491af55007ba4cc3f832463d7218c05780d942f790"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 2781,
+      "hash": "sha256:5b1c09d56c14b48c47f3feb9d88b602f37b4137f2bb95888b1992c8c89cf6ebc"
+    },
+    {
+      "name": "protocol",
+      "path": "protocol.md",
+      "bytes": 561,
+      "hash": "sha256:6ad6504bb1c883d13f05a8b411b5c1154f8958af1df7e768a3f83bcb07e0e6ec"
+    },
+    {
+      "name": "safe-route-plan-features",
+      "path": "safe-route-plan-features.geojson",
+      "bytes": 571335,
+      "hash": "sha256:e2ae4c9e73d1426ac4aabf11e5ae4f73e83ee83befc583cb37bab901ef64d4ee"
+    },
+    {
+      "name": "safe-route-stress-crossings",
+      "path": "safe-route-stress-crossings.geojson",
+      "bytes": 470637,
+      "hash": "sha256:15cb86dd7f9cbeb6e3f66f4c33564c65d0a0130c8137188ced219832fc0d9e22"
+    },
+    {
+      "name": "safe-route-stress-segments",
+      "path": "safe-route-stress-segments.geojson",
+      "bytes": 1710707,
+      "hash": "sha256:fa52bd46e2128f7920ca5e38aeff48dc5cdba3f17f6fc13789ba0586eb2773eb"
+    },
+    {
+      "name": "safe-routes-schools",
+      "path": "safe-routes-schools.geojson",
+      "bytes": 11051,
+      "hash": "sha256:cc076d32cb9212a594315cf0124998deb24407dcd6ce4bc6905f97d627bfcfca"
+    },
+    {
+      "name": "safe-school-routes",
+      "path": "safe-school-routes.geojson",
+      "bytes": 193960,
+      "hash": "sha256:fde8cdb761ed3267b676e88af58962896047725e364223a575f408d460dd9360"
+    },
+    {
+      "name": "sources",
+      "path": "sources.json",
+      "bytes": 5147,
+      "hash": "sha256:f4ef0a55f63630b3196d02a60f47ddd44a63a4340613a8c45043013c3ce0b345"
+    },
+    {
+      "name": "stress-coverage",
+      "path": "stress-coverage.json",
+      "bytes": 4937,
+      "hash": "sha256:53d3d353f447f348900fc1cf945da2983118d50d7f9486ec3b6575088c092ff1"
+    },
+    {
+      "name": "stress-inputs",
+      "path": "stress-inputs.json",
+      "bytes": 498,
+      "hash": "sha256:aa4f0435bef34928780c67a9c781dbc22b2964e84afb48ff0fff958e8fd584e2"
+    },
+    {
+      "name": "stress-method",
+      "path": "stress-method.md",
+      "bytes": 4047,
+      "hash": "sha256:e1010251d4ecb7222964c14b7292b241d665bb279bd6a4883904725c16b46d36"
+    }
+  ]
+}

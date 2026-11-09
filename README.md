@@ -12,6 +12,7 @@ The private Data Hub receives transportation data, maintains shared definitions 
 | Understand a dataset's scope and limitations | [Dataset guides](docs/datasets/README.md) |
 | Inspect mappings, protocols, source definitions or schemas | [Data definitions](data-definitions/README.md) |
 | Find approved data and manifest pins | [Releases](releases/README.md) |
+| Rebuild or review the pinned Safe Routes bicycle stress annotations | [Stress maintenance](docs/operations/bicycle-stress.md) |
 | Develop the crash-processing library | [Crash pipeline](pipelines/crashes/README.md) |
 | Find a past decision or migration record | [Documentation map](docs/README.md) |
 | Work with received inputs and local candidates | [Private workspace guide](docs/operations/private-workspace.md) |

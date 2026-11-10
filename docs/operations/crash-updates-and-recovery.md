@@ -76,3 +76,5 @@ The 2010–2017 backfill uses the driver circumstances, vehicle maneuver and non
 The historical combined driver code 12 cannot distinguish the newer codes 22 and 23. Keep its combined meaning. Historical island code 9 fits the broader location category used for code 7.
 
 The isolated November 9 rehearsal added 651 distinct crashes, including 11 requiring these mappings. Compare every recent annual row with the approved package, verify prior reviewed links and field values, then repeat the receipt and check for the same release and pointer. The retained private comparison is in `private/candidates/2026-11-09-historical-crash-merge`.
+
+The active private release now includes the verified archive. For an independent non-motorist release, run `scripts.prepare_crash_releases MANIFEST SHA OUTPUT --at-version VERSION --complete-through YEAR` as a Python module. Check the recent subset against the same years in the full CSV. Version 1.1.0 includes `annual.csv` from 2010 and `annual-from-2018.csv` for consumers excluding the historical archive.

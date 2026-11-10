@@ -24,14 +24,7 @@ def encode(obj):
     return (json.dumps(obj, indent=2, ensure_ascii=False) + '\n').encode()
 
 
-def prepare(manifest, digest, motor, motor_digest, output, at_version, motor_version):
-    output = output.resolve()
-    if not output.is_relative_to(ROOT/'private') or output.exists():
-        raise ValueError('Use a new directory inside private/')
-    if not all(re.fullmatch(r'(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)', v) for v in (at_version, motor_version)):
-        raise ValueError('Expected a numeric release version')
-    managed = json.loads(verified(manifest, digest))
-    snapshot = json.loads(verified(manifest.parent/'collection.json', managed['files']['collection.json']))
+def read_motor(motor, motor_digest, digest):
     candidate = json.loads(verified(motor/'datapackage.json', motor_digest))
     if (candidate['upstreamManifestSHA256'], candidate['name'], candidate['status']) != (digest, DATASET, 'private-candidate'):
         raise ValueError('Motor vehicle candidate must use the same private source release')
@@ -58,8 +51,27 @@ def prepare(manifest, digest, motor, motor_digest, output, at_version, motor_ver
         years.append(year)
     if not years or years != sorted(set(years)) or years != candidate['years']:
         raise ValueError('Motor vehicle coverage mismatch')
+    return motor_files, years, complete, candidate['latestCityEvent']
+
+
+def prepare(manifest, digest, motor, motor_digest, output, at_version, motor_version, complete=None):
+    output = output.resolve()
+    if not output.is_relative_to(ROOT/'private') or output.exists():
+        raise ValueError('Use a new directory inside private/')
+    if not all(re.fullmatch(r'(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)', v) for v in (at_version, motor_version)):
+        raise ValueError('Expected a numeric release version')
+    managed = json.loads(verified(manifest, digest))
+    snapshot = json.loads(verified(manifest.parent/'collection.json', managed['files']['collection.json']))
+    packages = []
+    if motor is not None:
+        motor_files, years, complete, latest = read_motor(motor, motor_digest, digest)
+        packages.append((DATASET, 'Provo motor vehicle crashes with no reported nonmotorist participants by year',
+                         motor_version, motor_files, latest, years))
+    elif complete is None:
+        raise ValueError('AT-only releases require a complete-through year')
     report = crash_report(snapshot, complete)
-    if [r['year'] for r in report['annual']] != years:
+    at_years = [r['year'] for r in report['annual']]
+    if motor is not None and at_years != years:
         raise ValueError('Review year coverage before publishing these series')
     cols = ('year','total','bike','ped','other','complete_year')
     buf = io.StringIO(newline='')
@@ -78,12 +90,16 @@ def prepare(manifest, digest, motor, motor_digest, output, at_version, motor_ver
                     dict(name=k,type='boolean' if k=='complete_year' else 'integer',description=v)
                     for k,v in zip(cols,descriptions)]}),
                 'method.txt':(report['scope']+' '+report['modeMethod']+'\n').encode()}
+    if at_years and at_years[0] < 2018:
+        lines = at_files['annual.csv'].splitlines(keepends=True)
+        at_files['annual-from-2018.csv'] = lines[0] + b''.join(line for year, line in zip(at_years, lines[1:]) if year >= 2018)
+        at_files['method.txt'] += b'annual.csv includes the 2010-2017 Provo archive. Use annual-from-2018.csv to exclude that archive.\n'
+    packages.insert(0, (AT, 'Provo active transportation crashes by year', at_version,
+                        at_files, report['coverageEnd'], at_years))
     output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=output.parent) as tmp:
         stage = Path(tmp)/'packages'
-        for dataset,title,version,files,end in [
-                (AT,'Provo active transportation crashes by year',at_version,at_files,report['coverageEnd']),
-                (DATASET,'Provo motor vehicle crashes with no reported nonmotorist participants by year',motor_version,motor_files,candidate['latestCityEvent'])]:
+        for dataset,title,version,files,end,years in packages:
             directory = stage/dataset/version
             directory.mkdir(parents=True)
             package = dict(name=dataset,version=version,title=title,source=SOURCE,
@@ -110,10 +126,12 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('manifest',type=Path)
     p.add_argument('manifest_sha')
-    p.add_argument('motor_candidate',type=Path)
-    p.add_argument('motor_sha')
+    p.add_argument('motor_candidate',type=Path,nargs='?')
+    p.add_argument('motor_sha',nargs='?')
     p.add_argument('output',type=Path)
     p.add_argument('--at-version',default='1.0.0')
     p.add_argument('--motor-version',default='1.0.0')
+    p.add_argument('--complete-through',type=int,help='Last full year when preparing only the AT series')
     a = p.parse_args()
-    prepare(a.manifest,a.manifest_sha,a.motor_candidate,a.motor_sha,a.output,a.at_version,a.motor_version)
+    if bool(a.motor_candidate) != bool(a.motor_sha): p.error('Supply both motor arguments or omit both')
+    prepare(a.manifest,a.manifest_sha,a.motor_candidate,a.motor_sha,a.output,a.at_version,a.motor_version,a.complete_through)

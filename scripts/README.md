@@ -42,6 +42,7 @@ The source-inventory audit accepts SOURCE_REPO and NEW_OUTPUT directly. The rece
 
 | Citywide traffic stress | Command |
 | --- | --- |
+| Refresh frequent citywide sources, extract OSM, cache/run Brokenspoke and compare a private candidate | `python -B -m scripts.refresh_traffic_stress NEW_RUN --previous-receipt RECEIPT --version VERSION` |
 | Capture pinned inputs plus complete Provo/SGID street layers | `python -B -m scripts.capture_traffic_stress HOLDINGS NEW_INPUTS` |
 | Build a private versioned citywide candidate | `python -B -m scripts.prepare_traffic_stress RECEIPT NEW_PACKAGE --version VERSION` |
 

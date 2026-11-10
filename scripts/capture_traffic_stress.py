@@ -6,7 +6,7 @@ import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlencode
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 from scripts.build_demo_counts import encoded
 
@@ -17,7 +17,8 @@ LAYERS = {
 
 
 def fetch(url, params):
-    with urlopen(url + '?' + urlencode(params), timeout=120) as response:
+    request = Request(url, data=urlencode(params).encode(), headers={'Content-Type': 'application/x-www-form-urlencoded'}) if 'objectIds' in params else url + '?' + urlencode(params)
+    with urlopen(request, timeout=120) as response:
         value = json.load(response)
     if 'error' in value:
         raise ValueError(value['error'])
@@ -30,9 +31,12 @@ def capture_layer(url, bounds, output):
                  geometryType='esriGeometryEnvelope', inSR=4326, spatialRel='esriSpatialRelIntersects')
     ids = fetch(url + '/query', dict(query, returnIdsOnly='true'))
     identifiers = sorted(ids['objectIds'])
+    if len(identifiers) != len(set(identifiers)):
+        raise ValueError('Duplicate ArcGIS object IDs')
     features = []
-    for start in range(0, len(identifiers), 100):
-        page = fetch(url + '/query', dict(f='geojson', objectIds=','.join(map(str, identifiers[start:start+100])),
+    batch_size = min(500, metadata.get('maxRecordCount') or 100)
+    for start in range(0, len(identifiers), batch_size):
+        page = fetch(url + '/query', dict(f='geojson', objectIds=','.join(map(str, identifiers[start:start+batch_size])),
                                           outFields='*', outSR=4326))
         if page.get('exceededTransferLimit'):
             raise ValueError('Incomplete ArcGIS page')

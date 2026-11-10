@@ -20,6 +20,7 @@ Run module commands from the repository root. Use a new output directory for bui
 | `python3 -m scripts.review_routes --help` | Compare a complete Safe Routes candidate to the approved hub package by feature identity. |
 | `python3 -m scripts.safe_routes --help` | Receive UDOT records privately and prepare the Provo Safe Routes package. |
 | `python3 -m scripts.update_crashes --help` | Update the active private crash workspace using verified historical path mappings. |
+| `python3 -m scripts.migrate_crash_map_labels SOURCE NEW_OUTPUT [--apply]` | Prepare or adopt readable crash-map base fields from the existing minimized snapshot; preserve immutable versions. Requires the crash environment and `PYTHONPATH=.:pipelines/crashes/src`. |
 | `python3 -m scripts.verify_demo_host --help` | Compare every anonymous HTTPS response with the verified synthetic build. |
 | `python3 -m scripts.verify_public_catalog --help` | Compare every restored file against production or an explicitly selected staging host. |
 

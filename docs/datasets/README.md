@@ -6,5 +6,6 @@
 | Safe Routes to School | [Coverage 1.0.0](../../data-definitions/safe-routes-to-school/coverage-1.0.0.md), [coverage 1.1.0](../../data-definitions/safe-routes-to-school/coverage-1.1.0.md) and [campus decision](../decisions/treeside-planned-campus.md) |
 | Annual active transportation crashes | [Population and migration](../history/annual-crash-migration.md), [producer transfer](../history/crash-producer-transfer.md) and [update guide](../operations/crash-updates-and-recovery.md) |
 | Concern crash details | [Restricted export and adoption](../operations/crash-updates-and-recovery.md) |
+| Readable crash-map fields | [Export value contract and automated migration](crash-export-values.md) |
 
 [Approved packages](../../releases/README.md) bind exact resources by checksum. Source selection, missingness, units and reuse terms belong to each product's contract.

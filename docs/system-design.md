@@ -46,6 +46,9 @@ Crash intake refreshes UDOT on a normal run, reuses it with `--offline`, and acc
 
 The two annual crash series currently cover 2018–2025 as full calendar years and provisional 2026. A recent event date describes the selected records' coverage. The historical map has a separate denominator and source pin. Its mapped groups can overlap in event identity across unreconciled sources, so official annual totals come from the annual package. Fatalities has its own historical extension and geographic selection. [Annual population](history/annual-crash-migration.md) · [Motor-only method](../releases/datasets/annual-motor-vehicle-crashes-without-nonmotorists/1.0.0/method.txt) · [Fatalities](datasets/fatal-crashes.md) · [Incident map](datasets/historical-incident-map.md)
 
+The hub normalizes six historical portal codes into the current enrichment fields. Portal source coverage spans cumulative receipts within each scope. A private rehearsal extended the non-motorist collection through the 2010–2017 archive, verified repeat intake and reproduced all nine recent annual rows. Published series retain the coverage above. [Historical backfill rules and verification](operations/crash-updates-and-recovery.md#historical-provo-portal-backfills)
+
+
 Transit, bike parking/lanes, counters and intersection captures remain research snapshots in canonical BikeWalk `docs/research/transportation-source-snapshots/`. Proposed research lives in `docs/research/TODO.md`. Each new processed hub product needs a defined population, provenance, reuse and disclosure decision, validation and consumer contract.
 
 ## Release, approval and hosting

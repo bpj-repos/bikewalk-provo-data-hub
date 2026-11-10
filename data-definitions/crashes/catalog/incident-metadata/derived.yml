@@ -25,19 +25,23 @@ behaviorFlags:
   classification.drugs_suspected: drugs-suspected
 driverCircumstances:
   '0': null
+  '1': exceeded-posted-speed-limit
   '2': too-fast-for-conditions
   '3': failure-to-yield
   '4': failed-to-keep-lane
+  '5': unsafe-lane-change
   '7': disregarded-signs
   '8': disregarded-signals
   '9': disregarded-markings
   '10': evasive-action
   '11': followed-too-closely
+  '12': reckless-or-aggressive-driving
   '13': wrong-side-or-way
   '14': improper-parking-stopping
   '15': ran-off-road
   '16': improper-backing
   '17': improper-signal
+  '18': improper-passing
   '19': improper-turn
   '20': hit-and-run
   '22': reckless-driving
@@ -50,6 +54,7 @@ maneuvers:
   '1': straight-ahead
   '2': backing
   '3': changing-lanes
+  '4': overtaking-or-passing
   '5': right-turn
   '6': left-turn
   '7': u-turn
@@ -73,6 +78,7 @@ nonmotoristSettings:
   '6': travel-lane
   '7': median-island
   '8': roadside-shoulder
+  '9': median-island
   '10': sidewalk-path
   '11': roadside-shoulder
   '12': bicycle-facility

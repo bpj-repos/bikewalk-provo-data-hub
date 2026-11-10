@@ -57,3 +57,22 @@ PYTHONPATH=pipelines/crashes/src python -B -m scripts.review_crash_receipt \
 Pass the watchlist from the previous restricted review using one `--case` per report. Inspect `comparison.json` for changed years, changed resource bytes, changed PD references, the open-case disposition and the motor-only held count. Re-examine candidate evidence for the open reports against new source rows. The watchlist check reports accepted links only. The existing matcher and review tools retain candidates. The generated annual packages are private comparisons under their previous version labels. When publication changes, rebuild with a new version and obtain approval for its pin. Run the Streets Watch importer in preview mode against the generated details file to see which live concerns would change.
 
 On November 7 the receipt check reproduced all nine rows and both complete annual manifests at 1.0.0. The managed release still has four open forwarded PD cases and 127 motor-only cases held for review. The concern export matched its adopted hash and the live preview found zero changed concerns. The restricted report is in `private/reviews/crashes/2026-11-07-receipt-comparison`. The three forwarded messages from the established PD delivery channel were already ingested. The retained older portal workbook is a historical review input, not a new city update.
+
+## Historical Provo portal backfills
+
+Import a historical workbook in a private recovery workspace first. The hub retains the original workbook, field codes and labels. Enrichment converts the values into the shared categories in [the derivation rules](../../data-definitions/crashes/catalog/incident-metadata/derived.yml). The receipt’s coverage describes its own last event. The portal source’s current-through date reflects the latest event among retained receipts of the same scope.
+
+The 2010–2017 backfill uses the driver circumstances, vehicle maneuver and non-motorist location tables in the [Utah crash data dictionary](https://highwaysafety.utah.gov/wp-content/uploads/sites/22/2021/03/Utah-Crash-Report-Data-Dictionary-2021-v8-030121.pdf).
+
+| Field | Source code | Shared category |
+|---|---|---|
+| Driver contributing circumstance | 1 | Exceeded posted speed limit |
+| Driver contributing circumstance | 5 | Unsafe lane change |
+| Driver contributing circumstance | 12 | Reckless or aggressive driving |
+| Driver contributing circumstance | 18 | Improper passing |
+| Vehicle maneuver | 4 | Overtaking or passing |
+| Non-motorist location | 9 | Median/island |
+
+The historical combined driver code 12 cannot distinguish the newer codes 22 and 23. Keep its combined meaning. Historical island code 9 fits the broader location category used for code 7.
+
+The isolated November 9 rehearsal added 651 distinct crashes, including 11 requiring these mappings. Compare every recent annual row with the approved package, verify prior reviewed links and field values, then repeat the receipt and check for the same release and pointer. The retained private comparison is in `private/candidates/2026-11-09-historical-crash-merge`.

@@ -246,8 +246,10 @@ def apply_inputs(state,private_root,data_root,run_dir,portal_workbooks,police_wo
         upsert(state['observations'],[o for o in rows if o['id'] in state['observations'] or desc['scope']=='collection' and o['modes']])
         state['inputs'].append(desc);known.add(desc['sha256'])
         source_key='utah-crash-portal' if desc['scope']=='collection' else 'utah-crash-portal-reference'
+        coverage = (receipt['coverage'] for receipt in state['inputs']
+                    if receipt['kind'] == 'portal' and receipt.get('scope') == desc['scope'] and receipt.get('coverage'))
         source={**desc,'sourceKey':source_key,'snapshotId':desc['sha256'],
-                'sourceCurrentThrough':desc['coverage'],'retainedInputHashes':[d['sha256'] for d in state['inputs'] if d['kind']=='portal']}
+                'sourceCurrentThrough':max(coverage, key=lambda stamp: _date(stamp).timestamp(), default=None),'retainedInputHashes':[d['sha256'] for d in state['inputs'] if d['kind']=='portal']}
         state['sources']=[s for s in state['sources'] if s['sourceKey']!=source_key]+[source]
     store_path=run_dir/'police/datastores/provo-police-incidents.json'
     ingested={i['workbookSha256'] for i in state['policeStore'].get('ingestions',[])}

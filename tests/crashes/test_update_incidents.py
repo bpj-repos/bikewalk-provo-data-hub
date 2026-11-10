@@ -269,6 +269,17 @@ class PipelineTests(unittest.TestCase):
         before=self.pointer.read_bytes()
         with self.assertRaisesRegex(ValueError,'exports conflict'):self.run_update(portal_workbooks=paths)
         self.assertEqual(self.pointer.read_bytes(),before)
+    def test_city_backfill_preserves_current_coverage(self):
+        recent = portal_workbook(self.root/'recent.xlsx', [portal_record('2')])
+        historical = portal_record('3')
+        historical['metadata']['crash']['crashDateandTime'] = '2010-03-04 09:30:00'
+        older = portal_workbook(self.root/'older.xlsx', [historical])
+        result = self.run_update(portal_workbooks=[recent, older])
+        manifest = read_json(Path(result['bundle'])/'manifest.json')
+        city = next(s for s in manifest['sources'] if s['sourceKey'] == 'utah-crash-portal')
+        self.assertTrue(city['coverage'].startswith('2010-03-04'))
+        self.assertTrue(city['sourceCurrentThrough'].startswith('2025-03-04'))
+
     def test_updated_export_reports_source_correction(self):
         a=portal_record('2');path=portal_workbook(self.root/'a.xlsx',[a]);first=self.run_update(portal_workbooks=[path])
         a['metadata']['crash']['weatherCondition']='2';path=portal_workbook(self.root/'b.xlsx',[a])

@@ -9,3 +9,7 @@ Read [the system design](docs/system-design.md) before changing the hub. For eve
 ## Keep the tree understandable
 
 Use the [folder guide](README.md) and [scripts index](scripts/README.md) before adding files. Put documentation in docs, commands in scripts, reusable processing code in pipelines, definitions in data-definitions, approved immutable packages in releases, and tests in tests. Keep private inputs and generated build output in their ignored directories. Use descriptive lowercase hyphenated documentation names, snake_case Python names and YYYY-MM-DD-description names for private runs. Update the applicable folder guide and command index when adding or moving an entry point. Preserve frozen evidence and published bytes. Run both test groups for changes affecting shared paths.
+
+## Commit and merge by default
+
+User direction (November 9, 2026): Commit completed, verified, in-scope code and documentation changes and push to origin/main without requesting approval again. If the task uses a pull request, merge it after required checks pass. The user will explicitly say when to hold a merge, push or publication. For Projects site changes in the canonical BikeWalk Provo repository, publish the verified release and verify the live result by default. Stage only the task’s files and preserve other work.

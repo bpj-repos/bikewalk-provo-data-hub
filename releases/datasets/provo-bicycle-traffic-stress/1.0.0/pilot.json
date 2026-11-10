@@ -1,0 +1,493 @@
+{
+  "cases": [
+    {
+      "case": "asymmetric-facility",
+      "featureId": "osm:10229559:84717737:6961052679:0:0:forward",
+      "observations": [
+        {
+          "source": "peopleforbikes",
+          "version": "26.04",
+          "recordId": "6090",
+          "score": 3,
+          "nativeLabel": null,
+          "directionScope": "ft",
+          "applicable": true,
+          "osmId": 10229559,
+          "speedMph": null,
+          "lanes": 4,
+          "inputBasis": "explicit_and_model_defaults",
+          "speedBasis": "model_default_or_unavailable"
+        },
+        {
+          "source": "utah-bikeways",
+          "version": "2026-10-09",
+          "recordId": "64800",
+          "score": 2,
+          "nativeLabel": "2: Interested but concerned",
+          "directionScope": "unspecified",
+          "applicable": false,
+          "facility": "Buffered bike lane (2A)",
+          "facilitySide": "Northwest Side",
+          "secondaryFacility": "Bike lane (2B)",
+          "secondarySide": "Southeast Side",
+          "inputBasis": "publisher_inputs_not_exported"
+        },
+        {
+          "source": "bikewalk-brokenspoke",
+          "version": "3.3.0",
+          "recordId": "3857",
+          "score": 3,
+          "nativeLabel": null,
+          "directionScope": "ft",
+          "applicable": true,
+          "osmId": 10229559,
+          "speedMph": null,
+          "lanes": null,
+          "inputBasis": "explicit_and_model_defaults",
+          "speedBasis": "model_default_or_unavailable"
+        }
+      ],
+      "status": "source_only"
+    },
+    {
+      "case": "trail",
+      "featureId": "osm:10190915:84157627:13474344234:0:0:forward",
+      "observations": [
+        {
+          "source": "peopleforbikes",
+          "version": "26.04",
+          "recordId": "10697",
+          "score": 1,
+          "nativeLabel": null,
+          "directionScope": "ft",
+          "applicable": true,
+          "osmId": 10190915,
+          "speedMph": null,
+          "lanes": null,
+          "inputBasis": "explicit_and_model_defaults",
+          "speedBasis": "model_default_or_unavailable"
+        },
+        {
+          "source": "bikewalk-brokenspoke",
+          "version": "3.3.0",
+          "recordId": "46134",
+          "score": 1,
+          "nativeLabel": null,
+          "directionScope": "ft",
+          "applicable": true,
+          "osmId": 10190915,
+          "speedMph": null,
+          "lanes": null,
+          "inputBasis": "explicit_and_model_defaults",
+          "speedBasis": "model_default_or_unavailable"
+        }
+      ],
+      "status": "source_only"
+    },
+    {
+      "case": "bridge",
+      "featureId": "osm:10224486:84700460:84109118:0:0:forward",
+      "observations": [
+        {
+          "source": "peopleforbikes",
+          "version": "26.04",
+          "recordId": "24818",
+          "score": 1,
+          "nativeLabel": null,
+          "directionScope": "ft",
+          "applicable": true,
+          "osmId": 10224486,
+          "speedMph": null,
+          "lanes": null,
+          "inputBasis": "explicit_and_model_defaults",
+          "speedBasis": "model_default_or_unavailable"
+        },
+        {
+          "source": "bikewalk-brokenspoke",
+          "version": "3.3.0",
+          "recordId": "238",
+          "score": 1,
+          "nativeLabel": null,
+          "directionScope": "ft",
+          "applicable": true,
+          "osmId": 10224486,
+          "speedMph": null,
+          "lanes": null,
+          "inputBasis": "explicit_and_model_defaults",
+          "speedBasis": "model_default_or_unavailable"
+        }
+      ],
+      "status": "source_only"
+    },
+    {
+      "case": "service",
+      "featureId": "osm:10198944:84311660:84311666:0:0:forward",
+      "observations": [
+        {
+          "source": "utah-bikeways",
+          "version": "2026-10-09",
+          "recordId": "64429",
+          "score": 2,
+          "nativeLabel": "2: Interested but concerned",
+          "directionScope": "unspecified",
+          "applicable": true,
+          "facility": "Not Available",
+          "facilitySide": "Not Available",
+          "secondaryFacility": "Not Available",
+          "secondarySide": "Not Available",
+          "inputBasis": "publisher_inputs_not_exported"
+        }
+      ],
+      "status": "source_only"
+    },
+    {
+      "case": "800-north-500-west-signal-6444",
+      "studyFound": true,
+      "approaches": [
+        {
+          "id": "approach:84780247:10915219727:741971669",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "11487:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            },
+            {
+              "source": "bikewalk-brokenspoke",
+              "version": "3.3.0",
+              "recordId": "68386:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "approach:84780247:10915219729:741971669",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "23014:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            },
+            {
+              "source": "bikewalk-brokenspoke",
+              "version": "3.3.0",
+              "recordId": "60733:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "approach:84780247:10915219723:1465276650",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "45225:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            },
+            {
+              "source": "bikewalk-brokenspoke",
+              "version": "3.3.0",
+              "recordId": "125949:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "approach:84780247:10915219730:1552156516",
+          "observations": [
+            {
+              "source": "bikewalk-brokenspoke",
+              "version": "3.3.0",
+              "recordId": "125861:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:2101:11487:tf",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "11487:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:2101:2627:ft",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "2627:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:2101:35865:ft",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "35865:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:2101:45056:tf",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "45056:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:9242:35951:ft",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "35951:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:18487:23014:ft",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "23014:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:18487:25199:tf",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "25199:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:18487:36178:ft",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "36178:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:18487:44457:tf",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "44457:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:27808:35951:tf",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "35951:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:27808:39399:ft",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "39399:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:27808:39400:ft",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "39400:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:27808:45057:tf",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "45057:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:32599:37869:tf",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "37869:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:32599:39103:tf",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "39103:tf",
+              "score": 1,
+              "directionScope": "tf",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:32599:45225:ft",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "45225:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        },
+        {
+          "id": "published-approach:32599:45226:ft",
+          "observations": [
+            {
+              "source": "peopleforbikes",
+              "version": "26.04",
+              "recordId": "45226:ft",
+              "score": 1,
+              "directionScope": "ft",
+              "applicable": true,
+              "inputBasis": "explicit_and_model_defaults"
+            }
+          ]
+        }
+      ],
+      "status": "source_only",
+      "missingForFurth": [
+        "movement-specific crossed lanes",
+        "verified refuge-island status",
+        "control applicability"
+      ]
+    },
+    {
+      "case": "nonsignalized-study",
+      "sourceRecords": 19,
+      "status": "source_only",
+      "missingForFurth": [
+        "movement identity",
+        "verified refuge-island status"
+      ]
+    },
+    {
+      "case": "divided-road",
+      "status": "requires_movement_side_verification"
+    }
+  ],
+  "independentFieldValidation": false,
+  "localAttributesInjected": false,
+  "interpretation": "Native source comparison. Existing Brokenspoke output fills gaps. Furth Table 6 evaluator is tested against the published table; no city rating is inferred where movement inputs are incomplete."
+}

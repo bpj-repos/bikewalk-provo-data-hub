@@ -1,0 +1,70 @@
+{
+  "name": "provo-bicycle-traffic-stress",
+  "version": "1.0.0",
+  "title": "Provo bicycle traffic stress",
+  "attribution": "BikeWalk Provo; PeopleForBikes; © OpenStreetMap contributors; Utah Geospatial Resource Center / Utah Bikeways; Provo City; UDOT.",
+  "reuse": "OSM-derived database: ODbL 1.0. Utah Bikeways and Utah Roads: CC BY 4.0 with attribution. Provo and UDOT inventories retain their source informational-use terms. See method.md.",
+  "citation": "BikeWalk Provo. Provo bicycle traffic stress 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/provo-bicycle-traffic-stress/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "approaches",
+      "path": "approaches.geojson",
+      "bytes": 28157533,
+      "hash": "sha256:8f34b9192dd3d2f9580342fa65bbb24c73b4a32ff37e7966895664906e9a118c"
+    },
+    {
+      "name": "boundary",
+      "path": "boundary.geojson",
+      "bytes": 160988,
+      "hash": "sha256:77dfbdbe73a0e9002caa560cd1623fdaaedd39d53429583cfe61786f7a21deea"
+    },
+    {
+      "name": "coverage",
+      "path": "coverage.json",
+      "bytes": 8207,
+      "hash": "sha256:4a9ae5763e26b8ae453d1a7be8cd07c20585b4a1cf44c30feb8a3931900645d5"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 2818,
+      "hash": "sha256:551b203969eaac0d4d0867ca160f82fcd31ecbf2776aaa7677c2eef6780e0a06"
+    },
+    {
+      "name": "method",
+      "path": "method.md",
+      "bytes": 11086,
+      "hash": "sha256:6b0314a48f0e4934add57556de0fff33fb54a969d9413ef966743b5dbe50f165"
+    },
+    {
+      "name": "pilot",
+      "path": "pilot.json",
+      "bytes": 14797,
+      "hash": "sha256:25003b81c545a2708c361fae6197a19f1e7c579a81b7968d56fe7832b144dbfb"
+    },
+    {
+      "name": "published-reference",
+      "path": "published-reference.geojson",
+      "bytes": 17086811,
+      "hash": "sha256:058ac7de4ffa80192bd20aae54fe82155b800b0909eec4e37befea2337d9eac0"
+    },
+    {
+      "name": "segments",
+      "path": "segments.geojson",
+      "bytes": 49939072,
+      "hash": "sha256:f44bf666873fa864105eda59bd8cd06a4f20f319e474f88dbf8a5db48c004d58"
+    },
+    {
+      "name": "sources",
+      "path": "sources.json",
+      "bytes": 10844,
+      "hash": "sha256:821191bc6abab00b9d93ead7e4131f9e8b229f824d7c75bd070e82600e2cc475"
+    },
+    {
+      "name": "supplemental-inventory",
+      "path": "supplemental-inventory.geojson",
+      "bytes": 689400,
+      "hash": "sha256:e70dc67dc0e4eb5dd1c9e24eca3934da5a02d77d7fce8c5dad9b1f8760e47525"
+    }
+  ]
+}

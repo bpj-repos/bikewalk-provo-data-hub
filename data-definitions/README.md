@@ -2,6 +2,7 @@
 
 - `annual-transportation-counts/` holds the contract, protocol, field mapping, source ledger and reviewed historical exceptions.
 - `safe-routes-to-school/` holds version-specific coverage text and the reviewed campus baseline.
+- `provo-bicycle-traffic-stress/` holds the citywide method and public field contract.
 - `crashes/` holds the active source registry, field/derivation/matching catalogs, JSON schemas and retained reference documents.
 - `historical-incident-map/historical-v1/` freezes the historical map definitions, source-free receipt and reference captures.
 

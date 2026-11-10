@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "identity": "Feature IDs are stable within a release, source qualified, with OSM way and parent topology nodes plus piece and run. Matching changes can change IDs in a new release.",
+  "segments": {
+    "direction": "forward or reverse relative to coordinates, or unspecified for publisher whole-line scope",
+    "band": "lower, higher or null. BNA 1-2 lower and 3-4 higher; Utah 0-2 lower and 3-4 higher. Native numbers remain source-specific.",
+    "eligibility": "eligible features enter reference coverage; source_network retains published features outside the reference match and has separately reported coverage; inventory_only supplemental features need verified access and identity",
+    "score": "Selected native score, nullable. Never a composite score.",
+    "source": "peopleforbikes, utah-bikeways, bikewalk-brokenspoke or null",
+    "selectionReason": "sole_applicable_source, documented_input_evidence, published_directional_tiebreak, published_method_gap_fill or no_applicable_rating",
+    "observations": "Retained source, version, recordId, score, nativeLabel, directionScope, applicable, inputBasis and available attributes. Inapplicable whole-line Utah scores remain visible for audit.",
+    "betterEvidence": "Optional receipt evidence for feature/source/record, decisive attribute, dated observation, reference and competing default or older observation. Mixed evidence uses the fixed tie-break.",
+    "speedMph": "Nullable source-recorded speed limit in mph; no inferred speed is presented as recorded",
+    "lanes": "Nullable source-recorded directional travel lanes; total road lanes are never divided by two",
+    "lengthMeters": "UTM 12N projected length; directional rows overlap physical geometry",
+    "fromNode": "OSM node at actual piece start, otherwise null",
+    "toNode": "OSM node at actual piece end, otherwise null",
+    "disagreement": "Applicable source bands differ; selection is still made"
+  },
+  "approaches": {
+    "junctionId": "Shared OSM node with at least three distinct eligible neighbors, or pfb-prefixed native node with at least three publisher arms",
+    "incomingNode": "Adjacent OSM node identifying the incoming leg",
+    "incomingSegments": "Release segment IDs terminating in this incoming direction; native source-only approaches use incomingSourceSegment with the published-reference resource",
+    "observations": "Directional BNA receiving-end scores; multiple approaches can share a point",
+    "legs": "Distinct eligible adjacent OSM nodes, not source feature count"
+  },
+  "coverage": "Physical meters once per eligible OSM way and added public city portion. Directional meters count each allowed travel direction. Supplemental sources may overlap and do not enter the denominator. No rating is inferred from missingness."
+}

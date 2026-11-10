@@ -1,5 +1,9 @@
 {
-  "retired": ["provo-active-transportation-fatal-crashes", "annual-motor-vehicle-crashes-without-nonmotorists", "provo-active-transportation-incident-map"],
+  "retired": [
+    "provo-active-transportation-fatal-crashes",
+    "annual-motor-vehicle-crashes-without-nonmotorists",
+    "provo-active-transportation-incident-map"
+  ],
   "approved": [
     {
       "dataset": "safe-routes-to-school",
@@ -50,6 +54,11 @@
       "dataset": "annual-at-crash-aggregates",
       "version": "1.1.0",
       "sha256": "cc215368c2041c2ed591e4eb014493d710e639a5e32dccf6f8811ed044b0fcf2"
+    },
+    {
+      "dataset": "provo-bicycle-traffic-stress",
+      "version": "1.0.0",
+      "sha256": "fa704cf166a895cc4e829ec144f5e6701b9802ac523d0729a44e3c88c8b761f1"
     }
   ],
   "withdrawn": []

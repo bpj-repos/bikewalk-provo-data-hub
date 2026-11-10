@@ -9,3 +9,5 @@
 | Readable crash-map fields | [Export value contract and automated migration](crash-export-values.md) |
 
 [Approved packages](../../releases/README.md) bind exact resources by checksum. Source selection, missingness, units and reuse terms belong to each product's contract.
+
+- [Provo bicycle traffic stress](../../data-definitions/provo-bicycle-traffic-stress/method.md) reconciles native directional and whole-line scores with explicit coverage. [Maintenance](../operations/traffic-stress.md).

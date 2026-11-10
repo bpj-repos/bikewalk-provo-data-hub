@@ -57,7 +57,7 @@ def build(repo, output, approvals=None):
         r.update(status='withdrawn',notice=w['notice'],withdrawnAt=w['date'])
         if d['current']==w['version']:
             d['current']=next((p['version'] for p in reversed(d['releases']) if p.get('status')!='withdrawn'),None)
-    catalog['datasets']=list(by_id.values())
+    catalog['datasets']=[d for dataset,d in by_id.items() if dataset not in ledger.get('retired', [])]
     tree['catalog.json']=encoded(catalog)
     output.mkdir(parents=True,exist_ok=False)
     for path,b in tree.items():

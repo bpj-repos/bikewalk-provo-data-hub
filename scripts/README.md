@@ -12,7 +12,6 @@ Run module commands from the repository root. Use a new output directory for bui
 | `python3 -m scripts.build_demo_counts --help` | Build the synthetic hosting proof in a new directory. No private inputs. |
 | `python3 -m scripts.prepare_counts_candidate --help` | Prepare a private revision using reviewed, complete annual slices and pinned evidence. |
 | `python3 -m scripts.prepare_crash_releases --help` | Build private, aggregate-only release packages for owner review. |
-| `python3 -m scripts.prepare_fatalities_release --help` | Build a private candidate of fatal active-transportation crashes from a pinned hub release. |
 | `python3 -m scripts.prepare_incident_map_release --help` | Reproduce a reviewed incident-map package from checksummed private presentation inputs. |
 | `python3 -m scripts.rehearse_crash_receipt` | Replay the retained second Provo delivery in a temporary recovery tree. |
 | `python3 -m scripts.restore_crash_collections --help` | Offline restore and parity fixture for the two Wave 6 crash collection pins. |

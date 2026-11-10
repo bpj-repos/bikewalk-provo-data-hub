@@ -2,14 +2,7 @@
 
 `provo-active-transportation-fatal-crashes/1.0.0` publishes a GeoJSON point for each reviewed fatal crash in the active-transportation collection that the state portal assigns to Provo. The retained city series starts in 2018. The latest city delivery covers the provisional 2026 reporting period. At 1.0.0 the separate 2010–2017 archive was outside the release. The historical comparability review is recorded below. Ten fatal groups at the wider lookup boundary lack a Provo city assignment and are outside the initial release.
 
-From the hub root, use the crash Python environment to prepare a new private candidate. Read the manifest path and exact checksum from the operational pointer:
-
-```sh
-umask 077
-PYTHONPATH=pipelines/crashes/src python -B -m scripts.prepare_fatalities_release PRIVATE_MANIFEST MANIFEST_SHA private/crashes/NEW_DIRECTORY --version 1.0.0
-```
-
-Review the state identifiers, Mountain Time months, modes, rounded points and deaths against the previously adopted map. Inspect additions, removals and corrections. The hub holds ambiguous identities, mixed categories among people killed, and conflicting death counts for review. The map owns news, local notes and richer descriptions. A published resource checksum and manifest pin cover the exact bytes adopted by consumers.
+The standalone series is retired. Both published versions remain available at their pinned URLs for the fatalities map and existing citations. The following notes record historical release evidence.
 
 The owner approved the geographic fields and attribution terms for manifest `fcc243f1d113810bd8b7180a3f8283008f73b7986e9f3212afb565352cec1a58`. Two builds from managed release `incidents-4fbbb5835c07b4789304` reproduced identical output. Its 17 features account for 18 deaths. Thirteen crashes involved people coded as pedestrians, two pedalcyclists, and two people in the broader other-conveyance category. Every ID, month, mode, count and coordinate matched the November 4 map download. The previously published map’s full file, including editorial details, also reproduced byte for byte in Projects. The grouped mode refers to the people recorded killed. A two-death crash is one feature.
 
@@ -20,7 +13,7 @@ Projects adopted the release at commit `7e2c26726be5e9b2723f0975dcce9f5e1e789868
 
 ## Comparing 2010–2017 with the published cases
 
-Version 1.1.0 uses the same GeoJSON schema and disclosure terms as 1.0.0. The narrow historical input for this dataset is the retained Provo portal workbook `99eedb508fd52388f7c44dfaf7645e4b7816f53ceeb55a562be8458587c424c7`. Its SHA-256 and selection period are recorded in the new manifest. Build with the same managed manifest and `--version 1.1.0`. The earlier version still reproduces with `--version 1.0.0`.
+Version 1.1.0 uses the same GeoJSON schema and disclosure terms as 1.0.0. The narrow historical input for this dataset is the retained Provo portal workbook `99eedb508fd52388f7c44dfaf7645e4b7816f53ceeb55a562be8458587c424c7`. Its SHA-256 and selection period are recorded in the new manifest. 
 
 The independent field check reads both original workbooks directly. It verifies their pinned bytes, sheet headers and filter settings, unique IDs across 26,481 city crashes, and the public geometry, month, mode and person-level deaths for each of the 25 selected crashes. The original 17 features compared equal individually. The corresponding UDOT lookup in the operational receipt has no records for these eight historical IDs, so the archival death counts are corroborated within the state portal by the fatal crash severity and person injury records. These checks do not establish complete historical reporting or ground-truth location accuracy.
 

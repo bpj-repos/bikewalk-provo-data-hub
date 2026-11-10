@@ -1,4 +1,5 @@
 {
+  "retired": ["provo-active-transportation-fatal-crashes"],
   "approved": [
     {
       "dataset": "safe-routes-to-school",

@@ -11,7 +11,6 @@ from scripts.build_catalog import checked_package
 from scripts.prepare_crash_releases import AT, prepare
 from danger_zones.concern_details import export_concern_details
 from danger_zones.config import DEFAULT_PRIVATE_DATA_ROOT
-from danger_zones.motor_vehicle_candidate import DATASET, build
 
 ROOT = Path(__file__).resolve().parents[1]
 PRIVATE = DEFAULT_PRIVATE_DATA_ROOT
@@ -36,31 +35,24 @@ def review(output, previous_export, export_pin, follow_cases):
     mf = Path(pointer['releaseManifest']['path'])
     pin = pointer['releaseManifest']['sha256']
     ledger = read(ROOT/'releases/release-ledger.json')
-    packages = {}
-    for name in (AT, DATASET):
-        withdrawn = {w['version'] for w in ledger['withdrawn'] if w['dataset']==name}
-        entry = next(e for e in reversed(ledger['approved']) if e['dataset']==name and e['version'] not in withdrawn)
-        current = ROOT/'releases/datasets'/name/entry['version']
-        files = checked_package(current,entry)
-        packages[name] = (entry['version'],files)
-    complete_through = json.loads(packages[DATASET][1]['datapackage.json'])['completeThrough']
+    withdrawn = {w['version'] for w in ledger['withdrawn'] if w['dataset']==AT}
+    entry = next(e for e in reversed(ledger['approved']) if e['dataset']==AT and e['version'] not in withdrawn)
+    version = entry['version']
+    old = checked_package(ROOT/'releases/datasets'/AT/version,entry)
+    complete_through = json.loads(old['datapackage.json'])['completeThrough']
     output.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
     with TemporaryDirectory(dir=output.parent) as temp:
         stage = Path(temp)/'review'
         stage.mkdir(mode=0o700)
-        motor = stage/'motor'
-        motor_pin = build(mf,pin,PRIVATE/'incident-inputs',motor,complete_through)
         proposed = stage/'annual'
-        prepare(mf,pin,motor,motor_pin,proposed,packages[AT][0],packages[DATASET][0])
-        annual = {}
-        for name,(version,old) in packages.items():
-            new = proposed/name/version
-            old_rows, new_rows = by_year(old['annual.csv']), by_year((new/'annual.csv').read_bytes())
-            annual[name] = {
-                'comparedVersion':version,
-                'changedYears':{y:[old_rows.get(y),new_rows.get(y)] for y in sorted(old_rows.keys()|new_rows.keys()) if old_rows.get(y)!=new_rows.get(y)},
-                'changedFiles':sorted(k for k,v in old.items() if (new/k).read_bytes()!=v),
-            }
+        prepare(mf,pin,proposed,version,complete_through)
+        new = proposed/AT/version
+        old_rows, new_rows = by_year(old['annual.csv']), by_year((new/'annual.csv').read_bytes())
+        annual = {AT: {
+            'comparedVersion':version,
+            'changedYears':{y:[old_rows.get(y),new_rows.get(y)] for y in sorted(old_rows.keys()|new_rows.keys()) if old_rows.get(y)!=new_rows.get(y)},
+            'changedFiles':sorted(k for k,v in old.items() if (new/k).read_bytes()!=v),
+        }}
         details = export_concern_details(mf.parent,pin)
         (stage/'details.json').write_text(json.dumps(details,sort_keys=True,separators=(',',':'))+'\n')
         def links(export):
@@ -71,7 +63,6 @@ def review(output, previous_export, export_pin, follow_cases):
         groups = {o['sourceRecordId']:g for g in collection['records'] for o in g['observations'] if o['sourceKey']=='provo-police-incidents'}
         tracked = {case:groups[case].get('reviewedLink',{}).get('udotId') for case in follow_cases}
         result = dict(release=details['releaseId'],manifestSHA256=pin,annual=annual,changedPoliceReferences=changed,trackedCases=tracked,
-                      heldMotorCases=len(read(motor/'private-review.json')['unresolved']),
                       exportSHA256=hashlib.sha256((stage/'details.json').read_bytes()).hexdigest())
         (stage/'comparison.json').write_text(json.dumps(result,indent=2)+'\n')
         stage.rename(output)

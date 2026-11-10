@@ -1,5 +1,5 @@
 {
-  "retired": ["provo-active-transportation-fatal-crashes"],
+  "retired": ["provo-active-transportation-fatal-crashes", "annual-motor-vehicle-crashes-without-nonmotorists", "provo-active-transportation-incident-map"],
   "approved": [
     {
       "dataset": "safe-routes-to-school",

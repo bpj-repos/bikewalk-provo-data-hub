@@ -1,0 +1,55 @@
+{
+  "name": "layton-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "Layton active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-04",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Layton active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/layton-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 416,
+      "hash": "sha256:79f9a685a24b1de1f467509ab690e946e552634350316c9c67b862e6c147e07c"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 754,
+      "hash": "sha256:5ee8b67b782ca1eb745d63b99da08353caba3e7b517b456b4bc49bc456b014bb"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 303,
+      "hash": "sha256:d30229ea66858b93a145403698d39c40f49f264215d614d1cb666b83e76aeb82"
+    }
+  ]
+}

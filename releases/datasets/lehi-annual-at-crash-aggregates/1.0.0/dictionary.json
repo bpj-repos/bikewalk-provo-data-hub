@@ -1,0 +1,35 @@
+{
+  "primaryKey": "year",
+  "fields": [
+    {
+      "name": "year",
+      "type": "integer",
+      "description": "Local calendar year."
+    },
+    {
+      "name": "total",
+      "type": "integer",
+      "description": "Distinct qualifying Lehi crashes."
+    },
+    {
+      "name": "bike",
+      "type": "integer",
+      "description": "Crashes involving a cyclist."
+    },
+    {
+      "name": "ped",
+      "type": "integer",
+      "description": "Crashes involving a pedestrian."
+    },
+    {
+      "name": "other",
+      "type": "integer",
+      "description": "Crashes involving another nonmotorist conveyance."
+    },
+    {
+      "name": "complete_year",
+      "type": "boolean",
+      "description": "Treated as a full calendar year."
+    }
+  ]
+}

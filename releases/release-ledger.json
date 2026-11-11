@@ -59,6 +59,116 @@
       "dataset": "provo-bicycle-traffic-stress",
       "version": "1.0.0",
       "sha256": "fa704cf166a895cc4e829ec144f5e6701b9802ac523d0729a44e3c88c8b761f1"
+    },
+    {
+      "dataset": "salt-lake-city-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "ed2f26d5f1a075369fb75ff8b816d4106363fc7f866af9ceccd4878a1198f57c"
+    },
+    {
+      "dataset": "midvale-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "3d23af7d524c14786fa2d0f79b8bb4c9139d68d7b203da2785a6d6b1dfd6865e"
+    },
+    {
+      "dataset": "west-valley-city-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "5ffa15e72e4a5d8316c893af1bd93b03c459be1ee9a6b6168e429dfc0cf04338"
+    },
+    {
+      "dataset": "logan-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "a6d1f97bf5d49fc530f4f3c9e4a68ee81eb77ba32c844100fdac5459563633bb"
+    },
+    {
+      "dataset": "provo-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "8e1d589ff794fb88e9a36119ee146ec27c8d97a2eea5c319cdfef331ae220d18"
+    },
+    {
+      "dataset": "ogden-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "f1b68d7882d8b94eb7adc4b2d855ba0c2ae3f4a33cd3645b56b0dac3ce1edda6"
+    },
+    {
+      "dataset": "kearns-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "0ed5c22244923272f55f8fe34c3278ff74aef80044c7faa4e112252bb902c7b3"
+    },
+    {
+      "dataset": "clearfield-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "ad5e3a70f5c455f782382bd22abbf5111d66a92704cc62b4bbc8b5da04e1f580"
+    },
+    {
+      "dataset": "taylorsville-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "607c869658ff9fba7d67b7c416e5a2e01602358aca736464341c815dc422adae"
+    },
+    {
+      "dataset": "st-george-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "169d05bee8e2741e606dc6f6d136600ff8121064e0b2b3222d528936a906577c"
+    },
+    {
+      "dataset": "west-jordan-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "a2bfa957c61da9ff84775431cd13b49a343d1b7d9443c05b5bda146c81459c25"
+    },
+    {
+      "dataset": "layton-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "857d1030f3d1691f3cc156409338632da468fc3d9512b2a5c22545676df77279"
+    },
+    {
+      "dataset": "sandy-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "6bc5eab06c74c67f71c481584af07504c1c3e03bde729e92a0b5e5ad58ffcebf"
+    },
+    {
+      "dataset": "bountiful-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "9a4edbd053458b11cfedbf11ec5e55a45c894e36b29556060503dbc18e43bb0b"
+    },
+    {
+      "dataset": "millcreek-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "efbf45ee76e41285469dfc551a6b530d426842f344e59c0c09d57dcba73ab8d5"
+    },
+    {
+      "dataset": "murray-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "121461a56ff36425790d4b19d5bfdd2cb5729aeb2f3b0a71827cc66280bc423c"
+    },
+    {
+      "dataset": "orem-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "f0f3611a96e7632aa1388299f2f214a9783ec328e6406596276c5d7e161fbc3c"
+    },
+    {
+      "dataset": "lehi-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "83e551116eaf045edda4087ac6dcb34b679c566d6d07c881440482f56ccc4e02"
+    },
+    {
+      "dataset": "springville-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "73a9245c6c1ec6d3865cef045fcc100429d50d9f0895ce07ca1d514e24cccfdb"
+    },
+    {
+      "dataset": "spanish-fork-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "1b920cea9126779b0f1c7b8f22925388a81de511f78d7db3321784978bb37705"
+    },
+    {
+      "dataset": "south-jordan-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "fcebe4f5484cb5fc83808f2bcb3e58367ed51c0a7964096e870b1a7ae191c1e7"
+    },
+    {
+      "dataset": "south-salt-lake-annual-at-crash-aggregates",
+      "version": "1.0.0",
+      "sha256": "265d929ce120ae5558ef22687ceb7bd6d173f79f0bfe80085e68123f9e075721"
     }
   ],
   "withdrawn": []

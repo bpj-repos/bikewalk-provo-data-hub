@@ -53,25 +53,33 @@ Every available catalog release also provides a complete ZIP download: one folde
 
 3. Review `annual.csv`, the field dictionary, the method and the manifest under the output directory. Each qualifying crash counts once in the total and once in each applicable mode. Selected years can have zero crashes. Partial years are flagged. Keep the workbook private and record the printed manifest pin for release review. [Publication and recovery instructions](docs/operations/crash-updates-and-recovery.md#prepare-another-utah-citys-annual-crash-series)
 
-### Which Utah cities had the most reported active transportation crashes?
+## Utah cities with crash data
 
-These ten cities ranked highest in both sources in **calendar year 2024**. Counts are distinct reported crashes involving at least one motor vehicle. Each source counts a crash involving multiple modes once. The sources overlap, so adding their counts would double-count crashes.
+<!-- city-crash-data:start -->
+| City | Portal crashes | Portal years | Latest portal crash | UDOT crashes | UDOT years | Latest UDOT crash | Dataset |
+|---|---:|---|---|---:|---|---|---|
+| Salt Lake City | 3,961 | 2010–2026 | 2026-10-15 | 2,025 | 2018–2026 | 2026-11-07 | [Generated ZIP](releases/datasets/salt-lake-city-annual-at-crash-aggregates/1.0.0/salt-lake-city-annual-at-crash-aggregates-1.0.0.zip) |
+| West Valley City | 1,611 | 2010–2026 | 2026-10-20 | 835 | 2018–2026 | 2026-10-28 | [Generated ZIP](releases/datasets/west-valley-city-annual-at-crash-aggregates/1.0.0/west-valley-city-annual-at-crash-aggregates-1.0.0.zip) |
+| Ogden | 1,336 | 2010–2026 | 2026-09-30 | 743 | 2018–2026 | 2026-10-25 | [Generated ZIP](releases/datasets/ogden-annual-at-crash-aggregates/1.0.0/ogden-annual-at-crash-aggregates-1.0.0.zip) |
+| Provo | 1,332 | 2010–2026 | 2026-09-30 | 693 | 2018–2026 | 2026-10-27 | [Generated ZIP](releases/datasets/provo-annual-at-crash-aggregates/1.0.0/provo-annual-at-crash-aggregates-1.0.0.zip) |
+| St. George | 872 | 2010–2026 | 2026-10-16 | 595 | 2018–2026 | 2026-11-07 | [Generated ZIP](releases/datasets/st-george-annual-at-crash-aggregates/1.0.0/st-george-annual-at-crash-aggregates-1.0.0.zip) |
+| Orem | 843 | 2010–2026 | 2026-10-26 | 477 | 2018–2026 | 2026-11-02 | [Generated ZIP](releases/datasets/orem-annual-at-crash-aggregates/1.0.0/orem-annual-at-crash-aggregates-1.0.0.zip) |
+| Sandy | 766 | 2010–2026 | 2026-10-06 | 407 | 2018–2026 | 2026-11-03 | [Generated ZIP](releases/datasets/sandy-annual-at-crash-aggregates/1.0.0/sandy-annual-at-crash-aggregates-1.0.0.zip) |
+| West Jordan | 700 | 2010–2026 | 2026-10-09 | 385 | 2018–2026 | 2026-10-30 | [Generated ZIP](releases/datasets/west-jordan-annual-at-crash-aggregates/1.0.0/west-jordan-annual-at-crash-aggregates-1.0.0.zip) |
+| Millcreek | 680 | 2010–2026 | 2026-10-16 | 350 | 2018–2026 | 2026-10-30 | [Generated ZIP](releases/datasets/millcreek-annual-at-crash-aggregates/1.0.0/millcreek-annual-at-crash-aggregates-1.0.0.zip) |
+| Logan | 679 | 2010–2026 | 2026-10-03 | 380 | 2018–2026 | 2026-11-06 | [Generated ZIP](releases/datasets/logan-annual-at-crash-aggregates/1.0.0/logan-annual-at-crash-aggregates-1.0.0.zip) |
+| Layton | 649 | 2010–2026 | 2026-10-04 | 381 | 2018–2026 | 2026-10-26 | [Generated ZIP](releases/datasets/layton-annual-at-crash-aggregates/1.0.0/layton-annual-at-crash-aggregates-1.0.0.zip) |
+| Murray | 634 | 2010–2026 | 2026-09-23 | 286 | 2018–2026 | 2026-11-07 | [Generated ZIP](releases/datasets/murray-annual-at-crash-aggregates/1.0.0/murray-annual-at-crash-aggregates-1.0.0.zip) |
+| Taylorsville | 625 | 2010–2026 | 2026-10-16 | 283 | 2018–2026 | 2026-10-16 | [Generated ZIP](releases/datasets/taylorsville-annual-at-crash-aggregates/1.0.0/taylorsville-annual-at-crash-aggregates-1.0.0.zip) |
+| South Salt Lake | 588 | 2010–2026 | 2026-09-28 | 303 | 2018–2026 | 2026-11-06 | [Generated ZIP](releases/datasets/south-salt-lake-annual-at-crash-aggregates/1.0.0/south-salt-lake-annual-at-crash-aggregates-1.0.0.zip) |
+| Midvale | 476 | 2010–2026 | 2026-09-24 | 259 | 2018–2026 | 2026-11-05 | [Generated ZIP](releases/datasets/midvale-annual-at-crash-aggregates/1.0.0/midvale-annual-at-crash-aggregates-1.0.0.zip) |
+| South Jordan | 381 | 2010–2026 | 2026-10-06 | 227 | 2018–2026 | 2026-10-07 | [Generated ZIP](releases/datasets/south-jordan-annual-at-crash-aggregates/1.0.0/south-jordan-annual-at-crash-aggregates-1.0.0.zip) |
+| Clearfield | 365 | 2010–2026 | 2026-10-06 | 198 | 2018–2026 | 2026-11-05 | [Generated ZIP](releases/datasets/clearfield-annual-at-crash-aggregates/1.0.0/clearfield-annual-at-crash-aggregates-1.0.0.zip) |
+| Kearns | 323 | 2010–2026 | 2026-09-29 | 160 | 2018–2026 | 2026-10-31 | [Generated ZIP](releases/datasets/kearns-annual-at-crash-aggregates/1.0.0/kearns-annual-at-crash-aggregates-1.0.0.zip) |
+| Bountiful | 317 | 2010–2026 | 2026-09-14 | 156 | 2018–2026 | 2026-10-22 | [Generated ZIP](releases/datasets/bountiful-annual-at-crash-aggregates/1.0.0/bountiful-annual-at-crash-aggregates-1.0.0.zip) |
+| Lehi | 311 | 2010–2026 | 2026-10-15 | 229 | 2018–2026 | 2026-10-28 | [Generated ZIP](releases/datasets/lehi-annual-at-crash-aggregates/1.0.0/lehi-annual-at-crash-aggregates-1.0.0.zip) |
+| Springville | 246 | 2010–2026 | 2026-07-07 | 135 | 2018–2026 | 2026-10-17 | [Generated ZIP](releases/datasets/springville-annual-at-crash-aggregates/1.0.0/springville-annual-at-crash-aggregates-1.0.0.zip) |
+| Spanish Fork | 231 | 2010–2026 | 2026-09-22 | 139 | 2018–2026 | 2026-11-06 | [Generated ZIP](releases/datasets/spanish-fork-annual-at-crash-aggregates/1.0.0/spanish-fork-annual-at-crash-aggregates-1.0.0.zip) |
+<!-- city-crash-data:end -->
 
-| Statewide rank | City | Utah Crash Data Portal | UDOT Crash Locations |
-|---:|---|---:|---:|
-| 1 | Salt Lake City | 253 | 252 |
-| 2 | Provo | 101 | 102 |
-| 3 | Ogden | 98 | 98 |
-| 4 | West Valley City | 93 | 93 |
-| 5 | St. George | 83 | 83 |
-| 6 | Logan | 58 | 58 |
-| 7 | Murray | 47 | 47 |
-| 8 | Sandy | 46 | 46 |
-| 9 (tie) | Layton | 43 | 43 |
-| 9 (tie) | Millcreek | 43 | 43 |
-
-The portal uses the state-assigned city. The Hub selects crashes involving a cyclist, pedestrian or other nonmotorist conveyance from person types, falling back to cyclist and pedestrian involvement flags. In 2024, 1,619 crashes qualified statewide, including 40 recorded outside city limits. [Utah Crash Data Portal](https://utaps.shinyapps.io/DataPortalAWS/)
-
-UDOT uses bicycle and pedestrian involvement flags. We assigned crash points to the municipal boundaries available on November 11, 2026. Of 1,617 qualifying 2024 crashes, 37 could not be assigned to exactly one municipality. The latest qualifying crash returned by the 2025 UDOT layer was August 4, so the side-by-side ranking uses 2024. [UDOT Crash Locations](https://maps.udot.utah.gov/central/rest/services/TrafficAndSafety/Crash_Locations/MapServer) · [Utah municipal boundaries](https://gis.utah.gov/products/sgid/boundaries/municipal/)
-
-For the **two full years 2024–2025**, the portal recorded 3,503 qualifying crashes statewide. Its top ten cities were Salt Lake City (522), Ogden (208), West Valley City (201), Provo and St. George (182 each), Orem (119), Logan (113), Layton (103), Sandy (92) and West Jordan (89). Both rankings were calculated November 11, 2026.
+[Run the workflow, contribute a dataset, and check methods](docs/operations/city-crash-data.md).

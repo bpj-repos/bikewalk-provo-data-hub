@@ -1,0 +1,55 @@
+{
+  "name": "lehi-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "Lehi active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-15",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Lehi active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/lehi-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 391,
+      "hash": "sha256:98c3c55cfd81a7f6e6be2f001ddd4f1d5b5703a0fd8617a52022cffc6bf88411"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 752,
+      "hash": "sha256:845f8aa3cb25141e829feabcead7ba7718d6dde6977ac50e04fdb9107f41c729"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 301,
+      "hash": "sha256:96c66aa593c3427b41ae4d6fa22d53467f1e9378cb86e8483f4b733c782960b4"
+    }
+  ]
+}

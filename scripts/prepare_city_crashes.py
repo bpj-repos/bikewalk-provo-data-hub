@@ -1,10 +1,11 @@
 """Prepare one Utah city's annual active transportation crash package from one portal XLSX."""
 import argparse
-from datetime import date, datetime
+from datetime import date
 from io import BytesIO
 from pathlib import Path
 import re
 
+from danger_zones.city_history import city_coverage
 from danger_zones.crash_portal import ZONE, portal_tables, portal_time
 from danger_zones.research_reports import annual_report
 from scripts.prepare_crash_releases import AT, write_package
@@ -16,21 +17,8 @@ def prepare(workbook, digest, output, city, version, complete):
         raise ValueError('Use the exact city name shown in the Utah portal')
     tables, related, filters = portal_tables(BytesIO(verified(workbook, digest)), city=city,
                                              allow_county=False, validate=True)
-    required = {'Age Range': 'All Ages Included', 'Agency': 'All', 'Counties': 'All',
-                'Days': 'Mon, Tue, Wed, Thu, Fri, Sat, Sun', 'Hours': '12:00 AM to 11:59 PM',
-                'Months': 'All Months', 'Number of Vehicles': 'All Vehicle Counts Included'}
-    if (len(filters) != len(tables['Filters'])
-            or set(filters) != required.keys() | {'City', 'Date Selection', 'Vehicle Types', 'Crash Severity'}
-            or any(filters[k] != v for k, v in required.items())):
-        raise ValueError('Use an unrestricted city export with all days, hours, agencies and vehicles')
+    start, end, years = city_coverage(tables['Filters'], city)
     selection = filters['Date Selection']
-    match = re.fullmatch(r'(.+?) to (.+?) for (\d{4}(?:, \d{4})*)', selection)
-    if not match:
-        raise ValueError('Unrecognized portal date selection')
-    start, end = (datetime.strptime(day, '%b %d, %Y').date() for day in match.groups()[:2])
-    years = [int(y) for y in match[3].split(', ')]
-    if start > end or any(not start.year <= year <= end.year for year in years):
-        raise ValueError('Inconsistent portal date range and selected years')
     last_full_year = end.year if end == date(end.year, 12, 31) else end.year - 1
     if complete > last_full_year:
         raise ValueError('Complete-through exceeds the workbook’s last full year')

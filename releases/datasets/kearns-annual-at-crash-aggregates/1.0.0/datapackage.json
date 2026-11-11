@@ -1,0 +1,55 @@
+{
+  "name": "kearns-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "Kearns active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-09-29",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Kearns active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/kearns-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 397,
+      "hash": "sha256:e057ec984495e2ad17d0082f3b64a79761a6909beecf82a2afef03a24f1c956a"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 754,
+      "hash": "sha256:ffadfb57405168180eed5e47ac4101f84116003662cad17bc330b61bbca19681"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 303,
+      "hash": "sha256:36b9ca525ad351d29490bf1644aa2b500354def50098fa3623e9e6093df686da"
+    }
+  ]
+}

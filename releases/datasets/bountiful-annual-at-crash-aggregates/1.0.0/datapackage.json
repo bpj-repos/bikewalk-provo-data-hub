@@ -1,0 +1,55 @@
+{
+  "name": "bountiful-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "Bountiful active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-09-14",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Bountiful active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/bountiful-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 398,
+      "hash": "sha256:857b7f4f8afa6ab721217522130ecd1b4163af37b79b03bd3633a542ac359aa7"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 757,
+      "hash": "sha256:556bd52af3ef48769dfc552e11e9890088728b90799bdaefdfb740e904ac4452"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 306,
+      "hash": "sha256:646cddd2bcd64214584b3a6b97ae856de607935ddb7fed71a5b52c03aed8f750"
+    }
+  ]
+}

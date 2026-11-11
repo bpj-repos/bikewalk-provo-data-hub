@@ -1,0 +1,55 @@
+{
+  "name": "murray-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "Murray active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-09-23",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Murray active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/murray-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 412,
+      "hash": "sha256:6e2141b709ccb439623c103bbcf27ff77c91b226285ad0ca795ab5ba295d6576"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 754,
+      "hash": "sha256:8fed675fb6a6d6e1f9f52269a6bbd307458875085bf6a7eef75b352abec0066f"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 303,
+      "hash": "sha256:6d27b6639938c7ab17ce5491993990acd31a05d4cd262398bce66aaa294753d1"
+    }
+  ]
+}

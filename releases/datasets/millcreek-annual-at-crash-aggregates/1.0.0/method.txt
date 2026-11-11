@@ -1,0 +1,1 @@
+State portal crashes classified as Millcreek, with at least one reported motor vehicle. Person type 4 = bicycle, 3 = pedestrian, 5 = other conveyance. Involvement flags are used only when these person types are absent. A crash involving multiple modes appears in multiple mode lines; total counts it once.

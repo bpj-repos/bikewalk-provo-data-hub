@@ -1,0 +1,55 @@
+{
+  "name": "millcreek-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "Millcreek active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-16",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Millcreek active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/millcreek-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 416,
+      "hash": "sha256:c169a02aab9cd156326ee7e9a8065524fe1078e1ccc5054e096788f734cdbdeb"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 757,
+      "hash": "sha256:c24cd8356f075a5afc0c187653dc1c65b646979b468ccfbf250966aeb76b2c7f"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 306,
+      "hash": "sha256:a22ffb2d8cef75f7466c8928f13e8d2eaf105ef63b40547ed7f6cb4f5e8a917d"
+    }
+  ]
+}

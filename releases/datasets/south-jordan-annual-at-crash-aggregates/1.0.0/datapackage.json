@@ -1,0 +1,55 @@
+{
+  "name": "south-jordan-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "South Jordan active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-06",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. South Jordan active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/south-jordan-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 401,
+      "hash": "sha256:44436d0c833eb7c527e89a8ce7068720aa4aac31e95f4b71b8e30cee6a0c16a0"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 760,
+      "hash": "sha256:ddb01f29578921f6ebd3fd7e1719c3eca1aa27994d57a4826d5bdcb25eea181f"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 309,
+      "hash": "sha256:04026c766d96e633a94b4acc2372606f3f542c88628b850dce19ff4b10b5b7c1"
+    }
+  ]
+}

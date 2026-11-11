@@ -1,0 +1,55 @@
+{
+  "name": "clearfield-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "Clearfield active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-06",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Clearfield active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/clearfield-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 402,
+      "hash": "sha256:46cd3f2860fb9dbbe41b99b204bc51a41cc8cab5bf9931ec11c0bd2d01254475"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 758,
+      "hash": "sha256:7aa5e384c1cd0a32644f189a1464c546caabd3279b65948c819b6eb5400a2ab5"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 307,
+      "hash": "sha256:38f95d12c27f3e3d6a82fa39754bc369486223dfa060ea9f23878f6830990ac7"
+    }
+  ]
+}

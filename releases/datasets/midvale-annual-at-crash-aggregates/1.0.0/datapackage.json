@@ -1,0 +1,55 @@
+{
+  "name": "midvale-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "Midvale active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-09-24",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Midvale active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/midvale-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 403,
+      "hash": "sha256:94488322a8251127b94ea1d1e2c57fe6229622105e9ca1d21c6b64e775e7616a"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 755,
+      "hash": "sha256:64584a74e7e30844f5a100fd5c1eb0ef1f73926fecad260e58a1811755b27926"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 304,
+      "hash": "sha256:0b89ef41de1bff40f272f0ede4724e94e8bd24fb97b96b1fef9f53406489eaff"
+    }
+  ]
+}

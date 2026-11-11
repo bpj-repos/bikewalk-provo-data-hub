@@ -1,0 +1,55 @@
+{
+  "name": "taylorsville-annual-at-crash-aggregates",
+  "version": "1.0.0",
+  "title": "Taylorsville active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-16",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Taylorsville active transportation crashes by year, 1.0.0. https://bikewalk-provo-data-hub.vercel.app/datasets/taylorsville-annual-at-crash-aggregates/1.0.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 409,
+      "hash": "sha256:c3b9648ca4f5f9b6ad4f52322fdcd64e6a84e243ee41d2b5922f652059877df0"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 760,
+      "hash": "sha256:dc06ed61cf967048d2be95ba5d0603ecd141e242f9fdb4723f587e75da4b36c1"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 309,
+      "hash": "sha256:aeda5ed7d21d187ccc71670bb1346fb95ecfa66147c98f2eaeb6bbab6c53b006"
+    }
+  ]
+}

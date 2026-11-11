@@ -169,6 +169,26 @@
       "dataset": "south-salt-lake-annual-at-crash-aggregates",
       "version": "1.0.0",
       "sha256": "265d929ce120ae5558ef22687ceb7bd6d173f79f0bfe80085e68123f9e075721"
+    },
+    {
+      "dataset": "springville-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "a0ac28030af174e78039e431463a1f7d7afb1bf09adc2668e14c1f3a2753dc13"
+    },
+    {
+      "dataset": "west-valley-city-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "325981326759d31414d6a5bc6ebc84a806b975669fbaa39330d414e9d27b3d6d"
+    },
+    {
+      "dataset": "salt-lake-city-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "862010c5b0d4d7ba896085be7916f41458833439e39df957fcfb08e99bd45c7e"
+    },
+    {
+      "dataset": "st-george-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "4ee0e1ad4199eaa1fd76292fdba42ba3ff9e1d4200933d09c2d79697d887da69"
     }
   ],
   "withdrawn": []

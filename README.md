@@ -62,11 +62,11 @@ Every available catalog release also provides a complete ZIP download: one folde
 <!-- city-crash-data:start -->
 | City | Portal crashes | Portal years | Latest portal crash | UDOT crashes | UDOT years | Latest UDOT crash | Dataset |
 |---|---:|---|---|---:|---|---|---|
-| Salt Lake City | 3,961 | 2010–2026 | 2026-10-15 | 2,025 | 2018–2026 | 2026-11-07 | [Generated ZIP](releases/datasets/salt-lake-city-annual-at-crash-aggregates/1.0.0/salt-lake-city-annual-at-crash-aggregates-1.0.0.zip) |
-| West Valley City | 1,611 | 2010–2026 | 2026-10-20 | 835 | 2018–2026 | 2026-10-28 | [Generated ZIP](releases/datasets/west-valley-city-annual-at-crash-aggregates/1.0.0/west-valley-city-annual-at-crash-aggregates-1.0.0.zip) |
+| Salt Lake City | 3,961 | 2010–2026 | 2026-10-15 | 2,025 | 2018–2026 | 2026-11-07 | [Generated ZIP](releases/datasets/salt-lake-city-annual-at-crash-aggregates/1.1.0/salt-lake-city-annual-at-crash-aggregates-1.1.0.zip) |
+| West Valley City | 1,611 | 2010–2026 | 2026-10-20 | 835 | 2018–2026 | 2026-10-28 | [Generated ZIP](releases/datasets/west-valley-city-annual-at-crash-aggregates/1.1.0/west-valley-city-annual-at-crash-aggregates-1.1.0.zip) |
 | Ogden | 1,336 | 2010–2026 | 2026-09-30 | 743 | 2018–2026 | 2026-10-25 | [Generated ZIP](releases/datasets/ogden-annual-at-crash-aggregates/1.0.0/ogden-annual-at-crash-aggregates-1.0.0.zip) |
 | Provo | 1,332 | 2010–2026 | 2026-09-30 | 693 | 2018–2026 | 2026-10-27 | [Generated ZIP](releases/datasets/provo-annual-at-crash-aggregates/1.0.0/provo-annual-at-crash-aggregates-1.0.0.zip) |
-| St. George | 872 | 2010–2026 | 2026-10-16 | 595 | 2018–2026 | 2026-11-07 | [Generated ZIP](releases/datasets/st-george-annual-at-crash-aggregates/1.0.0/st-george-annual-at-crash-aggregates-1.0.0.zip) |
+| St. George | 872 | 2010–2026 | 2026-10-16 | 595 | 2018–2026 | 2026-11-07 | [Generated ZIP](releases/datasets/st-george-annual-at-crash-aggregates/1.1.0/st-george-annual-at-crash-aggregates-1.1.0.zip) |
 | Orem | 843 | 2010–2026 | 2026-10-26 | 477 | 2018–2026 | 2026-11-02 | [Generated ZIP](releases/datasets/orem-annual-at-crash-aggregates/1.0.0/orem-annual-at-crash-aggregates-1.0.0.zip) |
 | Sandy | 766 | 2010–2026 | 2026-10-06 | 407 | 2018–2026 | 2026-11-03 | [Generated ZIP](releases/datasets/sandy-annual-at-crash-aggregates/1.0.0/sandy-annual-at-crash-aggregates-1.0.0.zip) |
 | West Jordan | 700 | 2010–2026 | 2026-10-09 | 385 | 2018–2026 | 2026-10-30 | [Generated ZIP](releases/datasets/west-jordan-annual-at-crash-aggregates/1.0.0/west-jordan-annual-at-crash-aggregates-1.0.0.zip) |
@@ -82,7 +82,7 @@ Every available catalog release also provides a complete ZIP download: one folde
 | Kearns | 323 | 2010–2026 | 2026-09-29 | 160 | 2018–2026 | 2026-10-31 | [Generated ZIP](releases/datasets/kearns-annual-at-crash-aggregates/1.0.0/kearns-annual-at-crash-aggregates-1.0.0.zip) |
 | Bountiful | 317 | 2010–2026 | 2026-09-14 | 156 | 2018–2026 | 2026-10-22 | [Generated ZIP](releases/datasets/bountiful-annual-at-crash-aggregates/1.0.0/bountiful-annual-at-crash-aggregates-1.0.0.zip) |
 | Lehi | 311 | 2010–2026 | 2026-10-15 | 229 | 2018–2026 | 2026-10-28 | [Generated ZIP](releases/datasets/lehi-annual-at-crash-aggregates/1.0.0/lehi-annual-at-crash-aggregates-1.0.0.zip) |
-| Springville | 246 | 2010–2026 | 2026-07-07 | 135 | 2018–2026 | 2026-10-17 | [Generated ZIP](releases/datasets/springville-annual-at-crash-aggregates/1.0.0/springville-annual-at-crash-aggregates-1.0.0.zip) |
+| Springville | 246 | 2010–2026 | 2026-07-07 | 135 | 2018–2026 | 2026-10-17 | [Generated ZIP](releases/datasets/springville-annual-at-crash-aggregates/1.1.0/springville-annual-at-crash-aggregates-1.1.0.zip) |
 | Spanish Fork | 231 | 2010–2026 | 2026-09-22 | 139 | 2018–2026 | 2026-11-06 | [Generated ZIP](releases/datasets/spanish-fork-annual-at-crash-aggregates/1.0.0/spanish-fork-annual-at-crash-aggregates-1.0.0.zip) |
 <!-- city-crash-data:end -->
 

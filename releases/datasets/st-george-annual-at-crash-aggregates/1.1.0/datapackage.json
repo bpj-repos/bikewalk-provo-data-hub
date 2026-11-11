@@ -1,0 +1,61 @@
+{
+  "name": "st-george-annual-at-crash-aggregates",
+  "version": "1.1.0",
+  "title": "St. George active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-16",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. St. George active transportation crashes by year, 1.1.0. https://bikewalk-provo-data-hub.vercel.app/datasets/st-george-annual-at-crash-aggregates/1.1.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual-from-2018",
+      "path": "annual-from-2018.csv",
+      "bytes": 244,
+      "hash": "sha256:c19e96d8f86beb88364b5c2f38974702854beb33d2881f436c93e33d6476b6ea"
+    },
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 419,
+      "hash": "sha256:3cd68906b38b9cd66aa327cb8a2a163264d2368a1433c524160317f151dc7590"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 758,
+      "hash": "sha256:34144fffe1f62835987a79a1f90f54d769de039d330cffcf9dfb4e88d4e8b22a"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 374,
+      "hash": "sha256:1d1bff452fb2b3e08112bf00eac7ef4010b5be3e358b933cb75d4dea6c5aa00c"
+    }
+  ]
+}

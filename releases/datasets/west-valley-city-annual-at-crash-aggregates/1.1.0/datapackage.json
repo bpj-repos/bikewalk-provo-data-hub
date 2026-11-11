@@ -1,0 +1,61 @@
+{
+  "name": "west-valley-city-annual-at-crash-aggregates",
+  "version": "1.1.0",
+  "title": "West Valley City active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-20",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 09, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. West Valley City active transportation crashes by year, 1.1.0. https://bikewalk-provo-data-hub.vercel.app/datasets/west-valley-city-annual-at-crash-aggregates/1.1.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual-from-2018",
+      "path": "annual-from-2018.csv",
+      "bytes": 244,
+      "hash": "sha256:eed8ffdf441e891ff63b7af2d810266674802766321be8b834a2124d0c6d032b"
+    },
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 424,
+      "hash": "sha256:8f0a2d9daac2f8bb93c929df6bb953babb379dda87fdd58d9d7f55c108264349"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 764,
+      "hash": "sha256:b645c0f51e82755b32f56e5dfcdb687468683e505a83fe4be91701cc4205fdc9"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 380,
+      "hash": "sha256:51e919849c9be4165d913d5c41bd7671583961c15a4887a24a2dfe621eb4cfa2"
+    }
+  ]
+}

@@ -13,9 +13,9 @@
     },
     "dataset": {
       "id": "salt-lake-city-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "ed2f26d5f1a075369fb75ff8b816d4106363fc7f866af9ceccd4878a1198f57c",
-      "zip": "releases/datasets/salt-lake-city-annual-at-crash-aggregates/1.0.0/salt-lake-city-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "862010c5b0d4d7ba896085be7916f41458833439e39df957fcfb08e99bd45c7e",
+      "zip": "releases/datasets/salt-lake-city-annual-at-crash-aggregates/1.1.0/salt-lake-city-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
@@ -51,9 +51,9 @@
     },
     "dataset": {
       "id": "west-valley-city-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "5ffa15e72e4a5d8316c893af1bd93b03c459be1ee9a6b6168e429dfc0cf04338",
-      "zip": "releases/datasets/west-valley-city-annual-at-crash-aggregates/1.0.0/west-valley-city-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "325981326759d31414d6a5bc6ebc84a806b975669fbaa39330d414e9d27b3d6d",
+      "zip": "releases/datasets/west-valley-city-annual-at-crash-aggregates/1.1.0/west-valley-city-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
@@ -184,9 +184,9 @@
     },
     "dataset": {
       "id": "st-george-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "169d05bee8e2741e606dc6f6d136600ff8121064e0b2b3222d528936a906577c",
-      "zip": "releases/datasets/st-george-annual-at-crash-aggregates/1.0.0/st-george-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "4ee0e1ad4199eaa1fd76292fdba42ba3ff9e1d4200933d09c2d79697d887da69",
+      "zip": "releases/datasets/st-george-annual-at-crash-aggregates/1.1.0/st-george-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
@@ -355,9 +355,9 @@
     },
     "dataset": {
       "id": "springville-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "73a9245c6c1ec6d3865cef045fcc100429d50d9f0895ce07ca1d514e24cccfdb",
-      "zip": "releases/datasets/springville-annual-at-crash-aggregates/1.0.0/springville-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "a0ac28030af174e78039e431463a1f7d7afb1bf09adc2668e14c1f3a2753dc13",
+      "zip": "releases/datasets/springville-annual-at-crash-aggregates/1.1.0/springville-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {

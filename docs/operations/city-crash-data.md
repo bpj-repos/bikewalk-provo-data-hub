@@ -1,5 +1,7 @@
 # Utah city crash data
 
+For a local point map, start with the [lightweight install and offline mapping example](city-crash-mapping.md). Annual packages in the README contain statistics. The city point exporter produces GeoJSON for GIS and web maps. City commands support --json for coding agents.
+
 ## Set up a checkout
 
 Fork the repository on GitHub, clone your fork, and create a contribution branch with `git switch -c city-annual-crashes`. Use Python 3.11 or newer, Git and a full clone of this repository. The city tools run independently of the BikeWalk website checkout.

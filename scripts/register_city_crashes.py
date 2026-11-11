@@ -3,11 +3,13 @@ import argparse
 from contextlib import contextmanager
 import csv
 import io
+import hashlib
 import json
 from pathlib import Path
 import re
 from tempfile import TemporaryDirectory
 
+from scripts.city_cli import run, package_result
 from scripts.build_catalog import checked_package, download_zip
 from scripts.prepare_crash_releases import ROOT, AT, city_has_recent_csv, recent_csv
 
@@ -67,7 +69,7 @@ def replace_text(path, text):
 
 def register(directory, digest, root=ROOT):
     with city_write_lock(root):
-        register_locked(directory, digest, root)
+        return register_locked(directory, digest, root)
 
 
 def register_locked(directory, digest, root=ROOT):
@@ -148,11 +150,16 @@ def register_locked(directory, digest, root=ROOT):
     replace_text(root / COVERAGE, encoded(rows))
     replace_text(root / 'README.md', updated_readme)
     print(f'Registered {city} {version}; ZIP {zip_path}')
+    result = package_result(target, digest,
+                            inputs=dict(package=str(directory.resolve()), sha256=digest),
+                            coverage=dict(city=city, years=years, crashes=count))
+    result['outputs'].update(zip=str((root / zip_path).resolve()),
+                              zipSha256=hashlib.sha256(archive).hexdigest())
+    return result
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('package', type=Path)
     parser.add_argument('manifest_sha256')
-    args = parser.parse_args()
-    register(args.package, args.manifest_sha256)
+    run(parser, lambda args: register(args.package, args.manifest_sha256))

@@ -14,6 +14,8 @@ Run module commands from the repository root. Use a new output directory for bui
 | `python3 -m scripts.capture_city_crash_udot NEW_PRIVATE_DIRECTORY` | Capture all available UDOT pedestrian/bicycle year layers and municipal boundaries. |
 | `python3 -m scripts.city_crash_history PORTAL_DIRECTORY UDOT_DIRECTORY CITY [CITY ...] --write` | Verify captures and update the README city coverage table. |
 | `python3 -m scripts.register_city_crashes PACKAGE MANIFEST_SHA256` | Register a reviewed annual city package, its generated ZIP and README link. |
+| `python3 -m scripts.export_city_crashes --help` | Validate a city XLSX and create a minimized local GeoJSON package and complete ZIP. |
+| `python3 -m scripts.demo_city_crashes NEW_PRIVATE_OUTPUT --json` | Exercise the real mapping workflow with invented records offline. |
 | `python3 -m scripts.prepare_city_crashes --help` | Prepare one Utah city’s private annual aggregate candidate from a checksummed city-filtered portal workbook. |
 | `python3 -m scripts.prepare_counts_candidate --help` | Prepare a private revision using reviewed, complete annual slices and pinned evidence. |
 | `python3 -m scripts.prepare_crash_releases --help` | Build private, aggregate-only release packages for owner review. |
@@ -53,3 +55,5 @@ The source-inventory audit accepts SOURCE_REPO and NEW_OUTPUT directly. The rece
 | Build a private versioned citywide candidate | `python -B -m scripts.prepare_traffic_stress RECEIPT NEW_PACKAGE --version VERSION` |
 
 See [citywide maintenance](../docs/operations/traffic-stress.md). GIS dependencies match route_stress. No consumer or live release changes during preparation.
+
+City workbook preparation, map export, demo, registration and history reporting accept --json for structured results. Use the [city mapping guide](../docs/operations/city-crash-mapping.md) for the lightweight install, output contract and GIS example.

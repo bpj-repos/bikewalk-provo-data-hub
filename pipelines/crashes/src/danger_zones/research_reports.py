@@ -1,8 +1,8 @@
 """Annual active transportation crash series from a pinned private collection."""
-from .incidents import _date
-from .incident_updates import flatten
+from .incident_conversions import _date
 
 MODE_KEYS=['bike','ped','other']
+SEVERITY_LABELS={'1':'No injury','2':'Possible','3':'Minor','4':'Serious','5':'Fatal'}
 
 
 def crash_modes(observation):
@@ -16,6 +16,7 @@ def crash_modes(observation):
 
 
 def crash_report(snapshot,complete_through):
+    from .incident_updates import flatten
     return annual_report(flatten(snapshot).values(), complete_through, "Provo")
 
 
@@ -41,7 +42,7 @@ def annual_report(observations, complete_through, city, years=()):
             annual['months'][d.month-1]+=1
             if o.get('timePrecision') in {'second','microsecond','minute'}:annual['hours'][d.hour][d.weekday()]+=1
             else:annual['unknownTime']+=1
-            severity={'1':'No injury','2':'Possible','3':'Minor','4':'Serious','5':'Fatal'}.get(str(o['metadata']['crash'].get('crashSeverity')),'Unknown')
+            severity=SEVERITY_LABELS.get(str(o['metadata']['crash'].get('crashSeverity')),'Unknown')
             annual['severity'][severity]+=1
         assert sum(annual['months'])==annual['total']==sum(annual['severity'].values())
         assert sum(sum(row) for row in annual['hours'])+annual['unknownTime']==annual['total']

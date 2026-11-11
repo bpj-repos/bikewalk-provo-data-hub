@@ -10,7 +10,6 @@ from tempfile import TemporaryDirectory
 
 from scripts.build_catalog import checked_package
 from scripts.restore_crash_collections import verified
-from danger_zones.research_reports import crash_report
 
 AT = 'annual-at-crash-aggregates'
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +23,7 @@ def encode(obj):
 
 
 def prepare(manifest, digest, output, at_version, complete):
+    from danger_zones.research_reports import crash_report
     managed = json.loads(verified(manifest, digest))
     snapshot = json.loads(verified(manifest.parent/'collection.json', managed['files']['collection.json']))
     report = crash_report(snapshot, complete)
@@ -92,6 +92,7 @@ def write_package(report, selections, output, at_version, complete, *, city='Pro
         checked_package(directory,dict(dataset=dataset,version=version,sha256=pin))
         print(dataset,version,pin)
         stage.rename(output)
+    return output / dataset / version
 
 
 if __name__ == '__main__':

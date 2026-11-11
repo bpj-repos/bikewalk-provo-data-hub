@@ -10,13 +10,9 @@ from datetime import date, datetime
 from pathlib import Path
 
 import jsonschema
-import pyarrow.parquet as pq
 import yaml
-from shapely import from_wkb
 
 from .config import DEFAULT_DATA_ROOT, DEFAULT_PRIVATE_DATA_ROOT, PACKAGE_ROOT, PIPELINE_ROOT
-from .pipeline import latest_artifact
-from .police import _read_numbers, _read_xlsx
 from .util import read_json, sha256_file, utc_now, isoformat, write_json
 
 REPO = PACKAGE_ROOT.parent.parent
@@ -87,6 +83,11 @@ def profile_field(rows, column, years, include_values=False, temporal=False):
 
 
 def source_tables(data_root, private_root, *, with_locators=False):
+    import pyarrow.parquet as pq
+    from shapely import from_wkb
+    from .pipeline import latest_artifact
+    from .police import _read_numbers, _read_xlsx
+
     tables = {}
     crash_path = latest_artifact(data_root, "udot-crashes")
     crash_rows = pq.read_table(crash_path, columns=["source_layer_year", "attributes", "geometry"]).to_pylist()

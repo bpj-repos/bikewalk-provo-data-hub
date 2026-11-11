@@ -10,3 +10,5 @@ PYTHONPATH=.:pipelines/crashes/src python -B -m unittest discover -s tests/crash
 `src/danger_zones/` contains maintained source adapters and shared rules. Its configuration locates the hub root and the resources in data-definitions/crashes. Field-catalog references to src/ resolve against this pipeline, and references/ resolve against the definition directory. Historical callers can supply their frozen reference root explicitly.
 
 Run routine updates through `python -m scripts.update_crashes`. Use the library module directly for isolated recovery with explicit roots. Consult [operations](../../docs/operations/README.md), [definitions](../../data-definitions/README.md) and [tests](../../tests/README.md).
+
+For workbook-only city statistics and GeoJSON, install the four direct dependencies in requirements-city.txt and use [the city mapping workflow](../../docs/operations/city-crash-mapping.md). Source inventory, reconciliation and automated UDOT reporting retain the full producer environment. Heavy inventory/reconciliation imports are deferred until those operations are invoked.

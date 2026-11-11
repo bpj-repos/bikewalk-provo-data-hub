@@ -1,5 +1,6 @@
 """Aggregate checksummed city crash captures using the shared annual population."""
 from collections import Counter
+from io import BytesIO
 from datetime import datetime, timezone
 import json
 import hashlib
@@ -7,8 +8,6 @@ import re
 from urllib.parse import quote
 
 from openpyxl import load_workbook
-from shapely import STRtree
-from shapely.geometry import shape
 
 from .crash_portal import portal_time, ZONE
 from .research_reports import annual_report
@@ -109,6 +108,9 @@ def portal_report(directory, city):
 
 
 def udot_summary(directory, requested):
+    from shapely import STRtree
+    from shapely.geometry import shape
+
     receipt = json.loads((directory / 'receipt.json').read_bytes())
     def read(name):
         raw = (directory / name).read_bytes()
@@ -150,3 +152,31 @@ def udot_summary(directory, requested):
     return {c: (counts[c], f'{years[0]}–{years[-1]}', latest.get(c)) for c in requested}
 
 
+
+
+def read_city_workbook(workbook, digest, city):
+    """Validate the same source population for annual statistics and map exports."""
+    from .crash_portal import portal_tables
+
+    if city.lower() == 'all' or not re.fullmatch(r"[A-Za-z]+(?:[. '-]+[A-Za-z]+)*", city):
+        raise ValueError('Use the exact city name shown in the Utah portal')
+    raw = workbook.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != digest:
+        raise ValueError('Checksum mismatch: ' + workbook.name)
+    tables, related, filters = portal_tables(BytesIO(raw), city=city, allow_county=False, validate=True)
+    start, end, years = city_coverage(tables['Filters'], city)
+    observations = []
+    for crash in tables['Crashes']:
+        identifier = str(crash['Crash_ID'])
+        if not identifier.isdecimal():
+            raise ValueError('Expected distinct numeric state crash identifiers')
+        observed = portal_time(crash['crashDateandTime']).astimezone(ZONE)
+        if not start <= observed.date() <= end or observed.year not in years:
+            raise ValueError('Crash outside selected dates')
+        observations.append({
+            'sourceKey': 'utah-crash-portal', 'sourceRecordId': identifier,
+            'observedAt': observed.isoformat(),
+            'metadata': {'crash': crash, 'persons': related['Persons'][identifier],
+                         'rollups': related['Rollups'][identifier]},
+        })
+    return observations, start, end, years, filters['Date Selection']

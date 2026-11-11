@@ -5,6 +5,7 @@ import math
 import re
 from datetime import date, datetime, timezone
 from decimal import Decimal, InvalidOperation
+from zoneinfo import ZoneInfo
 
 
 def missing(value, present=True):
@@ -142,3 +143,12 @@ def category(code=None, label=None, state='reported'):
                     'not applicable': 'not-applicable', 'not applicable (legacy code)': 'not-applicable'}
     state = label_states.get((label or '').strip().lower(), 'reported')
     return {'value': {'code': code, 'label': label}, 'state': state}
+
+
+def _date(value: str) -> datetime:
+    result = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if result.tzinfo is None:
+        raise ValueError("Observation timestamps must include a time zone")
+    return result.astimezone(ZoneInfo("America/Denver"))
+
+

@@ -1,12 +1,12 @@
 # Maintainer handoff
 
+The BikeWalk release owner grants read access to the private GitHub repositories bpj-repos/bikewalk-provo-data-hub and bpj-repos/bikewalk-provo. The collection lead verifies the protocol, mapping and completeness of a delivery. The release owner approves the exact manifest and reuse terms. The deployment operator needs access to brycepjs-projects/bikewalk-provo-data-hub only for staging or promotion. Each consumer independently verifies and adopts its own pin.
+
 ## Complete ZIP downloads, November 11, 2026
 
 Builder commit `c0b36d5c26611591bc03e82bdf3541955c737b07` added 11 complete ZIP downloads for available versions of the four listed datasets, without changing any existing manifest, resource byte or consumer pin. Staging-verifier commit `a2916895a4904d4d4168f211161711fe17883317` resolves protected checks through the linked output directory. Deployment `dpl_Bie4sswH9LRe4JKTsZ5hc8PDMkbZ` at https://bikewalk-provo-data-j0564hi0v-brycepjs-projects.vercel.app was promoted to the stable Hub alias and all 135 public files passed exact-byte, MIME, attachment and CORS verification. Previous deployment: `dpl_HAv3RKa9YBnSDNTmvAqKqYyjcez7` at https://bikewalk-provo-data-7fc75yvuy-brycepjs-projects.vercel.app.
 
 Two full builds were byte-identical; comparison against the previous assembler preserved every existing dataset file and all catalog metadata except the added download objects. Each archive was opened, CRC-checked and compared with every listed resource and manifest. All 43 Hub tests passed; 142 crash tests passed and the retained-private-map-receipt fixture was skipped in the isolated checkout. Tests also cover corruption, unsafe member paths, withdrawal and retirement. Consumer UI adoption is a separate Projects release. Build/archive inventories and preserved ZIPs are at `/Users/test/.codex/visualizations/2026/11/11/01a1cba6-99c7-78e0-8ce5-ff54c0c6e8ec/dataset-zip-verification/`.
-
-The BikeWalk release owner grants read access to the private GitHub repositories bpj-repos/bikewalk-provo-data-hub and bpj-repos/bikewalk-provo. The collection lead verifies the protocol, mapping and completeness of a delivery. The release owner approves the exact manifest and reuse terms. The deployment operator needs access to brycepjs-projects/bikewalk-provo-data-hub only for staging or promotion. Each consumer independently verifies and adopts its own pin.
 
 ## Restore in a clean checkout
 
@@ -17,6 +17,10 @@ Clone both private repositories without shallow history. A local no-hardlink clo
     python3 -m scripts.build_catalog "$BWP_SOURCE_REPO" /tmp/unique-staging-directory
 
 The source ledger data-definitions/annual-transportation-counts/sources.json points to commit 5f46d516876cd7d71a7a87f819e7b3eddf3c9135 in the private BikeWalk repository. The approved hashes and frozen historical adapter live in this hub. The current production restore is scripts/build_catalog.py; scripts/build_demo_counts.py is only the historical demonstration. Check the complete catalog and every manifest and resource against its recorded checksum. Compare public trees from two independent runs. Run python3 -m scripts.verify_public_catalog /tmp/unique-staging-directory/public against the production alias for a production restore. For a local drill, serve that directory on loopback and retrieve both the current manifest and a cited predecessor. Verify counts 1.0.1 SHA-256 8d5ce1e127cfcd6623057b9370971a026ad76c780e108ba00044ae6bf59a0160. In its 2026 CSV select observed combined total rows for mode all or scooter: sums 6,186 and 283. Retain the original 236 only at 1.0.0.
+
+## Packaging dataset updates
+
+For every dataset update, add any new data or supporting detail file to the approved versioned manifest and run the normal catalog assembly command. It generates the complete ZIP automatically; agents must not build or curate ZIPs by hand. The Safe Routes publication pipeline calls the same builder. Verify the generated `download` entry and archive through `scripts.verify_public_catalog` before promotion and again on the stable alias. The new-release/archive regression exercises an added detail file through this standard build path.
 
 ## Prepare the next counts release
 

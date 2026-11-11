@@ -1,4 +1,4 @@
-"""The two checkouts recover from a failed Projects test after hub promotion."""
+"""Hub publication preserves the consumer checkout and can resume after a failed verification."""
 
 import contextlib
 import hashlib
@@ -22,7 +22,7 @@ def repo(root, name):
 
 
 class RehearsePublication(unittest.TestCase):
-    def test_approved_rerun_after_partial_projects_apply(self):
+    def test_retry_does_not_modify_or_deploy_the_map_consumer(self):
         with tempfile.TemporaryDirectory() as t:
             d = Path(t)
             hub = repo(d, "hub")
@@ -71,15 +71,9 @@ class RehearsePublication(unittest.TestCase):
                 command = list(map(str, args))
                 if command[0] == "git":
                     return original(args, cwd or hub, **opts)
-                if "scripts/hub-update.py" in command:
-                    if "stage" in command:
-                        return ("apply " + "3" * 64).encode()
-                    for f in package.iterdir():
-                        (routes / f.name).write_bytes(f.read_bytes())
-                    (routes / "manifest.json").write_text(
-                        json.dumps({"approval": "BikeWalk approved hub pin " + pin})
-                    )
-                if command[:2] == ["npm", "test"] and not tests[0]:
+                if command[0] == "npm" or "scripts/hub-update.py" in command:
+                    self.fail("Hub publication must not operate the map consumer")
+                if "scripts/verify_public_catalog.py" in " ".join(command) and not tests[0]:
                     tests[0] = True
                     raise subprocess.CalledProcessError(1, command)
                 if command[:2] == ["vercel", "promote"]:
@@ -95,19 +89,21 @@ class RehearsePublication(unittest.TestCase):
                     archive=lambda *_: None,
                     build=lambda proj, dest: dest.mkdir(),
                     stage_url=lambda cwd, name, *args: name,
-                    verify_app=lambda *_: None,
                 ).items():
                     st.enter_context(patch.object(p, k, v))
                 with self.assertRaises(subprocess.CalledProcessError):
                     p.publish("123", pin, projects, False)
-                self.assertEqual(publish, ["bikewalk-provo-data"])
+                self.assertEqual(publish, [])
                 p.publish("123", pin, projects, False)
                 p.publish("123", pin, projects, False)
                 self.assertEqual(
-                    publish, ["bikewalk-provo-data", "bikewalk-provo-maps"]
+                    publish, ["bikewalk-provo-data"]
                 )
                 for repo_ in (hub, projects):
                     self.assertEqual(
                         p.git(repo_, "rev-parse", "HEAD"),
                         p.git(repo_, "rev-parse", "origin/main"),
                     )
+
+                self.assertEqual((routes / "datapackage.json").read_bytes(), b"old")
+                self.assertEqual(p.git(projects, "status", "--porcelain"), "")

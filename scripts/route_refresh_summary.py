@@ -64,7 +64,7 @@ def summary(folder, run_id):
         "",
         "Inspect review.json, changes.json, published-comparison.json, unrated-review.json and school-coverage-review.txt before approval.",
         "",
-        "Only after approval, from the hub checkout:",
+        "Only after approval, publish the Hub from its checkout. Then stage the approved pin in Streets Watch with npm run safe-routes:update -- stage VERSION and review its PR:",
         "",
         "\x60\x60\x60sh",
         f"python -m scripts.publish_route_update {run_id} {r['sha256']}",

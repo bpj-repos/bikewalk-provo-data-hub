@@ -1,4 +1,4 @@
-"""Verify a reviewed GitHub Actions candidate and publish the hub, then Projects."""
+"""Verify a reviewed GitHub Actions candidate and publish the approved Data Hub package."""
 
 import argparse
 import fcntl
@@ -13,14 +13,12 @@ import subprocess
 import sys
 import tarfile
 import tempfile
-from urllib.request import urlopen
 
 from scripts.build_catalog import checked_package, build
-from scripts.safe_routes import DATASET, HOST
+from scripts.safe_routes import DATASET
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = "bpj-repos/bikewalk-provo-data-hub"
-PROJECTS = "https://projects.bikewalkprovo.org"
 SCOPE = "--scope=brycepjs-projects"
 GEO = [
     "safe-school-routes",
@@ -268,35 +266,6 @@ def stage_url(cwd, project, prebuilt=False):
     return matches[-1]
 
 
-def verify_app(root, url, pin, version, app_sha, producer, protected):
-    def get(path):
-        if protected:
-            return cmd(
-                ["vercel", "curl", path, "--deployment", url, SCOPE], root, output=True
-            )
-        with urlopen(url + path, timeout=60) as r:
-            return r.read()
-
-    r = json.loads(get("/release.json"))
-    if (r["dataset"], r["applicationCommit"], r["producerCommit"]) != (
-        DATASET + "-" + version,
-        app_sha,
-        producer,
-    ):
-        raise ValueError("Unexpected Projects release identity")
-    pack = get("/data/safe-routes/datapackage.json")
-    if sha(pack) != pin:
-        raise ValueError("Unexpected deployed manifest")
-    files = {r["path"]: r["hash"] for r in json.loads(pack)["resources"]}
-    for key in GEO:
-        name = key + ".geojson"
-        if "sha256:" + sha(get("/data/safe-routes/" + name)) != files[name]:
-            raise ValueError("Deployed resource mismatch: " + name)
-    for path in ("/maps/safe-routes", "/data-hub"):
-        if not get(path):
-            raise ValueError("Missing public page: " + path)
-
-
 def publish(runid, pin, projects, verify_only):
     if not re.fullmatch(r"[1-9]\d*", runid) or not re.fullmatch(r"[a-f0-9]{64}", pin):
         raise ValueError("Expected numeric GitHub run and exact SHA-256")
@@ -310,7 +279,7 @@ def publish(runid, pin, projects, verify_only):
         entry, report = verify_candidate(folder, pin)
         ledger = ledger_check(entry, report)
         version = entry["version"]
-        # Rebuild from the received bytes before committing or assigning either production domain.
+        # Rebuild from received bytes before recording or publishing the release.
         with tempfile.TemporaryDirectory(dir=work) as t:
             cmd([sys.executable, "-m", "scripts.rebuild_route_candidate", folder, t])
         if verify_only:
@@ -319,8 +288,6 @@ def publish(runid, pin, projects, verify_only):
             )
             return
         projects = projects.resolve()
-        app = projects / "apps/maps"
-        routes = app / "public/data/safe-routes"
         release = ROOT / "releases/datasets" / DATASET / version
         statefile = work / "publication.json"
         state = load(statefile) if statefile.exists() else {}
@@ -338,16 +305,13 @@ def publish(runid, pin, projects, verify_only):
         # A retry may resume a locally committed but not yet pushed release.
         for repo, marker in (
             (ROOT, release / "datapackage.json"),
-            (projects, routes / "datapackage.json"),
         ):
             ahead = git(repo, "rev-list", "--count", "origin/main..HEAD")
             if ahead == "1" and marker.exists() and sha(marker.read_bytes()) == pin:
                 paths = git(
                     repo, "diff", "--name-only", "origin/main..HEAD"
                 ).splitlines()
-                allowed = (
-                    hub_paths if repo == ROOT else ["apps/maps/public/data/safe-routes"]
-                )
+                allowed = hub_paths
                 if all(
                     any(p == a or p.startswith(a + "/") for a in allowed) for p in paths
                 ):
@@ -372,45 +336,6 @@ def publish(runid, pin, projects, verify_only):
                 str((release / n).relative_to(ROOT)) for n in expected_files
             )
         clean(ROOT, ["."], hub_owned)
-        app_owned = set()
-        if sha((routes / "datapackage.json").read_bytes()) == pin:
-            expected = {key + ".geojson" for key in GEO} | {
-                "manifest.json",
-                "datapackage.json",
-            }
-            if {f.name for f in routes.iterdir()} != expected:
-                raise ValueError("Unexpected Projects snapshot files")
-            if (
-                json.loads((routes / "manifest.json").read_bytes())["approval"]
-                != "BikeWalk approved hub pin " + pin
-            ):
-                raise ValueError("Unexpected Projects pin")
-            for key in GEO:
-                if (routes / (key + ".geojson")).read_bytes() != (
-                    folder / "package" / (key + ".geojson")
-                ).read_bytes():
-                    raise ValueError("Projects resource disagrees with approved data")
-            app_owned = {str((routes / n).relative_to(projects)) for n in expected}
-        clean(projects, ["apps/maps"], app_owned)
-        if state.get("verified") and entry in ledger["approved"]:
-            verify_app(
-                projects,
-                PROJECTS,
-                pin,
-                version,
-                state["appSha"],
-                git(
-                    ROOT,
-                    "log",
-                    "-1",
-                    "--format=%H",
-                    "--",
-                    str(release.relative_to(ROOT)),
-                ),
-                False,
-            )
-            print("Already published and verified:", version, pin)
-            return
         archive(folder, work, f"source-receipts-safe-routes-{version}-{pin[:12]}")
         if entry not in head_ledger["approved"]:
             if not release.exists():
@@ -473,53 +398,7 @@ def publish(runid, pin, projects, verify_only):
             cmd(["vercel", "promote", state["hubURL"], "--yes", SCOPE], stage)
         cmd(verify, stage)
         save("hubLive", True)
-        if sha((routes / "datapackage.json").read_bytes()) != pin:
-            update = [sys.executable, "scripts/hub-update.py"]
-            result = cmd(
-                [*update, "stage", "routes", version, "--producer-commit", producer],
-                app,
-                env={**os.environ, "BWP_HUB_CHECKOUT": str(ROOT)},
-                output=True,
-            )
-            review = re.search(rb"apply ([0-9a-f]{64})", result)
-            if not review:
-                raise ValueError("Missing Projects review digest")
-            cmd([*update, "apply", review[1].decode()], app)
-        if git(
-            projects, "status", "--porcelain", "--", "apps/maps/public/data/safe-routes"
-        ):
-            cmd(["npm", "test"], app)
-            cmd(["npm", "run", "build"], app)
-            verified_push(
-                projects,
-                ["apps/maps/public/data/safe-routes"],
-                "Adopt Safe Routes " + version,
-            )
-        app_sha = git(projects, "rev-parse", "HEAD")
-        if "appURL" not in state or state.get("appSha") != app_sha:
-            cmd(
-                ["vercel", "link", "--yes", "--project", "bikewalk-provo-maps", SCOPE],
-                projects,
-            )
-            cmd(
-                ["vercel", "pull", "--yes", "--environment=production", SCOPE], projects
-            )
-            cmd(
-                ["vercel", "build", "--prod", SCOPE],
-                projects,
-                env={**os.environ, "VERCEL_GIT_COMMIT_SHA": app_sha},
-            )
-            save("appURL", stage_url(projects, "bikewalk-provo-maps", True))
-            save("appSha", app_sha)
-        verify_app(projects, state["appURL"], pin, version, app_sha, producer, True)
-        cmd(
-            ["node", ROOT / "scripts/route_map_smoke.cjs", state["appURL"], "stage"],
-            app,
-        )
-        unchanged_head(projects)
-        cmd(["vercel", "promote", state["appURL"], "--yes", SCOPE], projects)
-        verify_app(projects, PROJECTS, pin, version, app_sha, producer, False)
-        cmd(["node", ROOT / "scripts/route_map_smoke.cjs", PROJECTS], app)
+        # Map adoption is reviewed and published independently by Streets Watch.
         save("verified", True)
         print(json.dumps(state, indent=2))
 

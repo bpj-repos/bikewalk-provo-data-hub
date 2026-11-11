@@ -2,7 +2,7 @@
 
 ## Set up a checkout
 
-Use Python 3.11 or newer, Git and a full clone of this repository. The city tools run independently of the BikeWalk website checkout.
+Fork the repository on GitHub, clone your fork, and create a contribution branch with `git switch -c city-annual-crashes`. Use Python 3.11 or newer, Git and a full clone of this repository. The city tools run independently of the BikeWalk website checkout.
 
 ```sh
 python3 -m venv pipelines/crashes/.venv
@@ -19,14 +19,16 @@ From the repository root, set the workbook, received SHA-256, exact city name, l
 
 ```sh
 python -m scripts.prepare_city_crashes private/intake/city.xlsx WORKBOOK_SHA256 \
-  private/candidates/city-1.0.0 --city 'Salt Lake City' --complete-through 2025
+  private/candidates/city-1.1.0 --city 'Salt Lake City' --complete-through 2025
 ```
+
+City builds default to version 1.1.0. If that version is already registered, use a new version with `--version`. When selected years include years before 2018, the builder also writes `annual-from-2018.csv` using the same rows and columns as the corresponding slice of Provo’s annual product. Explicit 1.0.0 builds reproduce the earlier single-CSV format.
 
 The printed dataset name identifies the package subdirectory. Review its annual CSV, dictionary, method and manifest. Rebuild in a second private directory and compare the manifest SHA-256. Once reviewed, register that exact pin. For the example above:
 
 ```sh
 python -m scripts.register_city_crashes \
-  private/candidates/city-1.0.0/salt-lake-city-annual-at-crash-aggregates/1.0.0 MANIFEST_SHA256
+  private/candidates/city-1.1.0/salt-lake-city-annual-at-crash-aggregates/1.1.0 MANIFEST_SHA256
 ```
 
 Registration copies only the annual public package into `releases/datasets/CITY-annual-at-crash-aggregates/VERSION/`, creates the complete ZIP through the catalog builder's maintained ZIP routine, appends the immutable manifest pin to `releases/release-ledger.json`, and updates `data-definitions/crashes/city-coverage.json` and the README's dataset link. Repeating the same registration verifies the existing pin. Updates use a fresh version. The source workbook and receipts stay in private storage. Registration and table updates share a local directory lock and replace each metadata file atomically. After a terminated process, confirm no city update is running before removing the empty `private/city-release.lock` directory and retrying the same pin.
@@ -39,7 +41,7 @@ git add releases/datasets/salt-lake-city-annual-at-crash-aggregates \
 git commit -m "Add Salt Lake City annual crash dataset"
 ```
 
-Push your contribution branch and submit a pull request under the repository's current contribution rules. The relative ZIP link works directly from the repository after the files are committed. Static Hub publication uses the usual catalog build and [hosting verification](maintainer-guide.md). Consumer adoption follows independently.
+Push your contribution branch with `git push -u origin HEAD` and submit a pull request under the repository's current contribution rules. The relative ZIP link works directly from the repository after the files are committed. Static Hub publication uses the usual catalog build and [hosting verification](maintainer-guide.md). Consumer adoption follows independently.
 
 ## Refresh city counts automatically
 

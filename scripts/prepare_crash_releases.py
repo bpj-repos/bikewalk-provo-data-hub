@@ -32,6 +32,15 @@ def prepare(manifest, digest, output, at_version, complete):
     write_package(report, selections, output, at_version, complete)
 
 
+def city_has_recent_csv(version, years):
+    return tuple(map(int, version.split('.'))) >= (1, 1, 0) and any(y < 2018 for y in years)
+
+
+def recent_csv(annual):
+    header, *rows = annual.splitlines(keepends=True)
+    return header + b''.join(row for row in rows if int(row.split(b',', 1)[0]) >= 2018)
+
+
 def write_package(report, selections, output, at_version, complete, *, city='Provo', dataset=AT):
     output = output.resolve()
     if not output.is_relative_to(ROOT/'private') or output.exists():
@@ -56,10 +65,10 @@ def write_package(report, selections, output, at_version, complete, *, city='Pro
                     dict(name=k,type='boolean' if k=='complete_year' else 'integer',description=v)
                     for k,v in zip(cols,descriptions)]}),
                 'method.txt':(report['scope']+' '+report['modeMethod']+'\n').encode()}
-    if dataset == AT and at_years and at_years[0] < 2018:
-        lines = at_files['annual.csv'].splitlines(keepends=True)
-        at_files['annual-from-2018.csv'] = lines[0] + b''.join(line for year, line in zip(at_years, lines[1:]) if year >= 2018)
-        at_files['method.txt'] += b'annual.csv includes the 2010-2017 Provo archive. Use annual-from-2018.csv to exclude that archive.\n'
+    if (dataset == AT and at_years and at_years[0] < 2018) or city_has_recent_csv(at_version, at_years):
+        at_files['annual-from-2018.csv'] = recent_csv(at_files['annual.csv'])
+        at_files['method.txt'] += (b'annual.csv includes the 2010-2017 Provo archive. Use annual-from-2018.csv to exclude that archive.\n'
+                                   if dataset == AT else b'annual-from-2018.csv contains the selected years from 2018 onward.\n')
     title, version = f'{city} active transportation crashes by year', at_version
     output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=output.parent) as tmp:

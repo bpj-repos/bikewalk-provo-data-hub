@@ -52,7 +52,7 @@ if __name__ == '__main__':
     parser.add_argument('sha256')
     parser.add_argument('output', type=Path)
     parser.add_argument('--city', required=True)
-    parser.add_argument('--version', default='1.0.0')
+    parser.add_argument('--version', default='1.1.0')
     parser.add_argument('--complete-through', type=int, required=True, help='Last year reviewed as complete')
     args = parser.parse_args()
     prepare(args.workbook, args.sha256, args.output, args.city, args.version, args.complete_through)

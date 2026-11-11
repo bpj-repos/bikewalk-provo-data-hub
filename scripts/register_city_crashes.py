@@ -9,7 +9,7 @@ import re
 from tempfile import TemporaryDirectory
 
 from scripts.build_catalog import checked_package, download_zip
-from scripts.prepare_crash_releases import ROOT, AT
+from scripts.prepare_crash_releases import ROOT, AT, city_has_recent_csv, recent_csv
 
 COVERAGE = Path('data-definitions/crashes/city-coverage.json')
 START = '<!-- city-crash-data:start -->'
@@ -82,8 +82,6 @@ def register_locked(directory, digest, root=ROOT):
         raise ValueError('City title and dataset identity differ')
     entry = dict(dataset=dataset, version=version, sha256=digest)
     files = checked_package(directory, entry)
-    if set(files) != {'datapackage.json', 'annual.csv', 'dictionary.json', 'method.txt'}:
-        raise ValueError('City packages contain annual aggregates, dictionary and method only')
     reader = csv.DictReader(io.StringIO(files['annual.csv'].decode()))
     if reader.fieldnames != ['year', 'total', 'bike', 'ped', 'other', 'complete_year']:
         raise ValueError('Unexpected public annual fields')
@@ -91,6 +89,13 @@ def register_locked(directory, digest, root=ROOT):
     years = [int(r['year']) for r in annual]
     if not years or sorted(set(years)) != years:
         raise ValueError('Expected distinct ascending annual rows')
+    expected_files = {'datapackage.json', 'annual.csv', 'dictionary.json', 'method.txt'}
+    if city_has_recent_csv(version, years):
+        expected_files.add('annual-from-2018.csv')
+        if files.get('annual-from-2018.csv') != recent_csv(files['annual.csv']):
+            raise ValueError('Expected exact 2018-onward slice of annual.csv')
+    if set(files) != expected_files:
+        raise ValueError('Unexpected city package resources')
     for row in annual:
         modes = [int(row[k]) for k in ('bike', 'ped', 'other')]
         total = int(row['total'])

@@ -92,7 +92,7 @@ From the hub root in the crash environment, substitute the received city, workbo
 ```sh
 PYTHONPATH=.:pipelines/crashes/src python -m scripts.prepare_city_crashes \
   /restricted/intake/orem.xlsx "$WORKBOOK_SHA256" private/candidates/2026-11-11-orem-crashes \
-  --city Orem --complete-through 2025 --version 1.0.0
+  --city Orem --complete-through 2025 --version 1.1.0
 ```
 
 The workbook filter and the row's state-assigned city determine membership. The annual series uses the [existing nonmotorist definition](../history/annual-crash-migration.md). A selected year with zero qualifying records gets a zero. An unselected year has no row. Partial-year counts cover the selected dates only. The manifest records the date selection. Police reports, coordinates and case matching are unnecessary for this aggregate.

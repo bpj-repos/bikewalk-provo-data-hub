@@ -26,22 +26,22 @@ class CityHistoryTests(unittest.TestCase):
             record['metadata']['crash']['numberOfVehicles'] = 1
             path = portal_workbook(private / 'Provo.xlsx', [record])
             wb = load_workbook(path)
-            for k, v in {'Date Selection': 'Jan 01, 2025 to Dec 31, 2025 for 2025',
+            for k, v in {'Date Selection': 'Jan 01, 2017 to Dec 31, 2025 for ' + ', '.join(map(str, range(2017, 2026))),
                          'Age Range': 'All Ages Included', 'Agency': 'All',
                          'Days': 'Mon, Tue, Wed, Thu, Fri, Sat, Sun', 'Hours': '12:00 AM to 11:59 PM',
                          'Number of Vehicles': 'All Vehicle Counts Included'}.items():
                 wb['Filters'].append([k, v])
             wb.save(path)
-            receipt = dict(city='Provo', file=path.name, dates=['01/01/2025', '12/31/2025'],
-                           years=['2025'], expectedCrashes=1, sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+            receipt = dict(city='Provo', file=path.name, dates=['01/01/2017', '12/31/2025'],
+                           years=list(map(str, range(2017, 2026))), expectedCrashes=1, sha256=hashlib.sha256(path.read_bytes()).hexdigest())
             path.with_suffix('.xlsx.json').write_text(json.dumps(receipt))
             stats = portal_report(private, 'Provo')
             self.assertEqual((stats['count'], stats['latest']), (1, '2025-03-04'))
-            self.assertEqual(stats['report']['annual'][0]['bike'], 1)
+            self.assertEqual(stats['report']['annual'][-1]['bike'], 1)
             with patch('scripts.prepare_crash_releases.ROOT', root):
                 write_package(stats['report'], [stats['sourceSelection']], private / 'candidate',
-                              '1.0.0', 2024, city='Provo', dataset='provo-annual-at-crash-aggregates')
-            package = private / 'candidate/provo-annual-at-crash-aggregates/1.0.0'
+                              '1.1.0', 2024, city='Provo', dataset='provo-annual-at-crash-aggregates')
+            package = private / 'candidate/provo-annual-at-crash-aggregates/1.1.0'
             (root / 'releases').mkdir()
             ledger = root / 'releases/release-ledger.json'
             ledger.write_text('{"approved": [], "withdrawn": []}')
@@ -59,7 +59,10 @@ class CityHistoryTests(unittest.TestCase):
             archive = next((root / 'releases').rglob('*.zip'))
             with zipfile.ZipFile(archive) as zipped:
                 self.assertIsNone(zipped.testzip())
-                self.assertEqual(len(zipped.namelist()), 4)
+                prefix = 'provo-annual-at-crash-aggregates-1.1.0/'
+                header, older, *recent = zipped.read(prefix + 'annual.csv').splitlines(keepends=True)
+                self.assertTrue(older.startswith(b'2017,'))
+                self.assertEqual(zipped.read(prefix + 'annual-from-2018.csv'), header + b''.join(recent))
             self.assertIn('[Generated ZIP](releases/datasets/provo-', (root / 'README.md').read_text())
             receipt['expectedCrashes'] = 2
             path.with_suffix('.xlsx.json').write_text(json.dumps(receipt))

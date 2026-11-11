@@ -42,7 +42,7 @@ Every available catalog release also provides a complete ZIP download: one folde
 ## Prepare annual active transportation crash counts for a Utah city
 
 1. In the [Utah Crash Data Portal](https://utaps.shinyapps.io/DataPortalAWS/), select the city by its portal name and choose the date range and years. Leave the other filters unrestricted, including county, agency, vehicle type, severity and time of day. Apply the filters and choose **Downloads → Download Filtered Data**. Keep the original XLSX in restricted intake and record its SHA-256.
-2. From the repository root, activate the crash pipeline’s Python environment. Set the city, workbook path, received checksum, last reviewed full year and a fresh output path under `private/`. For example, a workbook covering 2024–2025 for Salt Lake City can be processed with
+2. From the repository root, activate the crash pipeline’s Python environment. Set the city, workbook path, received checksum, last reviewed full year and a fresh output path under `private/`. For example, to process a Salt Lake City workbook covering 2010 through provisional 2026, run
 
    ```sh
    CITY='Salt Lake City'
@@ -50,10 +50,12 @@ Every available catalog release also provides a complete ZIP download: one folde
    WORKBOOK_SHA256='replace-with-the-recorded-64-character-sha256'
    PYTHONPATH=.:pipelines/crashes/src python -m scripts.prepare_city_crashes \
      "$WORKBOOK" "$WORKBOOK_SHA256" private/candidates/2026-11-11-salt-lake-city-crashes \
-     --city "$CITY" --complete-through 2025 --version 1.0.0
+     --city "$CITY" --complete-through 2025 --version 1.1.0
    ```
 
-3. Review `annual.csv`, the field dictionary, the method and the manifest under the output directory. Each qualifying crash counts once in the total and once in each applicable mode. Selected years can have zero crashes. Partial years are flagged. Keep the workbook private and record the printed manifest pin for release review. [Publication and recovery instructions](docs/operations/crash-updates-and-recovery.md#prepare-another-utah-citys-annual-crash-series)
+3. Review `annual.csv`, the 2018-onward CSV if included, the field dictionary, the method and the manifest under the output directory. Each qualifying crash counts once in the total and once in each applicable mode. Selected years can have zero crashes. Partial years are flagged. Keep the workbook private and record the printed manifest pin for release review. [Publication and recovery instructions](docs/operations/crash-updates-and-recovery.md#prepare-another-utah-citys-annual-crash-series)
+
+4. [Register the package and submit a pull request](docs/operations/city-crash-data.md#prepare-and-contribute-one-city). Registration generates the ZIP and adds or updates your city's table link. Commit the generated public files on your fork. Once the PR is approved and merged, readers can download the ZIP from the table below.
 
 ## Utah cities with crash data
 

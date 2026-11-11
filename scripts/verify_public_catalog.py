@@ -17,7 +17,7 @@ headers={'Origin':'https://projects.bikewalkprovo.org'}
 if a.stage:
     if not re.fullmatch(r'https://bikewalk-provo-data-[a-z0-9]+-brycepjs-projects\.vercel\.app',base):
         raise ValueError('Unexpected staging host')
-    result=subprocess.run(['vercel','curl','/?x-vercel-set-bypass-cookie=true','--deployment',base,'--scope=brycepjs-projects','--','--head'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,check=True,text=True)
+    result=subprocess.run(['vercel','curl','/?x-vercel-set-bypass-cookie=true','--deployment',base,'--scope=brycepjs-projects','--','--head'],cwd=a.public.resolve().parent,stdout=subprocess.PIPE,stderr=subprocess.PIPE,check=True,text=True)
     cookies=re.findall(r'^set-cookie:\s*([^=;\s]+=[^;\r\n]*)',result.stdout,re.I|re.M)
     if cookies:
         headers['Cookie']='; '.join(cookies)

@@ -79,7 +79,7 @@ The catalog builder also creates a complete ZIP for each available release of ev
 
 Each catalog release has a `download` object containing the archive's `path`, `bytes` and `sha256`. This additive convenience interface does not change dataset manifests, resource bytes, release versions or consumer pins. Individual resource URLs remain available to existing consumers. ZIP responses use `application/zip`, attachment disposition and the existing public CORS policy. Projects links to these Hub-hosted archives and needs no ZIP library or client-side assembly.
 
-Withdrawn releases and retired catalog entries receive no ZIP in a fresh build. Withdrawal verification must check both resource and archive URLs and honor the current ledger during rollback. The public verifier compares every archive byte with the reviewed build and checks download headers. Archive regressions cover single-directory completeness, exact extracted bytes, repeatability, unsafe paths, corruption, catalog checksums, withdrawal and retirement.
+Withdrawn releases and retired catalog entries receive no ZIP in a fresh build. Withdrawal verification must check both resource and archive URLs and honor the current ledger during rollback. The public verifier compares every archive byte with the reviewed build and checks download headers; protected-stage requests use the output directory's Vercel link independently of the caller's checkout. Archive regressions cover single-directory completeness, exact extracted bytes, repeatability, unsafe paths, corruption, catalog checksums, withdrawal and retirement.
 
 ## Scheduling and consumer adoption
 

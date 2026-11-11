@@ -7,7 +7,7 @@ Run module commands from the repository root. Use a new output directory for bui
 | `python3 -m scripts.adopt_routes --help` | Historical compatibility adapter. Maintained map adoption lives in Streets Watch `scripts/safe-routes-update.mjs`. |
 | `python3 -m scripts.audit_counts_sources SOURCE_REPO NEW_OUTPUT` | Audit pinned counts source holdings (requires xlrd). |
 | `python3 -m scripts.audit_coverage` | Audit UDOT coverage against Provo city limits and the state school roster (requires shapely). |
-| `python3 -m scripts.build_catalog --help` | Restore approved releases into a new private staging directory. |
+| `python3 -m scripts.build_catalog --help` | Restore approved releases and complete dataset ZIP downloads into a new private staging directory. |
 | `python3 -m scripts.build_counts_releases --help` | Prepare a counts release from checksummed Git blobs; never contacts a live service. |
 | `python3 -m scripts.build_demo_counts --help` | Build the synthetic hosting proof in a new directory. No private inputs. |
 | `python3 -m scripts.prepare_counts_candidate --help` | Prepare a private revision using reviewed, complete annual slices and pinned evidence. |

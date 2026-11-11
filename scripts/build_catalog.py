@@ -1,7 +1,9 @@
 """Restore approved releases into a new private staging directory."""
 import argparse
 import hashlib
+import io
 import json
+import zipfile
 from pathlib import Path
 
 from scripts import build_counts_releases as counts
@@ -27,6 +29,33 @@ def checked_package(directory, entry):
             raise ValueError('Bad resource: '+name)
         files[name]=b
     return files
+
+
+def download_zip(tree, release):
+    prefix=release['manifest'].lstrip('/').rsplit('/',1)[0]+'/'
+    raw=tree[prefix+'datapackage.json']
+    manifest=json.loads(raw)
+    for part in (manifest['name'],manifest['version']):
+        if Path(part).name!=part or part in ('','.','..') or '\\' in part or ':' in part:
+            raise ValueError('Invalid download identity')
+    files={'datapackage.json':raw}
+    for resource in manifest['resources']:
+        name=resource['path']
+        if Path(name).name!=name or name in ('','.','..') or name in files or '\\' in name or ':' in name:
+            raise ValueError('Bad download resource path')
+        data=tree[prefix+name]
+        if len(data)!=resource['bytes'] or 'sha256:'+hashlib.sha256(data).hexdigest()!=resource['hash']:
+            raise ValueError('Bad download resource: '+name)
+        files[name]=data
+    folder=f"{manifest['name']}-{manifest['version']}"
+    output=io.BytesIO()
+    with zipfile.ZipFile(output,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
+        for name,data in sorted(files.items()):
+            info=zipfile.ZipInfo(folder+'/'+name,date_time=(1980,1,1,0,0,0))
+            info.create_system=3
+            info.external_attr=0o100644 << 16
+            archive.writestr(info,data,compress_type=zipfile.ZIP_DEFLATED,compresslevel=9)
+    return output.getvalue()
 
 
 def build(repo, output, approvals=None):
@@ -58,6 +87,14 @@ def build(repo, output, approvals=None):
         if d['current']==w['version']:
             d['current']=next((p['version'] for p in reversed(d['releases']) if p.get('status')!='withdrawn'),None)
     catalog['datasets']=[d for dataset,d in by_id.items() if dataset not in ledger.get('retired', [])]
+    for dataset in catalog['datasets']:
+        for release in dataset['releases']:
+            if release.get('status')=='withdrawn':
+                continue
+            path=f"downloads/{dataset['id']}/{release['version']}/{dataset['id']}-{release['version']}.zip"
+            data=download_zip(tree,release)
+            tree[path]=data
+            release['download']=dict(path='/'+path,bytes=len(data),sha256=hashlib.sha256(data).hexdigest())
     tree['catalog.json']=encoded(catalog)
     output.mkdir(parents=True,exist_ok=False)
     for path,b in tree.items():

@@ -32,4 +32,6 @@ python3 -B -m scripts.build_catalog "$BWP_SOURCE_REPO" build/new-staging
 
 Use a fresh output directory. Publication uploads only the generated `public/` directory and `vercel.json` after the [staging and promotion checks](docs/operations/maintainer-guide.md). Local `private/`, `build/` and configuration overrides are ignored by Git. Retain original inputs and recovery archives in authorized private storage.
 
+Every available catalog release also provides a complete ZIP download: one folder containing its data and all manifest-listed supporting files. The catalog's `download` object provides the path, size and SHA-256; existing manifest and individual resource URLs remain unchanged.
+
 `update_crashes.py` and `adopt_routes.py` preserve the entry points used by existing consumers. Maintained commands live in `scripts/`.

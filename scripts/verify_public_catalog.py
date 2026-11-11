@@ -30,9 +30,11 @@ def verify(path):
     with urlopen(Request(url,headers=headers),timeout=60) as response:
         if urlparse(response.geturl()).hostname!=urlparse(url).hostname or response.read()!=path.read_bytes() or response.headers.get('Access-Control-Allow-Origin')!='*':
             raise ValueError('Public release mismatch: '+url)
-        mime={'.csv':'text/csv','.json':'application/json','.geojson':'application/geo+json'}.get(path.suffix)
+        mime={'.csv':'text/csv','.json':'application/json','.geojson':'application/geo+json','.zip':'application/zip'}.get(path.suffix)
         if mime and response.headers.get_content_type()!=mime:
             raise ValueError('Unexpected MIME type: '+url)
+        if path.suffix=='.zip' and response.headers.get('Content-Disposition','').split(';')[0].strip().lower()!='attachment':
+            raise ValueError('ZIP must download as an attachment: '+url)
 
 paths=sorted(path for path in a.public.rglob('*') if path.is_file())
 with ThreadPoolExecutor(5) as pool:

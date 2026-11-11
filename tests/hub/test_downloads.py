@@ -1,0 +1,73 @@
+"""Complete downloads preserve approved bytes and follow catalog visibility."""
+import copy
+import hashlib
+import io
+import json
+from pathlib import Path
+import tempfile
+import unittest
+from unittest.mock import patch
+import zipfile
+
+from scripts import build_catalog, build_demo_counts
+
+
+class DatasetDownloads(unittest.TestCase):
+    def setUp(self):
+        self.tree=build_demo_counts.expected(build_demo_counts.VERSIONS)
+        self.dataset=json.loads(self.tree['catalog.json'])['datasets'][0]
+        self.release=self.dataset['releases'][0]
+
+    def test_complete_single_folder_with_unchanged_files_and_repeatable_bytes(self):
+        archive=build_catalog.download_zip(self.tree,self.release)
+        self.assertEqual(archive,build_catalog.download_zip(self.tree,self.release))
+        prefix=self.release['manifest'].lstrip('/').rsplit('/',1)[0]+'/'
+        manifest=json.loads(self.tree[prefix+'datapackage.json'])
+        folder=manifest['name']+'-'+manifest['version']+'/'
+        names=['datapackage.json']+[r['path'] for r in manifest['resources']]
+        with zipfile.ZipFile(io.BytesIO(archive)) as zipped:
+            self.assertIsNone(zipped.testzip())
+            self.assertEqual(zipped.namelist(),[folder+name for name in sorted(names)])
+            for name in names:
+                self.assertEqual(zipped.read(folder+name),self.tree[prefix+name])
+
+    def test_reject_corruption_and_unsafe_resource_paths(self):
+        prefix=self.release['manifest'].lstrip('/').rsplit('/',1)[0]+'/'
+        corrupt=copy.deepcopy(self.tree)
+        corrupt[prefix+'series.csv']+=b'changed'
+        with self.assertRaisesRegex(ValueError,'Bad download resource'):
+            build_catalog.download_zip(corrupt,self.release)
+        for name in ('../private.csv','..\\private.csv','/private.csv','datapackage.json'):
+            with self.subTest(name=name):
+                manifest=json.loads(self.tree[prefix+'datapackage.json'])
+                manifest['resources'][0]['path']=name
+                tree={**self.tree,prefix+'datapackage.json':build_demo_counts.encoded(manifest)}
+                with self.assertRaisesRegex(ValueError,'Bad download resource path'):
+                    build_catalog.download_zip(tree,self.release)
+
+    def test_catalog_checksum_and_withdrawal_and_retirement(self):
+        for mode in ('available','withdrawn','retired'):
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as temporary:
+                output=Path(temporary)/'stage'
+                ledger={'approved':[],'withdrawn':[],'retired':[]}
+                if mode=='withdrawn':
+                    ledger['withdrawn']=[dict(dataset=self.dataset['id'],version=self.release['version'],date='2026-11-11',notice='Test withdrawal')]
+                elif mode=='retired':
+                    ledger['retired']=[self.dataset['id']]
+                with patch.object(build_catalog.counts,'bundle',return_value=(copy.deepcopy(self.tree),[])):
+                    build_catalog.build(Path(temporary),output,ledger)
+                catalog=json.loads((output/'public/catalog.json').read_bytes())
+                if mode=='retired':
+                    self.assertEqual(catalog['datasets'],[])
+                    self.assertEqual(list((output/'public').glob('downloads/**/*.zip')),[])
+                    continue
+                for release in catalog['datasets'][0]['releases']:
+                    if release.get('status')=='withdrawn':
+                        self.assertNotIn('download',release)
+                        expected=f"downloads/{self.dataset['id']}/{release['version']}"
+                        self.assertFalse((output/'public'/expected).exists())
+                    else:
+                        download=release['download']
+                        data=(output/'public'/download['path'].lstrip('/')).read_bytes()
+                        self.assertEqual(len(data),download['bytes'])
+                        self.assertEqual(hashlib.sha256(data).hexdigest(),download['sha256'])

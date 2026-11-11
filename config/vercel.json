@@ -36,6 +36,13 @@
       ]
     },
     {
+      "source": "/downloads/(.*).zip",
+      "headers": [
+        { "key": "Content-Type", "value": "application/zip" },
+        { "key": "Content-Disposition", "value": "attachment" }
+      ]
+    },
+    {
       "source": "/datasets/provo-active-transportation-incident-map/:path*",
       "headers": [
         {

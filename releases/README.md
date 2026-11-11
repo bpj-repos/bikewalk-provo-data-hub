@@ -4,4 +4,6 @@
 
 The two real counts baselines and demonstration packages are reconstructed from pinned Git inputs by the catalog builder. Their pins remain in baseline-pins rather than duplicating generated packages here.
 
+The catalog builder derives complete ZIP downloads under `/downloads/<dataset-id>/<version>/` from these approved bytes. Each ZIP contains one dataset/version folder with the manifest and every listed resource. Catalog `download` metadata records its path, size and SHA-256. This does not replace or modify any approved package or manifest pin; withdrawn and retired catalog releases have no generated ZIP.
+
 Build with `python3 -m scripts.build_catalog SOURCE_REPO NEW_OUTPUT`. Never replace bytes under an existing version. Publication and withdrawal follow the [maintainer guide](../docs/operations/maintainer-guide.md). Candidate packages stay in private/candidates until reviewed.

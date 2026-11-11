@@ -2,6 +2,7 @@
 
 | Task | Guide |
 |---|---|
+| Assess public launch, contribution rights and GitHub safeguards | [Public readiness](public-readiness.md) |
 | Set up access, build, stage, promote or withdraw a release | [Maintainer guide](maintainer-guide.md) |
 | Receive crash data, compare consumers or restore retained pins | [Crash updates and recovery](crash-updates-and-recovery.md) |
 | Refresh citywide bicycle traffic stress and its dependencies | [Traffic stress](traffic-stress.md) |

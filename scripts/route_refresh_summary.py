@@ -3,6 +3,7 @@
 import argparse
 from collections import Counter, defaultdict
 import json
+import shlex
 from pathlib import Path
 
 
@@ -67,7 +68,7 @@ def summary(folder, run_id):
         "Only after approval, publish the Hub from its checkout. Then stage the approved pin in Streets Watch with npm run safe-routes:update -- stage VERSION and review its PR:",
         "",
         "\x60\x60\x60sh",
-        f"python -m scripts.publish_route_update {run_id} {r['sha256']}",
+        f"python -m scripts.publish_route_update {shlex.quote(str(run_id))} {r['sha256']} --prepare-pr",
         "\x60\x60\x60",
     ]
     return "\n".join(text) + "\n"

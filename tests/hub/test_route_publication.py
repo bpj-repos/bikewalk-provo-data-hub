@@ -30,7 +30,7 @@ class RehearsePublication(unittest.TestCase):
             path = "apps/maps/public/data/safe-routes"
             app = projects / "apps/maps"
             routes = projects / path
-            package = d / "candidate/package"
+            package = hub / "private/route-publication/123/candidate/package"
             package.mkdir(parents=True)
             routes.mkdir(parents=True)
             old = {"dataset": p.DATASET, "version": "1.2.0", "sha256": "1" * 64}
@@ -45,7 +45,8 @@ class RehearsePublication(unittest.TestCase):
                 p.git(r, "commit", "-qm", "Baseline")
                 p.git(r, "push", "origin", "main")
             files = []
-            for k in p.GEO:
+            for k in ("safe-school-routes", "safe-route-plan-features", "safe-routes-schools",
+                      "safe-route-stress-segments", "safe-route-stress-crossings"):
                 n = k + ".geojson"
                 raw = b'{"type":"FeatureCollection","features":[]}'
                 (package / n).write_bytes(raw)
@@ -84,13 +85,21 @@ class RehearsePublication(unittest.TestCase):
                 for k, v in dict(
                     ROOT=hub,
                     cmd=command,
-                    download=lambda *_: package.parent,
                     verify_candidate=lambda *_: (entry, report),
                     archive=lambda *_: None,
                     build=lambda proj, dest: dest.mkdir(),
                     stage_url=lambda cwd, name, *args: name,
                 ).items():
                     st.enter_context(patch.object(p, k, v))
+                with self.assertRaisesRegex(ValueError, "Record the reviewed"):
+                    p.publish("123", pin, projects, False)
+                p.git(hub, "switch", "-c", "review-release")
+                p.publish("123", pin, projects, False, prepare_pr=True)
+                p.git(hub, "add", "releases")
+                p.git(hub, "commit", "-qm", "Reviewed package")
+                p.git(hub, "switch", "main")
+                p.git(hub, "merge", "--ff-only", "review-release")
+                p.git(hub, "push", "origin", "main")
                 with self.assertRaises(subprocess.CalledProcessError):
                     p.publish("123", pin, projects, False)
                 self.assertEqual(publish, [])
@@ -107,3 +116,17 @@ class RehearsePublication(unittest.TestCase):
 
                 self.assertEqual((routes / "datapackage.json").read_bytes(), b"old")
                 self.assertEqual(p.git(projects, "status", "--porcelain"), "")
+
+    def test_local_backup_is_repeatable_and_rejects_corruption(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / "candidate"
+            folder.mkdir()
+            (folder / "review.json").write_text('{"version": "test"}')
+            with patch.object(p, "ROOT", root):
+                p.archive(folder, "test-backup")
+                p.archive(folder, "test-backup")
+                target = root / "private/backups/test-backup/source-receipts.tar.gz"
+                target.write_bytes(b"corrupted")
+                with self.assertRaisesRegex(ValueError, "checksum mismatch"):
+                    p.archive(folder, "test-backup")

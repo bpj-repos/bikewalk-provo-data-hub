@@ -1,5 +1,11 @@
 # Maintainer handoff
 
+## Complete ZIP downloads, November 11, 2026
+
+Builder commit `c0b36d5c26611591bc03e82bdf3541955c737b07` added 11 complete ZIP downloads for available versions of the four listed datasets, without changing any existing manifest, resource byte or consumer pin. Staging-verifier commit `a2916895a4904d4d4168f211161711fe17883317` resolves protected checks through the linked output directory. Deployment `dpl_Bie4sswH9LRe4JKTsZ5hc8PDMkbZ` at https://bikewalk-provo-data-j0564hi0v-brycepjs-projects.vercel.app was promoted to the stable Hub alias and all 135 public files passed exact-byte, MIME, attachment and CORS verification. Previous deployment: `dpl_HAv3RKa9YBnSDNTmvAqKqYyjcez7` at https://bikewalk-provo-data-7fc75yvuy-brycepjs-projects.vercel.app.
+
+Two full builds were byte-identical; comparison against the previous assembler preserved every existing dataset file and all catalog metadata except the added download objects. Each archive was opened, CRC-checked and compared with every listed resource and manifest. All 43 Hub tests passed; 142 crash tests passed and the retained-private-map-receipt fixture was skipped in the isolated checkout. Tests also cover corruption, unsafe member paths, withdrawal and retirement. Consumer UI adoption is a separate Projects release. Build/archive inventories and preserved ZIPs are at `/Users/test/.codex/visualizations/2026/11/11/01a1cba6-99c7-78e0-8ce5-ff54c0c6e8ec/dataset-zip-verification/`.
+
 The BikeWalk release owner grants read access to the private GitHub repositories bpj-repos/bikewalk-provo-data-hub and bpj-repos/bikewalk-provo. The collection lead verifies the protocol, mapping and completeness of a delivery. The release owner approves the exact manifest and reuse terms. The deployment operator needs access to brycepjs-projects/bikewalk-provo-data-hub only for staging or promotion. Each consumer independently verifies and adopts its own pin.
 
 ## Restore in a clean checkout

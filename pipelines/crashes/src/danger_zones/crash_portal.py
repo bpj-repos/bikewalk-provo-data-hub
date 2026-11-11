@@ -5,7 +5,6 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from openpyxl import load_workbook
-from pyproj import Geod
 from .incident_conversions import temporal
 
 ZONE = ZoneInfo("America/Denver")
@@ -31,7 +30,9 @@ def portal_tables(path, *, city, allow_county, validate):
             sheet = workbook[name]
             sheet.reset_dimensions()  # R's XLSX writer emits an A1-only dimension.
             rows = iter(sheet.values)
-            header = next(rows)
+            header = next(rows, None)
+            if header is None:
+                raise ValueError("Portal table has no header: " + name)
             if len(header) != len(set(header)):
                 raise ValueError("Duplicate portal column names")
             if validate:
@@ -102,6 +103,8 @@ def state_join_evidence(existing, portal):
     """Shared state ID/time; road text can corroborate modest coordinate differences."""
     if existing['sourceRecordId'] != portal['sourceRecordId'] or portal.get('timePrecision', 'second') != 'second':
         return None
+    from pyproj import Geod
+
     delta = abs((portal_time(existing['observedAt']) - portal_time(portal['observedAt'])).total_seconds())
     distance = Geod(ellps='WGS84').inv(*existing['coordinates'], *portal['coordinates'])[2]
     left = ' '.join((existing.get('metadata', {}).get('MAIN_ROAD_NAME') or '').upper().split())
@@ -116,7 +119,6 @@ def state_join_evidence(existing, portal):
 
 def enrich_state_records(observations, portal_records):
     by_id = {o["sourceRecordId"]: o for o in observations if o["sourceKey"] == "udot-crashes"}
-    geod = Geod(ellps="WGS84")
     joined, conflicts = 0, []
     for portal in portal_records:
         existing = by_id.get(portal["sourceRecordId"])

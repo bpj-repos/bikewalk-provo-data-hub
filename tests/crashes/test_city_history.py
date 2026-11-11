@@ -52,7 +52,9 @@ class CityHistoryTests(unittest.TestCase):
             digest = hashlib.sha256((package / 'datapackage.json').read_bytes()).hexdigest()
             with city_write_lock(root):
                 with self.assertRaisesRegex(ValueError, 'Another city update'):
-                    register(package, digest, root)
+                    result = register(package, digest, root)
+            self.assertEqual(result['outputs']['sha256'], digest)
+            self.assertEqual(result['coverage']['city'], 'Provo')
             register(package, digest, root)
             register(package, digest, root)
             self.assertEqual(len(json.loads(ledger.read_text())['approved']), 1)

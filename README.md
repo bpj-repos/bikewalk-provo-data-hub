@@ -16,6 +16,7 @@ Start with the [contributor quick start and reuse terms](CONTRIBUTING.md) to bui
 | Find approved data and manifest pins | [Releases](releases/README.md) |
 | Rebuild or review the pinned Safe Routes bicycle stress annotations | [Stress maintenance](docs/operations/bicycle-stress.md) |
 | Build the citywide bicycle stress dataset | [Traffic stress maintenance](docs/operations/traffic-stress.md) |
+| Export city crash points into QGIS or your own web map | [City mapping quick start](docs/operations/city-crash-mapping.md) |
 | Prepare annual crash statistics for another Utah city | [City workbook workflow](docs/operations/crash-updates-and-recovery.md#prepare-another-utah-citys-annual-crash-series) |
 | Develop the crash-processing library | [Crash pipeline](pipelines/crashes/README.md) |
 | Find a past decision or migration record | [Documentation map](docs/README.md) |

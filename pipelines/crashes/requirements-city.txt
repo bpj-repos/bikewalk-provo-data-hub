@@ -1,0 +1,7 @@
+# City XLSX preparation, GeoJSON export, examples and package registration.
+# The full producer remains available through pyproject.toml.
+openpyxl==3.1.5
+defusedxml==0.7.1
+jsonschema==4.25.1
+PyYAML==6.0.3
+tzdata==2025.2; sys_platform == "win32"

@@ -5,7 +5,7 @@ import argparse
 import json
 import subprocess
 import shutil
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -14,18 +14,12 @@ from pyproj import Geod
 from shapely import from_wkb
 
 from .crash_portal import read_portal, enrich_state_records
+from .incident_conversions import _date
 from .config import DEFAULT_DATA_ROOT, DEFAULT_PRIVATE_DATA_ROOT
 from .pipeline import import_udot_crashes, latest_artifact
 from .util import isoformat, read_json, sha256_file, sha256_json, utc_now, write_json
 
 LOCAL_ZONE = ZoneInfo("America/Denver")
-
-
-def _date(value: str) -> datetime:
-    result = datetime.fromisoformat(value.replace("Z", "+00:00"))
-    if result.tzinfo is None:
-        raise ValueError("Observation timestamps must include a time zone")
-    return result.astimezone(LOCAL_ZONE)
 
 
 def observation_day(item):

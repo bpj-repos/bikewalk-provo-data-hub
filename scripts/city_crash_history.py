@@ -3,16 +3,11 @@ import argparse
 import json
 from pathlib import Path
 
+from scripts.city_cli import run
 from danger_zones.city_history import portal_report, udot_summary
 from scripts.register_city_crashes import ROOT, COVERAGE, encoded, readme, city_write_lock, replace_text
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('portal', type=Path)
-    parser.add_argument('udot', type=Path)
-    parser.add_argument('cities', nargs='+')
-    parser.add_argument('--write', action='store_true', help='Update tracked city coverage and README')
-    args = parser.parse_args()
+def report(args):
     udot = udot_summary(args.udot, args.cities)
     portal = {city: portal_report(args.portal, city) for city in args.cities}
     with city_write_lock():
@@ -34,7 +29,18 @@ def main():
             replace_text(ROOT / 'README.md', markdown)
         else:
             print(encoded(rows), end='')
+        return dict(inputs=dict(portal=str(args.portal.resolve()), udot=str(args.udot.resolve()),
+                                cities=args.cities),
+                    outputs=dict(coverage=str((ROOT / COVERAGE).resolve()) if args.write else None,
+                                 readme=str((ROOT / 'README.md').resolve()) if args.write else None),
+                    coverage=dict(cities=[row for row in rows if row['city'] in args.cities]),
+                    excluded={}, nextCommand=None)
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('portal', type=Path)
+    parser.add_argument('udot', type=Path)
+    parser.add_argument('cities', nargs='+')
+    parser.add_argument('--write', action='store_true', help='Update tracked city coverage and README')
+    run(parser, report)

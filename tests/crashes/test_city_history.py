@@ -103,6 +103,25 @@ class CityHistoryTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'conflicting'):
                 udot_summary(root, ['Provo'])
 
+    def test_provo_links_to_its_original_public_product(self):
+        from scripts.register_city_crashes import readme
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'releases').mkdir()
+            ledger = root / 'releases/release-ledger.json'
+            state = dict(approved=[dict(dataset='annual-at-crash-aggregates', version='1.1.0')],
+                         withdrawn=[], publicCityReleases=[])
+            ledger.write_text(json.dumps(state))
+            (root / 'README.md').write_text(START + '\n' + END)
+            rows = [dict(city='Provo', dataset=dict(id='provo-annual-at-crash-aggregates',
+                                                  version='1.0.0', zip='summary.zip'))]
+            expected = 'https://bikewalk-provo-data-hub.vercel.app/downloads/annual-at-crash-aggregates/1.1.0/annual-at-crash-aggregates-1.1.0.zip'
+            self.assertIn(expected, readme(rows, root))
+            self.assertNotIn('summary.zip', readme(rows, root))
+            state['withdrawn'] = [dict(dataset='annual-at-crash-aggregates', version='1.1.0')]
+            ledger.write_text(json.dumps(state))
+            self.assertNotIn(expected, readme(rows, root))
+
     def test_committed_city_packages_match_the_table_and_zip(self):
         from scripts.build_catalog import checked_package, download_zip
         from scripts.register_city_crashes import ROOT

@@ -66,7 +66,7 @@ Every available catalog release also provides a complete ZIP download: one folde
 | Salt Lake City | 3,961 | 2010–2026 | 2026-10-15 | 2,025 | 2018–2026 | 2026-11-07 | [Generated ZIP](releases/datasets/salt-lake-city-annual-at-crash-aggregates/1.1.0/salt-lake-city-annual-at-crash-aggregates-1.1.0.zip) |
 | West Valley City | 1,611 | 2010–2026 | 2026-10-20 | 835 | 2018–2026 | 2026-10-28 | [Generated ZIP](releases/datasets/west-valley-city-annual-at-crash-aggregates/1.1.0/west-valley-city-annual-at-crash-aggregates-1.1.0.zip) |
 | Ogden | 1,336 | 2010–2026 | 2026-09-30 | 743 | 2018–2026 | 2026-10-25 | Not yet available |
-| Provo | 1,332 | 2010–2026 | 2026-09-30 | 693 | 2018–2026 | 2026-10-27 | Not yet available |
+| Provo | 1,332 | 2010–2026 | 2026-09-30 | 693 | 2018–2026 | 2026-10-27 | [Generated ZIP](https://bikewalk-provo-data-hub.vercel.app/downloads/annual-at-crash-aggregates/1.1.0/annual-at-crash-aggregates-1.1.0.zip) |
 | St. George | 872 | 2010–2026 | 2026-10-16 | 595 | 2018–2026 | 2026-11-07 | [Generated ZIP](releases/datasets/st-george-annual-at-crash-aggregates/1.1.0/st-george-annual-at-crash-aggregates-1.1.0.zip) |
 | Orem | 843 | 2010–2026 | 2026-10-26 | 477 | 2018–2026 | 2026-11-02 | Not yet available |
 | Sandy | 766 | 2010–2026 | 2026-10-06 | 407 | 2018–2026 | 2026-11-03 | Not yet available |
@@ -86,5 +86,7 @@ Every available catalog release also provides a complete ZIP download: one folde
 | Springville | 246 | 2010–2026 | 2026-07-07 | 135 | 2018–2026 | 2026-10-17 | [Generated ZIP](releases/datasets/springville-annual-at-crash-aggregates/1.1.0/springville-annual-at-crash-aggregates-1.1.0.zip) |
 | Spanish Fork | 231 | 2010–2026 | 2026-09-22 | 139 | 2018–2026 | 2026-11-06 | Not yet available |
 <!-- city-crash-data:end -->
+
+Coverage figures describe the retained source captures and may be newer than the linked release.
 
 [Run the workflow, contribute a dataset, and check methods](docs/operations/city-crash-data.md).

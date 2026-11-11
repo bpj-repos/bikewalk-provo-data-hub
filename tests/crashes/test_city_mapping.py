@@ -95,17 +95,21 @@ class CityMapping(unittest.TestCase):
         self.assertEqual(good.returncode, 0, good.stderr)
         self.assertEqual(json.loads(good.stdout)["status"], "ok")
         command[4] = "0" * 64
+        command[5] = str(self.root / "bad-sha")
         bad = subprocess.run(command, cwd=ROOT, env=env, text=True, capture_output=True)
         self.assertEqual(bad.returncode, 2)
         self.assertEqual(json.loads(bad.stdout)["status"], "error")
+        self.assertIn("Checksum mismatch", json.loads(bad.stdout)["error"])
         self.assertEqual(bad.stderr, "")
         broken = self.root / "broken.xlsx"
         broken.write_bytes(b"invalid XLSX")
         command[3] = str(broken)
         command[4] = hashlib.sha256(broken.read_bytes()).hexdigest()
+        command[5] = str(self.root / "bad-zip")
         invalid_zip = subprocess.run(command, cwd=ROOT, env=env, text=True, capture_output=True)
         self.assertEqual(invalid_zip.returncode, 2)
         self.assertEqual(json.loads(invalid_zip.stdout)["status"], "error")
+        self.assertIn("zip file", json.loads(invalid_zip.stdout)["error"])
         self.assertEqual(invalid_zip.stderr, "")
         with self.assertRaisesRegex(ValueError, "fresh"):
             export(self.workbook, self.digest, Path(self.result["outputs"]["package"]).parents[1],

@@ -2,6 +2,7 @@
 
 | Task | Guide |
 |---|---|
+| Assess public launch, contribution rights and GitHub safeguards | [Public readiness](public-readiness.md) |
 | Set up access, build, stage, promote or withdraw a release | [Maintainer guide](maintainer-guide.md) |
 | Capture city crash history, register an annual dataset and link its ZIP | [City crash workflow](city-crash-data.md) |
 | Receive crash data, compare consumers or restore retained pins | [Crash updates and recovery](crash-updates-and-recovery.md) |

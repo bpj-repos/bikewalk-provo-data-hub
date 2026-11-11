@@ -1,11 +1,10 @@
-"""Verify a reviewed GitHub Actions candidate and publish the approved Data Hub package."""
+"""Verify a reviewed local candidate and publish the approved Data Hub package."""
 
 import argparse
 import fcntl
 import hashlib
 import gzip
 import json
-import os
 from pathlib import Path
 import re
 import shutil
@@ -18,15 +17,7 @@ from scripts.build_catalog import checked_package, build
 from scripts.safe_routes import DATASET
 
 ROOT = Path(__file__).resolve().parents[1]
-REPO = "bpj-repos/bikewalk-provo-data-hub"
 SCOPE = "--scope=brycepjs-projects"
-GEO = [
-    "safe-school-routes",
-    "safe-route-plan-features",
-    "safe-routes-schools",
-    "safe-route-stress-segments",
-    "safe-route-stress-crossings",
-]
 
 
 def cmd(args, cwd=ROOT, env=None, output=False):
@@ -88,50 +79,6 @@ def verify_candidate(folder, pin):
     return entry, report
 
 
-def download(runid, work):
-    folder = work / "candidate"
-    if folder.exists():
-        return folder
-    details = json.loads(
-        cmd(
-            [
-                "gh",
-                "run",
-                "view",
-                runid,
-                "-R",
-                REPO,
-                "--json",
-                "conclusion,headBranch,workflowName,headSha",
-            ],
-            output=True,
-        )
-    )
-    if (details["headBranch"], details["workflowName"], details["conclusion"]) != (
-        "main",
-        "Monthly Safe Routes source review",
-        "success",
-    ):
-        raise ValueError("Use a successful main-branch Safe Routes run")
-    with tempfile.TemporaryDirectory(dir=work) as t:
-        cmd(
-            [
-                "gh",
-                "run",
-                "download",
-                runid,
-                "-R",
-                REPO,
-                "-n",
-                "safe-routes-review-" + runid,
-                "-D",
-                t,
-            ]
-        )
-        Path(t).rename(folder)
-    return folder
-
-
 def ledger_check(entry, report):
     ledger = load(ROOT / "releases/release-ledger.json")
     withdrawn = {(w["dataset"], w["version"]) for w in ledger["withdrawn"]}
@@ -152,10 +99,11 @@ def ledger_check(entry, report):
     return ledger
 
 
-def archive(folder, work, tag):
-    asset = work / "source-receipts.tar.gz"
-    if not asset.exists():
-        temp = asset.with_suffix(".partial")
+def archive(folder, tag):
+    destination = ROOT / "private/backups" / tag
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=destination.parent) as tmp:
+        temp = Path(tmp) / "source-receipts.tar.gz"
 
         def stable(info):
             info.uid = info.gid = info.mtime = 0
@@ -180,37 +128,20 @@ def archive(folder, work, tag):
             ):
                 if (folder / name).is_file() or (folder / name).is_dir():
                     archive.add(folder / name, arcname=name, filter=stable)
-        temp.rename(asset)
-    # Use GitHub's stored asset digest; retries never overwrite a release or asset.
-    existing = subprocess.run(
-        ["gh", "release", "view", tag, "-R", REPO, "--json", "assets"],
-        capture_output=True,
-    )
-    if existing.returncode:
-        cmd(
-            [
-                "gh",
-                "release",
-                "create",
-                tag,
-                str(asset),
-                "-R",
-                REPO,
-                "--latest=false",
-                "--target",
-                git(ROOT, "rev-parse", "HEAD"),
-                "--title",
-                tag,
-                "--notes",
-                "Private source receipts for the reviewed Safe Routes release.",
-            ]
-        )
-    assets = json.loads(
-        cmd(["gh", "release", "view", tag, "-R", REPO, "--json", "assets"], output=True)
-    )["assets"]
-    expected = "sha256:" + sha(asset.read_bytes())
-    if not any(a["name"] == asset.name and a["digest"] == expected for a in assets):
-        raise ValueError("Durable source backup checksum mismatch")
+
+        def checksum(path):
+            with path.open("rb") as stream:
+                return hashlib.file_digest(stream, "sha256").hexdigest()
+
+        digest = checksum(temp)
+        receipt = "SHA256SUMS"
+        line = f"{digest}  {temp.name}\n"
+        if destination.exists():
+            if (destination / receipt).read_text() != line or checksum(destination / temp.name) != digest:
+                raise ValueError("Local source backup checksum mismatch")
+        else:
+            (Path(tmp) / receipt).write_text(line)
+            Path(tmp).rename(destination)
 
 
 def unchanged_head(repo):
@@ -219,10 +150,10 @@ def unchanged_head(repo):
         raise ValueError(f"Refresh {repo} before promoting an older deployment")
 
 
-def clean(repo, paths, owned=()):
+def clean(repo, paths):
     if git(repo, "branch", "--show-current") != "main":
         raise ValueError(f"Use main in {repo}")
-    if set(git(repo, "diff", "--cached", "--name-only").splitlines()) - set(owned):
+    if git(repo, "diff", "--cached", "--name-only"):
         raise ValueError(f"Existing staged changes in {repo}")
     dirty = cmd(
         [
@@ -238,25 +169,15 @@ def clean(repo, paths, owned=()):
         output=True,
     )
     names = {r[3:].decode() for r in dirty.split(b"\0") if r}
-    if names - set(owned):
+    if names:
         raise ValueError(f"Local changes in the release paths in {repo}")
     cmd(["git", "fetch", "origin", "main"], repo)
     if git(repo, "rev-parse", "HEAD") != git(repo, "rev-parse", "FETCH_HEAD"):
         raise ValueError(f"Sync {repo} with origin/main before publication")
 
 
-def verified_push(repo, paths, message):
-    cmd(["git", "add", "--", *paths], repo)
-    cmd(["git", "diff", "--cached", "--check"], repo)
-    cmd(["git", "commit", "--only", "-m", message, "--", *paths], repo)
-    cmd(["git", "push", "origin", "main"], repo)
-    return git(repo, "rev-parse", "HEAD")
-
-
-def stage_url(cwd, project, prebuilt=False):
+def stage_url(cwd, project):
     args = ["vercel", "deploy", "--prod", "--skip-domain", "--yes", SCOPE]
-    if prebuilt:
-        args += ["--prebuilt"]
     raw = cmd(args, cwd, output=True).decode()
     matches = re.findall(
         r"https://" + project + r"-[a-z0-9]+-brycepjs-projects\.vercel\.app", raw
@@ -266,16 +187,19 @@ def stage_url(cwd, project, prebuilt=False):
     return matches[-1]
 
 
-def publish(runid, pin, projects, verify_only):
-    if not re.fullmatch(r"[1-9]\d*", runid) or not re.fullmatch(r"[a-f0-9]{64}", pin):
-        raise ValueError("Expected numeric GitHub run and exact SHA-256")
+def publish(runid, pin, projects, verify_only, prepare_pr=False):
+    if not re.fullmatch(r"[a-f0-9]{64}", pin):
+        raise ValueError("Expected exact manifest SHA-256")
     root = ROOT / "private/route-publication"
     root.mkdir(parents=True, exist_ok=True)
+    legacy = re.fullmatch(r"[1-9]\d*", str(runid))
+    folder = root / str(runid) / "candidate" if legacy else Path(runid).resolve()
+    if not folder.resolve().is_relative_to((ROOT / "private").resolve()) or not folder.is_dir():
+        raise ValueError("Use a retained candidate directory under private/")
     with (root / "publish.lock").open("a") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        work = root / runid
+        work = root / (str(runid) if legacy else pin)
         work.mkdir(exist_ok=True)
-        folder = download(runid, work)
         entry, report = verify_candidate(folder, pin)
         ledger = ledger_check(entry, report)
         version = entry["version"]
@@ -302,66 +226,28 @@ def publish(runid, pin, projects, verify_only):
             raise ValueError("Publication state pin mismatch")
         save("pin", pin)
         hub_paths = ["releases/release-ledger.json", str(release.relative_to(ROOT))]
-        # A retry may resume a locally committed but not yet pushed release.
-        for repo, marker in (
-            (ROOT, release / "datapackage.json"),
-        ):
-            ahead = git(repo, "rev-list", "--count", "origin/main..HEAD")
-            if ahead == "1" and marker.exists() and sha(marker.read_bytes()) == pin:
-                paths = git(
-                    repo, "diff", "--name-only", "origin/main..HEAD"
-                ).splitlines()
-                allowed = hub_paths
-                if all(
-                    any(p == a or p.startswith(a + "/") for a in allowed) for p in paths
-                ):
-                    cmd(["git", "push", "origin", "main"], repo)
-        # Resume only publication-owned bytes after a failed test, commit, or push.
-        head_ledger = json.loads(git(ROOT, "show", "HEAD:releases/release-ledger.json"))
-        expected_ledger = json.loads(json.dumps(head_ledger))
-        if entry not in expected_ledger["approved"]:
-            expected_ledger["approved"].append(entry)
-        if ledger not in (head_ledger, expected_ledger):
-            raise ValueError("Unexpected local release ledger edits")
-        hub_owned = (
-            {"releases/release-ledger.json"} if ledger == expected_ledger else set()
-        )
-        if release.exists():
-            expected_files = checked_package(folder / "package", entry)
-            if {f.name for f in release.iterdir()} != set(expected_files) or any(
-                (release / n).read_bytes() != v for n, v in expected_files.items()
-            ):
-                raise ValueError("Existing release differs from approved candidate")
-            hub_owned.update(
-                str((release / n).relative_to(ROOT)) for n in expected_files
-            )
-        clean(ROOT, ["."], hub_owned)
-        archive(folder, work, f"source-receipts-safe-routes-{version}-{pin[:12]}")
-        if entry not in head_ledger["approved"]:
-            if not release.exists():
-                with tempfile.TemporaryDirectory(dir=work) as t:
-                    ready = Path(t) / "package"
-                    shutil.copytree(folder / "package", ready)
-                    ready.rename(release)
-            ledger = expected_ledger
+        if prepare_pr:
+            if git(ROOT, "branch", "--show-current") in ("", "main"):
+                raise ValueError("Prepare a release on a named PR branch")
+            if release.exists() or entry in ledger["approved"]:
+                raise ValueError("Release already present. Inspect the prepared branch.")
+            if git(ROOT, "status", "--porcelain", "--", *hub_paths):
+                raise ValueError("Release paths contain unpublished changes")
+            archive(folder, f"source-receipts-safe-routes-{version}-{pin[:12]}")
+            with tempfile.TemporaryDirectory(dir=work) as t:
+                ready = Path(t) / "package"
+                shutil.copytree(folder / "package", ready)
+                ready.rename(release)
+            ledger["approved"].append(entry)
             pending = work / "release-ledger.pending"
             pending.write_text(json.dumps(ledger, indent=2) + "\n")
-            pending.replace(ROOT / "releases/release-ledger.json")
-            cmd(
-                [
-                    sys.executable,
-                    "-B",
-                    "-m",
-                    "unittest",
-                    "discover",
-                    "-s",
-                    "tests/hub",
-                    "-t",
-                    ".",
-                ],
-                env={**os.environ, "BWP_SOURCE_REPO": str(projects)},
-            )
-            verified_push(ROOT, hub_paths, "Publish reviewed Safe Routes " + version)
+            pending.replace(ROOT / hub_paths[0])
+            print("Run the maintainer checks and submit the package and ledger for owner PR review.")
+            return
+        clean(ROOT, ["."])
+        if entry not in ledger["approved"] or checked_package(release, entry) != checked_package(folder / "package", entry):
+            raise ValueError("Record the reviewed package and ledger on main before promotion")
+        archive(folder, f"source-receipts-safe-routes-{version}-{pin[:12]}")
         producer = git(
             ROOT, "log", "-1", "--format=%H", "--", str(release.relative_to(ROOT))
         )
@@ -405,13 +291,15 @@ def publish(runid, pin, projects, verify_only):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("run")
+    p.add_argument("run", help="Local candidate directory, or an already retained historical run ID")
     p.add_argument("manifest_sha256")
     p.add_argument(
         "--projects",
         type=Path,
         default=Path.home() / "Documents/ChatGPT/bikewalk-provo",
     )
-    p.add_argument("--verify-only", action="store_true")
+    mode = p.add_mutually_exclusive_group()
+    mode.add_argument("--verify-only", action="store_true")
+    mode.add_argument("--prepare-pr", action="store_true")
     args = p.parse_args()
-    publish(args.run, args.manifest_sha256, args.projects, args.verify_only)
+    publish(args.run, args.manifest_sha256, args.projects, args.verify_only, args.prepare_pr)

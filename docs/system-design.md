@@ -7,7 +7,7 @@ The November 8 filesystem migration groups human documentation in docs, commands
 
 ## System and trust boundaries
 
-The private GitHub repository `bpj-repos/bikewalk-provo-data-hub` owns shared source interpretation and publishes approved, versioned files over HTTPS. Its Vercel project is `bikewalk-provo-data-hub` in `brycepjs-projects`. The mutable catalog lists available versions and manifest hashes. Consumers explicitly select a version, verify its bytes and keep local snapshots. All source intake and hub writes run through private maintainer tools. Projects and Streets Watch control their own adoption and application state. [Public catalog](https://bikewalk-provo-data-hub.vercel.app/catalog.json) · [Ownership contract](ownership.md)
+The GitHub repository `bpj-repos/bikewalk-provo-data-hub` owns shared source interpretation and publishes approved, versioned files over HTTPS. Its Vercel project is `bikewalk-provo-data-hub` in `brycepjs-projects`. The mutable catalog lists available versions and manifest hashes. Consumers explicitly select a version, verify its bytes and keep local snapshots. All source intake and hub writes run through private maintainer tools. Projects and Streets Watch control their own adoption and application state. [Public catalog](https://bikewalk-provo-data-hub.vercel.app/catalog.json) · [Ownership contract](ownership.md)
 
 ```mermaid
 flowchart TD
@@ -15,7 +15,7 @@ flowchart TD
     R --> T[Hub normalization, matching and shared derivation]
     T --> C[Private candidates and review differences]
     C --> A[Release-owner approval of exact package and reuse terms]
-    A --> L[Approved packages and pin ledgers in private Git]
+    A --> L[Approved packages and pin ledgers in reviewed Git]
     L --> B[scripts/build_catalog.py verifies and assembles full public tree]
     B --> H[Verified static Vercel deployment and catalog]
     H --> P[Projects verifies, reviews and adopts local snapshots]
@@ -89,7 +89,9 @@ Withdrawn releases and retired catalog entries receive no ZIP in a fresh build. 
 
 ## Scheduling and consumer adoption
 
-`.github/workflows/safe-routes.yml` runs at `41 14 1 * *` UTC and supports manual dispatch. It downloads the pinned private July archive, receives provider layers, prepares a candidate and reviews campus/coverage changes. The private artifact has 30-day retention. Attempt/success files and run history distinguish an attempted check from success. Provider approval dates, retrieval times, source coverage and consumer adoption dates answer different freshness questions. Release review stays manual. Counts follows annual deliveries/corrections. Crash updates follow maintainer runs and received state/PD records. [Workflow](../.github/workflows/safe-routes.yml) · [Maintenance](operations/maintainer-guide.md)
+The macOS LaunchAgent org.bikewalkprovo.safe-routes invokes scripts.monthly_route_review at 7:41 a.m. Mountain on the first of each month. A private external guard requires a clean main checkout. The runner locks the local filesystem, receives current providers using the retained checksummed July archive, prepares a private candidate and independently rebuilds it. Dated logs and review summaries remain under private/candidates. The GitHub review workflow has been retired. Counts follows annual deliveries/corrections and crash updates follow maintainer runs. [Scheduling and recovery](operations/bicycle-stress.md)
+
+Public contributor CI runs both test groups and the synthetic counts build on pull requests using read-only permissions, no checkout credentials and no private artifacts. Retained-input skips are visible. Original code and documentation carry MIT terms, while datasets and third-party captures keep their source-specific terms. GitHub enforces a PR review and code-owner approval on main, dismissing stale approvals. Its sole always-bypass actor is the owner @brycepj, who retains direct-push rights and can merge the owner's PRs without approval. CODEOWNERS names that owner for every path. The publisher prepares release bytes for review and promotes only an exact package already recorded on current main. It writes local checksummed backups rather than uploading private receipt assets to GitHub. Publication and consumer adoption remain explicit maintainer actions. [Contribution and reuse](../CONTRIBUTING.md) · [Readiness review](operations/public-readiness.md)
 
 The canonical consumer is `bpj-repos/bikewalk-provo`, currently at `/Users/test/Documents/ChatGPT/bikewalk-provo`, with Projects in `apps/maps`. Its `scripts/hub-update.py` supports six dataset aliases. From that application directory
 
@@ -125,7 +127,7 @@ There are three recovery levels
 | Recovery target | Retained material and procedure | Verified limit |
 |---|---|---|
 | Serve approved releases | Full hub and canonical BikeWalk Git histories, pinned counts blobs, `releases/datasets/` packages, ledgers and `scripts/build_catalog.py`. | Clean-checkout and independent-agent builds have been exercised on this host. Ordinary assembly uses Python/Git and avoids crash-environment dependencies. |
-| Rebuild Safe Routes from source | Private GitHub release `source-receipts-safe-routes-20261107`, checksummed assets and `scripts/safe_routes.py prepare`. | Authorized repository access is required. `OPERATIONS.md` lists exact asset hashes. The 30-day workflow artifact is temporary review output. |
+| Rebuild Safe Routes from source | Local private/backups/github/source-receipts-safe-routes-20261107/, checksummed archives and `scripts/safe_routes.py prepare`. | Authorized private-workspace access is required. The maintainer guide lists archive hashes. GitHub originals remain retained pending launch cleanup. A same-disk restore has been verified. Independent backup coverage remains unverified. |
 | Replay crash intake and historical detailed products | Restricted crash recovery archives, inventory/verifier, current operational tree, receipts, policy and dependencies. `crash-operations.md` gives exact restore roots, manifest pins and rollback commands. `data-definitions/historical-incident-map/historical-v1/receipt.json` supplies the source-free historical map recipe. | Independent-agent recovery used this machine and existing OS account. A clean clone at a different path reproduced all 14 map inputs, the package and full public tree. A separate human and off-machine recovery were explicitly deferred. The cutover archive needs supplementation for subsequent intake. |
 
 Routine crash writes enter through `python -m scripts.update_crashes`, with `--offline`, `--portal-workbook`, `--police-input`, `--reviewed-matches` or `--rollback` as documented. The active pointer is under `private/active/crashes/collection/datastores/combined-incidents.json`. Update and rollback share a filesystem lock, verify predecessors and retain audit records. `scripts/review_crash_receipt.py` compares the new pin against both published annual packages and the concern export last adopted by Streets Watch. Keep failed candidates for diagnosis and retain the last verified pointer. [Crash operations](operations/crash-updates-and-recovery.md)
@@ -171,7 +173,7 @@ This review inspected selected operation histories and current code. The propose
 
 ### Safe Routes source refresh
 
-The monthly and manual workflow acquires the upstream datasets and current Brokenspoke image into a private run. The same command drives workstation and Actions candidates. Actual model inputs, comparison vintage, new source digests, regional fallback calibration evidence and native values are tied to the candidate. Separate private diagnostics identify unrated geometry worth checking. Receipt-based rebuilds use seven decimal places for new derived line/point coordinates to make hashes portable across supported projection builds. Historical published bytes remain immutable. A successful review run retains its evidence as a private Actions artifact. After owner review the run number and manifest pin identify the one-command hub and Projects release workflow, its verified rollback boundaries, and its checkpoints. See [operations](operations/bicycle-stress.md).
+The monthly and manual workflow acquires the upstream datasets and current Brokenspoke image into a private run. The local monthly runner drives acquisition, candidate preparation and independent rebuild. Actual model inputs, comparison vintage, new source digests, regional fallback calibration evidence and native values are tied to the candidate. Separate private diagnostics identify unrated geometry worth checking. Receipt-based rebuilds use seven decimal places for new derived line/point coordinates to make hashes portable across supported projection builds. Historical published bytes remain immutable. A successful review retains evidence in a dated private directory. The candidate path and manifest pin identify release preparation and Hub promotion after owner review, with checkpoints and local checksummed backups. See [operations](operations/bicycle-stress.md).
 
 ## Citywide bicycle traffic stress
 

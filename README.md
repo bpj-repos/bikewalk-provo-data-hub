@@ -1,6 +1,8 @@
 # BikeWalk Provo Data Hub
 
-The private Data Hub receives transportation data, maintains shared definitions and publishes reviewed, versioned files. Projects and Streets Watch independently adopt verified snapshots.
+The Data Hub receives transportation data, maintains shared definitions and publishes reviewed, versioned files. Projects and Streets Watch independently adopt verified snapshots.
+
+Start with the [contributor quick start and reuse terms](CONTRIBUTING.md) to build a synthetic dataset in a fresh clone. Anyone may submit a pull request. Other contributors need approval from @brycepj before merging. The owner can merge or push directly. Report sensitive findings through the [private reporting route](SECURITY.md).
 
 ## Where do I find something?
 

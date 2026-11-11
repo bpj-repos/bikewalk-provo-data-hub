@@ -12,3 +12,6 @@ __pycache__/
 /build/
 /config/paths.local.json
 /pipelines/crashes/.venv/
+
+/pipelines/crashes/build/
+/.venv/

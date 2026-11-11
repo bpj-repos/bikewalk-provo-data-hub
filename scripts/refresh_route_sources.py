@@ -30,7 +30,7 @@ ANALYZER = (
     "https://api.github.com/repos/PeopleForBikes/brokenspoke-analyzer/releases/latest"
 )
 ARCHIVE_SHA = "82073f45eb74cf9b5e68777e03fdd26f506e63ad8967bc9d7401a93560e69354"
-REPO = "bpj-repos/bikewalk-provo-data-hub"
+JULY = ROOT / "private/backups/github/source-receipts-safe-routes-20261107/safe-routes-july.tar.gz"
 
 
 def run(*args, **kwargs):
@@ -360,19 +360,7 @@ def main(out):
     version = (
         "1.3.0" if previous["version"] == "1.2.0" else f"{major}.{minor}.{patch + 1}"
     )
-    archive = out / "safe-routes-july.tar.gz"
-    run(
-        "gh",
-        "release",
-        "download",
-        "source-receipts-safe-routes-20261107",
-        "-R",
-        REPO,
-        "-p",
-        archive.name,
-        "-D",
-        out,
-    )
+    archive = JULY
     if digest(archive) != ARCHIVE_SHA:
         raise ValueError("July archive checksum mismatch")
     with tarfile.open(archive) as t:

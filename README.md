@@ -14,6 +14,7 @@ The private Data Hub receives transportation data, maintains shared definitions 
 | Find approved data and manifest pins | [Releases](releases/README.md) |
 | Rebuild or review the pinned Safe Routes bicycle stress annotations | [Stress maintenance](docs/operations/bicycle-stress.md) |
 | Build the citywide bicycle stress dataset | [Traffic stress maintenance](docs/operations/traffic-stress.md) |
+| Prepare annual crash statistics for another Utah city | [City workbook workflow](docs/operations/crash-updates-and-recovery.md#prepare-another-utah-citys-annual-crash-series) |
 | Develop the crash-processing library | [Crash pipeline](pipelines/crashes/README.md) |
 | Find a past decision or migration record | [Documentation map](docs/README.md) |
 | Work with received inputs and local candidates | [Private workspace guide](docs/operations/private-workspace.md) |

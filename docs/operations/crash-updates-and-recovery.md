@@ -82,3 +82,19 @@ The active private release now includes the verified archive. For an independent
 On November 9, 2026 the active updater reproduced the isolated release identity, adding 651 groups for a total of 1,790. Hub release commit `c5188db` published 1.1.0 with manifest SHA-256 `cc215368c2041c2ed591e4eb014493d710e639a5e32dccf6f8811ed044b0fcf2`. All 113 public files verified on staging and the production alias. Hub deployment `dpl_FYt4SErhRTLhoWdtU3r6QwQum1LC` followed `dpl_EUHueyzgZub8YnG7ZtvgknjaeDZP`.
 
 Projects adopted the same pin at `e601edb437f1ade4ef018eff8dda417e33845b7c`. Deployment `dpl_9G972PB14MK2Ni8VyTEBYprjZVUw` followed `dpl_CZ678Kmm3WkrEVQLht6HCnLD89SD`. The live report defaults to the complete archive. Its checkbox changes the chart and table together. All 17 full-series rows and nine recent-series rows matched the release in desktop, phone and tablet browser checks. The recent CSV reproduced the previous annual CSV byte for byte.
+
+## Prepare another Utah city's annual crash series
+
+Download a single current-format Utah Crash Data Portal XLSX with the exact city selected, all counties, agencies, severities and vehicle types, and unrestricted month, day, hour, age and vehicle-count filters. Select the reporting years explicitly. Keep the original workbook, its receipt and SHA-256 in restricted intake. Record the portal selection, coverage review and last year accepted as complete. Use a full replacement export for a revision. This command processes one workbook per candidate.
+
+From the hub root in the crash environment, substitute the received city, workbook, SHA-256, reviewed year and a fresh private candidate directory. For example:
+
+```sh
+PYTHONPATH=.:pipelines/crashes/src python -m scripts.prepare_city_crashes \
+  /restricted/intake/orem.xlsx "$WORKBOOK_SHA256" private/candidates/2026-11-11-orem-crashes \
+  --city Orem --complete-through 2025 --version 1.0.0
+```
+
+The workbook filter and the row's state-assigned city determine membership. The annual series uses the [existing nonmotorist definition](../history/annual-crash-migration.md). A selected year with zero qualifying records gets a zero. An unselected year has no row. Partial-year counts cover the selected dates only. The manifest records the date selection. Police reports, coordinates and case matching are unnecessary for this aggregate.
+
+Review the annual rows, city name, date coverage and reuse terms against the receipt. Retain the source checksum, command, code revision and printed manifest pin together. For updates compare against the city's prior pin, including removed years. Rebuild in a fresh private directory to verify the pin. Promote only the reviewed city-specific package through the [maintainer guide](maintainer-guide.md), including catalog and download verification. A crash-level map would require its own public-field and disclosure review.

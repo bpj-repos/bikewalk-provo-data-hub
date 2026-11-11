@@ -12,7 +12,7 @@ With Python 3.12, from a fresh clone:
 
 Open the series.csv under build/demo/datasets to see how an observed zero differs from a missing survey session. Use a fresh output directory for each build. To run the broader suites, create a virtual environment, install ./pipelines/crashes with pip, put Node on PATH, and follow the [test guide](tests/README.md). Private-input cases report skips.
 
-Use invented records or an approved public release for examples and tests. Keep source deliveries, diagnostic output, crash narratives, identifying details, keys and local paths out of commits, issues and attachments. For a suspected disclosure, follow [private reporting](SECURITY.md). For a change in what a record means, identify the dataset, current pin, proposed rule and affected consumers. Preserve old release bytes.
+Use invented records or an approved public release for examples and tests. Keep source deliveries, diagnostic output, crash narratives, identifying details, keys and local paths out of commits, issues and attachments. For a suspected disclosure, email [contact@bikewalkprovo.org](mailto:contact@bikewalkprovo.org) to arrange a private handoff. For a change in what a record means, identify the dataset, current pin, proposed rule and affected consumers. Preserve old release bytes.
 
 ## Reuse in another project
 

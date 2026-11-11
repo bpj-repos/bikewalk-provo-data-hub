@@ -4,7 +4,7 @@ Reviewed November 11, 2026. **The repository is public as of November 11, 2026.*
 
 ## Completed preparation
 
-Original code and associated original documentation have an MIT license. CONTRIBUTING.md gives a synthetic example, tests, PR expectations and dataset/third-party exceptions. SECURITY.md directs sensitive reports to the organization's verified contact address. Contributor Actions run on pull_request with read-only permissions and no persisted checkout credentials or private artifacts. The complete maintainer suites remain separate from the simple standard-library example.
+Original code and associated original documentation have an MIT license. CONTRIBUTING.md gives a synthetic example, tests, PR expectations and dataset/third-party exceptions. The contributor guide directs sensitive reports to the organization's verified contact address. Contributor Actions run on pull_request with read-only permissions and no persisted checkout credentials or private artifacts. The complete maintainer suites remain separate from the simple standard-library example.
 
 GitHub ruleset 27062669 is active for main. It requires one approval and code-owner review and dismisses stale approvals. It blocks deletion and force pushes. The sole always-bypass actor is the individual owner @brycepj. Other contributors need the owner's approval, and the owner retains unrestricted merge/direct-push rights and can merge the owner's PRs without review. CODEOWNERS assigns every path to that owner. The preparation uses the owner's account. Future contributors submit PRs from their own accounts.
 

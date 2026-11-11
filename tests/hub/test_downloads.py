@@ -65,6 +65,19 @@ class DatasetDownloads(unittest.TestCase):
                 self.assertNotIn(folder+'unlisted-private.txt',archive.namelist())
             self.assertFalse((output/'public/datasets'/manifest['name']/version/'unlisted-private.txt').exists())
 
+    def test_city_registration_only_hosts_selected_versions(self):
+        ledger=json.loads((build_catalog.ROOT/'releases/release-ledger.json').read_bytes())
+        versions=[r for r in ledger['approved'] if r['dataset']=='springville-annual-at-crash-aggregates']
+        with tempfile.TemporaryDirectory() as temporary:
+            output=Path(temporary)/'stage'
+            with patch.object(build_catalog.counts,'bundle',return_value=(copy.deepcopy(self.tree),[])):
+                build_catalog.build(output,output,dict(approved=versions,withdrawn=[],
+                    publicCityReleases=[dict(dataset=versions[0]['dataset'],version='1.1.0')]))
+            city=json.loads((output/'public/catalog.json').read_bytes())['datasets'][-1]
+            self.assertEqual([r['version'] for r in city['releases']],['1.1.0'])
+            self.assertFalse((output/'public/datasets'/city['id']/'1.0.0').exists())
+            self.assertFalse((output/'public/downloads'/city['id']/'1.0.0').exists())
+
     def test_reject_corruption_and_unsafe_resource_paths(self):
         prefix=self.release['manifest'].lstrip('/').rsplit('/',1)[0]+'/'
         corrupt=copy.deepcopy(self.tree)

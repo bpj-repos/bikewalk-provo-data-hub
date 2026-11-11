@@ -191,5 +191,23 @@
       "sha256": "4ee0e1ad4199eaa1fd76292fdba42ba3ff9e1d4200933d09c2d79697d887da69"
     }
   ],
-  "withdrawn": []
+  "withdrawn": [],
+  "publicCityReleases": [
+    {
+      "dataset": "springville-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "west-valley-city-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "salt-lake-city-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "st-george-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    }
+  ]
 }

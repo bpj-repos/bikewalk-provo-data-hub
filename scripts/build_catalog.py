@@ -63,11 +63,17 @@ def build(repo, output, approvals=None):
     catalog=json.loads(tree['catalog.json'])
     ledger=json.loads((ROOT/'releases/release-ledger.json').read_bytes()) if approvals is None else approvals
     by_id={d['id']:d for d in catalog['datasets']}
+    public_cities = {(r['dataset'], r['version']) for r in ledger.get('publicCityReleases', [])}
+    def included(dataset, version):
+        return not dataset.endswith('-annual-at-crash-aggregates') or (dataset, version) in public_cities
+
     for entry in ledger['approved']:
         dataset,version=entry['dataset'],entry['version']
         for part in (dataset,version):
             if Path(part).name!=part or part in ('','.','..'):
                 raise ValueError('Invalid package identity')
+        if not included(dataset, version):
+            continue
         path=f'datasets/{dataset}/{version}/'
         d=by_id.setdefault(dataset,dict(id=dataset,releases=[]))
         if any(r['version']==version for r in d['releases']):
@@ -79,6 +85,8 @@ def build(repo, output, approvals=None):
         d['releases'].append(dict(version=version,manifest='/'+path+'datapackage.json',sha256=entry['sha256']))
         d['current']=version
     for w in ledger['withdrawn']:
+        if not included(w['dataset'], w['version']):
+            continue
         d=by_id[w['dataset']]
         r=next(r for r in d['releases'] if r['version']==w['version'])
         prefix=r['manifest'].lstrip('/').rsplit('/',1)[0]+'/'

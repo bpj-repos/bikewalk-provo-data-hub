@@ -1,6 +1,6 @@
 # Public contribution readiness
 
-Reviewed November 11, 2026. **Public launch is blocked pending the actions below.** The repository is private. Detailed matches, GitHub metadata, original archives, extracted files and verification logs are retained in the ignored private/reviews/2026-11-11-public-readiness directory. This guide contains no original private records.
+Reviewed November 11, 2026. **The repository is public as of November 11, 2026.** Anonymous cloning/read access, hidden source-backup attachments and the owner-only merge exception were verified after launch. Detailed matches, GitHub metadata, original archives, extracted files and verification logs are retained in the ignored private/reviews/2026-11-11-public-readiness directory. This guide contains no original private records.
 
 ## Completed preparation
 
@@ -12,14 +12,15 @@ Monthly Safe Routes processing moved to the local LaunchAgent described in bicyc
 
 All seven GitHub release assets and seven Actions artifacts were retained locally with matching remote SHA-256 hashes. Every archive was restored into a fresh private directory and its extracted file bytes compared with the archive. The restored 1.3.0 Actions candidate passed the normal publisher's verify-only gate and independent rebuild. Future acquisition and publication use local checksummed archives. GitHub originals are retained for the separately reviewed launch cleanup.
 
-## Exposure review and remaining launch actions
+## Exposure review and follow-up
 
-1. Preserve the verified backups in independent owner-approved private storage before retiring GitHub copies. The current recovery rehearsal used this disk and account. Off-machine coverage is unverified.
-2. Remove or relocate private GitHub release attachments, review artifacts, run logs and summaries after retention is confirmed. Four source-receipt releases, seven artifact archives and seven historical runs were examined. Provider source snapshots, model inputs and unreviewed diagnostic leads must not become a public repository's implicit downloads. Remote deletion requires its own owner decision.
-3. Confirm redistribution rights for the retained third-party crash manuals and HTML references, including frozen copies. Public availability and a code license do not establish permission to republish them. Resolve any disputed material before making the history public. Dataset version manifests retain their existing source-specific terms, including CC0, ODbL and CC BY where stated.
-4. Complete the linked GitHub Projects review using read:project access. The current CLI credential lacks that scope. The browser is signed out. Board visibility, draft items, collaborators and workflows remain unverified.
-5. Recheck public-only protections at launch. Enable secret scanning, push protection, dependency alerts and private vulnerability reporting where available. Confirm fork PR approval policy, permit public fork contributions, and inspect any inherited organization Actions policies. A private repository's current API responses cannot verify those future settings.
-6. Review the historical home paths and public crash disclosure choices with the owner. The history includes source-qualified identifiers and mapped coordinates in previously approved packages, plus machine paths in provenance/recovery instructions. The map method documents rounding and source scope. No new withdrawal was requested and the ledger contains none. If a path, identifier or reference needs removal from history, preserve recovery evidence and obtain the separate history-rewrite decision.
+1. The four existing source-backup releases are unpublished drafts in this same repository. All seven attachments returned 404 to anonymous API requests, and the anonymous release listing was empty. Keep these drafts unpublished and give contributors read/fork access. Draft releases are visible to repository writers.
+2. Seven historical private review runs and their seven Actions artifacts were removed after local archive hashes and recovery files were verified. The owner explicitly chose local-only retention for these historical reviews. No additional private archive was uploaded. Current review evidence is under the private readiness directory.
+3. Original code/documentation has MIT terms. Upstream crash manuals, HTML captures, source data and frozen evidence retain their source-specific terms and attribution. Their redistribution rights were not independently confirmed. The code license grants no additional rights over those materials. Preserve their provenance and consult the source steward before extending their reuse.
+4. Anonymous GitHub browsing showed no projects linked to this repository. Administrative inspection of any private boards remains unavailable because the CLI lacks read:project. Repository visibility does not establish the visibility of a separate Project.
+5. Secret scanning, push protection, dependency alerts and private vulnerability reporting were enabled. Main retains required PR/code-owner review, stale approval dismissal and the individual owner's always-bypass exception. Public visitors can clone, fork and propose PRs without write permission.
+6. The scan found historical home paths and source-qualified IDs/rounded coordinates in approved packages. These remain documented provenance/disclosure choices. No history rewrite or withdrawal was performed.
+
 
 The automated scan examined reachable Git file blobs and downloaded GitHub evidence, including extracted PDF text, structured CSV/GeoJSON fields, gzip GeoJSONs and archive members. Checked credential patterns produced no private-key, provider-token, credential-assignment or SSN-shaped matches. Hits for personal-field names occurred in schemas, normalization code, manuals and provider source metadata. Email hits in code were public request contacts or synthetic test values, and commit-author addresses were treated as metadata. The phone-shaped matches were numeric provider fields. Home paths require contextual review. This is a focused pattern and field review, with no OCR of scanned images and no complete semantic proof over every free-text value or binary OSM extract.
 
@@ -31,13 +32,13 @@ Remote refs showed main and four receipt tags, with no PR refs. No Git LFS confi
 | --- | --- |
 | Main and owner rights | Active PR/code-owner review rules, stale approval dismissal, deletion/force-push protection, individual owner always-bypass. Keep CODEOWNERS on main. |
 | Collaborators | One direct collaborator, @brycepj with admin. Organization-inherited access should be rechecked as membership changes. |
-| Forks | Repository private and allow_forking false at audit time. Public visibility changes fork behavior. Verify public contribution access at launch. |
+| Forks | Repository public. Anonymous read access is verified and public fork/PR contribution is available. |
 | Actions | Enabled, all actions allowed. Default token read-only and unable to approve PRs. Contributor workflow pins checkout/setup-python commits. Consider restricting allowed actions after checking organization-wide usage. |
-| Security features | Secret scanning/push protection, Dependabot alerts and updates disabled. Private reporting API returned 404. Availability and enablement remain launch checks. |
+| Security features | Secret scanning, push protection, dependency alerts and private reporting enabled at launch. Automatic dependency-update PRs remain separately configurable. |
 | Installed apps | Organization Vercel installation covers all repositories. Render installation selects repositories, but its exact selection for this repo was unavailable with the current user token. Review app installations with the owner. |
 | Vercel project | No Git repository link. Deployments use the explicit staging/promotion pipeline. Fork protection enabled and SSO protects deployments except custom domains. Root/build/output settings use defaults. Keep uploads restricted to the catalog's assembled output. |
 | GitHub deployments | No deployment records or environments. Vercel's separately verified project is the owning deployment surface. |
-| Linked Projects | Unverified due to missing read:project and signed-out browser. |
+| Linked Projects | Anonymous browsing showed no linked projects. Private administrative board settings remain unverified. |
 
 ## Dead code and artifact review
 

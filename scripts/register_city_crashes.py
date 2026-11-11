@@ -23,6 +23,9 @@ def encoded(data):
 
 
 def readme(rows, root=ROOT):
+    ledger = json.loads((root / 'releases/release-ledger.json').read_bytes())
+    withdrawn = {(entry['dataset'], entry['version']) for entry in ledger['withdrawn']}
+    available = {(entry['dataset'], entry['version']) for entry in ledger.get('publicCityReleases', [])} - withdrawn
     lines = [
         START,
         '| City | Portal crashes | Portal years | Latest portal crash | UDOT crashes | UDOT years | Latest UDOT crash | Dataset |',
@@ -35,7 +38,8 @@ def readme(rows, root=ROOT):
             cells.extend(f'{values[k]:,}' if k == 'count' and values.get(k) is not None
                          else str(values.get(k) or '—') for k in ('count', 'years', 'latest'))
         dataset = row.get('dataset')
-        cells.append(f"[Generated ZIP]({dataset['zip']})" if dataset else 'Not generated')
+        cells.append(f"[Generated ZIP]({dataset['zip']})"
+                     if dataset and (dataset['id'], dataset['version']) in available else 'Not yet available')
         lines.append('| ' + ' | '.join(cells) + ' |')
     lines.append(END)
     path = root / 'README.md'

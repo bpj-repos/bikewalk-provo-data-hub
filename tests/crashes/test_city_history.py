@@ -65,7 +65,17 @@ class CityHistoryTests(unittest.TestCase):
                 header, older, *recent = zipped.read(prefix + 'annual.csv').splitlines(keepends=True)
                 self.assertTrue(older.startswith(b'2017,'))
                 self.assertEqual(zipped.read(prefix + 'annual-from-2018.csv'), header + b''.join(recent))
+            self.assertNotIn('[Generated ZIP]', (root / 'README.md').read_text())
+            state = json.loads(ledger.read_bytes())
+            state['publicCityReleases'] = [dict(dataset='provo-annual-at-crash-aggregates', version='1.1.0')]
+            ledger.write_text(json.dumps(state))
+            register(package, digest, root)
             self.assertIn('[Generated ZIP](releases/datasets/provo-', (root / 'README.md').read_text())
+            state['withdrawn'] = [dict(dataset='provo-annual-at-crash-aggregates', version='1.1.0')]
+            ledger.write_text(json.dumps(state))
+            from scripts.register_city_crashes import readme
+            coverage = json.loads((root / 'data-definitions/crashes/city-coverage.json').read_bytes())
+            self.assertNotIn('[Generated ZIP]', readme(coverage, root))
             receipt['expectedCrashes'] = 2
             path.with_suffix('.xlsx.json').write_text(json.dumps(receipt))
             with self.assertRaisesRegex(ValueError, 'dashboard'):

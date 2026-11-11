@@ -210,3 +210,6 @@ requirements-city.txt installs openpyxl, defusedxml, jsonschema and PyYAML, plus
 ### Public source launch, November 11, 2026
 
 The Hub Git repository is publicly readable and forkable. Branch/code-owner review restricts other contributors while @brycepj retains direct-push and unrestricted merge rights. Existing private source archives remain in four unpublished GitHub draft releases; anonymous release/asset checks verified they are hidden. Seven historical private Actions runs/artifacts were removed after verified local retention, as the owner requested. Secret scanning, push protection, dependency alerts and private vulnerability reporting are enabled. Raw private workspaces remain ignored. Upstream reference material retains its original terms and falls outside the MIT grant for original code/documentation. The readiness record preserves verification limits.
+
+
+The README city table uses the release ledger’s publicCityReleases selection for download links and excludes withdrawn versions. Generated annual summaries outside that selection retain their coverage rows with “Not yet available.” Both city registration and capture-history reporting use the same renderer, so refreshing coverage cannot reintroduce summary-only links.

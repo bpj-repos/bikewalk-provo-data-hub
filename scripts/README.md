@@ -18,6 +18,12 @@ Run module commands from the repository root. Use a new output directory for bui
 | `python3 -m scripts.demo_city_crashes NEW_PRIVATE_OUTPUT --json` | Exercise the real mapping workflow with invented records offline. |
 | `python3 -m scripts.prepare_city_crashes --help` | Prepare one Utah city’s private annual aggregate candidate from a checksummed city-filtered portal workbook. |
 | `python3 -m scripts.prepare_counts_candidate --help` | Prepare a private revision using reviewed, complete annual slices and pinned evidence. |
+| `python -m scripts.capture_byu_events CAPTURES DEFINITIONS --through YYYY-MM-DD [--offline]` | Capture or replay checksummed BYU home football and men's basketball schedules into the event register. |
+| `python -m scripts.capture_byu_event_details CAPTURES ATHLETICS_CSV [--offline]` | Capture or replay recaps and incorporate explicitly documented actual football start/end times. |
+| `python -m scripts.build_byu_event_locations NETWORK_PARQUET OUTPUT_GEOJSON` | Rebuild dated BYU crossing/frontage screens and candidate parking envelopes from a retained street snapshot. |
+| `python -m scripts.review_event_context COLLECTION_OR_POINTER NEW_PRIVATE_JSON` | Audit stored flags, list positive evidence and compare nearby non-event windows. |
+| `python -m scripts.prepare_event_workbook OUTPUT_JSON` | Prepare workbook tables from the canonical event definitions. |
+| `node scripts/build_event_workbook.mjs INPUT_JSON NEW_OUTPUT_DIRECTORY` | With the bundled artifact-tool runtime beside a build copy of this script, export and render the three-sheet event workbook. |
 | `python3 -m scripts.prepare_crash_releases --help` | Build private, aggregate-only release packages for owner review. |
 | `python3 -m scripts.prepare_incident_map_release --help` | Reproduce a reviewed incident-map package from checksummed private presentation inputs. |
 | `python3 -m scripts.rehearse_crash_receipt` | Replay the retained second Provo delivery in a temporary recovery tree. |

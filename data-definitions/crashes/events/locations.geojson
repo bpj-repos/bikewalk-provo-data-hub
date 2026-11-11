@@ -1,0 +1,5075 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65862,
+          40.25575
+        ]
+      },
+      "properties": {
+        "id": "university-parkway-university-avenue",
+        "name": "University Parkway / University Avenue",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "2026 city street junction with venue access references. Grade-separated walkway excluded."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65862,
+          40.25575
+        ]
+      },
+      "properties": {
+        "id": "university-parkway-university-avenue-historical-review",
+        "name": "University Parkway / University Avenue",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "Historical event access and exact crossing footprint require dated verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65611,
+          40.25578
+        ]
+      },
+      "properties": {
+        "id": "university-parkway-canyon-road",
+        "name": "University Parkway / Canyon Road",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "2026 city street junction with venue access references. Grade-separated walkway excluded."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65611,
+          40.25578
+        ]
+      },
+      "properties": {
+        "id": "university-parkway-canyon-road-historical-review",
+        "name": "University Parkway / Canyon Road",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "Historical event access and exact crossing footprint require dated verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65608,
+          40.25879
+        ]
+      },
+      "properties": {
+        "id": "stadium-avenue-canyon-road",
+        "name": "Stadium Avenue / Canyon Road",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "2026 city street junction with venue access references. Grade-separated walkway excluded."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.65608,
+          40.25879
+        ]
+      },
+      "properties": {
+        "id": "stadium-avenue-canyon-road-historical-review",
+        "name": "Stadium Avenue / Canyon Road",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "Historical event access and exact crossing footprint require dated verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.6505,
+          40.25565
+        ]
+      },
+      "properties": {
+        "id": "university-parkway-450-east",
+        "name": "University Parkway / 450 East",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "2026 city street junction with venue access references. Grade-separated walkway excluded."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.6505,
+          40.25565
+        ]
+      },
+      "properties": {
+        "id": "university-parkway-450-east-historical-review",
+        "name": "University Parkway / 450 East",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "Historical event access and exact crossing footprint require dated verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.64326,
+          40.2567
+        ]
+      },
+      "properties": {
+        "id": "university-parkway-900-east",
+        "name": "University Parkway / 900 East",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "2026 city street junction with venue access references. Grade-separated walkway excluded."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.64326,
+          40.2567
+        ]
+      },
+      "properties": {
+        "id": "university-parkway-900-east-historical-review",
+        "name": "University Parkway / 900 East",
+        "match_types": [
+          "crossing"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "Historical event access and exact crossing footprint require dated verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6560284748125,
+            40.26338777749806
+          ],
+          [
+            -111.65603111347316,
+            40.2635
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:14745",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6560284748125,
+            40.26338777749806
+          ],
+          [
+            -111.65603111347316,
+            40.2635
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:14745",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65862666004058,
+            40.25059294829192
+          ],
+          [
+            -111.65838355006609,
+            40.25060807336476
+          ],
+          [
+            -111.65635060865239,
+            40.2506360906398
+          ],
+          [
+            -111.65616518617031,
+            40.25066296474826
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:1564",
+        "name": "E COUGAR BLVD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65862666004058,
+            40.25059294829192
+          ],
+          [
+            -111.65838355006609,
+            40.25060807336476
+          ],
+          [
+            -111.65635060865239,
+            40.2506360906398
+          ],
+          [
+            -111.65616518617031,
+            40.25066296474826
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:1564",
+        "name": "E COUGAR BLVD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64767425819599,
+            40.26115682023175
+          ],
+          [
+            -111.64758642277536,
+            40.26119601753083
+          ],
+          [
+            -111.64749688924877,
+            40.26123116346931
+          ],
+          [
+            -111.64740584436848,
+            40.26126218473855
+          ],
+          [
+            -111.64505735847057,
+            40.262005889057534
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:1836",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64767425819599,
+            40.26115682023175
+          ],
+          [
+            -111.64758642277536,
+            40.26119601753083
+          ],
+          [
+            -111.64749688924877,
+            40.26123116346931
+          ],
+          [
+            -111.64740584436848,
+            40.26126218473855
+          ],
+          [
+            -111.64505735847057,
+            40.262005889057534
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:1836",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6505032092766,
+            40.25495290622331
+          ],
+          [
+            -111.65051763094567,
+            40.25559963694398
+          ],
+          [
+            -111.65051845371964,
+            40.255636522835346
+          ],
+          [
+            -111.65051869624,
+            40.2556473915464
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:1920",
+        "name": "N 450 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6505032092766,
+            40.25495290622331
+          ],
+          [
+            -111.65051763094567,
+            40.25559963694398
+          ],
+          [
+            -111.65051845371964,
+            40.255636522835346
+          ],
+          [
+            -111.65051869624,
+            40.2556473915464
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:1920",
+        "name": "N 450 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64743822216555,
+            40.25656974768441
+          ],
+          [
+            -111.6473150789239,
+            40.25659960424204
+          ],
+          [
+            -111.6471906006852,
+            40.256623286304674
+          ],
+          [
+            -111.64706509684196,
+            40.25664073501021
+          ],
+          [
+            -111.64693887933575,
+            40.25665190698963
+          ],
+          [
+            -111.64681226188203,
+            40.25665677447482
+          ],
+          [
+            -111.64590537286178,
+            40.25667003952197
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2103",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64743822216555,
+            40.25656974768441
+          ],
+          [
+            -111.6473150789239,
+            40.25659960424204
+          ],
+          [
+            -111.6471906006852,
+            40.256623286304674
+          ],
+          [
+            -111.64706509684196,
+            40.25664073501021
+          ],
+          [
+            -111.64693887933575,
+            40.25665190698963
+          ],
+          [
+            -111.64681226188203,
+            40.25665677447482
+          ],
+          [
+            -111.64590537286178,
+            40.25667003952197
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2103",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64520349978929,
+            40.2566787790471
+          ],
+          [
+            -111.64326364297312,
+            40.25670142129897
+          ],
+          [
+            -111.64325988719209,
+            40.256701464635626
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2104",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64520349978929,
+            40.2566787790471
+          ],
+          [
+            -111.64326364297312,
+            40.25670142129897
+          ],
+          [
+            -111.64325988719209,
+            40.256701464635626
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2104",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64325988719209,
+            40.256701464635626
+          ],
+          [
+            -111.643,
+            40.25670280640504
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2105",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64325988719209,
+            40.256701464635626
+          ],
+          [
+            -111.643,
+            40.25670280640504
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2105",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64590537286178,
+            40.25667003952197
+          ],
+          [
+            -111.64520349978929,
+            40.2566787790471
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2106",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64590537286178,
+            40.25667003952197
+          ],
+          [
+            -111.64520349978929,
+            40.2566787790471
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2106",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65220115009507,
+            40.25889223321083
+          ],
+          [
+            -111.65212754684961,
+            40.258922727364116
+          ],
+          [
+            -111.65205472228448,
+            40.25895503701964
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2111",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65220115009507,
+            40.25889223321083
+          ],
+          [
+            -111.65212754684961,
+            40.258922727364116
+          ],
+          [
+            -111.65205472228448,
+            40.25895503701964
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2111",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65603906207966,
+            40.26247261832995
+          ],
+          [
+            -111.6560284748125,
+            40.26338777749806
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2177",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65603906207966,
+            40.26247261832995
+          ],
+          [
+            -111.6560284748125,
+            40.26338777749806
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2177",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6560408619839,
+            40.26230379513039
+          ],
+          [
+            -111.65603906207966,
+            40.26247261832995
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2178",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6560408619839,
+            40.26230379513039
+          ],
+          [
+            -111.65603906207966,
+            40.26247261832995
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2178",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65862666004058,
+            40.25059294829192
+          ],
+          [
+            -111.65862642822852,
+            40.25075230597824
+          ],
+          [
+            -111.65862284229985,
+            40.25172247893224
+          ],
+          [
+            -111.65861666481794,
+            40.25350191629224
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2206",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65862666004058,
+            40.25059294829192
+          ],
+          [
+            -111.65862642822852,
+            40.25075230597824
+          ],
+          [
+            -111.65862284229985,
+            40.25172247893224
+          ],
+          [
+            -111.65861666481794,
+            40.25350191629224
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2206",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65861666481794,
+            40.25350191629224
+          ],
+          [
+            -111.65861706812527,
+            40.25359490775479
+          ],
+          [
+            -111.6586138324803,
+            40.254246237126345
+          ],
+          [
+            -111.65860540876812,
+            40.25481610344296
+          ],
+          [
+            -111.65860445289451,
+            40.25520509397816
+          ],
+          [
+            -111.65860747939429,
+            40.25580727605012
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2209",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65861666481794,
+            40.25350191629224
+          ],
+          [
+            -111.65861706812527,
+            40.25359490775479
+          ],
+          [
+            -111.6586138324803,
+            40.254246237126345
+          ],
+          [
+            -111.65860540876812,
+            40.25481610344296
+          ],
+          [
+            -111.65860445289451,
+            40.25520509397816
+          ],
+          [
+            -111.65860747939429,
+            40.25580727605012
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2209",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65860747939429,
+            40.25580727605012
+          ],
+          [
+            -111.65860720430345,
+            40.25600535511985
+          ],
+          [
+            -111.65859822597884,
+            40.25726624504017
+          ],
+          [
+            -111.65860204924358,
+            40.258078069446476
+          ],
+          [
+            -111.65860311920288,
+            40.258540364162855
+          ],
+          [
+            -111.65860142911512,
+            40.25888541986905
+          ],
+          [
+            -111.65860016368485,
+            40.259413963866024
+          ],
+          [
+            -111.6585978647652,
+            40.260454464072915
+          ],
+          [
+            -111.65859583652905,
+            40.260822594615504
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:2210",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65860747939429,
+            40.25580727605012
+          ],
+          [
+            -111.65860720430345,
+            40.25600535511985
+          ],
+          [
+            -111.65859822597884,
+            40.25726624504017
+          ],
+          [
+            -111.65860204924358,
+            40.258078069446476
+          ],
+          [
+            -111.65860311920288,
+            40.258540364162855
+          ],
+          [
+            -111.65860142911512,
+            40.25888541986905
+          ],
+          [
+            -111.65860016368485,
+            40.259413963866024
+          ],
+          [
+            -111.6585978647652,
+            40.260454464072915
+          ],
+          [
+            -111.65859583652905,
+            40.260822594615504
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:2210",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6562148424832,
+            40.2505
+          ],
+          [
+            -111.65616518617031,
+            40.25066296474826
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:27171",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6562148424832,
+            40.2505
+          ],
+          [
+            -111.65616518617031,
+            40.25066296474826
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:27171",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65093032786166,
+            40.252446079659016
+          ],
+          [
+            -111.65088186437063,
+            40.252784639574124
+          ],
+          [
+            -111.65085940008848,
+            40.25286442785607
+          ],
+          [
+            -111.65083038296164,
+            40.252942073334104
+          ],
+          [
+            -111.65079501372679,
+            40.253017038867085
+          ],
+          [
+            -111.65075353706361,
+            40.25308880585336
+          ],
+          [
+            -111.65070623990215,
+            40.25315687781842
+          ],
+          [
+            -111.65065344943794,
+            40.253220783849414
+          ],
+          [
+            -111.65060680195027,
+            40.253286553885914
+          ],
+          [
+            -111.65056602839269,
+            40.25335611826478
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3382",
+        "name": "N 450 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65093032786166,
+            40.252446079659016
+          ],
+          [
+            -111.65088186437063,
+            40.252784639574124
+          ],
+          [
+            -111.65085940008848,
+            40.25286442785607
+          ],
+          [
+            -111.65083038296164,
+            40.252942073334104
+          ],
+          [
+            -111.65079501372679,
+            40.253017038867085
+          ],
+          [
+            -111.65075353706361,
+            40.25308880585336
+          ],
+          [
+            -111.65070623990215,
+            40.25315687781842
+          ],
+          [
+            -111.65065344943794,
+            40.253220783849414
+          ],
+          [
+            -111.65060680195027,
+            40.253286553885914
+          ],
+          [
+            -111.65056602839269,
+            40.25335611826478
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3382",
+        "name": "N 450 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65056602839269,
+            40.25335611826478
+          ],
+          [
+            -111.65053645296234,
+            40.25342243680306
+          ],
+          [
+            -111.6505134865745,
+            40.253491323664136
+          ],
+          [
+            -111.65049734820953,
+            40.253562122024114
+          ],
+          [
+            -111.65048819174388,
+            40.253634156833314
+          ],
+          [
+            -111.65048610448278,
+            40.25370674125272
+          ],
+          [
+            -111.6505032092766,
+            40.25495290622331
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3383",
+        "name": "N 450 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65056602839269,
+            40.25335611826478
+          ],
+          [
+            -111.65053645296234,
+            40.25342243680306
+          ],
+          [
+            -111.6505134865745,
+            40.253491323664136
+          ],
+          [
+            -111.65049734820953,
+            40.253562122024114
+          ],
+          [
+            -111.65048819174388,
+            40.253634156833314
+          ],
+          [
+            -111.65048610448278,
+            40.25370674125272
+          ],
+          [
+            -111.6505032092766,
+            40.25495290622331
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3383",
+        "name": "N 450 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65205472228448,
+            40.25895503701964
+          ],
+          [
+            -111.65031231187635,
+            40.25972738008545
+          ],
+          [
+            -111.65016017214059,
+            40.259797725845225
+          ],
+          [
+            -111.65001003759814,
+            40.259872255331196
+          ],
+          [
+            -111.64986202327117,
+            40.25995091144429
+          ],
+          [
+            -111.64865494884017,
+            40.26061863437107
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3395",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65205472228448,
+            40.25895503701964
+          ],
+          [
+            -111.65031231187635,
+            40.25972738008545
+          ],
+          [
+            -111.65016017214059,
+            40.259797725845225
+          ],
+          [
+            -111.65001003759814,
+            40.259872255331196
+          ],
+          [
+            -111.64986202327117,
+            40.25995091144429
+          ],
+          [
+            -111.64865494884017,
+            40.26061863437107
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3395",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64865494884017,
+            40.26061863437107
+          ],
+          [
+            -111.64778183325247,
+            40.26110160326347
+          ],
+          [
+            -111.64767425819599,
+            40.26115682023175
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3397",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64865494884017,
+            40.26061863437107
+          ],
+          [
+            -111.64778183325247,
+            40.26110160326347
+          ],
+          [
+            -111.64767425819599,
+            40.26115682023175
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3397",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65860747939429,
+            40.25580727605012
+          ],
+          [
+            -111.65859858883657,
+            40.25580727101609
+          ],
+          [
+            -111.65797959227278,
+            40.25580842831736
+          ],
+          [
+            -111.65736061227597,
+            40.25580375404062
+          ],
+          [
+            -111.65674170378429,
+            40.255793248600746
+          ],
+          [
+            -111.65612292172962,
+            40.25577691293015
+          ],
+          [
+            -111.6561117525031,
+            40.255776690995766
+          ],
+          [
+            -111.65611068977492,
+            40.25577666990063
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3544",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65860747939429,
+            40.25580727605012
+          ],
+          [
+            -111.65859858883657,
+            40.25580727101609
+          ],
+          [
+            -111.65797959227278,
+            40.25580842831736
+          ],
+          [
+            -111.65736061227597,
+            40.25580375404062
+          ],
+          [
+            -111.65674170378429,
+            40.255793248600746
+          ],
+          [
+            -111.65612292172962,
+            40.25577691293015
+          ],
+          [
+            -111.6561117525031,
+            40.255776690995766
+          ],
+          [
+            -111.65611068977492,
+            40.25577666990063
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3544",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65611068977492,
+            40.25577666990063
+          ],
+          [
+            -111.65595470362501,
+            40.255779669490416
+          ],
+          [
+            -111.6535554922281,
+            40.25576944010439
+          ],
+          [
+            -111.65324307002385,
+            40.255769557918654
+          ],
+          [
+            -111.65293068119009,
+            40.25576499019172
+          ],
+          [
+            -111.65261839599411,
+            40.25575573795105
+          ],
+          [
+            -111.65230628467988,
+            40.25574180327777
+          ],
+          [
+            -111.65199441745229,
+            40.25572318930631
+          ],
+          [
+            -111.65086526486499,
+            40.25566520034137
+          ],
+          [
+            -111.65051869624,
+            40.2556473915464
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3545",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65611068977492,
+            40.25577666990063
+          ],
+          [
+            -111.65595470362501,
+            40.255779669490416
+          ],
+          [
+            -111.6535554922281,
+            40.25576944010439
+          ],
+          [
+            -111.65324307002385,
+            40.255769557918654
+          ],
+          [
+            -111.65293068119009,
+            40.25576499019172
+          ],
+          [
+            -111.65261839599411,
+            40.25575573795105
+          ],
+          [
+            -111.65230628467988,
+            40.25574180327777
+          ],
+          [
+            -111.65199441745229,
+            40.25572318930631
+          ],
+          [
+            -111.65086526486499,
+            40.25566520034137
+          ],
+          [
+            -111.65051869624,
+            40.2556473915464
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3545",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65857135517074,
+            40.26338546394042
+          ],
+          [
+            -111.65856323665359,
+            40.2635
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3551",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65857135517074,
+            40.26338546394042
+          ],
+          [
+            -111.65856323665359,
+            40.2635
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3551",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65605327658855,
+            40.260903195345286
+          ],
+          [
+            -111.6560501686078,
+            40.26152799625445
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3760",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65605327658855,
+            40.260903195345286
+          ],
+          [
+            -111.6560501686078,
+            40.26152799625445
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3760",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65615526892573,
+            40.25167719053664
+          ],
+          [
+            -111.65614121389198,
+            40.25311456543064
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3968",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65615526892573,
+            40.25167719053664
+          ],
+          [
+            -111.65614121389198,
+            40.25311456543064
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3968",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65616518617031,
+            40.25066296474826
+          ],
+          [
+            -111.65615526892573,
+            40.25167719053664
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:3969",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65616518617031,
+            40.25066296474826
+          ],
+          [
+            -111.65615526892573,
+            40.25167719053664
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:3969",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65051869624,
+            40.2556473915464
+          ],
+          [
+            -111.650448886611,
+            40.25564378977384
+          ],
+          [
+            -111.65033867043455,
+            40.2556410248865
+          ],
+          [
+            -111.65022846929762,
+            40.25564433541111
+          ],
+          [
+            -111.65011861783901,
+            40.25565371129487
+          ],
+          [
+            -111.6500094496357,
+            40.2556691240668
+          ],
+          [
+            -111.64990129618985,
+            40.25569052692419
+          ],
+          [
+            -111.64979448592221,
+            40.25571785487473
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:405",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65051869624,
+            40.2556473915464
+          ],
+          [
+            -111.650448886611,
+            40.25564378977384
+          ],
+          [
+            -111.65033867043455,
+            40.2556410248865
+          ],
+          [
+            -111.65022846929762,
+            40.25564433541111
+          ],
+          [
+            -111.65011861783901,
+            40.25565371129487
+          ],
+          [
+            -111.6500094496357,
+            40.2556691240668
+          ],
+          [
+            -111.64990129618985,
+            40.25569052692419
+          ],
+          [
+            -111.64979448592221,
+            40.25571785487473
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:405",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64318549174996,
+            40.2505
+          ],
+          [
+            -111.64318862673366,
+            40.25058143051979
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:537",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64318549174996,
+            40.2505
+          ],
+          [
+            -111.64318862673366,
+            40.25058143051979
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:537",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65859404152751,
+            40.2623028461486
+          ],
+          [
+            -111.65859114721053,
+            40.26250658985118
+          ],
+          [
+            -111.65858682700434,
+            40.262790168784214
+          ],
+          [
+            -111.65858405392709,
+            40.26320480855632
+          ],
+          [
+            -111.65857135517074,
+            40.26338546394042
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:607",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65859404152751,
+            40.2623028461486
+          ],
+          [
+            -111.65859114721053,
+            40.26250658985118
+          ],
+          [
+            -111.65858682700434,
+            40.262790168784214
+          ],
+          [
+            -111.65858405392709,
+            40.26320480855632
+          ],
+          [
+            -111.65857135517074,
+            40.26338546394042
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:607",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65859181385326,
+            40.261563835207724
+          ],
+          [
+            -111.65859392904241,
+            40.262095763317184
+          ],
+          [
+            -111.65859404152751,
+            40.2623028461486
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:608",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65859181385326,
+            40.261563835207724
+          ],
+          [
+            -111.65859392904241,
+            40.262095763317184
+          ],
+          [
+            -111.65859404152751,
+            40.2623028461486
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:608",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65859583652905,
+            40.260822594615504
+          ],
+          [
+            -111.65859181385326,
+            40.261563835207724
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:609",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65859583652905,
+            40.260822594615504
+          ],
+          [
+            -111.65859181385326,
+            40.261563835207724
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:609",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6586270469531,
+            40.2505
+          ],
+          [
+            -111.65862666004058,
+            40.25059294829192
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:612",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6586270469531,
+            40.2505
+          ],
+          [
+            -111.65862666004058,
+            40.25059294829192
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:612",
+        "name": "N UNIVERSITY AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65611068977492,
+            40.25577666990063
+          ],
+          [
+            -111.65610930888423,
+            40.255935767674174
+          ],
+          [
+            -111.65610406974025,
+            40.25643488782263
+          ],
+          [
+            -111.65609074396525,
+            40.25728033857939
+          ],
+          [
+            -111.65608302632981,
+            40.25803228988258
+          ],
+          [
+            -111.65607938136398,
+            40.25878761029597
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:623",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65611068977492,
+            40.25577666990063
+          ],
+          [
+            -111.65610930888423,
+            40.255935767674174
+          ],
+          [
+            -111.65610406974025,
+            40.25643488782263
+          ],
+          [
+            -111.65609074396525,
+            40.25728033857939
+          ],
+          [
+            -111.65608302632981,
+            40.25803228988258
+          ],
+          [
+            -111.65607938136398,
+            40.25878761029597
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:623",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65614121389198,
+            40.25311456543064
+          ],
+          [
+            -111.65611670418484,
+            40.25562100549958
+          ],
+          [
+            -111.65611068977492,
+            40.25577666990063
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:624",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65614121389198,
+            40.25311456543064
+          ],
+          [
+            -111.65611670418484,
+            40.25562100549958
+          ],
+          [
+            -111.65611068977492,
+            40.25577666990063
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:624",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6560501686078,
+            40.26152799625445
+          ],
+          [
+            -111.6560408619839,
+            40.26230379513039
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:625",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.6560501686078,
+            40.26152799625445
+          ],
+          [
+            -111.6560408619839,
+            40.26230379513039
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:625",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64822021087105,
+            40.25624529064418
+          ],
+          [
+            -111.64802520442855,
+            40.2563319093128
+          ],
+          [
+            -111.64782660015997,
+            40.25642662092864
+          ],
+          [
+            -111.64773202306479,
+            40.2564689298215
+          ],
+          [
+            -111.64763563680441,
+            40.25650693716499
+          ],
+          [
+            -111.64753763690487,
+            40.25654056585865
+          ],
+          [
+            -111.64743822216555,
+            40.25656974768441
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:64",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64822021087105,
+            40.25624529064418
+          ],
+          [
+            -111.64802520442855,
+            40.2563319093128
+          ],
+          [
+            -111.64782660015997,
+            40.25642662092864
+          ],
+          [
+            -111.64773202306479,
+            40.2564689298215
+          ],
+          [
+            -111.64763563680441,
+            40.25650693716499
+          ],
+          [
+            -111.64753763690487,
+            40.25654056585865
+          ],
+          [
+            -111.64743822216555,
+            40.25656974768441
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:64",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64330395096563,
+            40.25481130403707
+          ],
+          [
+            -111.6433069552428,
+            40.25551831738162
+          ],
+          [
+            -111.64330820851727,
+            40.255616252164096
+          ],
+          [
+            -111.64330640793872,
+            40.25571417841304
+          ],
+          [
+            -111.64329306050738,
+            40.256106930511386
+          ],
+          [
+            -111.64325988719209,
+            40.256701464635626
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:66",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64330395096563,
+            40.25481130403707
+          ],
+          [
+            -111.6433069552428,
+            40.25551831738162
+          ],
+          [
+            -111.64330820851727,
+            40.255616252164096
+          ],
+          [
+            -111.64330640793872,
+            40.25571417841304
+          ],
+          [
+            -111.64329306050738,
+            40.256106930511386
+          ],
+          [
+            -111.64325988719209,
+            40.256701464635626
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:66",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65607938136398,
+            40.25878761029597
+          ],
+          [
+            -111.65605344335255,
+            40.26088969712628
+          ],
+          [
+            -111.65605327658855,
+            40.260903195345286
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:67",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65607938136398,
+            40.25878761029597
+          ],
+          [
+            -111.65605344335255,
+            40.26088969712628
+          ],
+          [
+            -111.65605327658855,
+            40.260903195345286
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:67",
+        "name": "N CANYON RD",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64979448592221,
+            40.25571785487473
+          ],
+          [
+            -111.64954532734076,
+            40.255794746517765
+          ],
+          [
+            -111.64875647745487,
+            40.256055122106325
+          ],
+          [
+            -111.64857557968705,
+            40.25611235902018
+          ],
+          [
+            -111.64839675386283,
+            40.25617577346096
+          ],
+          [
+            -111.64822021087105,
+            40.25624529064418
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:68",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64979448592221,
+            40.25571785487473
+          ],
+          [
+            -111.64954532734076,
+            40.255794746517765
+          ],
+          [
+            -111.64875647745487,
+            40.256055122106325
+          ],
+          [
+            -111.64857557968705,
+            40.25611235902018
+          ],
+          [
+            -111.64839675386283,
+            40.25617577346096
+          ],
+          [
+            -111.64822021087105,
+            40.25624529064418
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:68",
+        "name": "E UNIVERSITY PKWY",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64354795575724,
+            40.25995513384479
+          ],
+          [
+            -111.64362181938856,
+            40.260068688444974
+          ],
+          [
+            -111.64370108931854,
+            40.26018590017264
+          ],
+          [
+            -111.64378275572895,
+            40.26030214339784
+          ],
+          [
+            -111.64386679622766,
+            40.260417387521294
+          ],
+          [
+            -111.64394927942324,
+            40.260526523512276
+          ],
+          [
+            -111.64403389342591,
+            40.26063469852482
+          ],
+          [
+            -111.64428277473955,
+            40.26096592021046
+          ],
+          [
+            -111.64505735847057,
+            40.262005889057534
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:714",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64354795575724,
+            40.25995513384479
+          ],
+          [
+            -111.64362181938856,
+            40.260068688444974
+          ],
+          [
+            -111.64370108931854,
+            40.26018590017264
+          ],
+          [
+            -111.64378275572895,
+            40.26030214339784
+          ],
+          [
+            -111.64386679622766,
+            40.260417387521294
+          ],
+          [
+            -111.64394927942324,
+            40.260526523512276
+          ],
+          [
+            -111.64403389342591,
+            40.26063469852482
+          ],
+          [
+            -111.64428277473955,
+            40.26096592021046
+          ],
+          [
+            -111.64505735847057,
+            40.262005889057534
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:714",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64325988719209,
+            40.256701464635626
+          ],
+          [
+            -111.64325518734061,
+            40.25767375118649
+          ],
+          [
+            -111.64324622696304,
+            40.258724164830774
+          ],
+          [
+            -111.64324549013543,
+            40.25880977226389
+          ],
+          [
+            -111.64324772230331,
+            40.25892621722764
+          ],
+          [
+            -111.64325584607649,
+            40.259042399913376
+          ],
+          [
+            -111.64326984062517,
+            40.25915802242313
+          ],
+          [
+            -111.6432896700667,
+            40.259272788295256
+          ],
+          [
+            -111.64331528355741,
+            40.25938640326456
+          ],
+          [
+            -111.64334661542311,
+            40.25949857601681
+          ],
+          [
+            -111.64338358532738,
+            40.259609018935706
+          ],
+          [
+            -111.64342609847763,
+            40.259717448840306
+          ],
+          [
+            -111.64346034204637,
+            40.25979983933813
+          ],
+          [
+            -111.64350104758462,
+            40.25987923628572
+          ],
+          [
+            -111.64354795575724,
+            40.25995513384479
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:715",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64325988719209,
+            40.256701464635626
+          ],
+          [
+            -111.64325518734061,
+            40.25767375118649
+          ],
+          [
+            -111.64324622696304,
+            40.258724164830774
+          ],
+          [
+            -111.64324549013543,
+            40.25880977226389
+          ],
+          [
+            -111.64324772230331,
+            40.25892621722764
+          ],
+          [
+            -111.64325584607649,
+            40.259042399913376
+          ],
+          [
+            -111.64326984062517,
+            40.25915802242313
+          ],
+          [
+            -111.6432896700667,
+            40.259272788295256
+          ],
+          [
+            -111.64331528355741,
+            40.25938640326456
+          ],
+          [
+            -111.64334661542311,
+            40.25949857601681
+          ],
+          [
+            -111.64338358532738,
+            40.259609018935706
+          ],
+          [
+            -111.64342609847763,
+            40.259717448840306
+          ],
+          [
+            -111.64346034204637,
+            40.25979983933813
+          ],
+          [
+            -111.64350104758462,
+            40.25987923628572
+          ],
+          [
+            -111.64354795575724,
+            40.25995513384479
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:715",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.643263176372,
+            40.25344116945382
+          ],
+          [
+            -111.64327458224075,
+            40.25386234833496
+          ],
+          [
+            -111.64329237200226,
+            40.25429963192878
+          ],
+          [
+            -111.64329842655296,
+            40.25455294450081
+          ],
+          [
+            -111.64330395096563,
+            40.25481130403707
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:716",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.643263176372,
+            40.25344116945382
+          ],
+          [
+            -111.64327458224075,
+            40.25386234833496
+          ],
+          [
+            -111.64329237200226,
+            40.25429963192878
+          ],
+          [
+            -111.64329842655296,
+            40.25455294450081
+          ],
+          [
+            -111.64330395096563,
+            40.25481130403707
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:716",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65607938136398,
+            40.25878761029597
+          ],
+          [
+            -111.65606790862638,
+            40.258787511250766
+          ],
+          [
+            -111.655079368744,
+            40.25877893850939
+          ],
+          [
+            -111.65499564571282,
+            40.25877616671652
+          ],
+          [
+            -111.65336783373259,
+            40.25868296398172
+          ],
+          [
+            -111.65325905491729,
+            40.25868268475486
+          ],
+          [
+            -111.65315045183307,
+            40.25868887173497
+          ],
+          [
+            -111.65304240851465,
+            40.25870150304407
+          ],
+          [
+            -111.65247250353846,
+            40.258813660614884
+          ],
+          [
+            -111.65238062287158,
+            40.25883473505779
+          ],
+          [
+            -111.65229007580106,
+            40.25886095369831
+          ],
+          [
+            -111.65220115009507,
+            40.25889223321083
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:719",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.65607938136398,
+            40.25878761029597
+          ],
+          [
+            -111.65606790862638,
+            40.258787511250766
+          ],
+          [
+            -111.655079368744,
+            40.25877893850939
+          ],
+          [
+            -111.65499564571282,
+            40.25877616671652
+          ],
+          [
+            -111.65336783373259,
+            40.25868296398172
+          ],
+          [
+            -111.65325905491729,
+            40.25868268475486
+          ],
+          [
+            -111.65315045183307,
+            40.25868887173497
+          ],
+          [
+            -111.65304240851465,
+            40.25870150304407
+          ],
+          [
+            -111.65247250353846,
+            40.258813660614884
+          ],
+          [
+            -111.65238062287158,
+            40.25883473505779
+          ],
+          [
+            -111.65229007580106,
+            40.25886095369831
+          ],
+          [
+            -111.65220115009507,
+            40.25889223321083
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:719",
+        "name": "E STADIUM AVE",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64505735847057,
+            40.262005889057534
+          ],
+          [
+            -111.64510358214277,
+            40.26206637938031
+          ],
+          [
+            -111.64530621205246,
+            40.2623315460784
+          ],
+          [
+            -111.64536988271692,
+            40.26240828153774
+          ],
+          [
+            -111.645438452053,
+            40.262480673045395
+          ],
+          [
+            -111.64551162441892,
+            40.26254840847999
+          ],
+          [
+            -111.64558908432653,
+            40.262611195795145
+          ],
+          [
+            -111.64567049780169,
+            40.262668764278665
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:72",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64505735847057,
+            40.262005889057534
+          ],
+          [
+            -111.64510358214277,
+            40.26206637938031
+          ],
+          [
+            -111.64530621205246,
+            40.2623315460784
+          ],
+          [
+            -111.64536988271692,
+            40.26240828153774
+          ],
+          [
+            -111.645438452053,
+            40.262480673045395
+          ],
+          [
+            -111.64551162441892,
+            40.26254840847999
+          ],
+          [
+            -111.64558908432653,
+            40.262611195795145
+          ],
+          [
+            -111.64567049780169,
+            40.262668764278665
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:72",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64318862673366,
+            40.25058143051979
+          ],
+          [
+            -111.64321322854865,
+            40.25110166681879
+          ],
+          [
+            -111.64322589334392,
+            40.2512891302764
+          ],
+          [
+            -111.64323405022905,
+            40.25147684391523
+          ],
+          [
+            -111.64323769449426,
+            40.251664699349824
+          ],
+          [
+            -111.64324181386039,
+            40.252023774129775
+          ],
+          [
+            -111.64325086497955,
+            40.25310745994708
+          ],
+          [
+            -111.643263176372,
+            40.25344116945382
+          ]
+        ]
+      },
+      "properties": {
+        "id": "street-psw-segment:729",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "2026 street frontage. Positive match still requires reported improper parking or parking maneuver."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -111.64318862673366,
+            40.25058143051979
+          ],
+          [
+            -111.64321322854865,
+            40.25110166681879
+          ],
+          [
+            -111.64322589334392,
+            40.2512891302764
+          ],
+          [
+            -111.64323405022905,
+            40.25147684391523
+          ],
+          [
+            -111.64323769449426,
+            40.251664699349824
+          ],
+          [
+            -111.64324181386039,
+            40.252023774129775
+          ],
+          [
+            -111.64325086497955,
+            40.25310745994708
+          ],
+          [
+            -111.643263176372,
+            40.25344116945382
+          ]
+        ]
+      },
+      "properties": {
+        "id": "historical-street-psw-segment:729",
+        "name": "N 900 E",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 25,
+        "basis": "Historical event access requires verification."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -111.6563,
+              40.256
+            ],
+            [
+              -111.6563,
+              40.2585
+            ],
+            [
+              -111.6583,
+              40.2585
+            ],
+            [
+              -111.6583,
+              40.256
+            ],
+            [
+              -111.6563,
+              40.256
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "stadium-west",
+        "name": "Stadium west parking",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "basis": "Approximate review envelope, not a surveyed lot or historical parking-use assertion."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -111.6514,
+              40.259
+            ],
+            [
+              -111.6514,
+              40.2608
+            ],
+            [
+              -111.6559,
+              40.2608
+            ],
+            [
+              -111.6559,
+              40.259
+            ],
+            [
+              -111.6514,
+              40.259
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "stadium-north",
+        "name": "Stadium north parking",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "basis": "Approximate review envelope, not a surveyed lot or historical parking-use assertion."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -111.647,
+              40.2548
+            ],
+            [
+              -111.647,
+              40.2558
+            ],
+            [
+              -111.6505,
+              40.2558
+            ],
+            [
+              -111.6505,
+              40.2548
+            ],
+            [
+              -111.647,
+              40.2548
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "marriott-north",
+        "name": "Marriott Center north parking",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "basis": "Approximate review envelope, not a surveyed lot or historical parking-use assertion."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -111.6453,
+              40.2534
+            ],
+            [
+              -111.6453,
+              40.2554
+            ],
+            [
+              -111.647,
+              40.2554
+            ],
+            [
+              -111.647,
+              40.2534
+            ],
+            [
+              -111.6453,
+              40.2534
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "marriott-east",
+        "name": "Marriott Center east parking",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "basis": "Approximate review envelope, not a surveyed lot or historical parking-use assertion."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -111.659,
+              40.2561
+            ],
+            [
+              -111.659,
+              40.2585
+            ],
+            [
+              -111.6615,
+              40.2585
+            ],
+            [
+              -111.6615,
+              40.2561
+            ],
+            [
+              -111.659,
+              40.2561
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "west-intramural",
+        "name": "West intramural event parking",
+        "match_types": [
+          "parking"
+        ],
+        "series": [
+          "byu_football",
+          "byu_mens_basketball",
+          "stadium_of_fire"
+        ],
+        "review_status": "candidate",
+        "valid_from": "2010-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "basis": "Approximate review envelope, not a surveyed lot or historical parking-use assertion."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.6561,
+          40.2572
+        ]
+      },
+      "properties": {
+        "id": "stadium-of-fire-west-access",
+        "name": "Stadium of Fire west-lot access",
+        "match_types": [
+          "crossing",
+          "parking"
+        ],
+        "series": [
+          "stadium_of_fire"
+        ],
+        "review_status": "reviewed",
+        "valid_from": "2026-01-01",
+        "valid_through": "2026-12-31",
+        "sources": [
+          "https://byucougars.com/news/2015/09/10/byu-announces-improvements-to-football-game-day-experience",
+          "https://byucougars.com/news/2002/08/26/parking-procedures-for-byu-football",
+          "https://byucougars.com/marriott-center-policies"
+        ],
+        "network_sha256": "3d87e00fa393ebcf9c842323832339f8b1846ebe24083c51ae2407da2b48f8f5",
+        "buffer_metres": 45,
+        "basis": "Organizer 2026 west-lot program plus city Canyon Road geometry.",
+        "event_source": "https://freedomfestival.org/stadium-of-fire/"
+      }
+    }
+  ]
+}

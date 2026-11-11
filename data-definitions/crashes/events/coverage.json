@@ -1,0 +1,352 @@
+[
+  {
+    "series": "byu_football",
+    "season": "2010",
+    "url": "https://byucougars.com/sports/football/schedule/season/2010",
+    "sha256": "47a7a43d2e08539a5c9217086e2dcea37b66442c1c273f518eae1df71a491614",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2011",
+    "url": "https://byucougars.com/sports/football/schedule/season/2011",
+    "sha256": "af482a560f19357cf111f5e02f07267990ea5a66f94a2974f258e6d419c34029",
+    "schedule_items": 13,
+    "home_events": 7,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2012",
+    "url": "https://byucougars.com/sports/football/schedule/season/2012",
+    "sha256": "2f6d72c4bb9ce9b8a24db8bc1cf64fe5274a0e5e58621de2d1937dc014c42f6d",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2013",
+    "url": "https://byucougars.com/sports/football/schedule/season/2013",
+    "sha256": "2aa42966e8933a88779d32853d7b0b85dc357fc4a381e8e20ef6d4a410f6fddf",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2014",
+    "url": "https://byucougars.com/sports/football/schedule/season/2014",
+    "sha256": "153d30f5c16fcbcf309697c880f32ab4c2ff1a64bdd0bfddb25f5130280cf2d1",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2015",
+    "url": "https://byucougars.com/sports/football/schedule/season/2015",
+    "sha256": "90816a72488e21d19618e5edb1cab5900a98b01cce36521f940d79b1c520f98e",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2016",
+    "url": "https://byucougars.com/sports/football/schedule/season/2016",
+    "sha256": "c91213d5bf1ec633bc428bc151eb808e9f77ecc4b308ff1f1fe26ede38d7725e",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2017",
+    "url": "https://byucougars.com/sports/football/schedule/season/2017",
+    "sha256": "824326781fa4e81c72c3054ba0be703aeab2fddaac66e766e41abf3898e160ac",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2018",
+    "url": "https://byucougars.com/sports/football/schedule/season/2018",
+    "sha256": "757da937b2c4c71de0e2076c453baac90a655299e209681d4dbf3242099998cb",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2019",
+    "url": "https://byucougars.com/sports/football/schedule/season/2019",
+    "sha256": "8a55c70db304aa2a4406f73d0f8133eb2ff1b38243d94285204424f57b2fc728",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2020",
+    "url": "https://byucougars.com/sports/football/schedule/season/2020",
+    "sha256": "75cc4bd3dab3805767c78cc371343858ff9b9f6f91482154c090ef7cce1f0d51",
+    "schedule_items": 12,
+    "home_events": 7,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2021",
+    "url": "https://byucougars.com/sports/football/schedule/season/2021",
+    "sha256": "0f14ce43d0088ea7884dd2a5a72d2019be2c4ceeecb435a69a39a510a8a9593d",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2022",
+    "url": "https://byucougars.com/sports/football/schedule/season/2022",
+    "sha256": "64210b2df95188bb5fe44b0a36b8ac36fc2b52435b53103e5fedd9b4c322ecab",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2023",
+    "url": "https://byucougars.com/sports/football/schedule/season/2023",
+    "sha256": "2265107dd1075e37a675a91a14751031b232a8b153f798397491a86a942b7aa2",
+    "schedule_items": 12,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2024",
+    "url": "https://byucougars.com/sports/football/schedule/season/2024",
+    "sha256": "abcc400d759235bb2dd2724bc04b6824ea1ad88ea58ed8bb7f56ae6fa8ff6dd0",
+    "schedule_items": 13,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2025",
+    "url": "https://byucougars.com/sports/football/schedule/season/2025",
+    "sha256": "4b032d14e6b4bf690f62aea64fde8dd6b329b2617857ef16db85aad2a52f9c1a",
+    "schedule_items": 14,
+    "home_events": 6,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_football",
+    "season": "2026",
+    "url": "https://byucougars.com/sports/football/schedule/season/2026",
+    "sha256": "a140185bbadab84d4ec663448af38cef3d818cdcdea489fad4272d7170c2db9b",
+    "schedule_items": 12,
+    "home_events": 4,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2009-2010",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2009-2010",
+    "sha256": "8477fa894d761dcd92daf9a8b09af8ef12d26d3f1e943860875160453b5b4a37",
+    "schedule_items": 39,
+    "home_events": 9,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2010-2011",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2010-2011",
+    "sha256": "06c2417372b4f035c73b9b546300b7fd2b26cd513a1918e0838e40955c2c317b",
+    "schedule_items": 40,
+    "home_events": 17,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2011-2012",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2011-2012",
+    "sha256": "46be40f8a47dcdb82de0bbe97cd9ba5f056902a52b971f242cf82ff0b0a3f469",
+    "schedule_items": 38,
+    "home_events": 19,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2012-2013",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2012-2013",
+    "sha256": "785602cc6ee0d5ad3dfb0543d31f249397398a8d11a99effe1bfda46a01feb68",
+    "schedule_items": 39,
+    "home_events": 21,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2013-2014",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2013-2014",
+    "sha256": "f6ee678cc30b98250a0183795e84486c421cadb89d84566304fd77714bb3d6a5",
+    "schedule_items": 38,
+    "home_events": 18,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2014-2015",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2014-2015",
+    "sha256": "6997128194dde64dd88cf0c88989853f701c4192dba6f7d7dc80e53439d541e0",
+    "schedule_items": 38,
+    "home_events": 19,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2015-2016",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2015-2016",
+    "sha256": "b0d1a29b9b87f763df7d701e4b65e0b87302015b505c781c659d7c95a31807cb",
+    "schedule_items": 40,
+    "home_events": 21,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2016-2017",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2016-2017",
+    "sha256": "4ab85fbfcbfdf974757361c499f6df1b2635127d1c76aa7e86686ac413720c48",
+    "schedule_items": 37,
+    "home_events": 21,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2017-2018",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2017-2018",
+    "sha256": "22abc7ce1324e5859397cc1f8c3a7f74129eb618f6d7e5e8cbc217a839291e80",
+    "schedule_items": 39,
+    "home_events": 19,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2018-2019",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2018-2019",
+    "sha256": "5e4ea581e716977a0ccf61f9b53dd009c4924da0b8c790f3df3f98d53c4f6a71",
+    "schedule_items": 35,
+    "home_events": 19,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2019-2020",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2019-2020",
+    "sha256": "b1621fa2fc4e004645e297dc18a0a454d7ce140b88587394fdedf0c99867efcc",
+    "schedule_items": 33,
+    "home_events": 16,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2020-2021",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2020-2021",
+    "sha256": "b51d27e457df06691ff50cc684fc26b2a959c4073db97ba29ccee19090a4958b",
+    "schedule_items": 27,
+    "home_events": 12,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2021-2022",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2021-2022",
+    "sha256": "fec53cc233b4ac5b33b3e8e1d33cba6aa487a9fd2399d288d4a6f586f5f5030a",
+    "schedule_items": 36,
+    "home_events": 18,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2022-2023",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2022-2023",
+    "sha256": "d5f5ed8a1a2e49b3b6143306a78f55d746f1a3f743157d69a91435291e0e2209",
+    "schedule_items": 35,
+    "home_events": 17,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2023-2024",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2023-2024",
+    "sha256": "2212103601a075a6a6988a75f2062219d7a36b976e41c8db69caa19c6c3f0abe",
+    "schedule_items": 35,
+    "home_events": 19,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2024-2025",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2024-2025",
+    "sha256": "9a620b4ac7ea0e8abaf4032cdd2c82589983b058938ea25d82afa6bb0ad3b268",
+    "schedule_items": 37,
+    "home_events": 18,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2025-2026",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2025-2026",
+    "sha256": "afd63347c5b7021e7f844e6859d2001de02d4da59f240d96f47fa8e408d1bae0",
+    "schedule_items": 37,
+    "home_events": 15,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  },
+  {
+    "series": "byu_mens_basketball",
+    "season": "2026-2027",
+    "url": "https://byucougars.com/sports/mens-basketball/schedule/season/2026-2027",
+    "sha256": "568d4c5ed73b1df6bd3583534f83fcc47f30f63a3a28c6e5938cde1e3407160a",
+    "schedule_items": 34,
+    "home_events": 1,
+    "coverage": "schedule-captured",
+    "through": "2026-10-27"
+  }
+]

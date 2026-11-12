@@ -92,3 +92,5 @@ Coverage figures describe the retained source captures and may be newer than the
 [Run the workflow, contribute a dataset, and check methods](docs/operations/city-crash-data.md).
 
 The [Provo crash street membership contract](docs/datasets/crash-street-membership.md) documents the crash-ID join and release inputs.
+
+The [Provo crash occurrence-time contract](docs/datasets/crash-occurrence-time.md) documents local weekday, minute, precision and conflicts.

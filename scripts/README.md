@@ -59,3 +59,5 @@ See [citywide maintenance](../docs/operations/traffic-stress.md). GIS dependenci
 City workbook preparation, map export, demo, registration and history reporting accept --json for structured results. Use the [city mapping guide](../docs/operations/city-crash-mapping.md) for the lightweight install, output contract and GIS example.
 
 - [prepare_crash_streets.py](prepare_crash_streets.py) builds the [Provo crash street membership package](../docs/datasets/crash-street-membership.md) from a pinned Streets Watch snapshot.
+
+- [prepare_crash_time.py](prepare_crash_time.py) builds [local crash occurrence fields](../docs/datasets/crash-occurrence-time.md) from the pinned map archive.

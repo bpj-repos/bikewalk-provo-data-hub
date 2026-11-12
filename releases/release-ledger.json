@@ -194,6 +194,11 @@
       "dataset": "provo-crash-street-membership",
       "version": "1.0.0",
       "sha256": "c704827ea8286c9bc9d2d1f3dab02221f17d1382182e24a25411cd955b4a7598"
+    },
+    {
+      "dataset": "provo-crash-occurrence-time",
+      "version": "1.0.0",
+      "sha256": "2752b89586b0627040d30fcbe9bcccf7ac7ef43165f10617f462786edbdda6bb"
     }
   ],
   "withdrawn": [],

@@ -54,7 +54,7 @@ def match(value, names):
     return None, None
 
 
-def build(snapshot, output):
+def pinned_details(snapshot):
     bundle = json.loads(gzip.decompress(snapshot.read_bytes()))
     layer, details = bundle['map'], bundle['details']
     if layer.pop('dataset') != BASE or digest(compact(layer) + compact(details)) != BASE:
@@ -62,6 +62,11 @@ def build(snapshot, output):
     ids = [f['properties']['id'] for f in layer['features'] if f['properties']['kind'] == 'crash']
     if len(set(ids)) != len(ids) or set(ids) != set(details):
         raise ValueError('Map and detail identities differ')
+    return details
+
+
+def build(snapshot, output):
+    details = pinned_details(snapshot)
     road = 'provo-bicycle-traffic-stress'
     files = checked_package(ROOT/'releases/datasets'/road/'1.0.0',
                             dict(dataset=road, version='1.0.0', sha256=ROAD_PIN))

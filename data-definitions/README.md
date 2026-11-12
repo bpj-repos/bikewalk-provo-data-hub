@@ -5,7 +5,6 @@
 - `provo-bicycle-traffic-stress/` holds the citywide method and public field contract.
 - `crashes/city-coverage.json` records reviewed city aggregate coverage and generated package links for the [README table](../README.md#utah-cities-with-crash-data).
 - [City crash points](crashes/city-crash-points.md) defines the local map projection, source population, fields, coordinate precision and exclusions.
-- [Crash event context](../docs/datasets/crash-event-context.md) defines the event CSV registers, window policy, coverage receipts and access GeoJSON in `crashes/events/`.
 - `crashes/` holds the active source registry, field/derivation/matching catalogs, JSON schemas and retained reference documents.
 - `historical-incident-map/historical-v1/` freezes the historical map definitions, source-free receipt and reference captures.
 

@@ -25,9 +25,6 @@ FIELDS = {
     'person': {'mode':'bicycle, pedestrian, other-conveyance, driver, passenger',
                'setting':'crosswalk, on-street-bike-lane, separated-bike-lane, sidewalk, or source code',
                'injury':'fatal, serious, minor, possible, none, or source code', 'age_group':'under18, 18to64, 65plus'}}
-for event_field in ('byu_football_event_context', 'byu_mens_basketball_event_context', 'stadium_of_fire_event_context'):
-    FIELDS['incident'][event_field] = 'stored likely_match, no_match, or indeterminate; absent before event enrichment'
-
 MANEUVERS={'1':'straight-ahead','2':'backing','3':'changing-lanes','5':'right-turn','6':'left-turn','7':'u-turn'}
 SETTINGS={**{str(i):'crosswalk' for i in range(1,6)},'10':'sidewalk','12':'on-street-bike-lane','17':'separated-bike-lane'}
 MODES={'1':'driver','2':'passenger','3':'pedestrian','4':'bicycle','5':'other-conveyance'}
@@ -221,8 +218,6 @@ def select(entries,query):
             row=facts(o,enrichments.get(o['id']))
             if 'coordinates' in group.get('resolvedCrash',{}):
                 row['_point']=group['resolvedCrash']['coordinates']
-            for key, value in group.get('eventContext', {}).get('fields', {}).items():
-                row[key] = value['value']
             results.append((o['id'],evaluate(query,row,polygons)))
         status=disjunction([value for _,value in results]);counts['matched' if status is True else 'unknown' if status is None else 'notMatched']+=1
         if status is True:

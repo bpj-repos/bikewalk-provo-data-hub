@@ -47,9 +47,8 @@ def read_gzip(path):
 def tool_hash():
     names=['update_incidents.py','incident_updates.py','match_review.py','incidents.py','crash_portal.py',
            'police.py','police_forward.py','police_datastore.py','address_points.py','police_portal_candidates.py','pipeline.py','normalize.py','arcgis.py',
-           'incident_conversions.py','normalize_incidents.py','derived_incidents.py','event_context.py','crash_enrichment.py','common_structure.py','util.py','config.py','registry.py','geoparquet.py']
-    from .event_context import provenance
-    return sha256_json({'eventContext':provenance(),'modules':{n:sha256_file(Path(__file__).parent/n) for n in names},
+           'incident_conversions.py','normalize_incidents.py','derived_incidents.py','crash_enrichment.py','common_structure.py','util.py','config.py','registry.py','geoparquet.py']
+    return sha256_json({'modules':{n:sha256_file(Path(__file__).parent/n) for n in names},
                         'catalog':{name:sha256_file(PACKAGE_ROOT/'catalog/incident-metadata'/name) for name in ['fields.yml','common.yml','derived.yml']},
                         'dependencies':sha256_file(PIPELINE_ROOT/'pyproject.toml')})
 

@@ -66,6 +66,20 @@ def portal_workbook(path,records,city='Provo',reverse=False):
 class TransformationTests(unittest.TestCase):
     def setUp(self): self.policy=read_json(POLICY)
     def build(self,old,state):return make_collection(old,state,self.policy,'2026-11-03T20:00:00Z',Path('/tmp/evidence.json'),'abc')
+    def test_rebuild_replaces_previous_derived_fields(self):
+        from danger_zones.crash_enrichment import enrich_collection
+        old=collection([portal_record()])
+        enrich_collection(old)
+        expected=deepcopy(old['records'][0]['enrichment'])
+        old['records'][0]['retiredDerivedContext']={'value':'unknown'}
+        old['records'][0]['enrichment']['observations'][0]['fields']['retiredDerivedField']={'value':'unknown'}
+        new,rows,errors=self.build(old,inputs(old))
+        self.assertFalse(errors)
+        enrich_collection(new)
+        self.assertNotIn('retiredDerivedContext',new['records'][0])
+        self.assertEqual(new['records'][0]['enrichment'],expected)
+        self.assertEqual(flatten(old),flatten(new))
+
     def test_new_police_evidence_is_not_new_incident(self):
         old=collection([state_record()]);s=inputs(old,[portal_record()]);s['observations']['provo-police-incidents:P1']=police_record()
         new,rows,errors=self.build(old,s);self.assertFalse(errors)

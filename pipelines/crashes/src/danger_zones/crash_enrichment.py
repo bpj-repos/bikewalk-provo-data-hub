@@ -75,8 +75,6 @@ def enrich_collection(collection):
     catalog = read_catalog()
     contract = read_contract(catalog=catalog)
     rules = read_rules()
-    from .event_context import EventMatcher
-    events = EventMatcher()
     counts = defaultdict(Counter)
     for group in collection['records']:
         enriched = []
@@ -88,22 +86,16 @@ def enrich_collection(collection):
             fields = {key: output['derived'][name] for key, (_, name) in FIELDS.items() if name}
             conditions = {key: output['derived'][key] for key in ['weather', 'road_surface']}
             known = sum(v['availability'] == 'complete' for v in conditions.values())
-            fields.update(events.observation(observation, rows))
             fields['conditions'] = result(conditions, 'complete' if known == 2 else 'partial' if known else 'unavailable', [])
             t = output['derived']['time']['value']
             year = str(t['year']) if t else 'unknown'
             for key, field in fields.items():
-                if 'availability' not in field:
-                    continue
                 counts[(observation['sourceKey'], year, key)][field['availability']] += 1
             enriched.append({'observationId': observation['id'], 'source': observation['sourceKey'],
                              'sourceRecordId': observation['sourceRecordId'], 'fields': fields})
-        group['eventContext'] = events.group(enriched)
         group['enrichment'] = {'schemaVersion': 1, 'rulesVersion': rules['version'], 'rulesSha256': sha256_file(RULES), 'observations': enriched}
     return {'schemaVersion': 1, 'incidentGroups': len(collection['records']),
             'sourceObservations': len(flatten(collection)),
-            'eventContextInputs': events.inputs,
-            'eventContextCounts': {settings['field']: dict(Counter(g['eventContext']['fields'][settings['field']]['value'] for g in collection['records'])) for settings in events.series.values()},
             'coverage': [{'source': s, 'year': y, 'field': f, 'availability': dict(c)}
                          for (s, y, f), c in sorted(counts.items())]}
 

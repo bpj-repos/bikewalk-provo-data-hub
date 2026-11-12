@@ -1,0 +1,2993 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "radiusMetres": 402,
+  "windowMinutes": 30,
+  "timezone": "America/Denver",
+  "inventoryCoverage": [
+    [
+      "2026-07-01",
+      "2027-06-30"
+    ]
+  ],
+  "inventoryNotes": "Official USBE directory reconciled with PCSD, UDOT and provider campus lists. Earlier inventory coverage remains incomplete. USBE opening dates identify schools, not proof of campus continuity. Mailing-only Provo entries with official physical addresses in American Fork and Lindon are excluded.",
+  "sources": {
+    "calendar-index": {
+      "url": "https://provo.edu/human-resources/calendars/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "c142e7c75b372e6346e66a7b3e69dca67849753422fc851f02e0c6501f7f870d"
+    },
+    "phs-history": {
+      "url": "https://provohigh.provo.edu/policies-forms/student-and-parent-handbook/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "02f3a594c7bbcc61a267685cd52380b82a2b084d9b7d01ebc78d4c993722d78e"
+    },
+    "centennial25": {
+      "url": "https://centennial.provo.edu/25-26-back-to-school-information/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "14653700f7e020621cdb3bbfe6c490a3943c85efedbdfa047fa29e4f0a5dcc49"
+    },
+    "independence-calendar": {
+      "url": "https://independence.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "dd19fdf9636e49ebc27e1eac24fac093e5e6bc659e43a9517211d000bb43ffff"
+    },
+    "demographics": {
+      "url": "https://provo.edu/wp-content/uploads/2019/07/07-22-2019-district-demographics-all.pdf",
+      "retrievedDate": "2026-11-11",
+      "sha256": "39e60a7483db8a9e57722c80a545e53cd34c6ca1207cae75374124ed690909ad"
+    },
+    "district-ics": {
+      "url": "https://calendar.google.com/calendar/ical/c_99f91fc3ebc85d3b2f221b6199ae234c29130d35722b734b545da9182ff48561%40group.calendar.google.com/public/basic.ics",
+      "retrievedDate": "2026-11-11",
+      "sha256": "8c974722845324ee5583f73c04d05aac5b185c8a3e07f19f385872909d87f454"
+    },
+    "directory-data": {
+      "url": "https://cactus.schools.utah.gov/api/legacy/schools",
+      "retrievedDate": "2026-11-11",
+      "sha256": "c5308180a297844cd60afdcd6e84c4ae94e6ea7206d3b3ec9611ee5f6629cf7c"
+    },
+    "franklin": {
+      "url": "https://franklin.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "eafee347d783224b5447c76790d78b8d624970c9f43c31b7afc4aa9d326dfd4d"
+    },
+    "lakeview": {
+      "url": "https://lakeview.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "5c760e793c3ca879bb93e340746ade616959f50fd9c572569ced005e2c8bb6d8"
+    },
+    "timpview": {
+      "url": "https://timpview.provo.edu/school-calendar-bell-schedule/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "1b86356e501729bfc325b16910b5f76679804baee6fbd67512485851c4631529"
+    },
+    "phs24": {
+      "url": "https://provohigh.provo.edu/wp-content/uploads/2024/07/PHS-24-25-Bell-Schedule.pdf",
+      "retrievedDate": "2026-11-11",
+      "sha256": "57f7bf1de3da87a368ed79c00259c32969e5d9987530e15f0ae8067106c08249"
+    },
+    "calendar-2025": {
+      "url": "https://provo.edu/2025-2026-school-year-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "5e2c3ef064d13c3f575b45aefd8bbba7e68d3a7dfb68a538e22630dee71ed344"
+    },
+    "calendar-2024-pdf": {
+      "url": "https://provo.edu/wp-content/uploads/2024/12/24-25-calendar-updated-12-12-2024-2.pdf",
+      "retrievedDate": "2026-11-11",
+      "sha256": "ff499a1e12ae6e92dc8f931065b8437540a22528bc4f23368c5bf30833248a31"
+    },
+    "freedom-schedules": {
+      "url": "https://www.freedomprep.net/main/calendar-bell-schedule",
+      "retrievedDate": "2026-11-11",
+      "sha256": "b64b909b5e26195e4d57f1977f1a8650b74a8a7f3c15325b99671b86af9384d8"
+    },
+    "dixon22": {
+      "url": "https://shoreline.provo.edu/wp-content/uploads/2022/10/dixon-student-handbook-2022-23.pdf",
+      "retrievedDate": "2026-11-11",
+      "sha256": "e4a2b8c14f9ff3acae199ca24193ccc4680941fbd9eedc3801766da7cee595e5"
+    },
+    "freedom-handbook": {
+      "url": "https://vahara-o5-public.s3.us-west-2.amazonaws.com/media/10304/FPVA-Parent-Student-Handbook-Single-Pages.pdf",
+      "retrievedDate": "2026-11-11",
+      "sha256": "9af2c59de8155a45f83797cdf3f851c52dab0200f77e28ed347b6c7926a9466c"
+    },
+    "directory": {
+      "url": "https://schools.utah.gov/schoolsdirectory",
+      "retrievedDate": "2026-11-11",
+      "sha256": "8fdf7ec3c73784e526c1af00539162fb7c0d7616dd51a18ddbab75a4fcb080a3"
+    },
+    "district": {
+      "url": "https://provo.edu/schools/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "bfd4c24906c177d6d063a6773965cd7995ea9df26ea370a819b1d5e75af9750c"
+    },
+    "calendar-2026": {
+      "url": "https://provo.edu/2026-2027-school-year-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "e0c73e9d28e8e49db12beb1ca57f141e17e40989c81864b2a9006c6150c77672"
+    },
+    "amelia": {
+      "url": "https://amelia.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "f914456ab666a637037363da86f912fa6243e0c59ad1f4a2a249580cafb3cb62"
+    },
+    "canyoncrest": {
+      "url": "https://canyoncrest.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "54ef97b1269b137a848ba06e073865ece63e0fac2afdd4513e92e391a4ace002"
+    },
+    "edgemont": {
+      "url": "https://edgemont.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "5d097e4bd4d035b2571f1a5ffe66ea55a26d17be4845ca2eceee13be543a1435"
+    },
+    "peaks": {
+      "url": "https://peaks.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "4466df2db4e8e7d28f1893b9b4bb380dca9d49b0f44529960e614c2510da4de9"
+    },
+    "provost": {
+      "url": "https://provost.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "590bbf68ee7eaa6e8c1e8d4ebeaf01988cef6726a6bc40023dceab59a9171f52"
+    },
+    "rockcanyon": {
+      "url": "https://rockcanyon.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "e7a10643fd5f907f32ca23e276eb524e8fcd988e2176932d9146fec6a792dd66"
+    },
+    "springcreek": {
+      "url": "https://springcreek.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "451a19c75130fb1d56a81bdd740192a4c1a852518a6f1df135c77f5af0f3b9ac"
+    },
+    "sunset": {
+      "url": "https://sunset.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "d4821c2f74fe8d82de425f2687d068e2ce65ebc607ab4c45ea04a4a4efa084f5"
+    },
+    "timpanogos": {
+      "url": "https://timpanogos.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "65d9d8d61a92ab23518a82c7df5f6da62b918d9f0518bccaf9f63c4d891e2688"
+    },
+    "wasatch": {
+      "url": "https://wasatch.provo.edu/school-calendar-bell-schedule/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "1435723162a818a640af2d24bc9547efb413750ace13af895be35981c24fbfbc"
+    },
+    "westridge": {
+      "url": "https://westridge.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "eab322618bc35129020993bec0377c2fa408018b9a122c24fec595d4f023573c"
+    },
+    "centennial": {
+      "url": "https://centennial.provo.edu/student-essentials/bell-schedules/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "626cb71e8414b023f33f8d1707125168c196a932b1c8f83d499ec4ed600c3532"
+    },
+    "shoreline": {
+      "url": "https://shoreline.provo.edu/school-calendar/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "7cc642a6bfff091ee5fc04428bf49882cc6b151d4920e8dc70d24204d010de97"
+    },
+    "provohigh": {
+      "url": "https://provohigh.provo.edu/school-calendar/bell-schedule/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "d4fe2e7144a0d2eb46b7d015eeb75f3ef84e8eca0cc36eae1eea49cd81ef0aa0"
+    },
+    "treeside-calendar-pdf": {
+      "url": "https://treesidecharter.org/s/Treeside-Calendars-2026-2027-New-Parent-Friendly-czt4.pdf",
+      "retrievedDate": "2026-11-11",
+      "sha256": "df06c61c1c8c734c35386aaea836a857108ac7d1d4e2c9d9f9bd962bce531faa"
+    },
+    "freedom-secondary-pdf": {
+      "url": "https://vahara-o5-public.s3.us-west-2.amazonaws.com/media/56923/Secondary-Academic-Calendar-26-27.pdf",
+      "retrievedDate": "2026-11-11",
+      "sha256": "754d2cae765f5e15c9c04938908f6066b48349ef92b48813ddb6f310dfdcbcd0"
+    },
+    "freedom-elementary-pdf": {
+      "url": "https://vahara-o5-public.s3.us-west-2.amazonaws.com/media/56856/Elementary-Academic-Calendar-26-27.pdf",
+      "retrievedDate": "2026-11-11",
+      "sha256": "4720a734e4a9235789ac17eb5ea393987a5f9128fb2df121f698fa8835a45ed6"
+    },
+    "walden-high": {
+      "url": "https://www.waldenschool.us/high-school-bell-schedule",
+      "retrievedDate": "2026-11-11",
+      "sha256": "f9287889105ec18ffe455befe3d97a1a826aff98cdd9f6d17ce50d8897d35d66"
+    },
+    "treeside-current": {
+      "url": "https://treesidecharterschool.org/calendar",
+      "retrievedDate": "2026-11-11",
+      "sha256": "958e7dcb0c53d9abbaf7038d5c620d04098316ec750ceea966ffda68a2caf874"
+    },
+    "provo-nces": {
+      "url": "https://nces.ed.gov/ccd/schoolsearch/school_detail.asp?ID=490081000459",
+      "retrievedDate": "2026-11-11",
+      "sha256": "8f0a56ed9cff3fe377d4d30aa46f614032b887ca0300eea8303ab5a5403e4603"
+    },
+    "calendar22": {
+      "url": "https://provo.edu/wp-content/uploads/2022/07/2022-summer-newsletter-v16.pdf",
+      "retrievedDate": "2026-11-11",
+      "sha256": "52be792adcaf380874e059195d76abcfd898033e6e64fb32733247c790fa90d0"
+    },
+    "slope": {
+      "url": "https://www.slope.school/",
+      "retrievedDate": "2026-11-11",
+      "sha256": "1b0243f5c1d4dac850aaffbb039c3d615fa863d713d686e5213b216fc2fc7237"
+    },
+    "safe-routes": {
+      "path": "releases/datasets/safe-routes-to-school/1.3.0/safe-routes-schools.geojson",
+      "sha256": "ce05574d4d16ac12ef582ec50ad5d9f1dcb786659486773be2490ba037c1faf0"
+    },
+    "ugrc-addresses": {
+      "url": "https://gis.utah.gov/products/sgid/location/address-points/",
+      "retrievedDate": "2026-11-08",
+      "evidence": "Retained exact-address points in private research campus-address-points.json."
+    },
+    "phs-coordinate": {
+      "url": "https://www.infoschools.net/usa/provo-high-provo-ut",
+      "evidence": "NCES CCD coordinate corroborated against NCES official current campus address and school history."
+    },
+    "slate-programs": {
+      "url": "https://provo.edu/student-services/slate-mountain-school/",
+      "evidence": "Three physical teaching sites, Slate Canyon, Oak Springs and Vantage Point."
+    },
+    "vantage-location": {
+      "url": "https://www.wasatch.org/vantage-point/"
+    },
+    "oak-location": {
+      "url": "https://ush.utah.gov/contact/"
+    },
+    "treeside-history": {
+      "path": "docs/decisions/treeside-planned-campus.md",
+      "evidence": "2019 State Street campus and 2025-26 East Bay campus evidence and UGRC points."
+    }
+  },
+  "excludedOrUnresolved": [
+    {
+      "name": "American Legacy Academy",
+      "reason": "Official USBE physical campus is outside Provo (American Fork or Lindon); Provo address is mailing only.",
+      "source": "directory-data"
+    },
+    {
+      "name": "BYU Independent Study",
+      "reason": "Preschool-only, adult/online program or future opening outside study period.",
+      "source": "directory-data"
+    },
+    {
+      "name": "Early Learning Essentials",
+      "reason": "Preschool-only, adult/online program or future opening outside study period.",
+      "source": "directory-data"
+    },
+    {
+      "name": "Ensign Leadership Academy",
+      "reason": "Preschool-only, adult/online program or future opening outside study period.",
+      "source": "directory-data"
+    },
+    {
+      "name": "Kurious Active Learning Community",
+      "reason": "Official USBE physical campus is outside Provo (American Fork or Lindon); Provo address is mailing only.",
+      "source": "directory-data"
+    },
+    {
+      "name": "Provo Adult Education",
+      "reason": "Preschool-only, adult/online program or future opening outside study period.",
+      "source": "directory-data"
+    },
+    {
+      "name": "Provo eSchool",
+      "reason": "Preschool-only, adult/online program or future opening outside study period.",
+      "source": "directory-data"
+    },
+    {
+      "name": "Sunrise Preschool",
+      "reason": "Preschool-only, adult/online program or future opening outside study period.",
+      "source": "directory-data"
+    },
+    {
+      "name": "Wonderland Preschool and Child Care",
+      "reason": "Preschool-only, adult/online program or future opening outside study period.",
+      "source": "directory-data"
+    }
+  ],
+  "calendars": {
+    "pcsd-2026": {
+      "from": "2026-07-01",
+      "through": "2027-06-30",
+      "closedRanges": [
+        [
+          "2026-07-01",
+          "2026-08-18"
+        ],
+        [
+          "2027-05-29",
+          "2027-06-30"
+        ],
+        [
+          "2026-09-07",
+          "2026-09-07"
+        ],
+        [
+          "2026-10-21",
+          "2026-10-26"
+        ],
+        [
+          "2026-11-25",
+          "2026-11-27"
+        ],
+        [
+          "2026-12-21",
+          "2027-01-01"
+        ],
+        [
+          "2027-01-14",
+          "2027-01-18"
+        ],
+        [
+          "2027-02-15",
+          "2027-02-15"
+        ],
+        [
+          "2027-03-19",
+          "2027-03-19"
+        ],
+        [
+          "2027-04-05",
+          "2027-04-09"
+        ]
+      ],
+      "uncertainDates": [
+        "2026-12-18",
+        "2027-05-28"
+      ],
+      "sources": [
+        "calendar-2026",
+        "district-ics"
+      ]
+    },
+    "pcsd-2025": {
+      "from": "2025-07-01",
+      "through": "2026-06-30",
+      "closedRanges": [
+        [
+          "2025-07-01",
+          "2025-08-12"
+        ],
+        [
+          "2026-05-23",
+          "2026-06-30"
+        ],
+        [
+          "2025-09-01",
+          "2025-09-01"
+        ],
+        [
+          "2025-10-16",
+          "2025-10-21"
+        ],
+        [
+          "2025-11-26",
+          "2025-11-28"
+        ],
+        [
+          "2025-12-22",
+          "2026-01-05"
+        ],
+        [
+          "2026-01-19",
+          "2026-01-19"
+        ],
+        [
+          "2026-02-16",
+          "2026-02-16"
+        ],
+        [
+          "2026-03-16",
+          "2026-03-17"
+        ],
+        [
+          "2026-04-06",
+          "2026-04-10"
+        ]
+      ],
+      "uncertainDates": [
+        "2025-12-19",
+        "2026-05-22"
+      ],
+      "sources": [
+        "calendar-2025"
+      ]
+    },
+    "pcsd-2024": {
+      "from": "2024-07-01",
+      "through": "2025-06-30",
+      "closedRanges": [
+        [
+          "2024-07-01",
+          "2024-08-12"
+        ],
+        [
+          "2025-05-24",
+          "2025-06-30"
+        ],
+        [
+          "2024-09-02",
+          "2024-09-02"
+        ],
+        [
+          "2024-10-17",
+          "2024-10-22"
+        ],
+        [
+          "2024-11-27",
+          "2024-11-29"
+        ],
+        [
+          "2024-12-23",
+          "2025-01-06"
+        ],
+        [
+          "2025-01-20",
+          "2025-01-20"
+        ],
+        [
+          "2025-02-17",
+          "2025-02-17"
+        ],
+        [
+          "2025-03-14",
+          "2025-03-14"
+        ],
+        [
+          "2025-03-31",
+          "2025-04-04"
+        ]
+      ],
+      "uncertainDates": [
+        "2024-12-20",
+        "2025-05-21",
+        "2025-05-22",
+        "2025-05-23"
+      ],
+      "sources": [
+        "calendar-2024-pdf"
+      ]
+    },
+    "dixon-2022": {
+      "from": "2022-07-01",
+      "through": "2023-06-30",
+      "closedRanges": [
+        [
+          "2022-07-01",
+          "2022-08-16"
+        ],
+        [
+          "2023-05-27",
+          "2023-06-30"
+        ],
+        [
+          "2022-09-05",
+          "2022-09-05"
+        ],
+        [
+          "2022-10-13",
+          "2022-10-18"
+        ],
+        [
+          "2022-11-23",
+          "2022-11-25"
+        ],
+        [
+          "2022-12-19",
+          "2023-01-02"
+        ],
+        [
+          "2023-01-16",
+          "2023-01-17"
+        ],
+        [
+          "2023-02-20",
+          "2023-02-20"
+        ],
+        [
+          "2023-03-13",
+          "2023-03-14"
+        ],
+        [
+          "2023-04-03",
+          "2023-04-07"
+        ]
+      ],
+      "uncertainDates": [
+        "2022-11-03",
+        "2022-12-16",
+        "2023-03-30"
+      ],
+      "sources": [
+        "dixon22",
+        "calendar22"
+      ]
+    },
+    "treeside-2026": {
+      "from": "2026-07-01",
+      "through": "2027-06-30",
+      "closedRanges": [
+        [
+          "2026-07-01",
+          "2026-08-17"
+        ],
+        [
+          "2027-05-29",
+          "2027-06-30"
+        ],
+        [
+          "2026-09-07",
+          "2026-09-08"
+        ],
+        [
+          "2026-10-14",
+          "2026-10-19"
+        ],
+        [
+          "2026-11-25",
+          "2026-11-27"
+        ],
+        [
+          "2026-12-21",
+          "2027-01-01"
+        ],
+        [
+          "2027-01-18",
+          "2027-01-19"
+        ],
+        [
+          "2027-02-12",
+          "2027-02-16"
+        ],
+        [
+          "2027-03-08",
+          "2027-03-08"
+        ],
+        [
+          "2027-04-05",
+          "2027-04-09"
+        ],
+        [
+          "2027-05-10",
+          "2027-05-10"
+        ]
+      ],
+      "uncertainDates": [],
+      "sources": [
+        "treeside-calendar-pdf"
+      ]
+    },
+    "freedom-2026": {
+      "from": "2026-07-01",
+      "through": "2027-06-30",
+      "closedRanges": [
+        [
+          "2026-07-01",
+          "2026-08-12"
+        ],
+        [
+          "2027-05-28",
+          "2027-06-30"
+        ],
+        [
+          "2026-09-07",
+          "2026-09-07"
+        ],
+        [
+          "2026-09-18",
+          "2026-09-18"
+        ],
+        [
+          "2026-10-15",
+          "2026-10-19"
+        ],
+        [
+          "2026-11-13",
+          "2026-11-13"
+        ],
+        [
+          "2026-11-25",
+          "2026-11-27"
+        ],
+        [
+          "2026-12-21",
+          "2027-01-01"
+        ],
+        [
+          "2027-01-18",
+          "2027-01-18"
+        ],
+        [
+          "2027-02-15",
+          "2027-02-15"
+        ],
+        [
+          "2027-03-05",
+          "2027-03-05"
+        ],
+        [
+          "2027-04-05",
+          "2027-04-09"
+        ]
+      ],
+      "uncertainDates": [],
+      "sources": [
+        "freedom-elementary-pdf",
+        "freedom-secondary-pdf"
+      ]
+    }
+  },
+  "schools": [
+    {
+      "id": "oasis-provo",
+      "name": "Oasis Provo",
+      "type": "High School",
+      "ownership": "private",
+      "address": "122 North 600 West",
+      "opened": "2022-09-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "oasis-provo-campus",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.66896,
+            40.23546
+          ],
+          "sources": [
+            "directory-data"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "freedom-preparatory-academy",
+      "name": "Freedom Preparatory Academy",
+      "type": "K-12 School",
+      "ownership": "charter",
+      "address": "1190 W 900 N",
+      "opened": "2003-09-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "freedom-preparatory-academy-campus",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.679582,
+            40.2463
+          ],
+          "sources": [
+            "directory-data"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "freedom-preparatory-academy-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "freedom-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:20",
+                "14:20"
+              ]
+            ],
+            "1": [
+              [
+                "09:10",
+                "14:20"
+              ]
+            ],
+            "2": [
+              [
+                "08:20",
+                "14:20"
+              ]
+            ],
+            "3": [
+              [
+                "08:20",
+                "14:20"
+              ]
+            ],
+            "4": [
+              [
+                "08:20",
+                "14:20"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-09-23": [
+              [
+                "08:20",
+                "12:20"
+              ]
+            ],
+            "2026-09-24": [
+              [
+                "08:20",
+                "12:20"
+              ]
+            ],
+            "2026-09-25": [
+              [
+                "08:20",
+                "12:20"
+              ]
+            ],
+            "2026-12-18": [
+              [
+                "08:20",
+                "12:20"
+              ]
+            ],
+            "2027-02-17": [
+              [
+                "08:20",
+                "12:20"
+              ]
+            ],
+            "2027-02-18": [
+              [
+                "08:20",
+                "12:20"
+              ]
+            ],
+            "2027-02-19": [
+              [
+                "08:20",
+                "12:20"
+              ]
+            ],
+            "2027-04-23": [
+              [
+                "08:20",
+                "12:20"
+              ]
+            ],
+            "2027-05-27": [
+              [
+                "08:20",
+                "12:20"
+              ]
+            ]
+          },
+          "sources": [
+            "freedom-schedules",
+            "freedom-elementary-pdf",
+            "freedom-secondary-pdf"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "heritage-schools-inc",
+      "name": "Heritage Schools Inc.",
+      "type": "High School",
+      "ownership": "private",
+      "address": "5600 N HERITAGE SCHOOL DR",
+      "opened": "1900-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "heritage-schools-inc-campus",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.660183,
+            40.308372
+          ],
+          "sources": [
+            "directory-data"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "ivy-hall-academy",
+      "name": "Ivy Hall Academy",
+      "type": "K-12 School",
+      "ownership": "private",
+      "address": "4692 N 300 W",
+      "opened": "2025-07-01",
+      "closed": "2026-06-30",
+      "locations": [
+        {
+          "id": "ivy-hall-academy-campus",
+          "from": "2026-06-30",
+          "through": "2026-06-30",
+          "point": [
+            -111.66235,
+            40.2962
+          ],
+          "sources": [
+            "directory-data"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ],
+      "closureUncertain": true
+    },
+    {
+      "id": "provo-canyon-school",
+      "name": "Provo Canyon School",
+      "type": "High School",
+      "ownership": "private",
+      "address": "4501 North University Ave",
+      "opened": "1900-07-01",
+      "closed": "2026-06-30",
+      "locations": [
+        {
+          "id": "provo-canyon-school-campus",
+          "from": "2026-06-30",
+          "through": "2026-06-30",
+          "point": [
+            -111.663583,
+            40.31057
+          ],
+          "sources": [
+            "directory-data"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "amelia",
+      "name": "Amelia Earhart School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "2585 W 200 S",
+      "opened": "1997-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "amelia-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.704504970224,
+            40.2304770054175
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "amelia-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "1": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "2": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "3": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "4": [
+              [
+                "08:40",
+                "13:30"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "amelia"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "canyoncrest",
+      "name": "Canyon Crest School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "4664 N CANYON RD",
+      "opened": "1984-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "canyoncrest-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.652367017933,
+            40.2955800016092
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "canyoncrest-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:50",
+                "15:30"
+              ]
+            ],
+            "1": [
+              [
+                "08:50",
+                "15:30"
+              ]
+            ],
+            "2": [
+              [
+                "08:50",
+                "15:30"
+              ]
+            ],
+            "3": [
+              [
+                "08:50",
+                "15:30"
+              ]
+            ],
+            "4": [
+              [
+                "08:50",
+                "13:50"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "canyoncrest"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "centennial",
+      "name": "Centennial Middle",
+      "type": "Junior High/Middle School",
+      "ownership": "district",
+      "address": "305 E 2320 N",
+      "opened": "1996-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "centennial-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.65353201877,
+            40.2651829880165
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "centennial-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:05",
+                "14:55"
+              ]
+            ],
+            "1": [
+              [
+                "08:05",
+                "14:55"
+              ]
+            ],
+            "2": [
+              [
+                "08:05",
+                "14:55"
+              ]
+            ],
+            "3": [
+              [
+                "08:05",
+                "14:55"
+              ]
+            ],
+            "4": [
+              [
+                "08:05",
+                "13:00"
+              ]
+            ]
+          },
+          "overrides": {},
+          "sources": [
+            "centennial"
+          ]
+        },
+        {
+          "id": "centennial-2025",
+          "from": "2025-07-01",
+          "through": "2026-06-30",
+          "calendar": "pcsd-2025",
+          "weekdays": {
+            "0": [
+              [
+                "08:05",
+                "14:55"
+              ]
+            ],
+            "1": [
+              [
+                "08:05",
+                "14:55"
+              ]
+            ],
+            "2": [
+              [
+                "08:05",
+                "14:55"
+              ]
+            ],
+            "3": [
+              [
+                "08:05",
+                "14:55"
+              ]
+            ],
+            "4": [
+              [
+                "08:05",
+                "13:00"
+              ]
+            ]
+          },
+          "overrides": {
+            "2025-09-16": null,
+            "2026-02-10": null,
+            "2026-02-11": null
+          },
+          "sources": [
+            "centennial25"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "edgemont",
+      "name": "Edgemont School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "566 E 3650 N",
+      "opened": "1954-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "edgemont-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.648627012503,
+            40.2810420098471
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "edgemont-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "1": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "2": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "3": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "4": [
+              [
+                "08:40",
+                "13:30"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "edgemont"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "franklin",
+      "name": "Franklin School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "350 S 600 W",
+      "opened": "1957-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "franklin-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.670041015415,
+            40.2290410179194
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "franklin-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "1": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "2": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "3": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "4": [
+              [
+                "08:40",
+                "13:30"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "franklin"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "independence",
+      "name": "Independence High",
+      "type": "High School",
+      "ownership": "district",
+      "address": "636 N INDEPENDENCE AVE",
+      "opened": "1985-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "independence-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.687197,
+            40.242753
+          ],
+          "sources": [
+            "directory-data",
+            "demographics"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "independence-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:25",
+                "15:00"
+              ]
+            ],
+            "1": [
+              [
+                "08:25",
+                "15:00"
+              ]
+            ],
+            "2": [
+              [
+                "08:25",
+                "15:00"
+              ]
+            ],
+            "3": [
+              [
+                "08:25",
+                "15:00"
+              ]
+            ],
+            "4": [
+              [
+                "08:25",
+                "13:40"
+              ]
+            ]
+          },
+          "overrides": {
+            "2027-03-23": null
+          },
+          "sources": [
+            "independence-calendar"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "lakeview",
+      "name": "Lakeview School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "2899 W 1390 N",
+      "opened": "2008-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "lakeview-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.710723001721,
+            40.2511889814614
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "lakeview-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:20",
+                "15:00"
+              ],
+              [
+                "08:20",
+                "14:55"
+              ]
+            ],
+            "1": [
+              [
+                "08:20",
+                "15:00"
+              ],
+              [
+                "08:20",
+                "14:55"
+              ]
+            ],
+            "2": [
+              [
+                "08:20",
+                "15:00"
+              ],
+              [
+                "08:20",
+                "14:55"
+              ]
+            ],
+            "3": [
+              [
+                "08:20",
+                "15:00"
+              ],
+              [
+                "08:20",
+                "14:55"
+              ]
+            ],
+            "4": [
+              [
+                "08:20",
+                "13:10"
+              ],
+              [
+                "08:20",
+                "13:05"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "lakeview"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "provohigh",
+      "name": "Provo High",
+      "type": "High School",
+      "ownership": "district",
+      "address": "1199 North Lakeshore Dr",
+      "opened": "1956-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "provohigh-campus",
+          "from": "2018-08-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.715479,
+            40.249992
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "phs-history",
+            "provo-nces",
+            "phs-coordinate"
+          ]
+        },
+        {
+          "id": "provohigh-university",
+          "from": "2010-01-01",
+          "through": "2018-06-30",
+          "point": [
+            -111.659524,
+            40.248701
+          ],
+          "sources": [
+            "phs-history",
+            "directory-data"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "provohigh-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "1": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "2": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "3": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "4": [
+              [
+                "07:30",
+                "12:00"
+              ]
+            ]
+          },
+          "overrides": {
+            "2027-03-23": null
+          },
+          "sources": [
+            "provohigh"
+          ]
+        },
+        {
+          "id": "provohigh-2024",
+          "from": "2024-07-01",
+          "through": "2025-06-30",
+          "calendar": "pcsd-2024",
+          "weekdays": {
+            "0": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "1": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "2": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "3": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "4": [
+              [
+                "07:30",
+                "12:00"
+              ]
+            ]
+          },
+          "overrides": {
+            "2024-09-18": null,
+            "2025-02-12": null,
+            "2025-03-25": null
+          },
+          "sources": [
+            "phs24"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "peaks",
+      "name": "Provo Peaks School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "665 E CENTER ST",
+      "opened": "2005-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "peaks-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.647415995465,
+            40.2344760111536
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "peaks-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "1": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "2": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "3": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "4": [
+              [
+                "08:40",
+                "13:30"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "peaks"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "provost",
+      "name": "Provost School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "629 S 1000 E",
+      "opened": "1949-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "provost-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.641194024856,
+            40.2251829953157
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "provost-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:25",
+                "15:10"
+              ]
+            ],
+            "1": [
+              [
+                "08:25",
+                "15:10"
+              ]
+            ],
+            "2": [
+              [
+                "08:25",
+                "15:10"
+              ]
+            ],
+            "3": [
+              [
+                "08:25",
+                "15:10"
+              ]
+            ],
+            "4": [
+              [
+                "08:25",
+                "13:20"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "provost"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "rockcanyon",
+      "name": "Rock Canyon School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "435 East 2320 North",
+      "opened": "1964-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "rockcanyon-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.650354816173,
+            40.2652518735806
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "rockcanyon-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "1": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "2": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "3": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "4": [
+              [
+                "08:40",
+                "13:30"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "rockcanyon"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "shoreline",
+      "name": "Shoreline Middle School",
+      "type": "Junior High/Middle School",
+      "ownership": "district",
+      "address": "1201 West 890 South",
+      "opened": "2024-08-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "shoreline-campus",
+          "from": "2024-08-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.679915777134,
+            40.2214999157905
+          ],
+          "sources": [
+            "directory-data",
+            "safe-routes",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "shoreline-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:00",
+                "14:50"
+              ]
+            ],
+            "1": [
+              [
+                "08:00",
+                "14:50"
+              ]
+            ],
+            "2": [
+              [
+                "08:00",
+                "14:50"
+              ]
+            ],
+            "3": [
+              [
+                "08:00",
+                "14:50"
+              ]
+            ],
+            "4": [
+              [
+                "08:00",
+                "13:00"
+              ]
+            ]
+          },
+          "overrides": {},
+          "sources": [
+            "shoreline"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "slate-mountain-school",
+      "name": "Slate Mountain School",
+      "type": "K-12 School",
+      "ownership": "district",
+      "address": "1991 South State Street",
+      "opened": "2023-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "slate-mountain-school-campus",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.628214,
+            40.20753
+          ],
+          "sources": [
+            "directory-data"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "springcreek",
+      "name": "Spring Creek School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "1740 S NEVADA AVE",
+      "opened": "2002-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "springcreek-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.62601297356,
+            40.2091060018672
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "springcreek-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:45",
+                "15:30"
+              ]
+            ],
+            "1": [
+              [
+                "08:45",
+                "15:30"
+              ]
+            ],
+            "2": [
+              [
+                "08:45",
+                "15:30"
+              ]
+            ],
+            "3": [
+              [
+                "08:45",
+                "15:30"
+              ]
+            ],
+            "4": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "springcreek"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "sunset",
+      "name": "Sunset View School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "1520 West 600 South",
+      "opened": "1959-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "sunset-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.686144239542,
+            40.2263518930311
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "sunset-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:40",
+                "15:20"
+              ],
+              [
+                "08:40",
+                "11:40"
+              ]
+            ],
+            "1": [
+              [
+                "08:40",
+                "15:20"
+              ],
+              [
+                "08:40",
+                "11:40"
+              ]
+            ],
+            "2": [
+              [
+                "08:40",
+                "15:20"
+              ],
+              [
+                "08:40",
+                "11:40"
+              ]
+            ],
+            "3": [
+              [
+                "08:40",
+                "15:20"
+              ],
+              [
+                "08:40",
+                "11:40"
+              ]
+            ],
+            "4": [
+              [
+                "08:40",
+                "13:30"
+              ],
+              [
+                "08:40",
+                "10:40"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "sunset"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "timpanogos",
+      "name": "Timpanogos School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "449 N 500 W",
+      "opened": "1938-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "timpanogos-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.668309984321,
+            40.2397840194938
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "timpanogos-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:15",
+                "15:00"
+              ]
+            ],
+            "1": [
+              [
+                "08:15",
+                "15:00"
+              ]
+            ],
+            "2": [
+              [
+                "08:15",
+                "15:00"
+              ]
+            ],
+            "3": [
+              [
+                "08:15",
+                "15:00"
+              ]
+            ],
+            "4": [
+              [
+                "08:15",
+                "13:10"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "timpanogos"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "timpview",
+      "name": "Timpview High",
+      "type": "High School",
+      "ownership": "district",
+      "address": "3570 N 650 E",
+      "opened": "1977-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "timpview-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.64621,
+            40.280311
+          ],
+          "sources": [
+            "directory-data",
+            "demographics"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "timpview-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "1": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "2": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "3": [
+              [
+                "07:30",
+                "14:15"
+              ]
+            ],
+            "4": [
+              [
+                "07:30",
+                "12:00"
+              ]
+            ]
+          },
+          "overrides": {
+            "2027-03-23": null
+          },
+          "sources": [
+            "timpview"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "wasatch",
+      "name": "Wasatch School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "1080 N 900 E",
+      "opened": "1949-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "wasatch-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.641772963005,
+            40.2479469871269
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "wasatch-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "1": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "2": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "3": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "4": [
+              [
+                "08:40",
+                "13:30"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "wasatch"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "westridge",
+      "name": "Westridge School",
+      "type": "Elementary School",
+      "ownership": "district",
+      "address": "1720 W 1460 N",
+      "opened": "1980-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "westridge-campus",
+          "from": "2019-07-22",
+          "through": "2027-06-30",
+          "point": [
+            -111.688358994463,
+            40.2542230206511
+          ],
+          "sources": [
+            "directory-data",
+            "demographics",
+            "safe-routes"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "westridge-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "pcsd-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "1": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "2": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "3": [
+              [
+                "08:40",
+                "15:20"
+              ]
+            ],
+            "4": [
+              [
+                "08:40",
+                "13:30"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-05": null,
+            "2026-10-06": null,
+            "2026-10-07": null,
+            "2026-10-08": null,
+            "2026-10-09": null,
+            "2027-01-25": null,
+            "2027-01-26": null,
+            "2027-01-27": null,
+            "2027-01-28": null,
+            "2027-01-29": null
+          },
+          "sources": [
+            "westridge"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "slope-school",
+      "name": "Slope School",
+      "type": "Elementary School",
+      "ownership": "private",
+      "address": "890 E Quail Valley Drive",
+      "opened": "2019-08-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "slope-school-campus",
+          "from": "2019-08-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.64329,
+            40.28182
+          ],
+          "sources": [
+            "directory-data",
+            "slope"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "treeside-charter-school",
+      "name": "Treeside Charter School",
+      "type": "Elementary School",
+      "ownership": "charter",
+      "address": "34 E 1700 S",
+      "opened": "2017-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "treeside-charter-school-campus",
+          "from": "2025-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.65790934,
+            40.2113028
+          ],
+          "sources": [
+            "directory-data",
+            "treeside-history"
+          ]
+        },
+        {
+          "id": "treeside-state",
+          "from": "2019-06-08",
+          "through": "2019-06-08",
+          "point": [
+            -111.6334896,
+            40.20961859
+          ],
+          "sources": [
+            "treeside-history"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "treeside-charter-school-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "treeside-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:45",
+                "15:30"
+              ]
+            ],
+            "1": [
+              [
+                "08:45",
+                "15:30"
+              ]
+            ],
+            "2": [
+              [
+                "08:45",
+                "15:30"
+              ]
+            ],
+            "3": [
+              [
+                "08:45",
+                "15:30"
+              ]
+            ],
+            "4": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-10-13": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2026-11-03": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2026-11-04": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2026-11-05": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2026-11-06": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2026-11-24": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2027-02-11": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2027-03-30": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2027-03-31": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2027-04-01": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ],
+            "2027-04-02": [
+              [
+                "08:45",
+                "13:30"
+              ]
+            ]
+          },
+          "sources": [
+            "treeside-current",
+            "treeside-calendar-pdf"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "walden-school-of-liberal-arts",
+      "name": "Walden School of Liberal Arts",
+      "type": "K-12 School",
+      "ownership": "charter",
+      "address": "4230 N UNIVERSITY AVE",
+      "opened": "2004-08-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "walden-school-of-liberal-arts-campus",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.657709,
+            40.289491
+          ],
+          "sources": [
+            "directory-data"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "freedom-secondary",
+      "name": "Freedom Preparatory Academy Secondary",
+      "type": "K-12 School",
+      "ownership": "charter",
+      "address": "1761 W 820 N",
+      "opened": "2003-09-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "freedom-secondary-campus",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.689123794943,
+            40.2448853856211
+          ],
+          "sources": [
+            "freedom-handbook",
+            "ugrc-addresses"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "freedom-secondary-2026",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "calendar": "freedom-2026",
+          "weekdays": {
+            "0": [
+              [
+                "08:25",
+                "14:40"
+              ]
+            ],
+            "1": [
+              [
+                "09:00",
+                "14:40"
+              ]
+            ],
+            "2": [
+              [
+                "08:25",
+                "14:40"
+              ]
+            ],
+            "3": [
+              [
+                "08:25",
+                "14:40"
+              ]
+            ],
+            "4": [
+              [
+                "08:25",
+                "14:40"
+              ]
+            ]
+          },
+          "overrides": {
+            "2026-09-23": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ],
+            "2026-09-24": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ],
+            "2026-09-25": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ],
+            "2026-12-18": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ],
+            "2027-02-17": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ],
+            "2027-02-18": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ],
+            "2027-02-19": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ],
+            "2027-04-23": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ],
+            "2027-05-27": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ],
+            "2027-05-26": [
+              [
+                "08:25",
+                "12:30"
+              ]
+            ]
+          },
+          "sources": [
+            "freedom-schedules",
+            "freedom-elementary-pdf",
+            "freedom-secondary-pdf"
+          ]
+        }
+      ],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "walden-high",
+      "name": "Walden High School",
+      "type": "K-12 School",
+      "ownership": "charter",
+      "address": "4266 N University Ave",
+      "opened": "2004-08-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "walden-high-campus",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.657781342915,
+            40.2899985323756
+          ],
+          "sources": [
+            "walden-high",
+            "ugrc-addresses"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "oak-springs",
+      "name": "Slate Mountain School - Oak Springs",
+      "type": "K-12 School",
+      "ownership": "district",
+      "address": "1300 E Center St",
+      "opened": "2023-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "oak-springs-campus",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.632987720699,
+            40.2336251666955
+          ],
+          "sources": [
+            "slate-programs",
+            "oak-location",
+            "ugrc-addresses"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "vantage-point",
+      "name": "Slate Mountain School - Vantage Point",
+      "type": "K-12 School",
+      "ownership": "district",
+      "address": "1189 E 300 N",
+      "opened": "2023-07-01",
+      "closed": null,
+      "locations": [
+        {
+          "id": "vantage-point-campus",
+          "from": "2026-07-01",
+          "through": "2027-06-30",
+          "point": [
+            -111.638013185656,
+            40.2376720472166
+          ],
+          "sources": [
+            "slate-programs",
+            "vantage-location",
+            "ugrc-addresses"
+          ]
+        }
+      ],
+      "schedules": [],
+      "sources": [
+        "directory-data"
+      ]
+    },
+    {
+      "id": "dixon",
+      "name": "Dixon Middle School (former campus)",
+      "type": "Junior High/Middle School",
+      "ownership": "district",
+      "address": "750 W 200 N",
+      "opened": "1931-03-01",
+      "closed": "2024-06-30",
+      "locations": [
+        {
+          "id": "dixon-campus",
+          "from": "2019-07-22",
+          "through": "2024-06-30",
+          "point": [
+            -111.671815709124,
+            40.2368108324404
+          ],
+          "sources": [
+            "demographics",
+            "dixon22",
+            "ugrc-addresses"
+          ]
+        }
+      ],
+      "schedules": [
+        {
+          "id": "dixon-2022",
+          "from": "2022-07-01",
+          "through": "2023-06-30",
+          "calendar": "dixon-2022",
+          "weekdays": {
+            "0": [
+              [
+                "08:00",
+                "14:50"
+              ]
+            ],
+            "1": [
+              [
+                "08:00",
+                "14:50"
+              ]
+            ],
+            "2": [
+              [
+                "08:00",
+                "14:50"
+              ]
+            ],
+            "3": [
+              [
+                "08:00",
+                "14:50"
+              ]
+            ],
+            "4": [
+              [
+                "08:00",
+                "13:00"
+              ]
+            ]
+          },
+          "overrides": {
+            "2023-05-25": [
+              [
+                "08:00",
+                "13:00"
+              ]
+            ],
+            "2023-05-26": [
+              [
+                "08:00",
+                "13:00"
+              ]
+            ]
+          },
+          "sources": [
+            "dixon22"
+          ]
+        }
+      ],
+      "sources": [
+        "dixon22"
+      ]
+    }
+  ]
+}

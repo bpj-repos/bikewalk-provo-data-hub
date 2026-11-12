@@ -18,7 +18,7 @@ FIELDS = {
     'incident': {'year':'integer; state occurrence year, America/Denver', 'date':'YYYY-MM-DD; state occurrence date',
                  'report_year':'integer; police report year only', 'city':'state geographic city label; missing for many UDOT records',
                  'street':'source road text or police address', 'mode':'bicycle, electric-bicycle, pedestrian, other-conveyance',
-                 'fatal':'boolean; any fatality in the crash, not necessarily the AT person', 'source':'source key', 'lighting':'reviewed lighting group', 'weekday':'source occurrence weekday', 'hour':'occurrence hour 0–23', 'weather':'recorded weather label', 'road_surface':'recorded surface label', 'driver_circumstance':'reported driver circumstance', 'reported_factor':'reported crash factor'},
+                 'fatal':'boolean; any fatality in the crash, not necessarily the AT person', 'source':'source key', 'darkness':'persisted dark, daylight, dawn/dusk, unknown', 'school_context':'persisted drop-off, pickup, both, no match, unknown', 'school_id':'matched campus ID', 'lighting':'reviewed lighting group', 'weekday':'source occurrence weekday', 'hour':'occurrence hour 0–23', 'weather':'recorded weather label', 'road_surface':'recorded surface label', 'driver_circumstance':'reported driver circumstance', 'reported_factor':'reported crash factor'},
     'vehicle': {'body_code':'source vehicle-body code string; passenger-car codes 1, 2, 3',
                 'maneuver':'straight-ahead, backing, changing-lanes, right-turn, left-turn, u-turn, or source code',
                 'vehicle_number':'source vehicle number string'},
@@ -216,6 +216,12 @@ def select(entries,query):
         results=[]
         for o in views(group):
             row=facts(o,enrichments.get(o['id']))
+            context=group.get('enrichment',{}).get('context',{})
+            row.update(darkness=context.get('darkness',{}).get('value'),
+                       school_context=context.get('school',{}).get('value'),
+                       school_id=sorted({m['schoolId'] for m in context.get('school',{}).get('matches',[])}))
+            if not context or context.get('school',{}).get('value')=='unknown':
+                row['school_id']=None
             if 'coordinates' in group.get('resolvedCrash',{}):
                 row['_point']=group['resolvedCrash']['coordinates']
             results.append((o['id'],evaluate(query,row,polygons)))

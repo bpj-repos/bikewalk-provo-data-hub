@@ -7,6 +7,7 @@
 | Annual active transportation crashes | [Population and migration](../history/annual-crash-migration.md), [producer transfer](../history/crash-producer-transfer.md) and [update guide](../operations/crash-updates-and-recovery.md) |
 | Utah city annual crashes | [City population, coverage, ZIP registration and contribution](../operations/city-crash-data.md) |
 | Concern crash details | [Restricted export and adoption](../operations/crash-updates-and-recovery.md) |
+| Private darkness and school context | [Field rules, schedule evidence and coverage](crash-darkness-and-school-context.md) |
 | Readable crash-map fields | [Export value contract and automated migration](crash-export-values.md) |
 
 [Approved packages](../../releases/README.md) bind exact resources by checksum. Source selection, missingness, units and reuse terms belong to each product's contract.

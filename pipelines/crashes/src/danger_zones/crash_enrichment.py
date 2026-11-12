@@ -11,6 +11,7 @@ from .incident_conversions import temporal
 from .incident_updates import flatten
 from .normalize_incidents import normalize_row
 from .util import read_json, sha256_file, write_json
+from .crash_context import add_context, coverage, load_register
 
 FIELDS = {
     'injuries': ('Injuries to people walking or biking', 'at_injury_summary'),
@@ -75,6 +76,7 @@ def enrich_collection(collection):
     catalog = read_catalog()
     contract = read_contract(catalog=catalog)
     rules = read_rules()
+    register = load_register()
     counts = defaultdict(Counter)
     for group in collection['records']:
         enriched = []
@@ -94,7 +96,9 @@ def enrich_collection(collection):
             enriched.append({'observationId': observation['id'], 'source': observation['sourceKey'],
                              'sourceRecordId': observation['sourceRecordId'], 'fields': fields})
         group['enrichment'] = {'schemaVersion': 1, 'rulesVersion': rules['version'], 'rulesSha256': sha256_file(RULES), 'observations': enriched}
+        add_context(group, flatten({'records': [group]}), register)
     return {'schemaVersion': 1, 'incidentGroups': len(collection['records']),
+            'context': coverage(collection, register),
             'sourceObservations': len(flatten(collection)),
             'coverage': [{'source': s, 'year': y, 'field': f, 'availability': dict(c)}
                          for (s, y, f), c in sorted(counts.items())]}

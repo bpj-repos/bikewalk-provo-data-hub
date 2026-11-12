@@ -232,3 +232,7 @@ The school register records dated campuses and schedules, source links, closure/
 The [Provo crash street membership dataset](datasets/crash-street-membership.md) publishes a minimized street join for the pinned Streets Watch map. Its manifest binds the consumer snapshot and street inventory. Catalog assembly, immutable downloads, independent consumer adoption and ledger withdrawal follow the shared release workflow.
 
 The [crash occurrence-time package](datasets/crash-occurrence-time.md) binds the same map snapshot as street membership. The Hub derives local weekday and minute from occurrence evidence and publishes minimized rows by crash ID through the shared ledger and catalog. Consumers adopt the joins independently.
+
+## Provo intersection reports
+
+The Hub owns the versioned roster subset, reported split normalization and observed cycle boundaries. Consumers own replay and map interfaces. See [the contract](../data-definitions/provo-intersections/README.md). Refresh by preserving dated raw responses, creating a new immutable version and verifying the catalog under the standard promotion and withdrawal procedure.

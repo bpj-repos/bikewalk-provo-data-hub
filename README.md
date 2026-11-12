@@ -44,3 +44,5 @@ Use a fresh output directory. Publication uploads only the generated `public/` d
 Every available catalog release also provides a complete ZIP download: one folder containing its data and all manifest-listed supporting files. The catalog's `download` object provides the path, size and SHA-256; existing manifest and individual resource URLs remain unchanged.
 
 `update_crashes.py` and `adopt_routes.py` preserve the entry points used by existing consumers. Maintained commands live in `scripts/`.
+
+- [Provo intersections](data-definitions/provo-intersections/README.md) documents signal records and partial timing coverage.

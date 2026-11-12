@@ -199,6 +199,11 @@
       "dataset": "provo-crash-occurrence-time",
       "version": "1.0.0",
       "sha256": "2752b89586b0627040d30fcbe9bcccf7ac7ef43165f10617f462786edbdda6bb"
+    },
+    {
+      "dataset": "provo-intersections",
+      "version": "1.0.0",
+      "sha256": "e17fc8d183781e8f9ad07f9458bc03295106cef3909a45e3160effc9aec4816c"
     }
   ],
   "withdrawn": [],

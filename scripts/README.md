@@ -61,3 +61,5 @@ City workbook preparation, map export, demo, registration and history reporting 
 - [prepare_crash_streets.py](prepare_crash_streets.py) builds the [Provo crash street membership package](../docs/datasets/crash-street-membership.md) from a pinned Streets Watch snapshot.
 
 - [prepare_crash_time.py](prepare_crash_time.py) builds [local crash occurrence fields](../docs/datasets/crash-occurrence-time.md) from the pinned map archive.
+
+- `build_provo_intersections.py` regenerates the versioned intersection records and manifest from retained UDOT responses.

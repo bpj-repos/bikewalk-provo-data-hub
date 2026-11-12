@@ -1,6 +1,6 @@
 # Utah city crash data
 
-For a local point map, start with the [lightweight install and offline mapping example](city-crash-mapping.md). Annual packages in the README contain statistics. The city point exporter produces GeoJSON for GIS and web maps. City commands support --json for coding agents.
+For a local point map, start with the [lightweight install and offline mapping example](city-crash-mapping.md). Annual packages in the [annual crash guide](../datasets/annual-at-crash-aggregates.md) contain statistics. The city point exporter produces GeoJSON for GIS and web maps. City commands support --json for coding agents.
 
 ## Set up a checkout
 
@@ -15,7 +15,7 @@ export PYTHONPATH=.:pipelines/crashes/src
 
 ## Prepare and contribute one city
 
-Download the city's XLSX from the Utah Crash Data Portal as described in the [README](../../README.md#prepare-annual-active-transportation-crash-counts-for-a-utah-city). Select every available year and the full date range for an all-history package. Keep all other filters unrestricted. Save the original file under ignored private intake and record its SHA-256 with `shasum -a 256 FILE` or PowerShell `Get-FileHash FILE -Algorithm SHA256`.
+Download the city's XLSX from the Utah Crash Data Portal as described in the [annual crash guide](../datasets/annual-at-crash-aggregates.md#prepare-annual-active-transportation-crash-counts-for-a-utah-city). Select every available year and the full date range for an all-history package. Keep all other filters unrestricted. Save the original file under ignored private intake and record its SHA-256 with `shasum -a 256 FILE` or PowerShell `Get-FileHash FILE -Algorithm SHA256`.
 
 From the repository root, set the workbook, received SHA-256, exact city name, last reviewed full year and new private output path.
 
@@ -33,13 +33,13 @@ python -m scripts.register_city_crashes \
   private/candidates/city-1.1.0/salt-lake-city-annual-at-crash-aggregates/1.1.0 MANIFEST_SHA256
 ```
 
-Registration copies only the annual public package into `releases/datasets/CITY-annual-at-crash-aggregates/VERSION/`, creates the complete ZIP through the catalog builder's maintained ZIP routine, appends the immutable manifest pin to `releases/release-ledger.json`, and updates `data-definitions/crashes/city-coverage.json` and the README table. Download links appear only after the complete version is selected for public publication. Repeating the same registration verifies the existing pin. Updates use a fresh version. The source workbook and receipts stay in private storage. Registration and table updates share a local directory lock and replace each metadata file atomically. After a terminated process, confirm no city update is running before removing the empty `private/city-release.lock` directory and retrying the same pin.
+Registration copies only the annual public package into `releases/datasets/CITY-annual-at-crash-aggregates/VERSION/`, creates the complete ZIP through the catalog builder's maintained ZIP routine, appends the immutable manifest pin to `releases/release-ledger.json`, and updates `data-definitions/crashes/city-coverage.json` and the annual crash guide table. Download links appear only after the complete version is selected for public publication. Repeating the same registration verifies the existing pin. Updates use a fresh version. The source workbook and receipts stay in private storage. Registration and table updates share a local directory lock and replace each metadata file atomically. After a terminated process, confirm no city update is running before removing the empty `private/city-release.lock` directory and retrying the same pin.
 
 ```sh
 python -B -m unittest discover -s tests/hub -t .
 python -B -m unittest discover -s tests/crashes -t .
 git add releases/datasets/salt-lake-city-annual-at-crash-aggregates \
-  releases/release-ledger.json data-definitions/crashes/city-coverage.json README.md
+  releases/release-ledger.json data-definitions/crashes/city-coverage.json docs/datasets/annual-at-crash-aggregates.md
 git commit -m "Add Salt Lake City annual crash dataset"
 ```
 
@@ -71,9 +71,9 @@ The portal annual population is the [existing shared nonmotorist rule](../histor
 
 UDOT screening selects pedestrian or bicyclist involvement flags, requires at least one motor vehicle, and intersects points with the retained Utah municipal boundaries. A point matching exactly one municipality contributes there. Points with missing or ambiguous municipal membership stay outside the city totals. The two sources overlap and use different coverage and membership rules. Their counts are separate series.
 
-The README's latest-date columns use event dates in America/Denver. Neither source exposes a report-submission date through these captures. A latest event is evidence of observed coverage, with the current year provisional. Captures do not guarantee that earlier years are complete.
+The annual crash guide's latest-date columns use event dates in America/Denver. Neither source exposes a report-submission date through these captures. A latest event is evidence of observed coverage, with the current year provisional. Captures do not guarantee that earlier years are complete.
 
-November 11, 2026 verification captured the first 12 README cities and the next ten remaining municipalities ranked by all-history UDOT counts. Portal years span 2010–2026. UDOT years span 2018–2026, using the archived 2018 layer and hosted 2019–2026 layers. Private receipts and verification reports are retained under the Hub's November 11 city-history reviews.
+November 11, 2026 verification captured the first 12 listed cities and the next ten remaining municipalities ranked by all-history UDOT counts. Portal years span 2010–2026. UDOT years span 2018–2026, using the archived 2018 layer and hosted 2019–2026 layers. Private receipts and verification reports are retained under the Hub's November 11 city-history reviews.
 
 [Utah Crash Data Portal](https://utaps.shinyapps.io/DataPortalAWS/) · [UDOT archived layers](https://maps.udot.utah.gov/central/rest/services/TrafficAndSafety/Crash_Locations/MapServer) · [UDOT hosted layers](https://services.arcgis.com/pA2nEVnB6tquxgOW/ArcGIS/rest/services/Utah_Crash_Locations/FeatureServer) · [Utah municipal boundaries](https://gis.utah.gov/products/sgid/boundaries/municipal/)
 
@@ -81,4 +81,4 @@ City ZIP registration updates the repository table. To host a city version publi
 
 On November 11, 2026, Hub deployment `dpl_4MBtg4kuhEmPuPr1wZ8C5tNKMvz4` published the four city packages from commit `c27e79e`; all 159 staged and live files passed byte and header checks. The previous Hub deployment was `dpl_Bie4sswH9LRe4JKTsZ5hc8PDMkbZ`. Projects deployment `dpl_CESEuDNvrbYrt1BMRWGzCE2kJ5de` serves application commit `aafce551a019582d56c4b23c9baeedd633b1cefa` and its pinned datasets recorded in `/release.json`. The collapsed and deep-linked states passed live desktop, phone and tablet checks. The previous Projects deployment was `dpl_9bWb6h6QPmwixggYEwU79FQFCKBq`.
 
-The README table links complete city versions selected in the ledger’s publicCityReleases list and not withdrawn. Provo links to its original public annual-at-crash-aggregates product. Other coverage rows show “Not yet available.” After publishing a city version, rerun its registration command to refresh the table.
+The annual crash guide table links complete city versions selected in the ledger’s publicCityReleases list and not withdrawn. Provo links to its original public annual-at-crash-aggregates product. Other coverage rows show “Not yet available.” After publishing a city version, rerun its registration command to refresh the table.

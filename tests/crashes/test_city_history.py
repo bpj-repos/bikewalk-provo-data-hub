@@ -1,3 +1,4 @@
+import argparse
 import hashlib
 import csv
 import io
@@ -12,7 +13,7 @@ from openpyxl import load_workbook
 
 from danger_zones.city_history import portal_report, udot_summary
 from scripts.prepare_crash_releases import write_package
-from scripts.register_city_crashes import register, START, END, city_write_lock
+from scripts.register_city_crashes import register, START, END, GUIDE, city_write_lock
 from tests.crashes.test_update_incidents import portal_record, portal_workbook
 
 
@@ -48,7 +49,9 @@ class CityHistoryTests(unittest.TestCase):
             definitions = root / 'data-definitions/crashes'
             definitions.mkdir(parents=True)
             (definitions / 'city-coverage.json').write_text('[]')
-            (root / 'README.md').write_text(START + '\n' + END)
+            (root / GUIDE).parent.mkdir(parents=True)
+            (root / GUIDE).write_text('Before\n' + START + '\n' + END + '\nAfter')
+            (root / 'README.md').write_text('Dataset guide links only\n')
             digest = hashlib.sha256((package / 'datapackage.json').read_bytes()).hexdigest()
             with city_write_lock(root):
                 with self.assertRaisesRegex(ValueError, 'Another city update'):
@@ -65,17 +68,20 @@ class CityHistoryTests(unittest.TestCase):
                 header, older, *recent = zipped.read(prefix + 'annual.csv').splitlines(keepends=True)
                 self.assertTrue(older.startswith(b'2017,'))
                 self.assertEqual(zipped.read(prefix + 'annual-from-2018.csv'), header + b''.join(recent))
-            self.assertNotIn('[Generated ZIP]', (root / 'README.md').read_text())
+            self.assertNotIn('[Generated ZIP]', (root / GUIDE).read_text())
             state = json.loads(ledger.read_bytes())
             state['publicCityReleases'] = [dict(dataset='provo-annual-at-crash-aggregates', version='1.1.0')]
             ledger.write_text(json.dumps(state))
             register(package, digest, root)
-            self.assertIn('[Generated ZIP](releases/datasets/provo-', (root / 'README.md').read_text())
+            self.assertIn('[Generated ZIP](../../releases/datasets/provo-', (root / GUIDE).read_text())
+            self.assertEqual((root / 'README.md').read_text(), 'Dataset guide links only\n')
+            self.assertTrue((root / GUIDE).read_text().startswith('Before\n'))
+            self.assertTrue((root / GUIDE).read_text().endswith('\nAfter'))
             state['withdrawn'] = [dict(dataset='provo-annual-at-crash-aggregates', version='1.1.0')]
             ledger.write_text(json.dumps(state))
-            from scripts.register_city_crashes import readme
+            from scripts.register_city_crashes import city_guide
             coverage = json.loads((root / 'data-definitions/crashes/city-coverage.json').read_bytes())
-            self.assertNotIn('[Generated ZIP]', readme(coverage, root))
+            self.assertNotIn('[Generated ZIP]', city_guide(coverage, root))
             receipt['expectedCrashes'] = 2
             path.with_suffix('.xlsx.json').write_text(json.dumps(receipt))
             with self.assertRaisesRegex(ValueError, 'dashboard'):
@@ -104,7 +110,7 @@ class CityHistoryTests(unittest.TestCase):
                 udot_summary(root, ['Provo'])
 
     def test_provo_links_to_its_original_public_product(self):
-        from scripts.register_city_crashes import readme
+        from scripts.register_city_crashes import city_guide
         with TemporaryDirectory() as tmp:
             root = Path(tmp)
             (root / 'releases').mkdir()
@@ -112,15 +118,45 @@ class CityHistoryTests(unittest.TestCase):
             state = dict(approved=[dict(dataset='annual-at-crash-aggregates', version='1.1.0')],
                          withdrawn=[], publicCityReleases=[])
             ledger.write_text(json.dumps(state))
-            (root / 'README.md').write_text(START + '\n' + END)
+            (root / GUIDE).parent.mkdir(parents=True)
+            (root / GUIDE).write_text('Before\n' + START + '\n' + END + '\nAfter')
+            (root / 'README.md').write_text('Dataset guide links only\n')
             rows = [dict(city='Provo', dataset=dict(id='provo-annual-at-crash-aggregates',
                                                   version='1.0.0', zip='summary.zip'))]
             expected = 'https://bikewalk-provo-data-hub.vercel.app/downloads/annual-at-crash-aggregates/1.1.0/annual-at-crash-aggregates-1.1.0.zip'
-            self.assertIn(expected, readme(rows, root))
-            self.assertNotIn('summary.zip', readme(rows, root))
+            self.assertIn(expected, city_guide(rows, root))
+            self.assertNotIn('summary.zip', city_guide(rows, root))
             state['withdrawn'] = [dict(dataset='annual-at-crash-aggregates', version='1.1.0')]
             ledger.write_text(json.dumps(state))
-            self.assertNotIn(expected, readme(rows, root))
+            self.assertNotIn(expected, city_guide(rows, root))
+
+    def test_history_report_writes_guide_and_preserves_readme(self):
+        from scripts.city_crash_history import report
+        from scripts.register_city_crashes import COVERAGE
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'releases').mkdir()
+            (root / 'releases/release-ledger.json').write_text('{"approved": [], "withdrawn": []}')
+            (root / GUIDE).parent.mkdir(parents=True)
+            (root / GUIDE).write_text(START + '\n' + END)
+            (root / COVERAGE).parent.mkdir(parents=True)
+            (root / 'README.md').write_text('Dataset guide links only\n')
+            args = argparse.Namespace(portal=root, udot=root, cities=['Provo'], write=True)
+            stats = dict(count=1, years='2025–2025', latest='2025-03-04')
+            with patch('scripts.city_crash_history.ROOT', root), \
+                    patch('scripts.city_crash_history.portal_report', return_value=stats), \
+                    patch('scripts.city_crash_history.udot_summary',
+                          return_value={'Provo': (1, '2025–2025', '2025-03-04')}):
+                result = report(args)
+            self.assertEqual(result['outputs']['guide'], str((root / GUIDE).resolve()))
+            self.assertIn('| Provo | 1 |', (root / GUIDE).read_text())
+            self.assertEqual((root / 'README.md').read_text(), 'Dataset guide links only\n')
+            self.assertEqual(json.loads((root / COVERAGE).read_text())[0]['portal'], stats)
+
+    def test_committed_city_guide_is_current(self):
+        from scripts.register_city_crashes import ROOT, COVERAGE, city_guide
+        rows = json.loads((ROOT / COVERAGE).read_bytes())
+        self.assertEqual(city_guide(rows), (ROOT / GUIDE).read_text())
 
     def test_committed_city_packages_match_the_table_and_zip(self):
         from scripts.build_catalog import checked_package, download_zip

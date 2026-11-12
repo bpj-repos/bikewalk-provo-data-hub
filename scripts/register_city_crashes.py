@@ -1,4 +1,4 @@
-"""Register a reviewed city annual package, generate its ZIP and refresh the README table."""
+"""Register a reviewed city annual package, generate its ZIP and refresh the annual crash guide table."""
 import argparse
 from contextlib import contextmanager
 import csv
@@ -14,6 +14,7 @@ from scripts.build_catalog import checked_package, download_zip
 from scripts.prepare_crash_releases import ROOT, AT, city_has_recent_csv, recent_csv
 
 COVERAGE = Path('data-definitions/crashes/city-coverage.json')
+GUIDE = Path('docs/datasets/annual-at-crash-aggregates.md')
 START = '<!-- city-crash-data:start -->'
 END = '<!-- city-crash-data:end -->'
 
@@ -22,7 +23,7 @@ def encoded(data):
     return json.dumps(data, indent=2, ensure_ascii=False) + '\n'
 
 
-def readme(rows, root=ROOT):
+def city_guide(rows, root=ROOT):
     ledger = json.loads((root / 'releases/release-ledger.json').read_bytes())
     withdrawn = {(entry['dataset'], entry['version']) for entry in ledger['withdrawn']}
     available = {(entry['dataset'], entry['version']) for entry in ledger.get('publicCityReleases', [])} - withdrawn
@@ -46,14 +47,14 @@ def readme(rows, root=ROOT):
             version = provo['version']
             link = f'https://bikewalk-provo-data-hub.vercel.app/downloads/{AT}/{version}/{AT}-{version}.zip'
         else:
-            link = dataset['zip'] if dataset and (dataset['id'], dataset['version']) in available else None
+            link = f"../../{dataset['zip']}" if dataset and (dataset['id'], dataset['version']) in available else None
         cells.append(f'[Generated ZIP]({link})' if link else 'Not yet available')
         lines.append('| ' + ' | '.join(cells) + ' |')
     lines.append(END)
-    path = root / 'README.md'
+    path = root / GUIDE
     text = path.read_text()
     if text.count(START) != 1 or text.count(END) != 1:
-        raise ValueError('Expected one README city table')
+        raise ValueError('Expected one annual crash guide city table')
     before, rest = text.split(START)
     _, after = rest.split(END)
     return before + '\n'.join(lines) + after
@@ -146,7 +147,7 @@ def register_locked(directory, digest, root=ROOT):
     count = sum(int(r['total']) for r in annual)
     portal = dict(count=count, years=f'{years[0]}–{years[-1]}', latest=manifest['latestEvent'])
     row.update(portal=portal, dataset=dict(id=dataset, version=version, sha256=digest, zip=str(zip_path)))
-    updated_readme = readme(rows, root)
+    updated_guide = city_guide(rows, root)
     target.parent.mkdir(parents=True, exist_ok=True)
     if not target.exists():
         with TemporaryDirectory(dir=target.parent) as tmp:
@@ -160,7 +161,7 @@ def register_locked(directory, digest, root=ROOT):
         (root / zip_path).write_bytes(archive)
     replace_text(ledger_path, encoded(ledger))
     replace_text(root / COVERAGE, encoded(rows))
-    replace_text(root / 'README.md', updated_readme)
+    replace_text(root / GUIDE, updated_guide)
     print(f'Registered {city} {version}; ZIP {zip_path}')
     result = package_result(target, digest,
                             inputs=dict(package=str(directory.resolve()), sha256=digest),

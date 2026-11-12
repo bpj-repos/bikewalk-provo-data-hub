@@ -66,4 +66,4 @@ Add --json to prepare_city_crashes, export_city_crashes, demo_city_crashes, regi
 
 Validation and I/O failures write a JSON object with status="error", error and nextCommand=null and exit with code 2. Argument syntax errors use argparse's standard usage error. A nonzero exit requires correction before using any output. Existing directories are retained and never silently overwritten. Default human output is preserved on the older commands.
 
-For an annual candidate, use the existing complete-through review and registration workflow in the [city guide](city-crash-data.md). Geographic candidates and annual city packages have separate shapes. Only the annual registration command updates the Hub ledger and README. A local map export has no release, deployment or consumer-adoption side effects.
+For an annual candidate, use the existing complete-through review and registration workflow in the [city guide](city-crash-data.md). Geographic candidates and annual city packages have separate shapes. Only the annual registration command updates the Hub ledger and annual crash guide. A local map export has no release, deployment or consumer-adoption side effects.

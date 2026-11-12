@@ -12,8 +12,8 @@ Run module commands from the repository root. Use a new output directory for bui
 | `python3 -m scripts.build_demo_counts --help` | Build the synthetic hosting proof in a new directory. No private inputs. |
 | `node scripts/capture_city_crash_portal.cjs NEW_PRIVATE_DIRECTORY CITY [CITY ...]` | Capture all portal years per city with Playwright. |
 | `python3 -m scripts.capture_city_crash_udot NEW_PRIVATE_DIRECTORY` | Capture all available UDOT pedestrian/bicycle year layers and municipal boundaries. |
-| `python3 -m scripts.city_crash_history PORTAL_DIRECTORY UDOT_DIRECTORY CITY [CITY ...] --write` | Verify captures and update the README city coverage table. |
-| `python3 -m scripts.register_city_crashes PACKAGE MANIFEST_SHA256` | Register a reviewed annual city package, its generated ZIP and README link. |
+| `python3 -m scripts.city_crash_history PORTAL_DIRECTORY UDOT_DIRECTORY CITY [CITY ...] --write` | Verify captures and update the annual crash guide city coverage table. |
+| `python3 -m scripts.register_city_crashes PACKAGE MANIFEST_SHA256` | Register a reviewed annual city package, its generated ZIP and annual crash guide link. |
 | `python3 -m scripts.export_city_crashes --help` | Validate a city XLSX and create a minimized local GeoJSON package and complete ZIP. |
 | `python3 -m scripts.demo_city_crashes NEW_PRIVATE_OUTPUT --json` | Exercise the real mapping workflow with invented records offline. |
 | `python3 -m scripts.prepare_city_crashes --help` | Prepare one Utah city’s private annual aggregate candidate from a checksummed city-filtered portal workbook. |

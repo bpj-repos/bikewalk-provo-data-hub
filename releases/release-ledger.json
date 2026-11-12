@@ -189,6 +189,11 @@
       "dataset": "st-george-annual-at-crash-aggregates",
       "version": "1.1.0",
       "sha256": "4ee0e1ad4199eaa1fd76292fdba42ba3ff9e1d4200933d09c2d79697d887da69"
+    },
+    {
+      "dataset": "provo-crash-street-membership",
+      "version": "1.0.0",
+      "sha256": "c704827ea8286c9bc9d2d1f3dab02221f17d1382182e24a25411cd955b4a7598"
     }
   ],
   "withdrawn": [],

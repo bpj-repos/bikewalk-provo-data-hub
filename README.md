@@ -90,3 +90,5 @@ Every available catalog release also provides a complete ZIP download: one folde
 Coverage figures describe the retained source captures and may be newer than the linked release.
 
 [Run the workflow, contribute a dataset, and check methods](docs/operations/city-crash-data.md).
+
+The [Provo crash street membership contract](docs/datasets/crash-street-membership.md) documents the crash-ID join and release inputs.

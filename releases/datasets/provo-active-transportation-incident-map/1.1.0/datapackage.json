@@ -52,25 +52,26 @@
     {
       "name": "map-manifest",
       "path": "map-manifest.json",
-      "bytes": 2461,
-      "hash": "sha256:5d9709b0703a8b15dad430af06e0fc31b78b900baa9a97902654f30ed2ccafbb"
+      "bytes": 2491,
+      "hash": "sha256:52168b3471f392563ba6e1406c5837ab4391b148f575882a3fe989fecf19adc8"
     },
     {
       "name": "dictionary",
       "path": "dictionary.json",
-      "bytes": 2681,
-      "hash": "sha256:727f8d02fd0c78961f28ad7e570be904a8ebe07c2ee0f40148dfc2b66c222010"
+      "bytes": 2710,
+      "hash": "sha256:3edb626d930f91274a47e66984a4b4732f4443e6ac9ad472d8afd16b33d32656"
     },
     {
       "name": "method",
       "path": "method.txt",
-      "bytes": 2788,
-      "hash": "sha256:6187a9e6000fdad25f14184225cf4de97c0a382d4fab23ffafc0474209ad6b16"
+      "bytes": 3138,
+      "hash": "sha256:c7108edf7d731986591013e1ab2761bc3bdff9155710db764306a0a3cbf6cf53"
     }
   ],
   "parkingCoverage": {
     "mappedGroups": 1195,
     "categories": {
+      "highly_suggestive": 0,
       "stronger_lead": 1,
       "possible_lead": 0,
       "weak_lead": 19,

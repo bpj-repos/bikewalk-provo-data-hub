@@ -53,6 +53,7 @@
       "name": "properties.bikeLaneParkingContribution",
       "type": "string",
       "enum": [
+        "highly_suggestive",
         "stronger_lead",
         "possible_lead",
         "weak_lead",

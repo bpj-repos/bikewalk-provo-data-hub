@@ -52,6 +52,7 @@
   "parkingCoverage": {
     "mappedGroups": 1195,
     "categories": {
+      "highly_suggestive": 0,
       "stronger_lead": 1,
       "possible_lead": 0,
       "weak_lead": 19,

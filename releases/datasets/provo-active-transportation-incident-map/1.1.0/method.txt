@@ -5,9 +5,12 @@ The private pipeline normalizes retained PD, UDOT and state portal observations 
 Updates: receive data privately through update_crashes.py, review source selection and public fields, normalize and derive using the hub catalogs, review any changed groupings separately, and prepare a new checksummed presentation receipt. Rebuild with incident_map.py. The existing source-snapshot guard rejects an accidental mix of old feature selection and new sources. Candidate generation never promotes a release or changes an app pin. A correction is a patch; compatible records are a minor release; changed record meaning or field semantics require a major release. Withdrawals follow OPERATIONS.md and apply to consumer copies too.
 
 Structured bike-lane parking contribution assessment, version 1.
+Highly suggestive: an AT participant in a designated bike lane plus (a) a driver's improper parking
+code linked by unit number to a parked or stopped vehicle, (b) a parked unit with an AT harmful event,
+or (c) a parked unit and a parked-vehicle collision or non-contact vehicle causing evasive action.
 Stronger lead: the same crash records an AT participant in a designated bike lane plus improper
 parking/stopping or a parked vehicle. Possible lead: a bike-lane participant plus a parking maneuver
-or traffic-lane stop, or driver evasive action plus improper parking or a parked vehicle.
+or traffic-lane stop, or driver evasive action or a non-contact vehicle causing evasive action plus improper parking or a parked vehicle.
 Weak lead: a parked vehicle, parking maneuver, or improper parking without the stronger combinations.
 No specific signal: a portal record has an identified AT participant and a known vehicle maneuver,
 without a qualifying combination. Insufficient data: the available fields cannot support that screen.

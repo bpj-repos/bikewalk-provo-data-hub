@@ -305,7 +305,14 @@
       "sha256": "cc0992b6541e83137e64e0f8abd23650dbe47e5457b0bb2eefa00e17effc7a8c"
     }
   ],
-  "withdrawn": [],
+  "withdrawn": [
+    {
+      "dataset": "provo-active-transportation-incident-map",
+      "version": "1.1.0",
+      "date": "2026-11-15",
+      "notice": "The bike-lane parking assessment was retired. Use the 1.0.0 incident map."
+    }
+  ],
   "publicCityReleases": [
     {
       "dataset": "springville-annual-at-crash-aggregates",

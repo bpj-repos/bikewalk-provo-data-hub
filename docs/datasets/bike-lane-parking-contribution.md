@@ -1,5 +1,7 @@
 # Bike-lane parking contribution
 
+**Retired November 15, 2026.** This page records the historical method. Current private crash groups and the public incident map omit the field.
+
 The Hub assigns each active transportation incident group an ordinal likelihood tier using the crash fields already available. The target mechanism is a stationary motor vehicle occupying part of a designated bike lane and contributing to a crash through contact, avoidance, or impaired visibility. A vehicle may be standing or loading. Carrier identity and contact with the vehicle are unnecessary.
 
 | Value | Structured evidence in one source crash record |

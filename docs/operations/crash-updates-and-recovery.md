@@ -113,4 +113,4 @@ Review `data-definitions/crashes/school-context-v1.json` against official school
 
 Run the normal `python -m scripts.update_crashes --offline` command after a reviewed change. The producer fingerprints the register and classifier and includes persisted group results and yearly/radius coverage in the new immutable bundle's `enrichment-audit.json`. Check matched, no-match, unknown and spatial-candidate counts before adoption. Compare original IDs, observation fingerprints and previous supported fields. Repeat the same offline command to verify `unchanged`. Both repository test groups apply. Recovery uses the prior checksummed private pointer and release through the existing rollback path. An older release carries the context version that was active when it was built.
 
-The [bike-lane parking assessment procedure](../datasets/bike-lane-parking-contribution.md) covers the structured AT update, optional private report review and public historical map rebuild.
+The active crash update omits bike-lane parking assessments. The Hub withdrew incident-map 1.1.0 on November 15, 2026 and serves the field-free 1.0.0 pin.

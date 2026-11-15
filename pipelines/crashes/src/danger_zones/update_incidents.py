@@ -21,7 +21,6 @@ from .incidents import _date
 from .incident_updates import flatten, fingerprint, upsert, police_observations, local_rows, candidate_rows, make_collection, changes_between
 from .match_review import POLICY, review, validate_policy, previous_year
 from .pipeline import import_udot_crashes
-from . import parking_contribution
 from .police import import_police_workbook
 from .util import read_json, write_json, sha256_file, sha256_json, isoformat, utc_now
 
@@ -48,7 +47,7 @@ def read_gzip(path):
 def tool_hash():
     names=['update_incidents.py','incident_updates.py','match_review.py','incidents.py','crash_portal.py',
            'police.py','police_forward.py','police_datastore.py','address_points.py','police_portal_candidates.py','pipeline.py','normalize.py','arcgis.py',
-           'incident_conversions.py','normalize_incidents.py','derived_incidents.py','crash_enrichment.py','parking_contribution.py','crash_context.py','common_structure.py','util.py','config.py','registry.py','geoparquet.py']
+           'incident_conversions.py','normalize_incidents.py','derived_incidents.py','crash_enrichment.py','crash_context.py','common_structure.py','util.py','config.py','registry.py','geoparquet.py']
     return sha256_json({'modules':{n:sha256_file(Path(__file__).parent/n) for n in names},
                         'catalog':{name:sha256_file(PACKAGE_ROOT/'catalog/incident-metadata'/name) for name in ['fields.yml','common.yml','derived.yml']},
                         'schoolContext':sha256_file(HUB_ROOT/'data-definitions/crashes/school-context-v1.json'),
@@ -196,7 +195,6 @@ def udot_observations(path):
 def input_fingerprint(state):
     return sha256_json({'observations':{k:fingerprint(v) for k,v in sorted(state['observations'].items())},
                         'addressReference':state.get('addressReference'),
-                        'parkingReviews':state.get('parkingReviews', {}),
                         'decisionReceipts':sorted(ref['sha256'] for ref in state['inputs'] if ref['kind']=='reviewed-matches'),
                         'portal':{k:fingerprint(v) for k,v in sorted(state['portal'].items())},
                         'udotLookup':{k:fingerprint(v) for k,v in sorted(state.get('udotLookup',{}).items())}})
@@ -294,7 +292,7 @@ def write_changes(path,changes):
                 writer.writerow([kind,item if isinstance(item,str) else item.get('id',item.get('policeId',item.get('previousId',item.get('policeId','')))),'' if isinstance(item,str) else json.dumps(item,sort_keys=True)])
 
 
-def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROOT,*,portal_workbooks=(),police_workbooks=(),address_points=None,reviewed_matches=None,parking_reviews=(),offline=False,refresh=import_udot_crashes,restore=None):
+def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROOT,*,portal_workbooks=(),police_workbooks=(),address_points=None,reviewed_matches=None,offline=False,refresh=import_udot_crashes,restore=None):
     private_root=Path(private_root).resolve();data_root=Path(data_root).resolve()
     if restore and not private_root.is_relative_to(restore.root):
         raise ValueError("Private data root must be inside the restored repository")
@@ -322,8 +320,6 @@ def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROO
                     raise ValueError('Pinned source checksum mismatch: '+source['path'])
             old_lookup={k:fingerprint(v) for k,v in {**state.get('udotLookup',{}),**state['portal']}.items()}
             decisions = import_reviewed_matches(reviewed_matches, state, private_root, before['sha256']) if reviewed_matches else []
-            for packet in parking_reviews:
-                parking_contribution.import_reviews(packet, state, private_root, old, retain_input, read_json)
             apply_inputs(state,private_root,data_root,run_dir,list(map(Path,portal_workbooks)),list(map(Path,police_workbooks)),offline,refresh,address_points)
             policy=read_json(POLICY);validate_policy(policy)
             content_fingerprint=input_fingerprint(state);tools=tool_hash();policy_hash=sha256_file(POLICY)
@@ -355,12 +351,7 @@ def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROO
             upsert(state['observations'],all_sources.values())
             from .crash_enrichment import enrich_collection
             enrichment_audit=enrich_collection(combined)
-            parking_contribution.apply_reviews(combined['records'], state.get('parkingReviews', {}))
             changes=changes_between(old,combined,rows)
-            for group in combined['records']:
-                level, signals = parking_contribution.assess_group(group)
-                group['enrichment'][parking_contribution.FIELD] = level
-                group['enrichment']['bikeLaneParkingSignals'] = signals
             previous_enrichment={g['id']:g.get('enrichment') for g in old['records']}
             changes['enrichmentChangedGroups']=[g['id'] for g in combined['records'] if g['enrichment']!=previous_enrichment.get(g['id'])]
             changes['missingFromLatestUdotExport']=state.get('missingFromLatestUdotExport',[])
@@ -456,7 +447,6 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--portal-workbook',type=Path,action='append',default=[])
     parser.add_argument('--police-input','--police-workbook',dest='police_workbook',help='Police .xlsx, .numbers or forwarded .eml (repeatable)',type=Path,action='append',default=[])
-    parser.add_argument('--parking-review', type=Path, action='append', default=[], help='Verified private parking assessment')
     parser.add_argument('--reviewed-matches',type=Path,help='Apply private case decisions against their reviewed collection checksum')
     parser.add_argument('--address-points',type=Path,help='Retain a new UGRC Provo snapshot for offline exact-address lookup, including earlier receipts')
     parser.add_argument('--offline',action='store_true')
@@ -477,8 +467,8 @@ def main():
     restore = RestorePaths(args.restore_path, root=args.restore_root) if args.restore_path else None
     private_root = args.private_data_root or (restore.root/'tools/.danger-zone-private' if restore else DEFAULT_PRIVATE_DATA_ROOT)
     data_root = args.data_root or (restore.root/'tools/.danger-zone-data' if restore else DEFAULT_DATA_ROOT)
-    if args.rollback and (args.offline or args.portal_workbook or args.police_workbook or args.address_points or args.reviewed_matches or args.parking_review):parser.error('--rollback cannot be combined with update inputs or --offline')
-    result=rollback(private_root,restore=restore) if args.rollback else run_update(private_root,data_root,restore=restore,portal_workbooks=args.portal_workbook,police_workbooks=args.police_workbook,address_points=args.address_points,reviewed_matches=args.reviewed_matches,parking_reviews=args.parking_review,offline=args.offline)
+    if args.rollback and (args.offline or args.portal_workbook or args.police_workbook or args.address_points or args.reviewed_matches):parser.error('--rollback cannot be combined with update inputs or --offline')
+    result=rollback(private_root,restore=restore) if args.rollback else run_update(private_root,data_root,restore=restore,portal_workbooks=args.portal_workbook,police_workbooks=args.police_workbook,address_points=args.address_points,reviewed_matches=args.reviewed_matches,offline=args.offline)
     print(json.dumps(result,indent=2))
 
 

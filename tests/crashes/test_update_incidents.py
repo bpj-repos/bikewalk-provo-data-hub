@@ -200,6 +200,8 @@ class PipelineTests(unittest.TestCase):
         before=self.pointer.read_bytes();r=self.run_update();self.assertEqual(r['status'],'accepted')
         pointer=self.pointer.read_bytes();manifest=read_json(Path(read_json(self.pointer)['releaseManifest']['path']))
         bundle=Path(r['bundle'])
+        for group in read_json(bundle/'collection.json')['records']:
+            self.assertTrue({'bikeLaneParkingContribution', 'bikeLaneParkingSignals', 'bikeLaneHistory', 'parkingReview'}.isdisjoint(group['enrichment']))
         for name,digest in manifest['files'].items():self.assertEqual(sha256_file(bundle/name),digest)
         self.assertEqual(self.run_update()['status'],'unchanged');self.assertEqual(self.pointer.read_bytes(),pointer)
         # Isolated fixture rollback verifies the prior collection checksum and restores the exact pointer.

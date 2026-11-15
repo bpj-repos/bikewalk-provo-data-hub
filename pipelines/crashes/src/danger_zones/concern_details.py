@@ -1,4 +1,4 @@
-"""Export the reviewed police reference for each state crash eligible for concern display."""
+"""Export reviewed summaries and police references for state crashes eligible for concern display."""
 import argparse
 import hashlib
 import json
@@ -6,6 +6,17 @@ from pathlib import Path
 import re
 
 from .crash_enrichment import export_release
+from .update_incidents import SUMMARY_FIELDS
+
+
+def public_summary(summary, identifier):
+    if (not isinstance(summary, dict) or set(summary) != set(SUMMARY_FIELDS)
+            or not all(isinstance(v, str) and len(v.encode('utf-16-le')) <= 4000
+                       and (not v or v.strip()) and not re.search(r'[\x00-\x1f\x7f-\x9f\u2028\u2029]', v)
+                       for v in summary.values())
+            or not 1 <= len(summary['brief'].split()) <= 12):
+        raise ValueError('Invalid public reviewed summary for state ID ' + identifier)
+    return summary
 
 
 def reviewed_report(group):
@@ -37,10 +48,16 @@ def export_concern_details(release, manifest_hash):
     raw = (release / 'collection.json').read_bytes()
     if hashlib.sha256(raw).hexdigest() != export['collectionSha256']:
         raise ValueError('Collection checksum mismatch')
-    export['schemaVersion'] = 2
+    export['schemaVersion'] = 3
     for details in export['crashes'].values():
-        details['schemaVersion'] = 2
+        details['schemaVersion'] = 3
     for group in json.loads(raw)['records']:
+        summary = group['enrichment'].get('reviewedSummary')
+        if summary is not None:
+            ids = {o['sourceRecordId'] for o in group['observations']
+                   if o['sourceKey'] in {'utah-crash-portal', 'udot-crashes'}}
+            if len(ids) == 1 and (identifier := next(iter(ids))) in export['crashes']:
+                export['crashes'][identifier]['reviewedSummary'] = public_summary(summary, identifier)
         reference = reviewed_report(group)
         if reference:
             identifier, report = reference

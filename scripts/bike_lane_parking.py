@@ -15,9 +15,12 @@ POINTER = ROOT / 'private/active/crashes/collection/datastores/combined-incident
 BASE = ROOT / 'releases/datasets' / NAME / '1.0.0'
 BASE_PIN = 'e9fdbe0101380792235c2ff1c43bccf0645c220730cf6d0ab12e8f403ea9df8e'
 METHOD = """Structured bike-lane parking contribution assessment, version 1.
+Highly suggestive: an AT participant in a designated bike lane plus (a) a driver's improper parking
+code linked by unit number to a parked or stopped vehicle, (b) a parked unit with an AT harmful event,
+or (c) a parked unit and a parked-vehicle collision or non-contact vehicle causing evasive action.
 Stronger lead: the same crash records an AT participant in a designated bike lane plus improper
 parking/stopping or a parked vehicle. Possible lead: a bike-lane participant plus a parking maneuver
-or traffic-lane stop, or driver evasive action plus improper parking or a parked vehicle.
+or traffic-lane stop, or driver evasive action or a non-contact vehicle causing evasive action plus improper parking or a parked vehicle.
 Weak lead: a parked vehicle, parking maneuver, or improper parking without the stronger combinations.
 No specific signal: a portal record has an identified AT participant and a known vehicle maneuver,
 without a qualifying combination. Insufficient data: the available fields cannot support that screen.

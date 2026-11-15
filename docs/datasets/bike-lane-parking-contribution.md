@@ -4,8 +4,9 @@ The Hub assigns each active transportation incident group an ordinal likelihood 
 
 | Value | Structured evidence in one source crash record |
 |---|---|
+| `highly_suggestive` | An AT participant in a designated bike lane plus a driver parking factor linked by vehicle number to a parked or stopped unit, a parked unit with an AT harmful event, or a parked unit together with a parked-vehicle impact or non-contact vehicle causing evasive action. |
 | `stronger_lead` | An AT participant is recorded in an on-street or separated bike lane and a driver is coded for improper parking/stopping or a vehicle is recorded parked or hit while parked. |
-| `possible_lead` | Bike-lane location plus a parking maneuver or traffic-lane stop, or driver evasive action plus improper parking or a parked vehicle. |
+| `possible_lead` | Bike-lane location plus a parking maneuver or traffic-lane stop, or driver evasive action or a non-contact vehicle causing evasive action together with improper parking or a parked vehicle. |
 | `weak_lead` | Improper parking/stopping, a parking maneuver, a parked vehicle, or a parked-vehicle collision without a stronger combination. |
 | `no_specific_signal` | Identified AT participant and known vehicle maneuver, with none of the qualifying combinations. |
 | `insufficient_data` | The record lacks the detail needed for this screen. |

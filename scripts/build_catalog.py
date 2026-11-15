@@ -64,7 +64,7 @@ def validate_parking_coverage(files):
     coverage = package['parkingCoverage']
     features = json.loads(files['incidents.geojson'])['features']
     counts = Counter(f['properties']['bikeLaneParkingContribution'] for f in features)
-    allowed = {'stronger_lead', 'possible_lead', 'weak_lead', 'no_specific_signal', 'insufficient_data'}
+    allowed = {'highly_suggestive', 'stronger_lead', 'possible_lead', 'weak_lead', 'no_specific_signal', 'insufficient_data'}
     if (set(coverage['categories']) != allowed or set(counts) - allowed
             or any(counts[k] != coverage['categories'][k] for k in allowed)
             or coverage['mappedGroups'] != len(features) or len(features) != 1195

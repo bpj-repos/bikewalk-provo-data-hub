@@ -114,7 +114,7 @@ def apply_reviews(records, reviews):
             group['enrichment']['parkingReview'] = {'case': entry['case'], 'receipt': entry['receipt'], 'value': entry['value']}
 
 # Ordinal strength of the available evidence. These are not calibrated probabilities.
-LEVELS = ('stronger_lead', 'possible_lead', 'weak_lead', 'no_specific_signal', 'insufficient_data')
+LEVELS = ('highly_suggestive', 'stronger_lead', 'possible_lead', 'weak_lead', 'no_specific_signal', 'insufficient_data')
 AT_TYPES = {'Pedalcyclist', 'Pedestrian', 'Other Pedestrian (wheelchair, skater, personal conveyance, etc.)'}
 
 
@@ -139,16 +139,32 @@ def structured_evidence(source, metadata):
     improper = 'Improper Parking/Stopping' in circumstances
     events = {v.get('mostHarmfulEvent_label') for v in vehicles}
     events.update(crash.get(k) for k in ('firstHarmfulEvent_label', 'mannerCollision_label'))
-    parked = 'Parked' in maneuvers or bool(events & {'Collision with Parked Vehicle', 'Parked Vehicle'})
+    parked_impact = any(str(e).lower() in {'collision with parked motor vehicle', 'collision with parked vehicle',
+                                               'parked vehicle'} for e in events)
+    parked = 'Parked' in maneuvers or parked_impact
+    parking_drivers = {p['vehicleNumber'] for p in persons if p.get('vehicleNumber') and
+                       p.get('personType_label') == 'Driver' and any(
+                       p.get(f'personDriverContribCircumstances{i}_label') == 'Improper Parking/Stopping' for i in (1, 2))}
+    linked_stationary = any(v.get('vehicleNumber') in parking_drivers and v.get('vehicleManeuver_label') in
+                            {'Parked', 'Stopped in Traffic Lane'} for v in vehicles)
+    parked_at_impact = any(v.get('vehicleManeuver_label') == 'Parked' and
+                           v.get('mostHarmfulEvent_label') in {'Pedacycle', 'Pedalcycle', 'Pedestrian', 'Other Non-Motorist*'}
+                           for v in vehicles)
+    noncontact = any(str(crash.get(k)).casefold() == 'non-contact vehicle caused evasive action'
+                     for k in ('roadwayContribCircumstances_label', 'roadwayContribCircumstances2_label'))
+
     parking = 'Parking Maneuvers' in maneuvers
     stopped = 'Stopped in Traffic Lane' in maneuvers
     avoidance = 'Swerved or Evasive Action' in circumstances
     signals = [name for condition, name in [(lane, 'AT participant in bike lane'), (improper, 'improper parking/stopping'),
                (parked, 'parked vehicle'), (parking, 'parking maneuver'), (stopped, 'stopped in traffic lane'),
-               (avoidance, 'driver evasive action')] if condition]
-    if lane and (improper or parked):
+               (avoidance, 'driver evasive action'), (noncontact, 'non-contact vehicle caused evasive action'),
+               (linked_stationary, 'parking factor on stationary unit'), (parked_at_impact, 'parked unit with AT impact')] if condition]
+    if lane and (linked_stationary or parked_at_impact or (parked and (parked_impact or noncontact) and 'Parked' in maneuvers)):
+        level = 'highly_suggestive'
+    elif lane and (improper or parked):
         level = 'stronger_lead'
-    elif (lane and (parking or stopped)) or ((improper or parked) and avoidance):
+    elif (lane and (parking or stopped)) or ((improper or parked) and (avoidance or noncontact)):
         level = 'possible_lead'
     elif improper or parked or parking:
         level = 'weak_lead'

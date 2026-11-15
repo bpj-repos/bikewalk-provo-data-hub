@@ -79,3 +79,19 @@ class ParkingTests(unittest.TestCase):
             self.assertEqual(project({'features': [feature]})['categories'][expected], 1)
         self.assertEqual(structured_evidence('udot-crashes', {'MANNER_COLLISION_DESC': 'Parked Vehicle'})[0], 'weak_lead')
         self.assertEqual(structured_evidence('provo-police-incidents', {})[0], 'insufficient_data')
+
+    def test_stationary_unit_and_causal_factor(self):
+        m = {'crash': {'City_Geo': 'Provo'}, 'persons': [
+            {'personType_label': 'Pedalcyclist', 'personNmLocation_label': 'On-Street Bike Lane'},
+            {'personType_label': 'Driver', 'vehicleNumber': '2', 'personDriverContribCircumstances2_label': 'Improper Parking/Stopping'}],
+             'vehicles': [{'vehicleNumber': '1', 'vehicleManeuver_label': 'Stopped in Traffic Lane'}]}
+        score = lambda: structured_evidence('utah-crash-portal', m)[0]
+        self.assertEqual(score(), 'stronger_lead')
+        m['vehicles'][0]['vehicleNumber'] = '2'
+        self.assertEqual(score(), 'highly_suggestive')
+        m['persons'].pop()
+        m['vehicles'][0]['vehicleManeuver_label'] = 'Parked'
+        m['crash']['roadwayContribCircumstances_label'] = 'Non-Contact Vehicle Caused Evasive Action'
+        self.assertEqual(score(), 'highly_suggestive')
+        m['persons'][0]['personNmLocation_label'] = 'Travel Lane (not crosswalk or intersection)'
+        self.assertEqual(score(), 'possible_lead')

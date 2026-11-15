@@ -1,0 +1,10 @@
+{
+  "1": "begin green",
+  "3": "minimum green complete",
+  "8": "begin yellow clearance",
+  "9": "end yellow clearance",
+  "11": "end red clearance",
+  "21": "begin walk",
+  "22": "begin pedestrian clearance",
+  "23": "begin solid don't walk"
+}

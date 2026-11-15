@@ -204,6 +204,101 @@
       "dataset": "provo-intersections",
       "version": "1.0.0",
       "sha256": "e17fc8d183781e8f9ad07f9458bc03295106cef3909a45e3160effc9aec4816c"
+    },
+    {
+      "dataset": "provo-annual-at-crash-aggregates",
+      "version": "1.1.1",
+      "sha256": "a948c7ff6ee6e14f2aff3bf5595f0c1b350fc0578c4bd4a2a94daa3e1ed60c44"
+    },
+    {
+      "dataset": "annual-at-crash-aggregates",
+      "version": "1.1.1",
+      "sha256": "5c33ff980c4fa4da0993428f11c87c429e3bcc7e7ecd305d75fb4905a3d88dc3"
+    },
+    {
+      "dataset": "salt-lake-city-annual-at-crash-aggregates",
+      "version": "1.1.1",
+      "sha256": "e3c96a9095517b8938414e40e965c75fcc60ff3e119429ec73aa714ac96d92c4"
+    },
+    {
+      "dataset": "west-valley-city-annual-at-crash-aggregates",
+      "version": "1.1.1",
+      "sha256": "d48a16cd0259cb70efda65bd932ae004fb622acc2c768ec6d7916bb4187ba4c9"
+    },
+    {
+      "dataset": "bountiful-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "681f4e6f7315255c1c325f99ea19bd09b9acae10f18c13c5a53ffb6953e75a4d"
+    },
+    {
+      "dataset": "sandy-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "bfebaff430baaba093c626c846853728edfd1afb670433d97dabbc75f5b94c7b"
+    },
+    {
+      "dataset": "orem-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "299c64f976d899e855645af3c0e4b77bef647d9c782572975373b54017a55a18"
+    },
+    {
+      "dataset": "millcreek-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "ef3bb963f3893d895dc5389a54f02e30998e6170c335f0a5f0648b6ae182c238"
+    },
+    {
+      "dataset": "layton-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "0e851200dabbd7a5d948d612f829eebb4adda376a712913091c34af88d04fdc0"
+    },
+    {
+      "dataset": "south-salt-lake-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "6c3980139a4c5e466dc079dd45614af6c2bb1a8fc7e14693c4a21e1119e77215"
+    },
+    {
+      "dataset": "clearfield-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "d8493ad1d9dd90e0af294f7f9bfc4892ed7942ee95772d433abd5899f1336f15"
+    },
+    {
+      "dataset": "kearns-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "56fc638491811cb269fcdb8426f93a6c4b1104b89ebd9c4441e2dd84e8288307"
+    },
+    {
+      "dataset": "logan-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "4d9c4d8adacb2fc932dbe2bc0c1be5b4c506b409d26d62200b97c293894f2836"
+    },
+    {
+      "dataset": "south-jordan-annual-at-crash-aggregates",
+      "version": "1.1.0",
+      "sha256": "920cc6973b13622a46f831eecb1a021cbc214dbee02a08078530355e7b148e97"
+    },
+    {
+      "dataset": "safe-routes-to-school",
+      "version": "1.3.1",
+      "sha256": "ebe23b6bc175e91e74134249f8f8d0cf70ec78ba247a00f39c7a9ec5fd40c2d3"
+    },
+    {
+      "dataset": "provo-bicycle-traffic-stress",
+      "version": "1.1.0",
+      "sha256": "37e2e608fd66fea74e4489d5516ef7e968a96810268b67fabb0143b84e4fb8e1"
+    },
+    {
+      "dataset": "provo-crash-occurrence-time",
+      "version": "1.1.0",
+      "sha256": "792fed6e68c4687730ae1258b3b1092ea63bfc6d6590079d170af2a458910e9f"
+    },
+    {
+      "dataset": "provo-crash-street-membership",
+      "version": "1.1.0",
+      "sha256": "cd6c4d3e73a675caa4330148773ece10a1817a5beaa9afcf83ce96c452e307a5"
+    },
+    {
+      "dataset": "provo-intersections",
+      "version": "1.1.0",
+      "sha256": "55bb2313dab3e3999a88e5c3d4704f726830eb97a27edca90b58770f950ea93f"
     }
   ],
   "withdrawn": [],
@@ -222,6 +317,54 @@
     },
     {
       "dataset": "st-george-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "salt-lake-city-annual-at-crash-aggregates",
+      "version": "1.1.1"
+    },
+    {
+      "dataset": "west-valley-city-annual-at-crash-aggregates",
+      "version": "1.1.1"
+    },
+    {
+      "dataset": "logan-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "kearns-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "clearfield-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "layton-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "sandy-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "bountiful-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "millcreek-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "orem-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "south-jordan-annual-at-crash-aggregates",
+      "version": "1.1.0"
+    },
+    {
+      "dataset": "south-salt-lake-annual-at-crash-aggregates",
       "version": "1.1.0"
     }
   ]

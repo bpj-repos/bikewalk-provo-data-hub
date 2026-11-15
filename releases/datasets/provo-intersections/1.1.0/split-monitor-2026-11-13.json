@@ -1,0 +1,6906 @@
+{
+  "start": "2026-11-13T07:00:00",
+  "end": "2026-11-13T07:15:00",
+  "timezone": "America/Denver",
+  "sites": {
+    "2128": {
+      "status": "received",
+      "phases": []
+    },
+    "2129": {
+      "status": "received",
+      "phases": []
+    },
+    "6401": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6402": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 54
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 23
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 25
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 49
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 18
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 40
+            }
+          ]
+        }
+      ]
+    },
+    "6403": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 79
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 79
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        }
+      ]
+    },
+    "6404": {
+      "status": "unavailable"
+    },
+    "6405": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 23
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 47
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 23
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 39
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 50
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 19
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 43
+            }
+          ]
+        }
+      ]
+    },
+    "6406": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 101
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 31
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 101
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 31
+            }
+          ]
+        }
+      ]
+    },
+    "6407": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 92
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 40
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 92
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 40
+            }
+          ]
+        }
+      ]
+    },
+    "6408": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 76
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 36
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 76
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 36
+            }
+          ]
+        }
+      ]
+    },
+    "6409": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 79
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 33
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 18
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 81
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 33
+            }
+          ]
+        }
+      ]
+    },
+    "6410": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 25
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 71
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 12
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 36
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 76
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 12
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 36
+            }
+          ]
+        }
+      ]
+    },
+    "6411": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:00:22.4",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            },
+            {
+              "start": "2026-11-13T07:00:22.4",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 23
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:00:22.4",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            },
+            {
+              "start": "2026-11-13T07:00:22.4",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 47
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:00:22.4",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            },
+            {
+              "start": "2026-11-13T07:00:22.4",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:00:22.4",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            },
+            {
+              "start": "2026-11-13T07:00:22.4",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 18
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:00:22.4",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            },
+            {
+              "start": "2026-11-13T07:00:22.4",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 52
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:00:22.4",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            },
+            {
+              "start": "2026-11-13T07:00:22.4",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 18
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:00:22.4",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            },
+            {
+              "start": "2026-11-13T07:00:22.4",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 9,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:00:22.4",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            },
+            {
+              "start": "2026-11-13T07:00:22.4",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 12
+            }
+          ]
+        },
+        {
+          "phaseNumber": 10,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:00:22.4",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            },
+            {
+              "start": "2026-11-13T07:00:22.4",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 12
+            }
+          ]
+        }
+      ]
+    },
+    "6412": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 64
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 30
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 66
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 30
+            }
+          ]
+        }
+      ]
+    },
+    "6413": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 102
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 30
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 102
+            }
+          ]
+        }
+      ]
+    },
+    "6414": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 77
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 57
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        }
+      ]
+    },
+    "6415": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 56
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 25
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 54
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 22
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 31
+            }
+          ]
+        }
+      ]
+    },
+    "6416": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 97
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 97
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        }
+      ]
+    },
+    "6417": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 9,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 10,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6418": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 47
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 40
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 52
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 23
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 37
+            }
+          ]
+        }
+      ]
+    },
+    "6419": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6420": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6421": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6422": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6423": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6424": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6425": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 5,
+          "terminations": 20,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 19,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6426": {
+      "status": "unavailable"
+    },
+    "6427": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 19
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 77
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 36
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 19
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 77
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 36
+            }
+          ]
+        }
+      ]
+    },
+    "6429": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6431": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6432": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 17,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 16,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6433": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6434": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6435": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 18
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 39
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 55
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 37
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 50
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 25
+            }
+          ]
+        }
+      ]
+    },
+    "6436": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 30
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 34
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 48
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 44
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 48
+            }
+          ]
+        }
+      ]
+    },
+    "6438": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6439": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6440": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 14,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 20,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 15,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 20,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 15,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6441": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6442": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6443": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6444": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6445": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6446": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "7",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "7",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "7",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "7",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "7",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "7",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "7",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "7",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6447": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6448": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6449": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6450": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6451": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 14,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 14,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 14,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6452": {
+      "status": "unavailable"
+    },
+    "6453": {
+      "status": "unavailable"
+    },
+    "6454": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6455": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6456": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6457": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6458": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6459": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 16,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 17,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 16,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 17,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6460": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6461": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 20
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 87
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 25
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 87
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 25
+            }
+          ]
+        }
+      ]
+    },
+    "6462": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 98
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 34
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 98
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 34
+            }
+          ]
+        }
+      ]
+    },
+    "6463": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 97
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 97
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        }
+      ]
+    },
+    "6464": {
+      "status": "received",
+      "phases": []
+    },
+    "6465": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": 111
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": 39
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": 111
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": 39
+            }
+          ]
+        }
+      ]
+    },
+    "6466": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6467": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "21",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6468": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6601": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6602": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6603": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 21,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 22,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 21,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 22,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6604": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6605": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6606": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 38
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 28
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 38
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 28
+            }
+          ]
+        }
+      ]
+    },
+    "6607": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 14,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 14,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6608": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6609": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6610": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6611": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6612": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6613": {
+      "status": "received",
+      "phases": []
+    },
+    "6614": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6615": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6616": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 27
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 39
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 27
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 26
+            }
+          ]
+        }
+      ]
+    },
+    "6617": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 27
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 27
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 27
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 27
+            }
+          ]
+        }
+      ]
+    },
+    "6618": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6619": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6620": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 17,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 17,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 17,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 17,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6621": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 19,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 19,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 19,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 19,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6622": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6623": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6624": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 16,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 17,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 16,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 17,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 11,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6625": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6626": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6627": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 16,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 16,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6628": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 41
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 30
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 22
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 31
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 17
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 30
+            }
+          ]
+        }
+      ]
+    },
+    "6629": {
+      "status": "unavailable"
+    },
+    "6630": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 14,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 15,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 14,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 15,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6631": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6632": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6633": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 40
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 27
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 40
+            }
+          ]
+        },
+        {
+          "phaseNumber": 7,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 15
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 30
+            }
+          ]
+        }
+      ]
+    },
+    "6634": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 65
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 65
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 35
+            }
+          ]
+        }
+      ]
+    },
+    "6635": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 15
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 30
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 23
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "1",
+              "programmedSplitSeconds": 45
+            }
+          ]
+        }
+      ]
+    },
+    "6636": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 18,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 18,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 18,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 18,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6637": {
+      "status": "unavailable"
+    },
+    "6638": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6639": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6640": {
+      "status": "unavailable"
+    },
+    "6641": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 0,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6642": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 13,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 12,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 16,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6643": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6644": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 8,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6645": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6646": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 2,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6647": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 10,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6648": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6651": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 11,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6652": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 3,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6653": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 5,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "254",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6654": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 6,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 7,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6655": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 1,
+          "terminations": 4,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 2,
+          "terminations": 9,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 3,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 5,
+          "terminations": 1,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 11,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 12,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "6659": {
+      "status": "unavailable"
+    },
+    "6665": {
+      "status": "received",
+      "phases": [
+        {
+          "phaseNumber": 2,
+          "terminations": 18,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 4,
+          "terminations": 19,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 6,
+          "terminations": 18,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        },
+        {
+          "phaseNumber": 8,
+          "terminations": 19,
+          "plans": [
+            {
+              "start": "2026-11-13T07:00:00",
+              "end": "2026-11-13T07:15:00",
+              "planNumber": "0",
+              "programmedSplitSeconds": null
+            }
+          ]
+        }
+      ]
+    },
+    "9999": {
+      "status": "unavailable"
+    }
+  }
+}

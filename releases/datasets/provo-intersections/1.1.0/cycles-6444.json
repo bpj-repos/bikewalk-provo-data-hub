@@ -1,0 +1,3058 @@
+[
+  {
+    "siteId": "udot-atspm-6444",
+    "plan": "7",
+    "start": "2026-11-10T09:00:06.7",
+    "end": "2026-11-10T09:02:00.3",
+    "events": [
+      [
+        "2026-11-10T09:00:06.7",
+        2,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:06.7",
+        2,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:06.7",
+        2,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:00:06.7",
+        4,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:06.7",
+        4,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:06.7",
+        6,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:06.7",
+        6,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:06.7",
+        6,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:00:06.7",
+        8,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:06.7",
+        8,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:38.2",
+        2,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:00:42.2",
+        6,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:00:50.2",
+        2,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:50.2",
+        2,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:50.2",
+        2,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:00:50.2",
+        6,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:50.2",
+        6,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:50.2",
+        6,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:00:55",
+        2,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:55",
+        2,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:55",
+        6,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:55",
+        6,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:59.2",
+        2,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:59.2",
+        2,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:59.2",
+        6,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:00:59.2",
+        6,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:00.8",
+        2,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:00.8",
+        2,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:00.8",
+        4,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:00.8",
+        4,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:00.8",
+        6,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:00.8",
+        6,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:00.8",
+        8,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:00.8",
+        8,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:00.8",
+        8,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:01:05.7999999",
+        4,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:05.7999999",
+        4,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:07.7999999",
+        8,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:01:27.8",
+        8,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:27.8",
+        8,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:27.8",
+        8,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:01:34.8999999",
+        4,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:34.8999999",
+        4,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:34.8999999",
+        8,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:34.8999999",
+        8,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:38.2999999",
+        4,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:38.2999999",
+        4,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:38.2999999",
+        8,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:38.2999999",
+        8,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:40.7999999",
+        1,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:40.7999999",
+        4,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:40.7999999",
+        4,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:40.7999999",
+        6,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:40.7999999",
+        6,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:40.7999999",
+        6,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:01:40.7999999",
+        8,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:40.7999999",
+        8,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:45.7999999",
+        1,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:55.3999999",
+        1,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:01:58.7",
+        1,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ]
+    ]
+  },
+  {
+    "siteId": "udot-atspm-6444",
+    "plan": "7",
+    "start": "2026-11-10T09:02:00.3",
+    "end": "2026-11-10T09:03:48",
+    "events": [
+      [
+        "2026-11-10T09:02:00.3",
+        1,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:00.3",
+        2,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:00.3",
+        2,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:00.3",
+        2,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:02:38.2",
+        2,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:02:42.2",
+        6,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        2,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        2,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        2,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        2,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        2,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        6,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        6,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        6,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        6,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:50.2",
+        6,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:02:54.3999999",
+        2,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:54.3999999",
+        2,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:54.3999999",
+        6,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:54.3999999",
+        6,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:56",
+        2,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:56",
+        2,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:56",
+        3,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:56",
+        6,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:56",
+        6,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:56",
+        8,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:56",
+        8,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:02:56",
+        8,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:03:01",
+        3,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:03",
+        8,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:03:06.0999999",
+        3,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:09.0999999",
+        3,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:11",
+        3,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:11",
+        4,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:11",
+        4,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:16",
+        4,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:16",
+        4,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:23",
+        8,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:23",
+        8,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:23",
+        8,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:03:42.1",
+        4,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:42.1",
+        4,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:42.1",
+        8,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:42.1",
+        8,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:45.5",
+        4,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:45.5",
+        4,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:45.5",
+        8,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:45.5",
+        8,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ]
+    ]
+  },
+  {
+    "siteId": "udot-atspm-6444",
+    "plan": "7",
+    "start": "2026-11-10T09:03:48",
+    "end": "2026-11-10T09:05:48",
+    "events": [
+      [
+        "2026-11-10T09:03:48",
+        2,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:48",
+        2,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:48",
+        2,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:03:48",
+        4,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:48",
+        4,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:48",
+        6,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:48",
+        6,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:48",
+        6,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:03:48",
+        8,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:03:48",
+        8,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:38.2",
+        2,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:04:42.2",
+        6,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:04:50.2",
+        2,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:50.2",
+        2,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:50.2",
+        2,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:04:50.2",
+        6,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:50.2",
+        6,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:50.2",
+        6,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:04:55",
+        2,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:55",
+        2,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:55",
+        6,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:55",
+        6,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:59.2",
+        2,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:59.2",
+        2,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:59.2",
+        6,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:04:59.2",
+        6,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        2,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        2,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        4,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        4,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        4,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        6,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        6,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        8,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        8,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:00.8",
+        8,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:05:07.7999999",
+        4,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:05:07.7999999",
+        8,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:05:26.8",
+        4,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:26.8",
+        4,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:26.8",
+        4,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:05:27.8",
+        8,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:27.8",
+        8,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:27.8",
+        8,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:05:42.1",
+        4,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:42.1",
+        4,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:42.1",
+        8,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:42.1",
+        8,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:45.5",
+        4,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:45.5",
+        4,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:45.5",
+        8,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:45.5",
+        8,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ]
+    ]
+  },
+  {
+    "siteId": "udot-atspm-6444",
+    "plan": "7",
+    "start": "2026-11-10T09:05:48",
+    "end": "2026-11-10T09:07:45.3999999",
+    "events": [
+      [
+        "2026-11-10T09:05:48",
+        2,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:48",
+        2,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:48",
+        2,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:05:48",
+        4,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:48",
+        4,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:48",
+        6,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:48",
+        6,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:48",
+        6,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:05:48",
+        8,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:05:48",
+        8,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:38.2",
+        2,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:06:42.2",
+        6,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        2,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        2,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        2,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        2,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        2,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        6,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        6,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        6,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        6,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:50.2",
+        6,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:06:54.3999999",
+        2,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:54.3999999",
+        2,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:54.3999999",
+        6,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:54.3999999",
+        6,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:56",
+        2,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:56",
+        2,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:56",
+        4,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:56",
+        4,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:56",
+        6,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:56",
+        6,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:06:56",
+        7,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:01",
+        4,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:01",
+        4,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:01",
+        7,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:05.7999999",
+        7,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:08.8",
+        7,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:11",
+        7,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:11",
+        8,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:11",
+        8,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:11",
+        8,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:07:18.1999999",
+        8,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:07:38.2",
+        8,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:38.2",
+        8,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:38.2",
+        8,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:07:39.5",
+        4,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:39.5",
+        4,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:39.5",
+        8,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:39.5",
+        8,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:42.8999999",
+        4,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:42.8999999",
+        4,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:42.8999999",
+        8,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:42.8999999",
+        8,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ]
+    ]
+  },
+  {
+    "siteId": "udot-atspm-6444",
+    "plan": "7",
+    "start": "2026-11-10T09:07:45.3999999",
+    "end": "2026-11-10T09:10:03",
+    "events": [
+      [
+        "2026-11-10T09:07:45.3999999",
+        2,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:45.3999999",
+        2,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:45.3999999",
+        2,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:07:45.3999999",
+        4,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:45.3999999",
+        4,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:45.3999999",
+        6,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:45.3999999",
+        6,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:45.3999999",
+        6,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:07:45.3999999",
+        8,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:07:45.3999999",
+        8,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:38.2",
+        2,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:08:42.2",
+        6,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        2,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        2,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        2,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        2,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        2,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        6,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        6,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        6,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        6,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:50.2",
+        6,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:08:54.3999999",
+        2,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:54.3999999",
+        2,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:54.3999999",
+        6,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:54.3999999",
+        6,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:56",
+        2,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:56",
+        2,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:56",
+        3,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:56",
+        6,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:56",
+        6,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:56",
+        8,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:08:56",
+        8,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:01",
+        3,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:01",
+        8,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:01",
+        8,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:06.0999999",
+        3,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:09.0999999",
+        3,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:11",
+        3,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:11",
+        4,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:11",
+        4,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:16",
+        4,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:16",
+        4,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:41",
+        4,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:41",
+        4,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:41",
+        8,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:41",
+        8,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:44.3999999",
+        4,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:44.3999999",
+        4,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:44.3999999",
+        8,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:44.3999999",
+        8,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:46.8999999",
+        1,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:46.8999999",
+        4,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:46.8999999",
+        4,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:46.8999999",
+        6,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:46.8999999",
+        6,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:46.8999999",
+        6,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:09:46.8999999",
+        8,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:46.8999999",
+        8,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:51.8999999",
+        1,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:09:58.1",
+        1,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:01.3999999",
+        1,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ]
+    ]
+  },
+  {
+    "siteId": "udot-atspm-6444",
+    "plan": "7",
+    "start": "2026-11-10T09:10:03",
+    "end": "2026-11-10T09:11:53.7999999",
+    "events": [
+      [
+        "2026-11-10T09:10:03",
+        1,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:03",
+        2,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:03",
+        2,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:03",
+        2,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:10:38.2",
+        2,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:10:42.2",
+        6,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:10:50.2",
+        2,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:50.2",
+        2,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:50.2",
+        2,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:10:50.2",
+        6,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:50.2",
+        6,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:50.2",
+        6,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:10:55",
+        2,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:55",
+        2,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:55",
+        6,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:55",
+        6,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:59.2",
+        2,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:59.2",
+        2,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:59.2",
+        6,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:10:59.2",
+        6,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:00.8",
+        2,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:00.8",
+        2,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:00.8",
+        4,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:00.8",
+        4,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:00.8",
+        6,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:00.8",
+        6,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:00.8",
+        8,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:00.8",
+        8,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:00.8",
+        8,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:11:05.7999999",
+        4,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:05.7999999",
+        4,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:07.7999999",
+        8,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:11:27.8",
+        8,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:27.8",
+        8,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:27.8",
+        8,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:11:34.7999999",
+        4,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:34.7999999",
+        4,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:34.7999999",
+        8,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:34.7999999",
+        8,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:38.2",
+        4,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:38.2",
+        4,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:38.2",
+        8,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:38.2",
+        8,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:40.7",
+        1,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:40.7",
+        4,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:40.7",
+        4,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:40.7",
+        6,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:40.7",
+        6,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:40.7",
+        6,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:11:40.7",
+        8,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:40.7",
+        8,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:45.7",
+        1,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:48.8999999",
+        1,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:52.2",
+        1,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ]
+    ]
+  },
+  {
+    "siteId": "udot-atspm-6444",
+    "plan": "7",
+    "start": "2026-11-10T09:11:53.7999999",
+    "end": "2026-11-10T09:13:33.6",
+    "events": [
+      [
+        "2026-11-10T09:11:53.7999999",
+        1,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:53.7999999",
+        2,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:53.7999999",
+        2,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:11:53.7999999",
+        2,
+        "Protected",
+        21,
+        "begin walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:12:38.2",
+        2,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:12:42.2",
+        6,
+        "Protected",
+        22,
+        "begin pedestrian clearance",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        2,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        2,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        2,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        2,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        2,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        6,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        6,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        6,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        6,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:50.2",
+        6,
+        "Protected",
+        23,
+        "begin solid don't walk",
+        "pedestrianIntervals"
+      ],
+      [
+        "2026-11-10T09:12:54.3999999",
+        2,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:54.3999999",
+        2,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:54.3999999",
+        6,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:54.3999999",
+        6,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:56",
+        2,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:56",
+        2,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:56",
+        4,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:56",
+        4,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:56",
+        6,
+        "Permissive",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:56",
+        6,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:12:56",
+        7,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:01",
+        4,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:01",
+        4,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:01",
+        7,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:05.7999999",
+        7,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:08.8",
+        7,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:11",
+        7,
+        "Protected",
+        11,
+        "end red clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:11",
+        8,
+        "Permissive",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:11",
+        8,
+        "Protected",
+        1,
+        "begin green",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:16",
+        8,
+        "Permissive",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:16",
+        8,
+        "Protected",
+        3,
+        "minimum green complete",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:27.6999999",
+        4,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:27.6999999",
+        4,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:27.6999999",
+        8,
+        "Permissive",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:27.6999999",
+        8,
+        "Protected",
+        8,
+        "begin yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:31.1",
+        4,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:31.1",
+        4,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:31.1",
+        8,
+        "Permissive",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ],
+      [
+        "2026-11-10T09:13:31.1",
+        8,
+        "Protected",
+        9,
+        "end yellow clearance",
+        "cycleAllEvents"
+      ]
+    ]
+  }
+]

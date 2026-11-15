@@ -1,0 +1,229 @@
+{
+  "sources": {
+    "boundary": {
+      "sha256": "77dfbdbe73a0e9002caa560cd1623fdaaedd39d53429583cfe61786f7a21deea",
+      "origin": "https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/UtahMunicipalBoundaries/FeatureServer/0",
+      "version": "2026-11-15T16:50:06.588251+00:00",
+      "date": "2026-11-15"
+    },
+    "city-streets": {
+      "origin": "https://gispublicweb.provo.gov/arcgis/rest/services/Parcel/FeatureServer/0",
+      "count": 4510,
+      "editingInfo": null,
+      "query": {
+        "f": "json",
+        "where": "1=1",
+        "geometry": "-111.740975345457,40.1858086496701,-111.536868579085,40.3288165691652",
+        "geometryType": "esriGeometryEnvelope",
+        "inSR": 4326,
+        "spatialRel": "esriSpatialRelIntersects"
+      },
+      "sha256": "0959045d37dc6a547e7ff8ddc681430f770990d123d3b757bb3f056cf34d6d5d",
+      "version": "2026-11-15T16:50:06.588251+00:00",
+      "date": "2026-11-15",
+      "checkedAt": "2026-11-15T16:50:06.588251+00:00"
+    },
+    "crosswalks": {
+      "origin": "Provo crosswalk inventory",
+      "version": "2026-11-08",
+      "date": "2026-11-08",
+      "sha256": "f66f0b395abb760c7f4f74ded3da7e1420bddb01f1b4306c32d60026d3c647b2",
+      "count": 1164
+    },
+    "local": {
+      "sha256": "c800b5882bd1ad9158717ed025f63e9c6b7b5323d0086eb65e2f37b9044cd884",
+      "origin": "BikeWalk processing of pinned OSM input",
+      "version": "3.3.0",
+      "date": "2026-11-14"
+    },
+    "local-nodes": {
+      "sha256": "265d1ea6eb6f811ecbc61f2493669c66e23203cb250f09eab511fede3ced0c0a",
+      "origin": "BikeWalk processing of pinned OSM input",
+      "version": "3.3.0",
+      "date": "2026-11-14"
+    },
+    "network": {
+      "sha256": "1177d764f31f8445a151a532ca34fcbcb6fe418289ed898d6d70a716d93e8ce9",
+      "origin": "BikeWalk processing of pinned OSM input",
+      "version": "2026-11-14T21:20:41Z",
+      "date": "2026-11-14"
+    },
+    "nonsignalized": {
+      "origin": "UDOT AT intersection safety study",
+      "version": "2026-11-08",
+      "date": "2026-11-08",
+      "sha256": "5674a354d60a53d94abcb66f466b8a51c7da4f82b59c4450a5578df29076ce6f"
+    },
+    "published": {
+      "sha256": "058ac7de4ffa80192bd20aae54fe82155b800b0909eec4e37befea2337d9eac0",
+      "origin": "https://files.storage.bna.peopleforbikes.org/united%20states/utah/provo/26.04/neighborhood_ways.geojson",
+      "version": "26.04",
+      "date": "26.04"
+    },
+    "sgid-streets": {
+      "origin": "https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/UtahRoads/FeatureServer/0",
+      "count": 8916,
+      "editingInfo": {
+        "lastEditDate": 1794601171899,
+        "schemaLastEditDate": 1794598397753,
+        "dataLastEditDate": 1794598397753
+      },
+      "query": {
+        "f": "json",
+        "where": "1=1",
+        "geometry": "-111.740975345457,40.1858086496701,-111.536868579085,40.3288165691652",
+        "geometryType": "esriGeometryEnvelope",
+        "inSR": 4326,
+        "spatialRel": "esriSpatialRelIntersects"
+      },
+      "sha256": "4c00bc28a806eca372721599b79b01263ed6458c37450b2f30a399914575b6a0",
+      "version": "1794601171899",
+      "date": "2026-11-13",
+      "checkedAt": "2026-11-15T16:50:06.588251+00:00"
+    },
+    "signalized": {
+      "origin": "UDOT AT intersection safety study",
+      "version": "2026-07-18",
+      "date": "2026-07-18",
+      "sha256": "1f6cb81d08f4129923fa0eb103116c580b2a362d3c311fafb60c92d76b71ce3d"
+    },
+    "utah": {
+      "origin": "https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/Bikeways/FeatureServer/0",
+      "count": 3972,
+      "editingInfo": {
+        "lastEditDate": 1794586911155,
+        "schemaLastEditDate": 1794586911155,
+        "dataLastEditDate": 1794586911155
+      },
+      "query": {
+        "f": "json",
+        "where": "1=1",
+        "geometry": "-111.740975345457,40.1858086496701,-111.536868579085,40.3288165691652",
+        "geometryType": "esriGeometryEnvelope",
+        "inSR": 4326,
+        "spatialRel": "esriSpatialRelIntersects"
+      },
+      "sha256": "48a2eb7eadb90c6cfa0809745d0810eed4b490d9d87d7b80341fc1bcaf12ff4e",
+      "version": "1794586911155",
+      "date": "2026-11-13",
+      "checkedAt": "2026-11-15T16:50:06.588251+00:00"
+    }
+  },
+  "provenance": {
+    "modelReceipt": {
+      "method": "BikeWalk local Brokenspoke Analyzer 3.3.0",
+      "analyzer": "ghcr.io/peopleforbikes/brokenspoke-analyzer@sha256:0a0f64bbcef3f1263c14bd063d47a7f8ecbfa2e63eb9424752486ff3f364094d",
+      "analyzerVersion": "3.3.0",
+      "database": "ghcr.io/gui/pgrouting@sha256:8944935dc9f3d13374b4ec9ceb7cbacb075a050668f878df3caf908337481e55",
+      "speed": 25,
+      "publishedComparison": "https://files.storage.bna.peopleforbikes.org/united%20states/utah/provo/26.04/neighborhood_ways.geojson",
+      "publishedVersion": "26.04",
+      "comparisonSha256": "058ac7de4ffa80192bd20aae54fe82155b800b0909eec4e37befea2337d9eac0",
+      "utahBikeways": {
+        "origin": "https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/Bikeways/FeatureServer/0",
+        "count": 3972,
+        "editingInfo": {
+          "lastEditDate": 1794586911155,
+          "schemaLastEditDate": 1794586911155,
+          "dataLastEditDate": 1794586911155
+        },
+        "query": {
+          "f": "json",
+          "where": "1=1",
+          "geometry": "-111.740975345457,40.1858086496701,-111.536868579085,40.3288165691652",
+          "geometryType": "esriGeometryEnvelope",
+          "inSR": 4326,
+          "spatialRel": "esriSpatialRelIntersects"
+        },
+        "path": "utah.geojson",
+        "sha256": "48a2eb7eadb90c6cfa0809745d0810eed4b490d9d87d7b80341fc1bcaf12ff4e",
+        "version": "1794586911155",
+        "date": "2026-11-13",
+        "checkedAt": "2026-11-15T16:50:06.588251+00:00"
+      },
+      "modelInputs": {
+        "utah.osm.pbf": {
+          "path": "utah.osm.pbf",
+          "sha256": "d08ecd51b0f63557221733d96fa69c22b77e3cf17a5201d1c150bdd6c2735590",
+          "md5": "c493c746a09feb3d6b0e480ece0c00be",
+          "snapshot": "2026-11-14T21:20:41Z",
+          "origin": "https://download.geofabrik.de/north-america/us/utah-latest.osm.pbf",
+          "reused": false
+        },
+        "boundary.json": {
+          "path": "boundary.json",
+          "sha256": "77dfbdbe73a0e9002caa560cd1623fdaaedd39d53429583cfe61786f7a21deea",
+          "origin": "https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/UtahMunicipalBoundaries/FeatureServer/0",
+          "version": "2026-11-15T16:50:06.588251+00:00",
+          "date": "2026-11-15"
+        }
+      },
+      "pinnedResources": {
+        "neighborhood_ways.geojson": "c800b5882bd1ad9158717ed025f63e9c6b7b5323d0086eb65e2f37b9044cd884",
+        "neighborhood_ways_intersections.geojson": "265d1ea6eb6f811ecbc61f2493669c66e23203cb250f09eab511fede3ced0c0a",
+        "utah.geojson": "48a2eb7eadb90c6cfa0809745d0810eed4b490d9d87d7b80341fc1bcaf12ff4e"
+      }
+    },
+    "acquisition": {
+      "osm": {
+        "path": "utah.osm.pbf",
+        "sha256": "d08ecd51b0f63557221733d96fa69c22b77e3cf17a5201d1c150bdd6c2735590",
+        "md5": "c493c746a09feb3d6b0e480ece0c00be",
+        "snapshot": "2026-11-14T21:20:41Z",
+        "origin": "https://download.geofabrik.de/north-america/us/utah-latest.osm.pbf",
+        "reused": false
+      },
+      "sourceStatus": {
+        "city-streets": "captured",
+        "sgid-streets": "captured",
+        "utah": "captured",
+        "crosswalks": "retained_dated_snapshot",
+        "signalized": "retained_dated_snapshot",
+        "nonsignalized": "retained_dated_snapshot"
+      },
+      "availableAnalyzerVersion": "3.3.0",
+      "approvedAnalyzerVersion": "3.3.0"
+    },
+    "processing": {
+      "networkRecipe": {
+        "osm": "d08ecd51b0f63557221733d96fa69c22b77e3cf17a5201d1c150bdd6c2735590",
+        "boundary": "77dfbdbe73a0e9002caa560cd1623fdaaedd39d53429583cfe61786f7a21deea",
+        "analyzer": "ghcr.io/peopleforbikes/brokenspoke-analyzer@sha256:0a0f64bbcef3f1263c14bd063d47a7f8ecbfa2e63eb9424752486ff3f364094d",
+        "extractor": "0d7eef01fab15b98d48e4cee31d3f04126403ff81309e4adb07dddda063b9d9a",
+        "bufferMeters": 3000
+      },
+      "modelRecipe": {
+        "osm": "d08ecd51b0f63557221733d96fa69c22b77e3cf17a5201d1c150bdd6c2735590",
+        "boundary": "77dfbdbe73a0e9002caa560cd1623fdaaedd39d53429583cfe61786f7a21deea",
+        "analyzer": "ghcr.io/peopleforbikes/brokenspoke-analyzer@sha256:0a0f64bbcef3f1263c14bd063d47a7f8ecbfa2e63eb9424752486ff3f364094d",
+        "database": "ghcr.io/gui/pgrouting@sha256:8944935dc9f3d13374b4ec9ceb7cbacb075a050668f878df3caf908337481e55",
+        "speed": 25,
+        "runner": "dd3ba5fe5659965ad2f6298d904a6748a3056fc899fed2d39bf678f2e9ce04e4",
+        "modelScript": "ad8cf705d1b72d8a988b39420c339518dcdf93f07d2aac31dabe29a6f5573db6"
+      }
+    },
+    "refreshTools": {
+      "data-definitions/provo-bicycle-traffic-stress/dictionary.json": "551b203969eaac0d4d0867ca160f82fcd31ecbf2776aaa7677c2eef6780e0a06",
+      "data-definitions/provo-bicycle-traffic-stress/method.md": "78cd3fd66ec73f9732a5d166cc29c516515227088ed05934e9885cdd26743894",
+      "pipelines/traffic_stress/__init__.py": "5f69002bd73bbbadd0fc171d1680fe204d92eeefb939618c6bb0e766c64a011c",
+      "pipelines/traffic_stress/network.py": "49a3b03732d8a3fa66eb088468ec01262316a285f74c9bdc1dc16e931e2cb7a6",
+      "pipelines/traffic_stress/pilot.py": "1bc6d93496a135c371e6ba3f15bee1d355e2bde59e66de01cea2cb2669e7d4d7",
+      "pipelines/traffic_stress/refresh.py": "0d7eef01fab15b98d48e4cee31d3f04126403ff81309e4adb07dddda063b9d9a",
+      "scripts/build_demo_counts.py": "1dac67b7e196d2f7c7d1fcde647568f88ae66710cf210a88401b6f8e93236645",
+      "scripts/capture_traffic_stress.py": "1de79154d21dcc59ae86bc8a452982ff7b05c349779673f5ee37d28745517788",
+      "scripts/model_bicycle_stress.py": "ad8cf705d1b72d8a988b39420c339518dcdf93f07d2aac31dabe29a6f5573db6",
+      "scripts/prepare_traffic_stress.py": "23ebe0c28499a89604f48afa9aad2104d040e90977f37b77ad98f7e3d75fafb7",
+      "scripts/refresh_route_sources.py": "dd3ba5fe5659965ad2f6298d904a6748a3056fc899fed2d39bf678f2e9ce04e4",
+      "scripts/refresh_traffic_stress.py": "72cec78b5aec97264278dc12e1b07fa1c990bf5425d2e89a7506784c9103773a",
+      "scripts/route_stress.py": "6546cc2cb4c187b9c2ba92bd22474e1b2598d1a9808b86d6b5fefacee48aff52"
+    }
+  },
+  "tools": {
+    "pipelines/traffic_stress/__init__.py": "5f69002bd73bbbadd0fc171d1680fe204d92eeefb939618c6bb0e766c64a011c",
+    "pipelines/traffic_stress/network.py": "49a3b03732d8a3fa66eb088468ec01262316a285f74c9bdc1dc16e931e2cb7a6",
+    "pipelines/traffic_stress/pilot.py": "1bc6d93496a135c371e6ba3f15bee1d355e2bde59e66de01cea2cb2669e7d4d7",
+    "pipelines/traffic_stress/refresh.py": "0d7eef01fab15b98d48e4cee31d3f04126403ff81309e4adb07dddda063b9d9a"
+  },
+  "evidence": [],
+  "receiptSha256": "9e9517476dd43616c779526855d1b8bf3d01bdefcc7a3a3e22f620cef8f36400"
+}

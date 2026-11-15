@@ -54,10 +54,10 @@ def match(value, names):
     return None, None
 
 
-def pinned_details(snapshot):
+def pinned_details(snapshot, crash_pin=BASE):
     bundle = json.loads(gzip.decompress(snapshot.read_bytes()))
     layer, details = bundle['map'], bundle['details']
-    if layer.pop('dataset') != BASE or digest(compact(layer) + compact(details)) != BASE:
+    if layer.pop('dataset') != crash_pin or digest(compact(layer) + compact(details)) != crash_pin:
         raise ValueError('Wrong crash snapshot')
     ids = [f['properties']['id'] for f in layer['features'] if f['properties']['kind'] == 'crash']
     if len(set(ids)) != len(ids) or set(ids) != set(details):
@@ -65,11 +65,11 @@ def pinned_details(snapshot):
     return details
 
 
-def build(snapshot, output):
-    details = pinned_details(snapshot)
+def build(snapshot, output, crash_pin=BASE, road_version="1.0.0", road_pin=ROAD_PIN, version="1.0.0"):
+    details = pinned_details(snapshot, crash_pin)
     road = 'provo-bicycle-traffic-stress'
-    files = checked_package(ROOT/'releases/datasets'/road/'1.0.0',
-                            dict(dataset=road, version='1.0.0', sha256=ROAD_PIN))
+    files = checked_package(ROOT/'releases/datasets'/road/road_version,
+                            dict(dataset=road, version=road_version, sha256=road_pin))
     inventory = {normalize(f['properties']['name']) for f in json.loads(files['segments.geojson'])['features']
                  if f['properties'].get('name')}
     names = {}
@@ -123,8 +123,8 @@ def build(snapshot, output):
     coverage = dict(crashes=len(rows), statuses=dict(counts), explicitUniversityAvenue=len(baseline),
                     assignedUniversityAvenue=len(resolved), explicitOnly=sorted(baseline-resolved),
                     assignedOnly=sorted(resolved-baseline))
-    manifest = dict(name=DATASET, version='1.0.0', title='Provo crash street membership',
-                    crashDataset=BASE, streetInventoryManifest=ROAD_PIN,
+    manifest = dict(name=DATASET, version=version, title='Provo crash street membership',
+                    crashDataset=crash_pin, streetInventoryManifest=road_pin,
                     attribution='BikeWalk Provo, Utah Crash Data Portal, UDOT and OpenStreetMap contributors.',
                     reuse='Street directory derived from OpenStreetMap under ODbL 1.0. Credit the named sources.',
                     resources=[])
@@ -148,5 +148,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('snapshot', type=Path)
     parser.add_argument('output', type=Path)
+    parser.add_argument('--crash-pin', default=BASE)
+    parser.add_argument('--road-version', default='1.0.0')
+    parser.add_argument('--road-pin', default=ROAD_PIN)
+    parser.add_argument('--version', default='1.0.0')
     args = parser.parse_args()
-    print(json.dumps(build(args.snapshot, args.output), indent=2))
+    print(json.dumps(build(**vars(args)), indent=2))

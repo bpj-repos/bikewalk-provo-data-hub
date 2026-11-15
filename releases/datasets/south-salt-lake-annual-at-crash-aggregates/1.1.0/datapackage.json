@@ -1,0 +1,61 @@
+{
+  "name": "south-salt-lake-annual-at-crash-aggregates",
+  "version": "1.1.0",
+  "title": "South Salt Lake active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-08",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 13, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. South Salt Lake active transportation crashes by year, 1.1.0. https://bikewalk-provo-data-hub.vercel.app/datasets/south-salt-lake-annual-at-crash-aggregates/1.1.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual-from-2018",
+      "path": "annual-from-2018.csv",
+      "bytes": 237,
+      "hash": "sha256:599ecc47b9dc13d98bd18af7dfa4bfc7e1e87d398e3e304bede8998f31fa2462"
+    },
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 412,
+      "hash": "sha256:a239953fe6837d1c8cfecf2200df0d07dd82630e6a196ac84986c094805e0843"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 763,
+      "hash": "sha256:a4cebf7c8f1769d0c48ab44bb165dde0ad1e9ea23629fe4b8b5e1ecb735d09b5"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 379,
+      "hash": "sha256:b5a97a74955263baa4a9fe3ebe66f77025af582786fc8f44fbf8099c40fd6ed1"
+    }
+  ]
+}

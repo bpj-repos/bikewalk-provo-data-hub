@@ -1,0 +1,2 @@
+Provo approved school travel plans. UDOT supplies these data for informational use and requires field verification before project use. Source accuracy, completeness and usefulness are not warranted. These layers contain no legal school-zone speed limits or operating schedules.
+Current records take precedence within each school and layer. Reviewed archived Franklin and Timpanogos features can fill missing school layers. Timpanogos council minutes document school approval; coordinates are from the UDOT archive. Sort order is by layer-qualified provider ID.

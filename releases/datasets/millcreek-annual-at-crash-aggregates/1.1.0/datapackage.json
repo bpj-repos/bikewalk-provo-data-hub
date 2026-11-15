@@ -1,0 +1,61 @@
+{
+  "name": "millcreek-annual-at-crash-aggregates",
+  "version": "1.1.0",
+  "title": "Millcreek active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-21",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 13, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Millcreek active transportation crashes by year, 1.1.0. https://bikewalk-provo-data-hub.vercel.app/datasets/millcreek-annual-at-crash-aggregates/1.1.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual-from-2018",
+      "path": "annual-from-2018.csv",
+      "bytes": 240,
+      "hash": "sha256:a54e2ced0bc50645d300385c5aec0250077eb4813e427e874dd165bd3e9b880f"
+    },
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 416,
+      "hash": "sha256:8a6c02c6c64d725d9125ef0ee02e47f0e46fa93e4c81b0bcb54f4b33b1de033f"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 757,
+      "hash": "sha256:c24cd8356f075a5afc0c187653dc1c65b646979b468ccfbf250966aeb76b2c7f"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 373,
+      "hash": "sha256:86f05ffab391819ad9a35bee0b6dbd3c4e9d36fa4c2525f1b74caa27c8cd394b"
+    }
+  ]
+}

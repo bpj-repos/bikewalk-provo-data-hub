@@ -67,14 +67,14 @@ def derive(records):
                 status=status, evidence=evidence)
 
 
-def build(snapshot, output):
-    details = pinned_details(snapshot)
+def build(snapshot, output, crash_pin=BASE, version="1.0.0"):
+    details = pinned_details(snapshot, crash_pin)
     rows = {key: derive(value['records']) for key, value in sorted(details.items())}
     coverage = dict(crashes=len(rows), statuses=dict(Counter(row['status'] for row in rows.values())),
                     weekday=sum(r['localWeekday'] is not None for r in rows.values()),
                     minute=sum(r['localMinuteOfDay'] is not None for r in rows.values()))
-    manifest = dict(name=DATASET, version='1.0.0', title='Provo crash local occurrence time',
-                    crashDataset=BASE, timezone='America/Denver', weekdayConvention='ISO Monday=1 through Sunday=7',
+    manifest = dict(name=DATASET, version=version, title='Provo crash local occurrence time',
+                    crashDataset=crash_pin, timezone='America/Denver', weekdayConvention='ISO Monday=1 through Sunday=7',
                     attribution='BikeWalk Provo, Utah Crash Data Portal and UDOT.',
                     reuse='Credit the named sources when reusing these derived fields.', resources=[])
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -97,5 +97,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('snapshot', type=Path)
     parser.add_argument('output', type=Path)
+    parser.add_argument('--crash-pin', default=BASE)
+    parser.add_argument('--version', default='1.0.0')
     args = parser.parse_args()
-    print(json.dumps(build(args.snapshot, args.output), indent=2))
+    print(json.dumps(build(**vars(args)), indent=2))

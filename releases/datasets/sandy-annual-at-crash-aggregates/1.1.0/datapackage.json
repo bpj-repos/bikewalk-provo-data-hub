@@ -1,0 +1,61 @@
+{
+  "name": "sandy-annual-at-crash-aggregates",
+  "version": "1.1.0",
+  "title": "Sandy active transportation crashes by year",
+  "source": "https://highwaysafety.utah.gov/crash-data-and-statistics/",
+  "attribution": "Utah Crash Data Portal. Annual statistics prepared by BikeWalk Provo.",
+  "reuse": "Credit the Utah Crash Data Portal and BikeWalk Provo when reusing these annual statistics. These terms apply to the published aggregates only.",
+  "years": [
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "completeThrough": 2025,
+  "latestEvent": "2026-10-21",
+  "coverageNote": "Latest event in this selection. Full calendar year describes the reporting period. Cases can still be amended. Treat the partial year as provisional and exclude it from full-year trend comparisons.",
+  "dateGuidance": "https://sites.google.com/utah.gov/udot-safety-standards/training-tools-and-resources/crash-analysis-date-range-faq",
+  "sourceSelection": [
+    "Jan 01, 2010 to Nov 13, 2026 for 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+  ],
+  "citation": "BikeWalk Provo. Sandy active transportation crashes by year, 1.1.0. https://bikewalk-provo-data-hub.vercel.app/datasets/sandy-annual-at-crash-aggregates/1.1.0/datapackage.json",
+  "resources": [
+    {
+      "name": "annual-from-2018",
+      "path": "annual-from-2018.csv",
+      "bytes": 239,
+      "hash": "sha256:637a48a0ab3ce48e13225c14094981588a0d46f4679115231f7eafeb9b4dce5d"
+    },
+    {
+      "name": "annual",
+      "path": "annual.csv",
+      "bytes": 415,
+      "hash": "sha256:eb8e23909ce8905fa0ae88f0bdedee4c2dfc89405de48a017e3710fa4a1e9277"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 753,
+      "hash": "sha256:8f689a35f8f7254c67a6142a9525644d91f753810e1e7b0fd24202d5c529a5f1"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 369,
+      "hash": "sha256:ade2612632928bb40d72f0ac6c18ad7bc334debc1fee8dfdb4f69c109ec0c879"
+    }
+  ]
+}

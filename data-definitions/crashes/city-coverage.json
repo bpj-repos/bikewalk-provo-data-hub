@@ -2,20 +2,20 @@
   {
     "city": "Salt Lake City",
     "portal": {
-      "count": 3961,
+      "count": 3965,
       "years": "2010–2026",
-      "latest": "2026-10-15"
+      "latest": "2026-10-21"
     },
     "udot": {
-      "count": 2025,
+      "count": 2027,
       "years": "2018–2026",
-      "latest": "2026-11-07"
+      "latest": "2026-11-09"
     },
     "dataset": {
       "id": "salt-lake-city-annual-at-crash-aggregates",
-      "version": "1.1.0",
-      "sha256": "862010c5b0d4d7ba896085be7916f41458833439e39df957fcfb08e99bd45c7e",
-      "zip": "releases/datasets/salt-lake-city-annual-at-crash-aggregates/1.1.0/salt-lake-city-annual-at-crash-aggregates-1.1.0.zip"
+      "version": "1.1.1",
+      "sha256": "e3c96a9095517b8938414e40e965c75fcc60ff3e119429ec73aa714ac96d92c4",
+      "zip": "releases/datasets/salt-lake-city-annual-at-crash-aggregates/1.1.1/salt-lake-city-annual-at-crash-aggregates-1.1.1.zip"
     }
   },
   {
@@ -40,47 +40,47 @@
   {
     "city": "West Valley City",
     "portal": {
-      "count": 1611,
+      "count": 1613,
       "years": "2010–2026",
       "latest": "2026-10-20"
     },
     "udot": {
-      "count": 835,
+      "count": 838,
       "years": "2018–2026",
-      "latest": "2026-10-28"
+      "latest": "2026-11-08"
     },
     "dataset": {
       "id": "west-valley-city-annual-at-crash-aggregates",
-      "version": "1.1.0",
-      "sha256": "325981326759d31414d6a5bc6ebc84a806b975669fbaa39330d414e9d27b3d6d",
-      "zip": "releases/datasets/west-valley-city-annual-at-crash-aggregates/1.1.0/west-valley-city-annual-at-crash-aggregates-1.1.0.zip"
+      "version": "1.1.1",
+      "sha256": "d48a16cd0259cb70efda65bd932ae004fb622acc2c768ec6d7916bb4187ba4c9",
+      "zip": "releases/datasets/west-valley-city-annual-at-crash-aggregates/1.1.1/west-valley-city-annual-at-crash-aggregates-1.1.1.zip"
     }
   },
   {
     "city": "Logan",
     "portal": {
-      "count": 679,
+      "count": 680,
       "years": "2010–2026",
-      "latest": "2026-10-03"
+      "latest": "2026-10-08"
     },
     "udot": {
-      "count": 380,
+      "count": 382,
       "years": "2018–2026",
-      "latest": "2026-11-06"
+      "latest": "2026-11-11"
     },
     "dataset": {
       "id": "logan-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "a6d1f97bf5d49fc530f4f3c9e4a68ee81eb77ba32c844100fdac5459563633bb",
-      "zip": "releases/datasets/logan-annual-at-crash-aggregates/1.0.0/logan-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "4d9c4d8adacb2fc932dbe2bc0c1be5b4c506b409d26d62200b97c293894f2836",
+      "zip": "releases/datasets/logan-annual-at-crash-aggregates/1.1.0/logan-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
     "city": "Provo",
     "portal": {
-      "count": 1332,
+      "count": 1335,
       "years": "2010–2026",
-      "latest": "2026-09-30"
+      "latest": "2026-10-21"
     },
     "udot": {
       "count": 693,
@@ -89,9 +89,9 @@
     },
     "dataset": {
       "id": "provo-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "8e1d589ff794fb88e9a36119ee146ec27c8d97a2eea5c319cdfef331ae220d18",
-      "zip": "releases/datasets/provo-annual-at-crash-aggregates/1.0.0/provo-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.1",
+      "sha256": "a948c7ff6ee6e14f2aff3bf5595f0c1b350fc0578c4bd4a2a94daa3e1ed60c44",
+      "zip": "releases/datasets/provo-annual-at-crash-aggregates/1.1.1/provo-annual-at-crash-aggregates-1.1.1.zip"
     }
   },
   {
@@ -102,9 +102,9 @@
       "latest": "2026-09-30"
     },
     "udot": {
-      "count": 743,
+      "count": 744,
       "years": "2018–2026",
-      "latest": "2026-10-25"
+      "latest": "2026-11-11"
     },
     "dataset": {
       "id": "ogden-annual-at-crash-aggregates",
@@ -116,9 +116,9 @@
   {
     "city": "Kearns",
     "portal": {
-      "count": 323,
+      "count": 324,
       "years": "2010–2026",
-      "latest": "2026-09-29"
+      "latest": "2026-10-17"
     },
     "udot": {
       "count": 160,
@@ -127,17 +127,17 @@
     },
     "dataset": {
       "id": "kearns-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "0ed5c22244923272f55f8fe34c3278ff74aef80044c7faa4e112252bb902c7b3",
-      "zip": "releases/datasets/kearns-annual-at-crash-aggregates/1.0.0/kearns-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "56fc638491811cb269fcdb8426f93a6c4b1104b89ebd9c4441e2dd84e8288307",
+      "zip": "releases/datasets/kearns-annual-at-crash-aggregates/1.1.0/kearns-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
     "city": "Clearfield",
     "portal": {
-      "count": 365,
+      "count": 366,
       "years": "2010–2026",
-      "latest": "2026-10-06"
+      "latest": "2026-10-18"
     },
     "udot": {
       "count": 198,
@@ -146,9 +146,9 @@
     },
     "dataset": {
       "id": "clearfield-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "ad5e3a70f5c455f782382bd22abbf5111d66a92704cc62b4bbc8b5da04e1f580",
-      "zip": "releases/datasets/clearfield-annual-at-crash-aggregates/1.0.0/clearfield-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "d8493ad1d9dd90e0af294f7f9bfc4892ed7942ee95772d433abd5899f1336f15",
+      "zip": "releases/datasets/clearfield-annual-at-crash-aggregates/1.1.0/clearfield-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
@@ -211,28 +211,28 @@
   {
     "city": "Layton",
     "portal": {
-      "count": 649,
+      "count": 651,
       "years": "2010–2026",
-      "latest": "2026-10-04"
+      "latest": "2026-10-20"
     },
     "udot": {
-      "count": 381,
+      "count": 382,
       "years": "2018–2026",
-      "latest": "2026-10-26"
+      "latest": "2026-11-04"
     },
     "dataset": {
       "id": "layton-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "857d1030f3d1691f3cc156409338632da468fc3d9512b2a5c22545676df77279",
-      "zip": "releases/datasets/layton-annual-at-crash-aggregates/1.0.0/layton-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "0e851200dabbd7a5d948d612f829eebb4adda376a712913091c34af88d04fdc0",
+      "zip": "releases/datasets/layton-annual-at-crash-aggregates/1.1.0/layton-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
     "city": "Sandy",
     "portal": {
-      "count": 766,
+      "count": 769,
       "years": "2010–2026",
-      "latest": "2026-10-06"
+      "latest": "2026-10-21"
     },
     "udot": {
       "count": 407,
@@ -241,47 +241,47 @@
     },
     "dataset": {
       "id": "sandy-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "6bc5eab06c74c67f71c481584af07504c1c3e03bde729e92a0b5e5ad58ffcebf",
-      "zip": "releases/datasets/sandy-annual-at-crash-aggregates/1.0.0/sandy-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "bfebaff430baaba093c626c846853728edfd1afb670433d97dabbc75f5b94c7b",
+      "zip": "releases/datasets/sandy-annual-at-crash-aggregates/1.1.0/sandy-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
     "city": "Bountiful",
     "portal": {
-      "count": 317,
+      "count": 320,
       "years": "2010–2026",
-      "latest": "2026-09-14"
+      "latest": "2026-10-22"
     },
     "udot": {
-      "count": 156,
+      "count": 157,
       "years": "2018–2026",
-      "latest": "2026-10-22"
+      "latest": "2026-11-11"
     },
     "dataset": {
       "id": "bountiful-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "9a4edbd053458b11cfedbf11ec5e55a45c894e36b29556060503dbc18e43bb0b",
-      "zip": "releases/datasets/bountiful-annual-at-crash-aggregates/1.0.0/bountiful-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "681f4e6f7315255c1c325f99ea19bd09b9acae10f18c13c5a53ffb6953e75a4d",
+      "zip": "releases/datasets/bountiful-annual-at-crash-aggregates/1.1.0/bountiful-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
     "city": "Millcreek",
     "portal": {
-      "count": 680,
+      "count": 684,
       "years": "2010–2026",
-      "latest": "2026-10-16"
+      "latest": "2026-10-21"
     },
     "udot": {
-      "count": 350,
+      "count": 352,
       "years": "2018–2026",
-      "latest": "2026-10-30"
+      "latest": "2026-11-09"
     },
     "dataset": {
       "id": "millcreek-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "efbf45ee76e41285469dfc551a6b530d426842f344e59c0c09d57dcba73ab8d5",
-      "zip": "releases/datasets/millcreek-annual-at-crash-aggregates/1.0.0/millcreek-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "ef3bb963f3893d895dc5389a54f02e30998e6170c335f0a5f0648b6ae182c238",
+      "zip": "releases/datasets/millcreek-annual-at-crash-aggregates/1.1.0/millcreek-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
@@ -306,20 +306,20 @@
   {
     "city": "Orem",
     "portal": {
-      "count": 843,
+      "count": 844,
       "years": "2010–2026",
       "latest": "2026-10-26"
     },
     "udot": {
-      "count": 477,
+      "count": 479,
       "years": "2018–2026",
-      "latest": "2026-11-02"
+      "latest": "2026-11-11"
     },
     "dataset": {
       "id": "orem-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "f0f3611a96e7632aa1388299f2f214a9783ec328e6406596276c5d7e161fbc3c",
-      "zip": "releases/datasets/orem-annual-at-crash-aggregates/1.0.0/orem-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "299c64f976d899e855645af3c0e4b77bef647d9c782572975373b54017a55a18",
+      "zip": "releases/datasets/orem-annual-at-crash-aggregates/1.1.0/orem-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
@@ -368,9 +368,9 @@
       "latest": "2026-09-22"
     },
     "udot": {
-      "count": 139,
+      "count": 141,
       "years": "2018–2026",
-      "latest": "2026-11-06"
+      "latest": "2026-11-10"
     },
     "dataset": {
       "id": "spanish-fork-annual-at-crash-aggregates",
@@ -382,9 +382,9 @@
   {
     "city": "South Jordan",
     "portal": {
-      "count": 381,
+      "count": 382,
       "years": "2010–2026",
-      "latest": "2026-10-06"
+      "latest": "2026-10-07"
     },
     "udot": {
       "count": 227,
@@ -393,17 +393,17 @@
     },
     "dataset": {
       "id": "south-jordan-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "fcebe4f5484cb5fc83808f2bcb3e58367ed51c0a7964096e870b1a7ae191c1e7",
-      "zip": "releases/datasets/south-jordan-annual-at-crash-aggregates/1.0.0/south-jordan-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "920cc6973b13622a46f831eecb1a021cbc214dbee02a08078530355e7b148e97",
+      "zip": "releases/datasets/south-jordan-annual-at-crash-aggregates/1.1.0/south-jordan-annual-at-crash-aggregates-1.1.0.zip"
     }
   },
   {
     "city": "South Salt Lake",
     "portal": {
-      "count": 588,
+      "count": 590,
       "years": "2010–2026",
-      "latest": "2026-09-28"
+      "latest": "2026-10-08"
     },
     "udot": {
       "count": 303,
@@ -412,9 +412,9 @@
     },
     "dataset": {
       "id": "south-salt-lake-annual-at-crash-aggregates",
-      "version": "1.0.0",
-      "sha256": "265d929ce120ae5558ef22687ceb7bd6d173f79f0bfe80085e68123f9e075721",
-      "zip": "releases/datasets/south-salt-lake-annual-at-crash-aggregates/1.0.0/south-salt-lake-annual-at-crash-aggregates-1.0.0.zip"
+      "version": "1.1.0",
+      "sha256": "6c3980139a4c5e466dc079dd45614af6c2bb1a8fc7e14693c4a21e1119e77215",
+      "zip": "releases/datasets/south-salt-lake-annual-at-crash-aggregates/1.1.0/south-salt-lake-annual-at-crash-aggregates-1.1.0.zip"
     }
   }
 ]

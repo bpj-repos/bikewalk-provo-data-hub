@@ -1,8 +1,7 @@
 {
   "retired": [
     "provo-active-transportation-fatal-crashes",
-    "annual-motor-vehicle-crashes-without-nonmotorists",
-    "provo-active-transportation-incident-map"
+    "annual-motor-vehicle-crashes-without-nonmotorists"
   ],
   "approved": [
     {
@@ -299,6 +298,11 @@
       "dataset": "provo-intersections",
       "version": "1.1.0",
       "sha256": "55bb2313dab3e3999a88e5c3d4704f726830eb97a27edca90b58770f950ea93f"
+    },
+    {
+      "dataset": "provo-active-transportation-incident-map",
+      "version": "1.1.0",
+      "sha256": "f738f43280b83c9f2e27e681c0e445dd7942082bd83a692f5ef6b61fa75e7241"
     }
   ],
   "withdrawn": [],

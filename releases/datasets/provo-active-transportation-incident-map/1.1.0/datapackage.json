@@ -1,0 +1,82 @@
+{
+  "name": "provo-active-transportation-incident-map",
+  "version": "1.1.0",
+  "title": "Reviewed active transportation incident map in Provo",
+  "records": 1195,
+  "coverage": {
+    "fromMonth": "2018-01",
+    "toMonth": "2026-09",
+    "selected": 1199,
+    "unmapped": 4
+  },
+  "sourceRelease": "provo-active-incidents-20261102-normalized-v1",
+  "sourceCoverage": [
+    {
+      "sourceKey": "udot-crashes",
+      "snapshotId": "udot-crashes-1cc5d0d7a69d4137",
+      "checkedAt": "2026-11-03T02:41:46.120642Z",
+      "sourceCurrentThrough": "2025-08-05T21:40:48Z",
+      "records": 999,
+      "warnings": [
+        "The service has no layer for 2026; newest discovered layer is 2025."
+      ]
+    },
+    {
+      "sourceKey": "provo-police-incidents",
+      "snapshotId": "d012deb982ce8f468f2e3b3cf09684886dc85f5883a2ef05c5f83fbbe4d3a2a8",
+      "checkedAt": "2026-08-13T03:23:30.330675Z",
+      "sourceCurrentThrough": "2026-07-30T04:21:33Z",
+      "records": 76,
+      "warnings": []
+    },
+    {
+      "sourceKey": "utah-crash-portal",
+      "snapshotId": "6c765763ae3af02d6a1a97839d88a86740ec267ad0620740abfa34a031496098",
+      "checkedAt": "2026-11-03T03:20:20.392061Z",
+      "sourceCurrentThrough": "2026-09-30T16:07:23-06:00",
+      "records": 680,
+      "warnings": []
+    }
+  ],
+  "preparation": "Historical map with structured bike-lane parking likelihood assessment.",
+  "attribution": "Provo Police Department, UDOT and Utah Crash Data Portal. Prepared by BikeWalk Provo.",
+  "reuse": "Existing source-specific publication permissions apply. This map extract does not grant rights beyond those source terms; it is not covered by the counts CC0 decision.",
+  "citation": "BikeWalk Provo. Reviewed active transportation incident map in Provo, 1.1.0. https://bikewalk-provo-data-hub.vercel.app/datasets/provo-active-transportation-incident-map/1.1.0/datapackage.json",
+  "resources": [
+    {
+      "name": "incidents",
+      "path": "incidents.geojson",
+      "bytes": 17313610,
+      "hash": "sha256:7b9a32b1ce34bcc2419baa90d27806863fd2e1410068348c63895e14ae3387fa"
+    },
+    {
+      "name": "map-manifest",
+      "path": "map-manifest.json",
+      "bytes": 2461,
+      "hash": "sha256:5d9709b0703a8b15dad430af06e0fc31b78b900baa9a97902654f30ed2ccafbb"
+    },
+    {
+      "name": "dictionary",
+      "path": "dictionary.json",
+      "bytes": 2681,
+      "hash": "sha256:727f8d02fd0c78961f28ad7e570be904a8ebe07c2ee0f40148dfc2b66c222010"
+    },
+    {
+      "name": "method",
+      "path": "method.txt",
+      "bytes": 2788,
+      "hash": "sha256:6187a9e6000fdad25f14184225cf4de97c0a382d4fab23ffafc0474209ad6b16"
+    }
+  ],
+  "parkingCoverage": {
+    "mappedGroups": 1195,
+    "categories": {
+      "stronger_lead": 1,
+      "possible_lead": 0,
+      "weak_lead": 19,
+      "no_specific_signal": 646,
+      "insufficient_data": 529
+    }
+  },
+  "baseManifestSha256": "e9fdbe0101380792235c2ff1c43bccf0645c220730cf6d0ab12e8f403ea9df8e"
+}

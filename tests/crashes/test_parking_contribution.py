@@ -2,7 +2,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from danger_zones.parking_contribution import FIELD, RULE, apply_reviews, screen
+from danger_zones.parking_contribution import FIELD, RULE, apply_reviews, screen, structured_evidence
 from scripts.bike_lane_parking import project
 
 
@@ -33,14 +33,11 @@ class ParkingTests(unittest.TestCase):
         group = {'id': 'g', 'observations': [{'sourceKey': 'udot-crashes', 'sourceRecordId': '1'}], 'enrichment': {}}
         review = {'case': 'state:1', 'links': ['state:1'], 'receipt': 'example', 'rule': RULE, 'value': 'documented'}
         apply_reviews([group], {'g': review})
-        layer = {'features': [{'properties': {'details': {'UDOT: CRASH_ID': 1}}}]}
-        self.assertEqual(project(layer, [group])['reviewedGroups'], 1)
-        layer['features'] *= 2
-        self.assertEqual(project(layer, [group])['categories']['unknown'], 2)
+        self.assertEqual(group['enrichment']['parkingReview']['value'], 'documented')
         group['observations'].append({'sourceKey': 'provo-police-incidents', 'sourceRecordId': 'X'})
         apply_reviews([group], {'g': review})
         self.assertEqual(group['enrichment'][FIELD], 'unknown')
-        self.assertEqual(project({'features': layer['features'][:1]}, [group])['reviewedGroups'], 0)
+        self.assertNotIn('parkingReview', group['enrichment'])
 
     def test_original_and_review_survive_replay_and_changed_bytes_are_rejected(self):
         from danger_zones.parking_contribution import import_reviews
@@ -65,3 +62,20 @@ class ParkingTests(unittest.TestCase):
             report.write_text('Corrected report')
             with self.assertRaisesRegex(ValueError, 'changed'):
                 import_reviews(path, state, root, {'records': [group]}, retain_input, read_json)
+
+    def test_structured_tiers_and_historical_projection(self):
+        for location, maneuver, circumstance, expected in [
+            ('Separated Bike Lane', 'Straight Ahead', 'Improper Parking/Stopping', 'stronger_lead'),
+            ('On-Street Bike Lane', 'Stopped in Traffic Lane', 'None', 'possible_lead'),
+            ('Sidewalk', 'Parked', 'None', 'weak_lead'),
+            ('Sidewalk', 'Stopped in Traffic Lane', 'None', 'no_specific_signal'),
+            ('On-Street Bike Lane', 'Straight Ahead', 'None', 'no_specific_signal'),
+            ('', 'Unknown', 'Unknown', 'insufficient_data'),
+        ]:
+            details = {'Portal: City_Geo': 'Provo', 'Portal: Person 1': 'personType label = Pedalcyclist · personNmLocation label = ' + location,
+                       'Portal: Person 2': 'personType label = Driver · personDriverContribCircumstances2 label = ' + circumstance,
+                       'Portal: Vehicle 1': 'vehicleManeuver label = ' + maneuver}
+            feature = {'properties': {'details': details}}
+            self.assertEqual(project({'features': [feature]})['categories'][expected], 1)
+        self.assertEqual(structured_evidence('udot-crashes', {'MANNER_COLLISION_DESC': 'Parked Vehicle'})[0], 'weak_lead')
+        self.assertEqual(structured_evidence('provo-police-incidents', {})[0], 'insufficient_data')

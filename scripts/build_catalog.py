@@ -64,14 +64,12 @@ def validate_parking_coverage(files):
     coverage = package['parkingCoverage']
     features = json.loads(files['incidents.geojson'])['features']
     counts = Counter(f['properties']['bikeLaneParkingContribution'] for f in features)
-    allowed = {'documented', 'possible', 'ruled_out', 'unknown'}
-    reviewed = coverage['reviewedGroups']
+    allowed = {'stronger_lead', 'possible_lead', 'weak_lead', 'no_specific_signal', 'insufficient_data'}
     if (set(coverage['categories']) != allowed or set(counts) - allowed
             or any(counts[k] != coverage['categories'][k] for k in allowed)
             or coverage['mappedGroups'] != len(features) or len(features) != 1195
-            or coverage != json.loads(files['map-manifest.json'])['parkingCoverage']
-            or not 0 < len(features) - counts['unknown'] <= reviewed <= len(features)):
-        raise ValueError('Parking release requires reconciled coverage and a reviewed, non-unknown public case')
+            or coverage != json.loads(files['map-manifest.json'])['parkingCoverage']):
+        raise ValueError('Parking likelihood release category totals differ from its mapped features')
 
 
 def build(repo, output, approvals=None):

@@ -32,4 +32,4 @@ Five files total 17,262,595 bytes including the manifest. Ten thousand full down
 
 Deployment and final production verification are recorded in `completion.md`: hub dpl_A7PATyGdRNAdiPdUEVzuQVKPWSmY and Projects dpl_AtcJ8ZDGZGs95BaVALkuavmoxFzV. All 80 hub files, unchanged map bytes, anonymous adoption, clean-path restore and 24 real-data responsive browser cases passed. Both exact-commit CI workflows passed. The release is live.
 
-The additive 1.1.0 [bike-lane parking contribution candidate](bike-lane-parking-contribution.md) uses the same 1,195 mapped groups. Publication awaits a reviewed, informative original report for a mapped case.
+Version 1.1.0 adds the structured [bike-lane parking contribution assessment](bike-lane-parking-contribution.md) to the existing 1,195 mapped groups.

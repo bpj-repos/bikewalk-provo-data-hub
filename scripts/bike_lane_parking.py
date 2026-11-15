@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 
-from danger_zones.parking_contribution import FIELD, RULE, VALUES, case_index, case_keys, screen
+from danger_zones.parking_contribution import FIELD, RULE, LEVELS, structured_evidence, case_index, case_keys, screen
 from danger_zones.util import sha256_file
 from scripts.build_catalog import checked_package
 from scripts.prepare_incident_map_release import NAME, encoded, sha
@@ -14,13 +14,16 @@ ROOT = Path(__file__).resolve().parents[1]
 POINTER = ROOT / 'private/active/crashes/collection/datastores/combined-incidents.json'
 BASE = ROOT / 'releases/datasets' / NAME / '1.0.0'
 BASE_PIN = 'e9fdbe0101380792235c2ff1c43bccf0645c220730cf6d0ab12e8f403ea9df8e'
-METHOD = """Bike-lane parking contribution, rule bike-lane-parking-v1.
-Documented: an original report, diagram or supplement establishes both stationary motor-vehicle occupancy
-of a designated bike lane for parking, standing or loading and its contribution to the crash sequence.
-Contact with the vehicle is optional. Possible: case-specific evidence suggests the mechanism with a fact unresolved.
-Ruled_out: reviewed evidence affirmatively excludes it. Unknown: missing, silent, ambiguous or unlinked evidence.
-Ordinary traffic stops and doors opened from an adjacent bay alone do not qualify. This field does not assess legality.
-Counts describe mapped groups, which can overlap in event identity. Only documented findings count as documented cases.
+METHOD = """Structured bike-lane parking contribution assessment, version 1.
+Stronger lead: the same crash records an AT participant in a designated bike lane plus improper
+parking/stopping or a parked vehicle. Possible lead: a bike-lane participant plus a parking maneuver
+or traffic-lane stop, or driver evasive action plus improper parking or a parked vehicle.
+Weak lead: a parked vehicle, parking maneuver, or improper parking without the stronger combinations.
+No specific signal: a portal record has an identified AT participant and a known vehicle maneuver,
+without a qualifying combination. Insufficient data: the available fields cannot support that screen.
+A UDOT parked-vehicle collision alone is a weak lead. Ordinary traffic stops, vehicle branding, or a
+bike-lane location alone do not qualify. Code each source separately. Tier counts are groups, not
+calibrated probabilities or established causes. The AT person's lane does not locate the motor vehicle.
 """
 
 
@@ -55,44 +58,46 @@ def screen_case(records, case, paths):
             'value': 'unknown', 'reviewer': '', 'rationale': ''}
 
 
-def feature_keys(feature):
-    details = feature['properties']['details']
-    fields = {'Police: Case number': 'police:', 'UDOT: CRASH_ID': 'state:', 'Portal: Crash_ID': 'state:'}
-    return {prefix + str(details[k]) for k, prefix in fields.items() if details.get(k)}
-
-
-def project(layer, records):
-    index = case_index(records)
-    keys = [feature_keys(f) for f in layer['features']]
-    frequency = Counter(k for feature in keys for k in feature)
-    reviewed = 0
-    counts = dict.fromkeys(VALUES, 0)
-    for feature, aliases in zip(layer['features'], keys):
-        value = 'unknown'
-        groups = {g['id']: g for k in aliases for g in index.get(k, [])}
-        if len(groups) == 1:
-            enrichment = next(iter(groups.values()))['enrichment']
-            assessment = enrichment.get('parkingReview')
-            if assessment and assessment['case'] in aliases and frequency[assessment['case']] == 1:
-                value = enrichment[FIELD]
-                reviewed += 1
-        counts[value] += 1
-        feature['properties'][FIELD] = value
-    return {'mappedGroups': len(keys), 'reviewedGroups': reviewed, 'categories': counts}
+def project(layer):
+    """Read each historical feature's own frozen fields, independent of later matching."""
+    counts = dict.fromkeys(LEVELS, 0)
+    for feature in layer['features']:
+        details = feature['properties']['details']
+        portal = {'crash': {}, 'vehicles': [], 'persons': []}
+        for key, value in details.items():
+            if not key.startswith('Portal: '):
+                continue
+            name = key.removeprefix('Portal: ')
+            kind, _, number = name.partition(' ')
+            if kind in ('Person', 'Vehicle') and number.isdecimal():
+                row = {}
+                for cell in value.split(' · '):
+                    field, sep, label = cell.partition(' = ')
+                    if sep:
+                        row[field.replace(' label', '_label')] = label
+                portal['persons' if kind == 'Person' else 'vehicles'].append(row)
+            else:
+                portal['crash'][name] = value
+        udot = {k.removeprefix('UDOT: '): v for k, v in details.items() if k.startswith('UDOT: ')}
+        levels = [structured_evidence('utah-crash-portal', portal)[0], structured_evidence('udot-crashes', udot)[0]]
+        level = min(levels, key=LEVELS.index)
+        counts[level] += 1
+        feature['properties'][FIELD] = level
+    return {'mappedGroups': len(layer['features']), 'categories': counts}
 
 
 def build(records, output):
     output = private_output(output)
-    if any(r['enrichment'].get(FIELD) not in VALUES for r in records):
+    if any(r['enrichment'].get(FIELD) not in LEVELS for r in records):
         raise ValueError('Run the private crash updater before building')
     files = checked_package(BASE, {'dataset': NAME, 'version': '1.0.0', 'sha256': BASE_PIN})
     package = json.loads(files.pop('datapackage.json'))
     layer = json.loads(files['incidents.geojson'])
-    coverage = project(layer, records)
+    coverage = project(layer)
     files['incidents.geojson'] = (json.dumps(layer, ensure_ascii=False, separators=(',', ':'), allow_nan=False) + '\n').encode()
     dictionary = json.loads(files['dictionary.json'])
-    dictionary['fields'].append({'name': 'properties.' + FIELD, 'type': 'string', 'enum': VALUES,
-                                 'description': 'Reviewed contribution to this crash from a motor vehicle parked or standing in a bike lane. See method.txt.'})
+    dictionary['fields'].append({'name': 'properties.' + FIELD, 'type': 'string', 'enum': LEVELS,
+                                 'description': 'Relative strength of structured crash evidence for bike-lane parking contribution. See method.txt.'})
     files['dictionary.json'] = encoded(dictionary)
     files['method.txt'] += ('\n' + METHOD).encode()
     manifest = json.loads(files['map-manifest.json'])
@@ -100,7 +105,7 @@ def build(records, output):
                     approval='Historical map content derives from the pinned 1.0.0 package. The added category follows the published method.')
     files['map-manifest.json'] = encoded(manifest)
     package.update(version='1.1.0', parkingCoverage=coverage, baseManifestSha256=BASE_PIN,
-                   preparation='Historical map with reviewed bike-lane parking contribution.')
+                   preparation='Historical map with structured bike-lane parking likelihood assessment.')
     package['citation'] = package['citation'].replace('1.0.0', '1.1.0')
     for resource in package['resources']:
         raw = files[resource['path']]

@@ -357,6 +357,10 @@ def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROO
             enrichment_audit=enrich_collection(combined)
             parking_contribution.apply_reviews(combined['records'], state.get('parkingReviews', {}))
             changes=changes_between(old,combined,rows)
+            for group in combined['records']:
+                level, signals = parking_contribution.assess_group(group)
+                group['enrichment'][parking_contribution.FIELD] = level
+                group['enrichment']['bikeLaneParkingSignals'] = signals
             previous_enrichment={g['id']:g.get('enrichment') for g in old['records']}
             changes['enrichmentChangedGroups']=[g['id'] for g in combined['records'] if g['enrichment']!=previous_enrichment.get(g['id'])]
             changes['missingFromLatestUdotExport']=state.get('missingFromLatestUdotExport',[])

@@ -1,32 +1,19 @@
 # Bike-lane parking contribution
 
-The Hub assesses whether a stationary motor vehicle occupying any part of a designated bike lane contributed to an active transportation crash. Include parking, standing and loading. Contact with the vehicle is optional. A rider moving around a van into traffic, falling during avoidance, or being hidden from another road user can qualify when the report describes the sequence. The affected person can be a pedestrian or another AT user. Ordinary traffic queues, red lights, a nearby delivery, and a door opening from an adjacent parking bay alone do not establish this mechanism. The result carries no finding of legal fault.
+The Hub assigns each active transportation incident group an ordinal likelihood tier using the crash fields already available. The target mechanism is a stationary motor vehicle occupying part of a designated bike lane and contributing to a crash through contact, avoidance, or impaired visibility. A vehicle may be standing or loading. Carrier identity and contact with the vehicle are unnecessary.
 
-| Value | Evidence required |
+| Value | Structured evidence in one source crash record |
 |---|---|
-| documented | The original narrative, diagram or supplement establishes both the vehicle's stationary position in the lane and how that obstruction contributed. |
-| possible | Case-specific evidence points to this sequence but leaves position or contribution unresolved. |
-| ruled_out | The original affirmatively excludes this mechanism, for example by establishing that the suspected obstruction arrived after the crash. |
-| unknown | Missing, silent, unreadable, conflicting or insufficient evidence, or an uncertain link. |
+| `stronger_lead` | An AT participant is recorded in an on-street or separated bike lane and a driver is coded for improper parking/stopping or a vehicle is recorded parked or hit while parked. |
+| `possible_lead` | Bike-lane location plus a parking maneuver or traffic-lane stop, or driver evasive action plus improper parking or a parked vehicle. |
+| `weak_lead` | Improper parking/stopping, a parking maneuver, a parked vehicle, or a parked-vehicle collision without a stronger combination. |
+| `no_specific_signal` | Identified AT participant and known vehicle maneuver, with none of the qualifying combinations. |
+| `insufficient_data` | The record lacks the detail needed for this screen. |
 
-Use the crash sequence and road-user positions as in the [FHWA crash typing guidance](https://highways.dot.gov/turner-fairbank-highway-research-center/pbcat/getting-started). An improper-parking code, a delivery vehicle, and a cyclist in a bike lane are retrieval clues. Each alone leaves the category unknown.
+The tiers express relative strength of evidence. They are uncalibrated and do not measure prevalence. A cyclist's recorded position does not establish the vehicle's position. A stop for traffic, an evasive maneuver on its own, a cargo van, and a bike lane on the street are each too nonspecific to flag. A cyclist who left a blocked lane may have a recorded position elsewhere. Pedestrians and other conveyance users are included. A grouped incident takes the strongest tier from a single source observation. The method does not combine unrelated clues across source records. City-filtered portal rows provide person locations, driver circumstances, and crash/vehicle events. UDOT can supply a parked-vehicle collision clue. Limited police roster fields alone yield insufficient data.
 
-## Review a delivery
+## Rebuild and use
 
-Use the pinned crash environment, set `PYTHONPATH=.:pipelines/crashes/src` and `umask 077`. Retain every original privately. Screen all reports received for AT cases, including those without a carrier name or structured parking code. For retrieval prioritize the existing 14 bicycle leads, beginning with state cases 821685964 and 821711934. Screen each case with its supplements together.
+Run `PYTHONPATH=.:pipelines/crashes/src python -m scripts.update_crashes --offline` in the crash environment to populate group enrichment, including the supporting signals. Run `python -m scripts.bike_lane_parking candidate private/candidates/NEW` in the same environment to rebuild the public package. The candidate uses the 1,195 original map features and their own frozen structured fields. The current private population covers additional years and observations. Only the category is added to the historical features. The manifest reports the count in every tier.
 
-```sh
-python -m scripts.bike_lane_parking screen state:CRASH_ID private/reviews/NEW.json ORIGINAL.pdf SUPPLEMENT.txt
-python -m scripts.update_crashes --offline --parking-review private/reviews/NEW.json
-python -m scripts.bike_lane_parking candidate private/candidates/NEW
-```
-
-The first command accepts state or police identifiers and records the original hashes, source links, suggested value and matching text windows by page. PDF extraction uses local Poppler pdftotext. Form feeds separate pages in UTF-8 text. An empty or incomplete extraction requires inspection of the original pages. Review all diagrams and conflicting accounts visually. Resolve uncertain identities before importing. Read all flagged passages in the original. Before the first release inspect every non-unknown decision and sample the unflagged reports for missed wording. If fewer than ten unflagged cases are available, inspect them all; otherwise inspect ten by sorted case ID spaced across the list. Record the sampled cases privately.
-
-Before the second command, fill the packet's value, reviewer and rationale after checking the original identity, position, timing and contribution. Cite the page or diagram in the rationale. A proposal cannot directly update the collection. Include all current originals when replacing a case assessment. To retract a finding, submit a corrected unknown assessment. A changed original checksum requires a new packet. The update retains checksummed originals and decision packets with the private input history and binds findings to current case links. Group or case-link changes invalidate the finding. Include these files in ordinary private backups and use the normal private updater rollback to restore a predecessor.
-
-## Candidate and publication
-
-The candidate builder verifies the 1.0.0 base package, adds only the category on each existing GeoJSON feature and reports the number of reviewed mapped groups plus counts in each category. A reviewed unknown counts toward coverage. Only unique reviewed source IDs shared with the historical feature can transfer a finding. Private evidence never belongs in the public package. The initial real-data build has 1,790 private groups and 1,195 historical mapped groups, all unknown. There were zero original reports available for review or sampling.
-
-The catalog checks that reviewed coverage reconciles and that at least one mapped group has a reviewed documented, possible or ruled_out result before accepting 1.1.0. Keep the initial candidate private. After the evidence criterion is met, compare two builds and remove the one added property in memory to verify exact historical feature equality. Follow the [maintainer publication workflow](../operations/maintainer-guide.md) for approval, registration, generated ZIP, staging and production checks. The historical product is retired from listings. Its pinned files, the current operational collection and the Streets Watch app have separate publication and adoption paths.
+An optional original-report review can record stronger case evidence privately. Use `python -m scripts.bike_lane_parking screen state:CRASH_ID private/reviews/NEW.json ORIGINAL.pdf`, complete the case and evidence review, and import with `scripts.update_crashes --offline --parking-review private/reviews/NEW.json`. The structured likelihood workflow runs on all records independently of this optional evidence.

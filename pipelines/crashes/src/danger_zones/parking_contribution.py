@@ -111,4 +111,55 @@ def apply_reviews(records, reviews):
         group['enrichment'][FIELD] = entry['value'] if valid else 'unknown'
         group['enrichment'].pop('parkingReview', None)
         if valid:
-            group['enrichment']['parkingReview'] = {'case': entry['case'], 'receipt': entry['receipt']}
+            group['enrichment']['parkingReview'] = {'case': entry['case'], 'receipt': entry['receipt'], 'value': entry['value']}
+
+# Ordinal strength of the available evidence. These are not calibrated probabilities.
+LEVELS = ('stronger_lead', 'possible_lead', 'weak_lead', 'no_specific_signal', 'insufficient_data')
+AT_TYPES = {'Pedalcyclist', 'Pedestrian', 'Other Pedestrian (wheelchair, skater, personal conveyance, etc.)'}
+
+
+def structured_evidence(source, metadata):
+    """Score a single source record so clues from different events cannot combine."""
+    if source == 'udot-crashes':
+        events = [metadata.get(k) for k in ('FIRST_HARMFUL_EVENT_DESC', 'MANNER_COLLISION_DESC')]
+        if any('parked' in str(e).lower() for e in events):
+            return 'weak_lead', ['parked-vehicle collision']
+        return 'insufficient_data', []
+    if source != 'utah-crash-portal':
+        return 'insufficient_data', []
+    persons, vehicles = metadata.get('persons', []), metadata.get('vehicles', [])
+    crash = metadata.get('crash', {})
+    if crash.get('City_Geo') != 'Provo':
+        return 'insufficient_data', []
+    at = [p for p in persons if p.get('personType_label') in AT_TYPES]
+    maneuvers = {v.get('vehicleManeuver_label') for v in vehicles}
+    circumstances = {p.get(f'personDriverContribCircumstances{i}_label')
+                     for p in persons if p.get('personType_label') == 'Driver' for i in (1, 2)}
+    lane = any(p.get('personNmLocation_label') in {'Separated Bike Lane', 'On-Street Bike Lane'} for p in at)
+    improper = 'Improper Parking/Stopping' in circumstances
+    events = {v.get('mostHarmfulEvent_label') for v in vehicles}
+    events.update(crash.get(k) for k in ('firstHarmfulEvent_label', 'mannerCollision_label'))
+    parked = 'Parked' in maneuvers or bool(events & {'Collision with Parked Vehicle', 'Parked Vehicle'})
+    parking = 'Parking Maneuvers' in maneuvers
+    stopped = 'Stopped in Traffic Lane' in maneuvers
+    avoidance = 'Swerved or Evasive Action' in circumstances
+    signals = [name for condition, name in [(lane, 'AT participant in bike lane'), (improper, 'improper parking/stopping'),
+               (parked, 'parked vehicle'), (parking, 'parking maneuver'), (stopped, 'stopped in traffic lane'),
+               (avoidance, 'driver evasive action')] if condition]
+    if lane and (improper or parked):
+        level = 'stronger_lead'
+    elif (lane and (parking or stopped)) or ((improper or parked) and avoidance):
+        level = 'possible_lead'
+    elif improper or parked or parking:
+        level = 'weak_lead'
+    elif at and maneuvers - {None, '', 'Unknown', 'Not Provided'}:
+        level = 'no_specific_signal'
+    else:
+        level = 'insufficient_data'
+    return level, signals
+
+
+def assess_group(group):
+    observations = [o for item in group['observations'] for o in (item, item.get('statePortal')) if o]
+    assessments = [structured_evidence(o['sourceKey'], o['metadata']) for o in observations]
+    return min(assessments, key=lambda item: LEVELS.index(item[0]), default=('insufficient_data', []))

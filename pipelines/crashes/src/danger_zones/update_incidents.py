@@ -140,11 +140,24 @@ SUMMARY_FIELDS = ('brief', 'outcome', 'location', 'time', 'whatHappened', 'parti
                   'conditions', 'otherFactors', 'sources')
 
 
+def validate_summary(key, summary):
+    if (not isinstance(summary, dict) or set(summary) != set(SUMMARY_FIELDS)
+            or not all(isinstance(v, str) for v in summary.values())
+            or not 1 <= len(summary['brief'].split()) <= 12):
+        raise ValueError('Invalid nine-field reviewed summary: ' + key)
+
+
+def summary_keys(group):
+    observations = group['observations']
+    state = {str(o['sourceRecordId']) for o in observations
+             if o['sourceKey'] in {'udot-crashes', 'utah-crash-portal'}}
+    return state or {o['id'] for o in observations if o['sourceKey'] == 'provo-police-incidents'}
+
+
 def summary_groups(collection, ids):
     groups = {}
     for group in collection['records']:
-        state_ids = {str(o['sourceRecordId']) for o in group['observations']
-                     if o['sourceKey'] in {'udot-crashes', 'utah-crash-portal'}}
+        state_ids = summary_keys(group)
         for key in state_ids & ids:
             groups[key] = group if len(state_ids) == 1 and key not in groups else None
     return groups
@@ -166,12 +179,9 @@ def import_summaries(path, state, private_root, collection, collection_hash):
         raise ValueError('Expected reviewed summaries for the active collection')
     groups = summary_groups(collection, summaries.keys())
     for key, summary in summaries.items():
-        if not groups.get(key) or not key.isascii() or not key.isdecimal():
+        if not groups.get(key):
             raise ValueError('Unknown or ambiguous reviewed summary ID: ' + key)
-        if (not isinstance(summary, dict) or set(summary) != set(SUMMARY_FIELDS)
-                or not all(isinstance(v, str) for v in summary.values())
-                or not 1 <= len(summary['brief'].split()) <= 12):
-            raise ValueError('Invalid nine-field reviewed summary: ' + key)
+        validate_summary(key, summary)
         state.setdefault('reviewedSummaries', {})[key] = {
             'basis': summary_basis(groups[key]), 'summary': summary}
     state['inputs'].append(receipt)

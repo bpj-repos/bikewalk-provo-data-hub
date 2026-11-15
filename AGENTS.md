@@ -17,3 +17,5 @@ User direction (November 11, 2026): agents must generate dataset ZIPs through th
 ## Owner approval on main
 
 Anyone may submit a pull request. Other contributors need @brycepj's explicit approval before merging to main. The owner @brycepj has unrestricted merge and direct-push rights, and the owner's PRs require no approval. Do not approve another contributor's PR on the owner's behalf. For completed, verified owner-requested work using the owner's account, commit and push by default unless the task says to hold. Stage only the task's files and preserve other work.
+
+When a consumer requests a crash summary by state crash ID or Provo Police case number, follow the [reviewed summary workflow](docs/operations/crash-updates-and-recovery.md#request-or-backfill-a-summary). Return the stored result and its release ID. A new-summary request includes generating, checking and applying the wording. For a backfill, give workers disjoint single-record inputs and let one maintainer apply the finished batch.

@@ -140,6 +140,31 @@ class PipelineTests(unittest.TestCase):
         self.bootstrap.start()
     def tearDown(self):self.bootstrap.stop();self.temp.cleanup()
     def run_update(self,**kwargs):return run_update(self.root,offline=kwargs.pop('offline',True),**kwargs)
+    def test_reviewed_summary_exact_match_repeat_and_invalidation(self):
+        source = portal_record('2')
+        workbook = portal_workbook(self.root/'initial.xlsx', [source])
+        self.run_update(portal_workbooks=[workbook])
+        packet = self.root/'review.json'
+        summary = dict.fromkeys(('brief','outcome','location','time','whatHappened',
+                                 'participantFactors','conditions','otherFactors','sources'), '')
+        summary['brief'] = 'Bicycle involved.'
+        pin = read_json(self.pointer)
+        write_json(packet, {'collectionSHA256':pin['sha256'], 'summaries':{'999':summary}})
+        with self.assertRaisesRegex(ValueError, 'Unknown or ambiguous'):
+            self.run_update(reviewed_summaries=packet)
+        self.assertEqual(read_json(self.pointer), pin)
+        write_json(packet, {'collectionSHA256':pin['sha256'], 'summaries':{'2':summary}})
+        first = self.run_update(reviewed_summaries=packet)
+        groups = read_json(Path(first['bundle'])/'collection.json')['records']
+        self.assertEqual([g['enrichment']['reviewedSummary'] for g in groups
+                          if 'reviewedSummary' in g['enrichment']], [summary])
+        self.assertEqual(self.run_update(reviewed_summaries=packet)['status'], 'unchanged')
+        source['metadata']['crash']['weatherCondition'] = '2'
+        changed = self.run_update(portal_workbooks=[portal_workbook(self.root/'correction.xlsx', [source])])
+        bundle = Path(changed['bundle'])
+        self.assertEqual(read_json(bundle/'enrichment-audit.json')['summariesNeedingReview'], ['2'])
+        self.assertFalse(any('reviewedSummary' in g['enrichment'] for g in read_json(bundle/'collection.json')['records']))
+
     def test_forward_preserves_report_date_without_inventing_midnight(self):
         msg=EmailMessage()
         msg.set_content("forward")

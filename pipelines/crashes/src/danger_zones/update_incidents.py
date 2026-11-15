@@ -136,6 +136,59 @@ def import_reviewed_matches(path, state, private_root, collection_hash):
     return links
 
 
+SUMMARY_FIELDS = ('brief', 'outcome', 'location', 'time', 'whatHappened', 'participantFactors',
+                  'conditions', 'otherFactors', 'sources')
+
+
+def summary_groups(collection, ids):
+    groups = {}
+    for group in collection['records']:
+        state_ids = {str(o['sourceRecordId']) for o in group['observations']
+                     if o['sourceKey'] in {'udot-crashes', 'utah-crash-portal'}}
+        for key in state_ids & ids:
+            groups[key] = group if len(state_ids) == 1 and key not in groups else None
+    return groups
+
+
+def summary_basis(group):
+    observations = flatten({'records': [group]})
+    return sha256_json({'observations': {k: fingerprint(o) for k, o in observations.items()},
+                        'reviewedLink': group.get('reviewedLink')})
+
+
+def import_summaries(path, state, private_root, collection, collection_hash):
+    receipt = retain_input(path, private_root, 'reviewed-summaries')
+    if any(r['kind'] == receipt['kind'] and r['sha256'] == receipt['sha256'] for r in state['inputs']):
+        return
+    packet = read_json(Path(receipt['path']))
+    summaries = packet['summaries']
+    if packet['collectionSHA256'] != collection_hash or not isinstance(summaries, dict) or not summaries:
+        raise ValueError('Expected reviewed summaries for the active collection')
+    groups = summary_groups(collection, summaries.keys())
+    for key, summary in summaries.items():
+        if not groups.get(key) or not key.isascii() or not key.isdecimal():
+            raise ValueError('Unknown or ambiguous reviewed summary ID: ' + key)
+        if (not isinstance(summary, dict) or set(summary) != set(SUMMARY_FIELDS)
+                or not all(isinstance(v, str) for v in summary.values())
+                or not 1 <= len(summary['brief'].split()) <= 12):
+            raise ValueError('Invalid nine-field reviewed summary: ' + key)
+        state.setdefault('reviewedSummaries', {})[key] = {
+            'basis': summary_basis(groups[key]), 'summary': summary}
+    state['inputs'].append(receipt)
+
+
+def apply_summaries(collection, reviewed):
+    groups = summary_groups(collection, reviewed.keys())
+    skipped = []
+    for key, entry in reviewed.items():
+        group = groups.get(key)
+        if group and summary_basis(group) == entry['basis']:
+            group['enrichment']['reviewedSummary'] = entry['summary']
+        else:
+            skipped.append(key)
+    return sorted(skipped)
+
+
 def portal_input(path,private_root):
     desc=retain_input(path,private_root,'portal')
     parsed=Path(desc['path']).parent/'portal.json.gz';receipt=parsed.with_suffix('.receipt.json')
@@ -195,6 +248,7 @@ def udot_observations(path):
 def input_fingerprint(state):
     return sha256_json({'observations':{k:fingerprint(v) for k,v in sorted(state['observations'].items())},
                         'addressReference':state.get('addressReference'),
+                        'summaryReceipts':[r['sha256'] for r in state['inputs'] if r['kind']=='reviewed-summaries'],
                         'decisionReceipts':sorted(ref['sha256'] for ref in state['inputs'] if ref['kind']=='reviewed-matches'),
                         'portal':{k:fingerprint(v) for k,v in sorted(state['portal'].items())},
                         'udotLookup':{k:fingerprint(v) for k,v in sorted(state.get('udotLookup',{}).items())}})
@@ -292,7 +346,7 @@ def write_changes(path,changes):
                 writer.writerow([kind,item if isinstance(item,str) else item.get('id',item.get('policeId',item.get('previousId',item.get('policeId','')))),'' if isinstance(item,str) else json.dumps(item,sort_keys=True)])
 
 
-def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROOT,*,portal_workbooks=(),police_workbooks=(),address_points=None,reviewed_matches=None,offline=False,refresh=import_udot_crashes,restore=None):
+def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROOT,*,portal_workbooks=(),police_workbooks=(),address_points=None,reviewed_matches=None,reviewed_summaries=None,offline=False,refresh=import_udot_crashes,restore=None):
     private_root=Path(private_root).resolve();data_root=Path(data_root).resolve()
     if restore and not private_root.is_relative_to(restore.root):
         raise ValueError("Private data root must be inside the restored repository")
@@ -320,6 +374,8 @@ def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROO
                     raise ValueError('Pinned source checksum mismatch: '+source['path'])
             old_lookup={k:fingerprint(v) for k,v in {**state.get('udotLookup',{}),**state['portal']}.items()}
             decisions = import_reviewed_matches(reviewed_matches, state, private_root, before['sha256']) if reviewed_matches else []
+            if reviewed_summaries:
+                import_summaries(reviewed_summaries, state, private_root, old, before['sha256'])
             apply_inputs(state,private_root,data_root,run_dir,list(map(Path,portal_workbooks)),list(map(Path,police_workbooks)),offline,refresh,address_points)
             policy=read_json(POLICY);validate_policy(policy)
             content_fingerprint=input_fingerprint(state);tools=tool_hash();policy_hash=sha256_file(POLICY)
@@ -351,6 +407,8 @@ def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROO
             upsert(state['observations'],all_sources.values())
             from .crash_enrichment import enrich_collection
             enrichment_audit=enrich_collection(combined)
+            if state.get('reviewedSummaries'):
+                enrichment_audit['summariesNeedingReview'] = apply_summaries(combined, state['reviewedSummaries'])
             changes=changes_between(old,combined,rows)
             previous_enrichment={g['id']:g.get('enrichment') for g in old['records']}
             changes['enrichmentChangedGroups']=[g['id'] for g in combined['records'] if g['enrichment']!=previous_enrichment.get(g['id'])]
@@ -447,6 +505,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--portal-workbook',type=Path,action='append',default=[])
     parser.add_argument('--police-input','--police-workbook',dest='police_workbook',help='Police .xlsx, .numbers or forwarded .eml (repeatable)',type=Path,action='append',default=[])
+    parser.add_argument('--reviewed-summaries',type=Path,help='Import private reviewed crash summaries by state ID')
     parser.add_argument('--reviewed-matches',type=Path,help='Apply private case decisions against their reviewed collection checksum')
     parser.add_argument('--address-points',type=Path,help='Retain a new UGRC Provo snapshot for offline exact-address lookup, including earlier receipts')
     parser.add_argument('--offline',action='store_true')
@@ -467,8 +526,8 @@ def main():
     restore = RestorePaths(args.restore_path, root=args.restore_root) if args.restore_path else None
     private_root = args.private_data_root or (restore.root/'tools/.danger-zone-private' if restore else DEFAULT_PRIVATE_DATA_ROOT)
     data_root = args.data_root or (restore.root/'tools/.danger-zone-data' if restore else DEFAULT_DATA_ROOT)
-    if args.rollback and (args.offline or args.portal_workbook or args.police_workbook or args.address_points or args.reviewed_matches):parser.error('--rollback cannot be combined with update inputs or --offline')
-    result=rollback(private_root,restore=restore) if args.rollback else run_update(private_root,data_root,restore=restore,portal_workbooks=args.portal_workbook,police_workbooks=args.police_workbook,address_points=args.address_points,reviewed_matches=args.reviewed_matches,offline=args.offline)
+    if args.rollback and (args.offline or args.portal_workbook or args.police_workbook or args.address_points or args.reviewed_matches or args.reviewed_summaries):parser.error('--rollback cannot be combined with update inputs or --offline')
+    result=rollback(private_root,restore=restore) if args.rollback else run_update(private_root,data_root,restore=restore,portal_workbooks=args.portal_workbook,police_workbooks=args.police_workbook,address_points=args.address_points,reviewed_matches=args.reviewed_matches,reviewed_summaries=args.reviewed_summaries,offline=args.offline)
     print(json.dumps(result,indent=2))
 
 

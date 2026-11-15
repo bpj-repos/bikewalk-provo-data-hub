@@ -58,6 +58,22 @@ def download_zip(tree, release):
     return output.getvalue()
 
 
+def validate_parking_coverage(files):
+    from collections import Counter
+    package = json.loads(files['datapackage.json'])
+    coverage = package['parkingCoverage']
+    features = json.loads(files['incidents.geojson'])['features']
+    counts = Counter(f['properties']['bikeLaneParkingContribution'] for f in features)
+    allowed = {'documented', 'possible', 'ruled_out', 'unknown'}
+    reviewed = coverage['reviewedGroups']
+    if (set(coverage['categories']) != allowed or set(counts) - allowed
+            or any(counts[k] != coverage['categories'][k] for k in allowed)
+            or coverage['mappedGroups'] != len(features) or len(features) != 1195
+            or coverage != json.loads(files['map-manifest.json'])['parkingCoverage']
+            or not 0 < len(features) - counts['unknown'] <= reviewed <= len(features)):
+        raise ValueError('Parking release requires reconciled coverage and a reviewed, non-unknown public case')
+
+
 def build(repo, output, approvals=None):
     tree,_=counts.bundle(repo,counts.load('coverage.json'),corrected=True)
     catalog=json.loads(tree['catalog.json'])
@@ -81,6 +97,8 @@ def build(repo, output, approvals=None):
         files=checked_package(ROOT/'releases/datasets'/dataset/version,entry)
         if json.loads(files['datapackage.json']).get('synthetic'):
             raise ValueError('Cannot promote a drill fixture')
+        if (dataset, version) == ('provo-active-transportation-incident-map', '1.1.0'):
+            validate_parking_coverage(files)
         tree.update({path+k:v for k,v in files.items()})
         d['releases'].append(dict(version=version,manifest='/'+path+'datapackage.json',sha256=entry['sha256']))
         d['current']=version

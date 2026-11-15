@@ -236,3 +236,5 @@ The [crash occurrence-time package](datasets/crash-occurrence-time.md) binds the
 ## Provo intersection reports
 
 The Hub owns the versioned roster subset, reported split normalization and observed cycle boundaries. Consumers own replay and map interfaces. See [the contract](../data-definitions/provo-intersections/README.md). Refresh by preserving dated raw responses, creating a new immutable version and verifying the catalog under the standard promotion and withdrawal procedure.
+
+The private crash updater persists reviewed bike-lane parking contribution under group enrichment. Original reports and review receipts remain in cumulative, checksummed private intake. A deterministic screen proposes passages for review and case links bind each accepted finding to its source group. A separate builder projects the category onto the existing historical map population from its frozen 1.0.0 pin. The candidate stays private until at least one original report supports a non-unknown public finding. [Method, operations and verification limits](datasets/bike-lane-parking-contribution.md)

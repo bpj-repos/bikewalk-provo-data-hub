@@ -63,3 +63,5 @@ City workbook preparation, map export, demo, registration and history reporting 
 - [prepare_crash_time.py](prepare_crash_time.py) builds [local crash occurrence fields](../docs/datasets/crash-occurrence-time.md) from the pinned map archive.
 
 - `build_provo_intersections.py` regenerates the versioned intersection records and manifest from retained UDOT responses.
+
+`python -m scripts.bike_lane_parking screen --help` prepares a private case review from original text or PDF reports. The `candidate` subcommand prepares the 1.1.0 historical AT map package. See the [method and intake commands](../docs/datasets/bike-lane-parking-contribution.md).

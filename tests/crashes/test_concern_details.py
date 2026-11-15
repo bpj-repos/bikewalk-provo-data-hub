@@ -2,8 +2,9 @@ import unittest
 from copy import deepcopy
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
-from danger_zones.concern_details import export_concern_details, public_summary, reviewed_report
+from danger_zones.concern_details import INCOMPLETE_PORTAL_SNAPSHOT, export_concern_details, public_summary, reviewed_report
 from danger_zones.crash_enrichment import enrich_collection
 from danger_zones.update_incidents import SUMMARY_FIELDS
 from danger_zones.util import sha256_file, write_json
@@ -57,3 +58,43 @@ class ReviewedSummaryExportTest(unittest.TestCase):
                         {'brief': 'word ' * 13}, {'conditions': '🌧' * 1001}, {'otherFactors': None}):
             with self.subTest(keys=list(invalid)), self.assertRaisesRegex(ValueError, 'Invalid public'):
                 public_summary({**summary, **invalid}, '123')
+
+    def test_verified_older_rollup_only_replaces_missing_reading_of_known_delivery(self):
+        collection = fixture()
+        group = collection['records'][0]
+        observation = group['observations'][0]
+        def save(folder):
+            enrich_collection(collection)
+            write_json(folder / 'collection.json', collection)
+            write_json(folder / 'manifest.json', {'releaseId': collection['snapshotId'],
+                       'files': {'collection.json': sha256_file(folder / 'collection.json')}})
+            return sha256_file(folder / 'manifest.json')
+        with TemporaryDirectory() as folder:
+            prior, current = Path(folder) / 'prior', Path(folder) / 'current'
+            prior.mkdir()
+            current.mkdir()
+            collection['snapshotId'] = 'prior'
+            observation['metadata']['rollups'] = [{'Crash_ID': '123', 'hit_and_run': 'Y'}]
+            pin = {'releaseId': 'prior', 'manifestSha256': save(prior)}
+            observation['metadata']['rollups'] = []
+            observation['sourceSnapshotId'] = INCOMPLETE_PORTAL_SNAPSHOT
+            collection['snapshotId'] = 'current'
+            def export_factor():
+                export = export_concern_details(current, save(current))
+                return next(f for f in export['crashes']['123']['fields'] if f['key'] == 'reportedFactors')
+            with patch('danger_zones.concern_details.FACTOR_RELEASE', pin):
+                restored = export_factor()
+                self.assertEqual(restored['retainedPortalFactors'], pin)
+                self.assertEqual(restored['values'], [{'text': 'Hit and run', 'sources': ['Utah Crash Portal']}])
+                observation['metadata']['rollups'] = [{'Crash_ID': '123', 'hit_and_run': 'N'}]
+                self.assertNotIn('retainedPortalFactors', export_factor())
+                observation['metadata']['rollups'] = []
+                observation['sourceSnapshotId'] = 'later-complete-delivery'
+                self.assertEqual(export_factor()['values'], [])
+                observation['sourceSnapshotId'] = INCOMPLETE_PORTAL_SNAPSHOT
+                group['id'] = 'different-group'
+                self.assertEqual(export_factor()['values'], [])
+                group['id'] = observation['id']
+                (prior / 'collection.json').write_text('{}')
+                with self.assertRaisesRegex(ValueError, 'collection pin mismatch'):
+                    export_factor()

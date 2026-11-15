@@ -5,7 +5,8 @@ import json
 from pathlib import Path
 import re
 
-from .crash_enrichment import export_release
+from .crash_enrichment import export_release, public_details
+from .incident_updates import flatten
 from .update_incidents import SUMMARY_FIELDS
 
 
@@ -43,7 +44,61 @@ def reviewed_report(group):
     return state['sourceRecordId'], {'caseNumber': case, 'basis': basis}
 
 
-def export_concern_details(release, manifest_hash):
+# The November 15 Portal workbook omitted whole rollup rows previously supplied for these records.
+INCOMPLETE_PORTAL_SNAPSHOT = 'd4cac55f1f2c64fe46996513bf2ef95773ab4993b46c3a95cfa58f5a381e176f'
+FACTOR_RELEASE = {'releaseId': 'incidents-0a9d1f50cdb09a1af145',
+                  'manifestSha256': '35afa67391c278b8d6f8ef284a98b95721a5a0f808e890c22c72963a42bb6b48'}
+
+
+def retained_portal_factors(release):
+    manifest_bytes = (release / 'manifest.json').read_bytes()
+    manifest = json.loads(manifest_bytes)
+    if (hashlib.sha256(manifest_bytes).hexdigest() != FACTOR_RELEASE['manifestSha256']
+            or manifest['releaseId'] != FACTOR_RELEASE['releaseId']):
+        raise ValueError('Retained factor manifest pin mismatch')
+    raw = (release / 'collection.json').read_bytes()
+    collection = json.loads(raw)
+    if (hashlib.sha256(raw).hexdigest() != manifest['files']['collection.json']
+            or collection['snapshotId'] != manifest['releaseId']):
+        raise ValueError('Retained factor collection pin mismatch')
+    readings = {}
+    for group in collection['records']:
+        observations = flatten({'records': [group]})
+        for reading in group['enrichment']['observations']:
+            obs = observations[reading['observationId']]
+            if obs['sourceKey'] == 'utah-crash-portal' and obs['metadata']['rollups']:
+                readings[(group['id'], obs['id'])] = (group['enrichment']['rulesSha256'], reading['fields']['reportedFactors'])
+    return readings
+
+
+def restore_omitted_factors(export, groups, retained_release):
+    history = None
+    for group in groups:
+        observations = flatten({'records': [group]})
+        for reading in group['enrichment']['observations']:
+            obs = observations[reading['observationId']]
+            state_id = obs['sourceRecordId']
+            if (obs['sourceKey'] != 'utah-crash-portal' or obs.get('sourceSnapshotId') != INCOMPLETE_PORTAL_SNAPSHOT
+                    or obs['metadata'].get('rollups') != [] or state_id not in export['crashes']
+                    or reading['fields']['reportedFactors']['availability'] != 'unavailable'):
+                continue
+            if history is None:
+                history = retained_portal_factors(retained_release)
+            prior = history.get((group['id'], obs['id']))
+            if prior is None or (not prior[1]['value'] and prior[1]['availability'] != 'complete'):
+                continue
+            if prior[0] != group['enrichment']['rulesSha256']:
+                raise ValueError('Retained factor rules differ from the adopted release')
+            # Recombine just this earlier Portal reading with current readings from other sources.
+            reading['fields']['reportedFactors'] = prior[1]
+            field = next(f for f in public_details(group, export['releaseId'])['fields'] if f['key'] == 'reportedFactors')
+            field['retainedPortalFactors'] = FACTOR_RELEASE
+            fields = export['crashes'][state_id]['fields']
+            current = next(f for f in fields if f['key'] == 'reportedFactors')
+            current.update(field)
+
+
+def export_concern_details(release, manifest_hash, retained_factors_release=None):
     export = export_release(release, manifest_hash)
     raw = (release / 'collection.json').read_bytes()
     if hashlib.sha256(raw).hexdigest() != export['collectionSha256']:
@@ -51,7 +106,9 @@ def export_concern_details(release, manifest_hash):
     export['schemaVersion'] = 3
     for details in export['crashes'].values():
         details['schemaVersion'] = 3
-    for group in json.loads(raw)['records']:
+    groups = json.loads(raw)['records']
+    restore_omitted_factors(export, groups, retained_factors_release or release.parent / FACTOR_RELEASE['releaseId'])
+    for group in groups:
         summary = group['enrichment'].get('reviewedSummary')
         if summary is not None:
             ids = {o['sourceRecordId'] for o in group['observations']
@@ -71,8 +128,9 @@ def main():
     parser.add_argument('--release', type=Path, required=True)
     parser.add_argument('--manifest-sha256', required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--retained-factors-release', type=Path, help='Verified prior factor release when stored outside the release directory')
     args = parser.parse_args()
-    export = export_concern_details(args.release, args.manifest_sha256)
+    export = export_concern_details(args.release, args.manifest_sha256, args.retained_factors_release)
     with args.output.open('x') as output:
         json.dump(export, output, sort_keys=True, separators=(',', ':'), allow_nan=False)
         output.write('\n')

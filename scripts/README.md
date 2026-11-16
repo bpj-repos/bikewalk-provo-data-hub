@@ -67,3 +67,5 @@ City workbook preparation, map export, demo, registration and history reporting 
 The parking assessment commands are retained for historical reproduction only.
 
 `python -m scripts.crash_summaries` looks up, prepares and applies reviewed summaries for individual managed AT crashes or batches of missing summaries. Use the crash Python environment with `PYTHONPATH=.:pipelines/crashes/src`. See [requests and backfills](../docs/operations/crash-updates-and-recovery.md#request-or-backfill-a-summary).
+
+- `prepare_bike_parking.py` validates city point membership and prepares a private, versioned [bike parking candidate](../docs/datasets/provo-bike-parking.md).

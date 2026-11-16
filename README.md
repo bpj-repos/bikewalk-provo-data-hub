@@ -46,3 +46,5 @@ Every available catalog release also provides a complete ZIP download: one folde
 `update_crashes.py` and `adopt_routes.py` preserve the entry points used by existing consumers. Maintained commands live in `scripts/`.
 
 - [Provo intersections](data-definitions/provo-intersections/README.md) documents signal records and partial timing coverage.
+
+The [Provo bike parking dataset contract](docs/datasets/provo-bike-parking.md) covers private candidate preparation and release review.

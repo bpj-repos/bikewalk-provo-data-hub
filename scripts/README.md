@@ -65,3 +65,5 @@ City workbook preparation, map export, demo, registration and history reporting 
 - `build_provo_intersections.py` regenerates the versioned intersection records and manifest from retained UDOT responses.
 
 The parking assessment commands are retained for historical reproduction only.
+
+`python -m scripts.crash_summaries` looks up, prepares and applies reviewed summaries for individual managed AT crashes or batches of missing summaries. Use the crash Python environment with `PYTHONPATH=.:pipelines/crashes/src`. See [requests and backfills](../docs/operations/crash-updates-and-recovery.md#request-or-backfill-a-summary).

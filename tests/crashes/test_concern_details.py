@@ -4,7 +4,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
-from danger_zones.concern_details import INCOMPLETE_PORTAL_SNAPSHOT, export_concern_details, public_summary, reviewed_report
+from danger_zones.concern_details import INCOMPLETE_PORTAL_SNAPSHOT, add_recorded_road_names, export_concern_details, public_summary, reviewed_report
 from danger_zones.crash_enrichment import enrich_collection
 from danger_zones.update_incidents import SUMMARY_FIELDS
 from danger_zones.util import sha256_file, write_json
@@ -98,3 +98,23 @@ class ReviewedSummaryExportTest(unittest.TestCase):
                 (prior / 'collection.json').write_text('{}')
                 with self.assertRaisesRegex(ValueError, 'collection pin mismatch'):
                     export_factor()
+
+    def test_road_name_uses_exact_base_record_with_udot_fallback(self):
+        portal = fixture()['records'][0]['observations'][0]
+        portal['metadata']['crash']['roadName'] = 'PORTAL ROAD'
+        portal['metadata']['vehicles'] = [{'roadName': 'Other road'}]
+        udot = {'id': 'udot-crashes:123', 'sourceKey': 'udot-crashes', 'sourceRecordId': '123',
+                'metadata': {'MAIN_ROAD_NAME': 'UDOT ROAD'}, 'statePortal': portal}
+        def names(ids):
+            crashes = {key: {} for key in ids}
+            add_recorded_road_names(crashes, {'observations': [udot]})
+            return crashes
+        self.assertEqual(names(['123'])['123']['recordedRoadName'], 'PORTAL ROAD')
+        portal['metadata']['crash']['roadName'] = ' '
+        self.assertEqual(names(['123'])['123']['recordedRoadName'], 'UDOT ROAD')
+        portal.update(id='utah-crash-portal:456', sourceRecordId='456')
+        portal['metadata']['crash']['roadName'] = 'DIFFERENT ROAD'
+        self.assertEqual(names(['123']), {'123': {'recordedRoadName': 'UDOT ROAD'}})
+        udot['metadata'].clear()
+        self.assertEqual(names(['123']), {'123': {}})
+        self.assertEqual(names([]), {})

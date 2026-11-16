@@ -98,6 +98,23 @@ def restore_omitted_factors(export, groups, retained_release):
             current.update(field)
 
 
+def add_recorded_road_names(crashes, group):
+    observations = flatten({'records': [group]}).values()
+    # The Portal's base crash record takes precedence over the UDOT main road for that ID.
+    for source in ('udot-crashes', 'utah-crash-portal'):
+        for obs in observations:
+            state_id = obs['sourceRecordId']
+            if obs['sourceKey'] != source or state_id not in crashes:
+                continue
+            meta = obs['metadata']
+            road = meta['crash'].get('roadName') if source == 'utah-crash-portal' else meta.get('MAIN_ROAD_NAME')
+            if road is None or (isinstance(road, str) and not road.strip()):
+                continue
+            if not isinstance(road, str) or not road.isprintable() or len(road.encode('utf-16-le')) > 400:
+                raise ValueError('Invalid recorded road name for state ID ' + state_id)
+            crashes[state_id]['recordedRoadName'] = road.strip()
+
+
 def export_concern_details(release, manifest_hash, retained_factors_release=None):
     export = export_release(release, manifest_hash)
     raw = (release / 'collection.json').read_bytes()
@@ -109,6 +126,7 @@ def export_concern_details(release, manifest_hash, retained_factors_release=None
     groups = json.loads(raw)['records']
     restore_omitted_factors(export, groups, retained_factors_release or release.parent / FACTOR_RELEASE['releaseId'])
     for group in groups:
+        add_recorded_road_names(export['crashes'], group)
         summary = group['enrichment'].get('reviewedSummary')
         if summary is not None:
             ids = {o['sourceRecordId'] for o in group['observations']

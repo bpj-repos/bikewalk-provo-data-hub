@@ -32,7 +32,7 @@ Dataset `annual-at-crash-aggregates` is the Provo annual series. Other cities ha
 | Salt Lake City | 3,965 | 2010–2026 | 2026-10-21 | 2,027 | 2018–2026 | 2026-11-09 | [Generated ZIP](../../releases/datasets/salt-lake-city-annual-at-crash-aggregates/1.1.1/salt-lake-city-annual-at-crash-aggregates-1.1.1.zip) |
 | West Valley City | 1,613 | 2010–2026 | 2026-10-20 | 838 | 2018–2026 | 2026-11-08 | [Generated ZIP](../../releases/datasets/west-valley-city-annual-at-crash-aggregates/1.1.1/west-valley-city-annual-at-crash-aggregates-1.1.1.zip) |
 | Ogden | 1,336 | 2010–2026 | 2026-09-30 | 744 | 2018–2026 | 2026-11-11 | Not yet available |
-| Provo | 1,335 | 2010–2026 | 2026-10-21 | 693 | 2018–2026 | 2026-10-27 | [Generated ZIP](https://bikewalk-provo-data-hub.vercel.app/downloads/annual-at-crash-aggregates/1.1.1/annual-at-crash-aggregates-1.1.1.zip) |
+| Provo | 1,336 | 2010–2026 | 2026-10-21 | 692 | 2018–2026 | 2026-10-27 | [Generated ZIP](https://bikewalk-provo-data-hub.vercel.app/downloads/annual-at-crash-aggregates/1.1.2/annual-at-crash-aggregates-1.1.2.zip) |
 | St. George | 872 | 2010–2026 | 2026-10-16 | 595 | 2018–2026 | 2026-11-07 | [Generated ZIP](../../releases/datasets/st-george-annual-at-crash-aggregates/1.1.0/st-george-annual-at-crash-aggregates-1.1.0.zip) |
 | Orem | 844 | 2010–2026 | 2026-10-26 | 479 | 2018–2026 | 2026-11-11 | [Generated ZIP](../../releases/datasets/orem-annual-at-crash-aggregates/1.1.0/orem-annual-at-crash-aggregates-1.1.0.zip) |
 | Sandy | 769 | 2010–2026 | 2026-10-21 | 407 | 2018–2026 | 2026-11-03 | [Generated ZIP](../../releases/datasets/sandy-annual-at-crash-aggregates/1.1.0/sandy-annual-at-crash-aggregates-1.1.0.zip) |

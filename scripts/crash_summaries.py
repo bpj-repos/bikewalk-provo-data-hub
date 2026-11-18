@@ -103,10 +103,34 @@ def collect(work, groups, pin):
     return {'collectionSHA256':pin, 'summaries':results}
 
 
+def pending_work():
+    """Prepare resumable review work; ingestion alone does not complete an update."""
+    pointer, groups = snapshot()
+    keys = sorted(k for k, group in groups.items()
+                  if group and 'reviewedSummary' not in group['enrichment'])
+    result = {'releaseId': pointer['snapshotId'], 'collectionSHA256': pointer['sha256'],
+              'status': 'needs-summary-review' if keys else 'ready',
+              'pending': keys, 'ambiguousIds': sorted(k for k, group in groups.items() if group is None)}
+    if keys:
+        work = DEFAULT_PRIVATE_DATA_ROOT / 'incident-updates/summary-work' / pointer['snapshotId']
+        if work.exists():
+            jobs = read_json(work / 'jobs.json')
+            if jobs['collectionSHA256'] != pointer['sha256'] or set(jobs['jobs']) != set(keys):
+                raise ValueError('Summary work does not match the active collection')
+        else:
+            prepare(work, groups, keys, pointer['sha256'])
+        result['work'] = str(work)
+        result['nextCommand'] = [sys.executable, '-m', 'scripts.crash_summaries', 'apply', str(work)]
+        result['instructions'] = ('Draft and review each .input.json into its .summary.json using the nine-field '
+                                  'summary workflow before applying. Do not adopt consumers until status is ready.')
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('show').add_argument('id')
+    sub.add_parser('status', help='Prepare pending summary work; exit 2 until reviewed summaries are applied')
     prep = sub.add_parser('prepare')
     prep.add_argument('work',type=Path)
     choice = prep.add_mutually_exclusive_group(required=True)
@@ -116,6 +140,10 @@ def main():
     sub.add_parser('apply').add_argument('work',type=Path)
     args = parser.parse_args()
     os.umask(0o077)
+    if args.command == 'status':
+        result = pending_work()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return 2 if result['pending'] else 0
     pointer, groups = snapshot()
     if args.command == 'show':
         key = resolve(args.id, groups)
@@ -136,11 +164,14 @@ def main():
         if packet['summaries']:
             receipt = args.work / 'reviewed-packet.json'
             write_json(receipt,packet)
-            subprocess.run([sys.executable,'-m','scripts.update_crashes','--offline','--reviewed-summaries',str(receipt.resolve())],
-                           cwd=HUB_ROOT,check=True)
+            completed = subprocess.run([sys.executable,'-m','scripts.update_crashes','--offline','--reviewed-summaries',str(receipt.resolve())],
+                           cwd=HUB_ROOT)
+            if completed.returncode not in (0, 2):
+                completed.check_returncode()
+            return completed.returncode
         else:
             print('No changes.')
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())

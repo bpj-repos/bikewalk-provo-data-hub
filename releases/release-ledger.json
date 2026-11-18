@@ -303,6 +303,26 @@
       "dataset": "provo-active-transportation-incident-map",
       "version": "1.1.0",
       "sha256": "cc0992b6541e83137e64e0f8abd23650dbe47e5457b0bb2eefa00e17effc7a8c"
+    },
+    {
+      "dataset": "annual-at-crash-aggregates",
+      "version": "1.1.2",
+      "sha256": "dee4609ddbb8a3b7ebe01671648c4896074591d5b29c4a1fd45edc4e41ad70a2"
+    },
+    {
+      "dataset": "provo-annual-at-crash-aggregates",
+      "version": "1.1.2",
+      "sha256": "58aac04efb0480b88d1920a377fb9120101aa7053e15eb527591fa9820e69814"
+    },
+    {
+      "dataset": "provo-crash-street-membership",
+      "version": "1.1.1",
+      "sha256": "2eb3c09a9ceb1429d9c0fa8b4e9465111a11d5d5ec06e538ae51e8129a6ed493"
+    },
+    {
+      "dataset": "provo-crash-occurrence-time",
+      "version": "1.1.1",
+      "sha256": "9317514267b7e79a2735bf34b892fe5116a5e39f0053d1c9ced6d03891fcae7c"
     }
   ],
   "withdrawn": [

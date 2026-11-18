@@ -78,20 +78,20 @@
   {
     "city": "Provo",
     "portal": {
-      "count": 1335,
+      "count": 1336,
       "years": "2010–2026",
       "latest": "2026-10-21"
     },
     "udot": {
-      "count": 693,
+      "count": 692,
       "years": "2018–2026",
       "latest": "2026-10-27"
     },
     "dataset": {
       "id": "provo-annual-at-crash-aggregates",
-      "version": "1.1.1",
-      "sha256": "a948c7ff6ee6e14f2aff3bf5595f0c1b350fc0578c4bd4a2a94daa3e1ed60c44",
-      "zip": "releases/datasets/provo-annual-at-crash-aggregates/1.1.1/provo-annual-at-crash-aggregates-1.1.1.zip"
+      "version": "1.1.2",
+      "sha256": "58aac04efb0480b88d1920a377fb9120101aa7053e15eb527591fa9820e69814",
+      "zip": "releases/datasets/provo-annual-at-crash-aggregates/1.1.2/provo-annual-at-crash-aggregates-1.1.2.zip"
     }
   },
   {

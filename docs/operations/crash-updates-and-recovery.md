@@ -11,6 +11,14 @@ python -m scripts.update_crashes --rollback
 
 `private/active/crashes/collection/datastores/combined-incidents.json` identifies the active release. The wrapper applies historical path mappings to the recovered tree. Successive runs and rollback use the same lock. Read the accepted manifest, changes and conflicts after each run. A repeated receipt with unchanged inputs and policy leaves the pointer intact. On failure use the last verified pin and inspect the failed run before retrying. BikeWalk’s former routine command invokes this hub entry point. Its archived pointer remains available for historical reads.
 
+## Required summary stage
+
+The maintained `scripts.update_crashes` command includes summary preparation after every successful refresh, including an unchanged receipt. It verifies the active collection and prepares one evidence assignment per uniquely identifiable crash missing reviewed wording under `incident-updates/summary-work/RELEASE`. New crashes and summaries invalidated by changed reporting both enter this stage. Existing reviewed wording is retained. Repeated runs preserve drafts for the same release.
+
+Exit code 2 means intake succeeded but the update still needs summary review. The returned `summaryReview` names the release, pending IDs, ambiguous IDs, work directory and apply command. The updating agent must draft and review all nine fields using the [summary workflow](#request-or-backfill-a-summary), then run the supplied apply command. Do not treat preparing assignments as generating or reviewing summaries. No model service is called by the Python importer; the updating agent performs the evidence-based writing and review. An unattended caller must stop and hand off the pending work instead of publishing incomplete prose.
+
+Run `python -m scripts.crash_summaries status` immediately before consumer export/adoption. It exits 2 while uniquely identifiable crashes lack summaries and exits 0 when ready. Ambiguous IDs remain explicitly listed for identity review, without guessed summaries. Limited manual batches can leave exit 2 until the remaining work is applied. Rollback preserves its existing behavior and does not create summary work. Consumers still verify the exact release pin and follow their separate import and publication procedures.
+
 ## Recover the cutover pin
 
 The November 7 restricted recovery directory is `private/backups/crashes/2026-11-07-cutover`. Its `crash-recovery.tar.gz` contains 397 files, including the raw acquired inputs, reviewed receipts, the original PD forwards and eight managed releases. Archive SHA-256 is `0a999d43220e42940e2467c2b96b2a7f90c020b49497852aeb041ff871db991f`. The historical incident-map sources are in a second archive inventoried alongside it. Restrict access to authorized data maintainers.
@@ -149,3 +157,11 @@ A consumer can send the Hub maintainer or Hub agent “Summarize state crash ID 
 | sources | Source names, state ID and any reviewed police reference with its link basis. |
 
 Never infer fault, a particular device from a broad category, a cause from proximity to a concern, or a person’s actions from an unattributed crash flag. Deduplicate overlapping state and police reporting. Keep a material uncertainty even if it makes the summary shorter. Return only the requested object.
+
+## November 17, 2026 refresh
+
+The fresh Provo Portal export selects 2010 through November 16, 2026. It adds one managed cyclist crash and preserves existing source observations, reviewed links and summaries. The managed collection has 1,791 groups; all 1,789 uniquely identifiable groups have reviewed nine-field summaries. State ID 823823905 still identifies two groups and remains excluded from summary lookup pending identity review. The latest event in the Portal annual selection remains October 21, 2026.
+
+Annual release 1.1.2 reports 82 provisional 2026 crashes: 42 cyclist, 30 pedestrian and 10 other conveyance involvements. Prior annual rows are unchanged. The original Provo product and city-prefixed package reproduce the same annual CSV. The refreshed hosted UDOT capture contains 692 in-boundary qualifying crashes, versus 693 in the preceding capture, with latest event October 27. The managed archive refresh is unchanged; absence from this separate coverage capture is not treated as a deletion from the managed collection.
+
+The map rebuild retains 1,358 points because the new managed crash already appeared through the county reference. Its street and occurrence-time joins are rebuilt at 1.1.1. Consumer adoption retains prior versions and the 728 previously retained factor sections. Verification passed 55 Hub tests and 181 crash tests (one historical private fixture unavailable in the isolated checkout). Summary review is now a required pipeline stage, with tests for pending work, draft-preserving resume, readiness and rollback exclusion.

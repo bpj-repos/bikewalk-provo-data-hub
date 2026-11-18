@@ -249,3 +249,7 @@ The Hub agent serves summary requests by source ID from the managed AT collectio
 ### Bike parking candidate
 
 The [bike parking contract](datasets/provo-bike-parking.md) documents a private versioned candidate from Provo City GIS, its archived and current ID reconciliation, allowlisted point fields, and the pending redistribution decision. Projects tests an explicit local pin. The public ledger and scheduled jobs do not include this candidate.
+
+Routine crash updates now include a required summary stage in the maintained wrapper. Intake still uses the locked immutable-release pipeline. The wrapper prepares resumable, single-record evidence assignments for missing or invalidated summaries and returns exit code 2 until the updating agent writes, reviews and applies the nine fields. It does not invoke a model service itself. The summary status command gates the documented consumer handoff; unresolved identities are separately disclosed. Rollback and published pins retain their previous behavior. See [the required summary stage](operations/crash-updates-and-recovery.md#required-summary-stage).
+
+The November 17 refresh prepares annual crash 1.1.2 and map street/time joins 1.1.1. The annual series gains one 2026 cyclist crash; the mapped population remains 1,358 because that crash already existed in the county reference. The new managed record has a reviewed nine-field summary. The [refresh record](operations/crash-updates-and-recovery.md#november-17-2026-refresh) records source coverage and verification limits.

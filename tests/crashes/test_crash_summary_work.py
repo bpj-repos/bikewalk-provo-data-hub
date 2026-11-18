@@ -1,10 +1,11 @@
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from danger_zones.update_incidents import SUMMARY_FIELDS, apply_summaries, summary_basis, summary_groups
 from danger_zones.util import read_json, write_json
-from scripts.crash_summaries import prepare, collect, resolve
+from scripts.crash_summaries import prepare, collect, resolve, pending_work
 from tests.crashes.test_update_incidents import police_record, portal_record
 
 
@@ -41,3 +42,35 @@ class SummaryWorkTests(unittest.TestCase):
         self.assertEqual(resolve('24PR12345', groups),key)
         self.assertEqual(apply_summaries({'records':[lone]}, {key:{'basis':summary_basis(lone),'summary':summary}}),[])
         self.assertEqual(lone['enrichment']['reviewedSummary'],summary)
+
+    def test_update_summary_queue_resumes_and_reports_readiness(self):
+        group = {'observations': [portal_record('123')], 'enrichment': {}}
+        groups = {'123': group, '456': None}
+        pointer = {'snapshotId': 'incidents-test', 'sha256': 'test-pin'}
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch('scripts.crash_summaries.DEFAULT_PRIVATE_DATA_ROOT', Path(tmp)), \
+                patch('scripts.crash_summaries.snapshot', return_value=(pointer, groups)):
+            first = pending_work()
+            self.assertEqual(first['status'], 'needs-summary-review')
+            self.assertEqual(first['ambiguousIds'], ['456'])
+            work = Path(first['work'])
+            (work / '123.summary.json').write_text('preserve draft')
+            self.assertEqual(pending_work(), first)
+            self.assertEqual((work / '123.summary.json').read_text(), 'preserve draft')
+            group['enrichment']['reviewedSummary'] = dict.fromkeys(SUMMARY_FIELDS, '')
+            ready = pending_work()
+            self.assertEqual(ready['status'], 'ready')
+            self.assertEqual(ready['pending'], [])
+            self.assertNotIn('nextCommand', ready)
+
+    def test_update_wrapper_requires_summaries_and_skips_rollback(self):
+        from scripts.update_crashes import run
+        with patch('scripts.update_crashes.main'), \
+                patch('scripts.crash_summaries.pending_work', return_value={'pending': ['123']}) as queue, \
+                patch('sys.argv', ['update_crashes.py', '--offline']), patch('builtins.print'):
+            self.assertEqual(run(), 2)
+            queue.assert_called_once()
+            queue.reset_mock()
+            with patch('sys.argv', ['update_crashes.py', '--rollback']):
+                run()
+            queue.assert_not_called()

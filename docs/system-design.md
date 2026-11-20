@@ -269,3 +269,5 @@ The live-data lighting, young-child and bike-lane transformations are now includ
 ### November 20 crash refresh
 
 Annual crash release 1.1.3 incorporates the November 20 Portal receipt (selected through November 18), two new managed groups and revisions to two existing observations. Source-qualified fingerprints detect substantive corrections, the change report lists affected fields, and stale summaries return to the required review stage. Earlier immutable releases remain available. The separate hosted UDOT coverage capture reaches November 17, while routine managed UDOT acquisition still targets the archive service; hosted capture coverage must not be equated with managed intake. See the November 20 operations record for the resulting annual counts, producer compatibility verification and concurrent consumer handoff.
+
+The coordinated November 20 map refresh produces street membership and occurrence-time packages 1.1.2 bound to its refreshed base-map pin. Annual1.1.3 and both joins ship through one verified catalog build; the consumer retains independent adoption and immutable prior snapshots.

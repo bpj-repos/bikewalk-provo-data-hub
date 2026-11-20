@@ -9,7 +9,7 @@
 | Crash street membership | [Join contract](crash-street-membership.md) |
 | Crash occurrence time | [Join contract](crash-occurrence-time.md) |
 | Concern crash details | [Restricted export and adoption](../operations/crash-updates-and-recovery.md) |
-| Private darkness and school context | [Field rules, schedule evidence and coverage](crash-darkness-and-school-context.md) |
+| Private darkness, school context and young children | [Field rules, schedule evidence and coverage](crash-darkness-and-school-context.md) |
 | Readable crash-map fields | [Export value contract and automated migration](crash-export-values.md) |
 
 [Approved packages](../../releases/README.md) bind exact resources by checksum. Source selection, missingness, units and reuse terms belong to each product's contract.

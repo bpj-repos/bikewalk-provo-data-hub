@@ -21,6 +21,10 @@ def snapshot():
         raise ValueError('Active collection checksum mismatch')
     collection = read_json(path)
     ids = {key for group in collection['records'] for key in summary_keys(group)}
+    groups = summary_groups(collection, ids)
+    # Ambiguous state IDs remain unresolved; review each existing group independently.
+    ids.update('group:' + g['id'] for g in collection['records']
+               if any(groups.get(key) is None for key in summary_keys(g)))
     return pointer, summary_groups(collection, ids)
 
 
@@ -77,7 +81,7 @@ def prepare(work, groups, keys, pin):
     work.mkdir(mode=0o700, parents=True, exist_ok=False)
     jobs = {}
     for key in keys:
-        if not re.fullmatch(r'(?:[0-9]+|provo-police-incidents:[A-Za-z0-9_-]+)', key):
+        if not re.fullmatch(r'(?:[0-9]+|provo-police-incidents:[A-Za-z0-9_-]+|group:[A-Za-z0-9_:-]+)', key):
             raise ValueError('Unexpected crash identifier')
         g = groups[key]
         jobs[key] = {'basis':summary_basis(g), 'prior':sha256_json(g['enrichment'].get('reviewedSummary'))}

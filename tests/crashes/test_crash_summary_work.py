@@ -10,6 +10,23 @@ from tests.crashes.test_update_incidents import police_record, portal_record
 
 
 class SummaryWorkTests(unittest.TestCase):
+    def test_ambiguous_state_id_gets_separate_group_summaries(self):
+        from tests.crashes.test_update_incidents import state_record
+        a = {'id': 'udot-crashes:123', 'observations': [state_record('123')], 'enrichment': {}}
+        b = {'id': 'utah-crash-portal:123', 'observations': [portal_record('123')], 'enrichment': {}}
+        collection = {'records': [a, b]}
+        groups = summary_groups(collection, {'123', 'group:' + a['id'], 'group:' + b['id']})
+        self.assertIsNone(groups['123'])
+        with self.assertRaisesRegex(ValueError, 'ambiguous'):
+            resolve('123', groups)
+        key = 'group:' + b['id']
+        self.assertEqual(resolve(key, groups), key)
+        summary = dict.fromkeys(SUMMARY_FIELDS, '')
+        summary['brief'] = 'Car hit bicyclist.'
+        self.assertEqual(apply_summaries(collection, {key: {'basis': summary_basis(b), 'summary': summary}}), [])
+        self.assertNotIn('reviewedSummary', a['enrichment'])
+        self.assertEqual(b['enrichment']['reviewedSummary'], summary)
+
     def test_batch_resume_stale_draft_and_police_lookup(self):
         pd = police_record('24PR12345')
         state = portal_record('123')

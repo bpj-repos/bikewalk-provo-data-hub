@@ -66,10 +66,39 @@ def age_group(age):
     return None if age is None else 'under18' if age < 18 else '18to64' if age < 65 else '65plus'
 
 
+def young_child(people):
+    ages = [cell(row, 'person.age')['value'] for row in people]
+    known = [age for age in ages if type(age) is int and 0 <= age <= 120]
+    value = True if any(age <= 12 for age in known) else False if ages and len(known) == len(ages) else None
+    return result(value, 'complete' if value is not None else 'partial' if known else 'unavailable',
+                  support(people, ['person.age']))
+
+
+def bike_lane(people):
+    relevant = [p for p in people if code(p, 'person.type') in {'4', '5'}]
+    positive = any(code(p, 'person.nonmotorist_location') in {'12', '17'} for p in relevant)
+    known_settings = {str(i) for i in range(1, 19)} | {'97'}
+    unknown = any(code(p, 'person.type') not in {'1', '2', '3', '4', '5'} for p in people) or any(
+        code(p, 'person.nonmotorist_location') not in known_settings for p in relevant)
+    value = True if positive else False if people and not unknown else None
+    return result(value, 'complete' if value is not None else 'unavailable',
+                  support(people, ['person.type', 'person.nonmotorist_location']))
+
+
+def merge_person_results(cells):
+    values = {c['value'] for c in cells if c['value'] is not None}
+    value = next(iter(values)) if len(values) == 1 else None
+    status = 'conflicting' if len(values) > 1 else 'complete' if values else (
+        'partial' if any(c['availability'] == 'partial' for c in cells) else 'unavailable')
+    return {'value': value, 'availability': status, 'observations': list(cells)}
+
+
 def derive(primary, related, rules):
     issues=[];out={}
     crash_rows=[r for r in related if r['table'] in {'portal.crashes','portal.rollups','udot.arcgis','police.numbers','police.xlsx'}]
     people=[r for r in related if r['entity']=='person'];vehicles=[r for r in related if r['entity']=='vehicle']
+    out['young_child'] = young_child(people)
+    out['bike_lane'] = bike_lane(people)
     modes=sorted({m for r in related for m in r.get('modes',[])})
     conflict=False
     for key,mode in [('classification.bicycle_involved','bicycle'),('classification.pedestrian_involved','pedestrian')]:

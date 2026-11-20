@@ -72,3 +72,69 @@ def export_display_fields(table, fields):
     exported = export_values(table, values)
     return [{'label': field_label(k) if k in tables[table]['fields'] or k not in values else k, 'value': v}
             for k, v in exported.items()]
+
+
+def export_darkness(records):
+    """Use the same group classifier on an already minimized crash-map projection."""
+    from .crash_context import reported_darkness
+    observations = []
+    tables, books = definitions()
+    lighting = lighting_rules()
+    for record in records:
+        table = {'UDOT': 'udot.arcgis', 'Utah Crash Data Portal': 'portal.crashes'}.get(record['source'])
+        if table is None:
+            continue
+        labels = {field_label(key) for key, binding in tables[table]['fields'].items()
+                  if binding['concept'] == 'condition.light'}
+        for section in record['sections']:
+            if section['title'] != 'Recorded crash attributes':
+                continue
+            for field in section['fields']:
+                if field['label'] not in labels:
+                    continue
+                value = field['value']
+                label = books['condition.light'].get(str(value), value)
+                observations.append({'observationId': record['source'] + ':' + record['recordId'],
+                                     'fields': {'lighting': {'value': lighting.get(label)}}})
+    return reported_darkness(observations)
+
+
+@lru_cache(maxsize=1)
+def lighting_rules():
+    from .derived_incidents import read_rules
+    return read_rules()['lighting']
+
+
+def export_person_context(records):
+    """Project person-level flags from the approved detail rows with the Hub rules."""
+    from .derived_incidents import young_child, bike_lane, merge_person_results
+    from .incident_conversions import convert
+    _, books = definitions()
+    concepts = {'Person type': 'person.type', 'Person nm location': 'person.nonmotorist_location'}
+    codes = {concept: {label: code for code, label in books[concept].items()} for concept in concepts.values()}
+    children, lanes = [], []
+    for record in records:
+        if record['source'] != 'Utah Crash Data Portal':
+            continue
+        people = []
+        for section in record['sections']:
+            if not section['title'].startswith('Person '):
+                continue
+            fields = {f['label']: f['value'] for f in export_display_fields('portal.persons', section['fields'])}
+            age = fields.get('Age', fields.get('Age calculated'))
+            try:
+                age = convert(age, 'age')['value']
+            except ValueError:
+                age = None
+            values = {'person.age': {'value': age}}
+            for label, concept in concepts.items():
+                value = fields.get(label)
+                token = codes[concept].get(value, str(value) if value is not None else None)
+                if token and token.isascii() and token.isdecimal():
+                    token = str(int(token))
+                values[concept] = {'value': {'code': token} if token is not None else None}
+            people.append({'observationId': record['recordId'] + ':' + section['title'], 'values': values})
+        identifier = record['source'] + ':' + record['recordId']
+        children.append({'observationId': identifier, **young_child(people)})
+        lanes.append({'observationId': identifier, **bike_lane(people)})
+    return {'youngChild': merge_person_results(children), 'bikeLane': merge_person_results(lanes)}

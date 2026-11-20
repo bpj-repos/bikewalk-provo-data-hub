@@ -18,7 +18,7 @@ FIELDS = {
     'incident': {'year':'integer; state occurrence year, America/Denver', 'date':'YYYY-MM-DD; state occurrence date',
                  'report_year':'integer; police report year only', 'city':'state geographic city label; missing for many UDOT records',
                  'street':'source road text or police address', 'mode':'bicycle, electric-bicycle, pedestrian, other-conveyance',
-                 'fatal':'boolean; any fatality in the crash, not necessarily the AT person', 'source':'source key', 'darkness':'persisted dark, daylight, dawn/dusk, unknown', 'school_context':'persisted drop-off, pickup, both, no match, unknown', 'school_id':'matched campus ID', 'lighting':'reviewed lighting group', 'weekday':'source occurrence weekday', 'hour':'occurrence hour 0–23', 'weather':'recorded weather label', 'road_surface':'recorded surface label', 'driver_circumstance':'reported driver circumstance', 'reported_factor':'reported crash factor'},
+                 'fatal':'boolean; any fatality in the crash, not necessarily the AT person', 'source':'source key', 'darkness':'persisted dark, daylight, dawn/dusk, unknown', 'bike_lane':'boolean; cyclist or other conveyance user reported in an on-street or separated bike lane', 'young_child':'boolean; any recorded participant age 0-12 inclusive, missing/conflicting ages may be unknown', 'darkness_category':'persisted dark-lighted, dark-not-lighted, dark-unknown, daylight, dawn/dusk, unknown', 'school_context':'persisted drop-off, pickup, both, no match, unknown', 'school_id':'matched campus ID', 'lighting':'reviewed lighting group', 'weekday':'source occurrence weekday', 'hour':'occurrence hour 0–23', 'weather':'recorded weather label', 'road_surface':'recorded surface label', 'driver_circumstance':'reported driver circumstance', 'reported_factor':'reported crash factor'},
     'vehicle': {'body_code':'source vehicle-body code string; passenger-car codes 1, 2, 3',
                 'maneuver':'straight-ahead, backing, changing-lanes, right-turn, left-turn, u-turn, or source code',
                 'vehicle_number':'source vehicle number string'},
@@ -62,8 +62,8 @@ def validate(query, scope='incident'):
             if field in {'year','report_year','hour'}:
                 if type(v) is not int: raise ValueError('Year/hour requires integer')
                 if field=='hour' and not 0<=v<=23: raise ValueError('Hour must be 0–23')
-            elif field=='fatal':
-                if type(v) is not bool: raise ValueError('fatal requires boolean')
+            elif field in {'fatal','young_child','bike_lane'}:
+                if type(v) is not bool: raise ValueError('Field requires boolean')
             elif not isinstance(v,str) or not v.strip(): raise ValueError('Field requires nonempty string')
             if field=='date': datetime.strptime(v,'%Y-%m-%d')
         if op=='contains' and not isinstance(value,str): raise ValueError('contains requires text')
@@ -218,6 +218,9 @@ def select(entries,query):
             row=facts(o,enrichments.get(o['id']))
             context=group.get('enrichment',{}).get('context',{})
             row.update(darkness=context.get('darkness',{}).get('value'),
+                       darkness_category=context.get('darkness',{}).get('category'),
+                       young_child=context.get('youngChild',{}).get('value'),
+                       bike_lane=context.get('bikeLane',{}).get('value'),
                        school_context=context.get('school',{}).get('value'),
                        school_id=sorted({m['schoolId'] for m in context.get('school',{}).get('matches',[])}))
             if not context or context.get('school',{}).get('value')=='unknown':

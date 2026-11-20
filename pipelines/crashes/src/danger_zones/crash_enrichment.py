@@ -80,9 +80,13 @@ def enrich_collection(collection):
     counts = defaultdict(Counter)
     for group in collection['records']:
         enriched = []
+        young_children = []
+        bike_lanes = []
         for observation in sorted(flatten({'records': [group]}).values(), key=lambda o: o['id']):
             rows = normalized_rows(observation, catalog, contract)
             output = derive(rows[0], rows, rules)
+            young_children.append({'observationId': observation['id'], **output['derived']['young_child']})
+            bike_lanes.append({'observationId': observation['id'], **output['derived']['bike_lane']})
             if output['issues']:
                 raise ValueError('Unreviewed enrichment mapping: ' + observation['id'] + ' ' + ', '.join(output['issues']))
             fields = {key: output['derived'][name] for key, (_, name) in FIELDS.items() if name}
@@ -96,7 +100,7 @@ def enrich_collection(collection):
             enriched.append({'observationId': observation['id'], 'source': observation['sourceKey'],
                              'sourceRecordId': observation['sourceRecordId'], 'fields': fields})
         group['enrichment'] = {'schemaVersion': 1, 'rulesVersion': rules['version'], 'rulesSha256': sha256_file(RULES), 'observations': enriched}
-        add_context(group, flatten({'records': [group]}), register)
+        add_context(group, flatten({'records': [group]}), register, young_children, bike_lanes)
     return {'schemaVersion': 1, 'incidentGroups': len(collection['records']),
             'context': coverage(collection, register),
             'sourceObservations': len(flatten(collection)),

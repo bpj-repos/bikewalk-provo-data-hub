@@ -140,6 +140,25 @@ class PipelineTests(unittest.TestCase):
         self.bootstrap.start()
     def tearDown(self):self.bootstrap.stop();self.temp.cleanup()
     def run_update(self,**kwargs):return run_update(self.root,offline=kwargs.pop('offline',True),**kwargs)
+    def test_map_intake_promotes_only_reviewed_retained_ids_and_repeats(self):
+        workbook = portal_workbook(self.root/'county.xlsx', [portal_record('2'), portal_record('3')], city='All')
+        self.run_update(portal_workbooks=[workbook])
+        pin = read_json(self.pointer)
+        packet = self.root/'map.json'
+        write_json(packet, {'collectionSHA256': pin['sha256'], 'stateIds': ['2']})
+        first = self.run_update(map_records=packet)
+        active = read_json(Path(read_json(self.pointer)['path']))
+        self.assertIn('utah-crash-portal:2', flatten(active))
+        self.assertNotIn('utah-crash-portal:3', flatten(active))
+        self.assertEqual(self.run_update(map_records=packet)['status'], 'unchanged')
+        self.assertEqual(read_json(self.pointer)['snapshotId'], first['releaseId'])
+        write_json(packet, {'collectionSHA256': 'stale', 'stateIds': ['3']})
+        with self.assertRaisesRegex(ValueError, 'active collection'):
+            self.run_update(map_records=packet)
+        write_json(packet, {'collectionSHA256': read_json(self.pointer)['sha256'], 'stateIds': ['999']})
+        with self.assertRaisesRegex(ValueError, 'retained nonmotorist'):
+            self.run_update(map_records=packet)
+
     def test_reviewed_summary_exact_match_repeat_and_invalidation(self):
         source = portal_record('2')
         workbook = portal_workbook(self.root/'initial.xlsx', [source])

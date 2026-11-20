@@ -2,12 +2,12 @@ from copy import deepcopy
 from datetime import datetime
 import unittest
 
-from danger_zones.crash_context import GEOD, reported_darkness, school_at, school_context, load_register
+from danger_zones.crash_context import GEOD, reported_darkness, school_at, school_context, load_register, add_context
 from danger_zones.query_incidents import select
 
 
 def fixture():
-    return {'inventoryCoverage': [['2024-07-01', '2025-06-30']], 'calendars': {'term': {
+    return {'version': 'test', 'inventoryCoverage': [['2024-07-01', '2025-06-30']], 'calendars': {'term': {
         'from': '2024-07-01', 'through': '2025-06-30',
         'closedRanges': [['2024-12-23', '2025-01-03']], 'uncertainDates': ['2025-02-06']}},
         'schools': [{'id': 'school-1', 'opened': '2010-01-01', 'closed': None,
@@ -90,6 +90,28 @@ class ContextTests(unittest.TestCase):
         result = reported_darkness([observation('daylight'), observation('dark-lighted')])
         self.assertEqual(result['value'], 'unknown'); self.assertEqual(result['reason'], 'source-conflict')
 
+    def test_lighting_category_preserves_known_subtype_and_conflicts(self):
+        for original, expected in [('dark-lighted', 'dark-lighted'), ('dark-unlighted', 'dark-not-lighted'),
+                                   ('dark-lighting-unknown', 'dark-unknown')]:
+            self.assertEqual(reported_darkness([observation(original)])['category'], expected)
+        supplied = [observation('dark-lighting-unknown'), observation('dark-unlighted')]
+        self.assertEqual(reported_darkness(supplied)['category'], 'dark-not-lighted')
+        result = reported_darkness([observation('dark-lighted'), observation('dark-unlighted')])
+        self.assertEqual(result['category'], 'dark-unknown')
+        self.assertEqual(result['lightingReason'], 'source-conflict')
+        result = reported_darkness([observation('daylight'), observation('dark-unlighted')])
+        self.assertEqual(result['category'], 'unknown')
+
+    def test_young_child_group_conflicts_and_missing_sources(self):
+        group = {'enrichment': {'observations': []}}
+        yes = {'observationId': 'one', 'value': True, 'availability': 'complete'}
+        missing = {'observationId': 'two', 'value': None, 'availability': 'unavailable'}
+        add_context(group, {}, fixture(), [yes, missing])
+        self.assertIs(group['enrichment']['context']['youngChild']['value'], True)
+        add_context(group, {}, fixture(), [yes, {'value': False, 'availability': 'complete'}])
+        self.assertIsNone(group['enrichment']['context']['youngChild']['value'])
+        self.assertEqual(group['enrichment']['context']['youngChild']['availability'], 'conflicting')
+
     def test_missing_crash_inputs_and_report_time(self):
         original = {'o': {'coordinates': [-111.66, 40.23]}}
         self.assertEqual(school_context({}, [observation(basis='report')], original, fixture())['reasons'],
@@ -116,6 +138,20 @@ class ContextTests(unittest.TestCase):
         self.assertEqual(select([group], query)[1]['matched'], 1)
         del group['enrichment']['context']
         self.assertEqual(select([group], query)[1]['unknown'], 1)
+
+    def test_saved_lighting_category_and_young_child_query(self):
+        group = {'id': 'g', 'observations': [{'id': 'o', 'sourceKey': 'udot-crashes', 'metadata': {}}],
+                 'enrichment': {'context': {'darkness': {'category': 'dark-not-lighted'},
+                                            'youngChild': {'value': True}}}}
+        query = {'all': [{'field': 'darkness_category', 'op': 'eq', 'value': 'dark-not-lighted'},
+                         {'field': 'young_child', 'op': 'eq', 'value': True}]}
+        self.assertEqual(select([group], query)[1]['matched'], 1)
+        group['enrichment']['context']['bikeLane'] = {'value': True}
+        self.assertEqual(select([group], {'field': 'bike_lane', 'op': 'eq', 'value': True})[1]['matched'], 1)
+        group['enrichment']['context']['youngChild']['value'] = None
+        self.assertEqual(select([group], query)[1]['unknown'], 1)
+        with self.assertRaises(ValueError):
+            select([group], {'field': 'young_child', 'op': 'eq', 'value': 12})
 
     def test_real_register_validates(self):
         self.assertGreater(len(load_register()['schools']), 18)

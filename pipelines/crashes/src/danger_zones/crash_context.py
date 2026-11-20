@@ -8,6 +8,7 @@ from pyproj import Geod
 
 from .config import HUB_ROOT
 from .util import read_json, sha256_file
+from .derived_incidents import merge_person_results
 
 REGISTER = HUB_ROOT / 'data-definitions/crashes/school-context-v1.json'
 GEOD = Geod(ellps='WGS84')
@@ -74,8 +75,16 @@ def reported_darkness(observations):
     evidence = [{'observationId': o['observationId'], 'lighting': o['fields']['lighting']['value']}
                 for o in observations if o['fields']['lighting']['value'] in DARKNESS]
     categories = {DARKNESS[e['lighting']] for e in evidence}
-    return {'value': next(iter(categories)) if len(categories) == 1 else 'unknown',
+    value = next(iter(categories)) if len(categories) == 1 else 'unknown'
+    known_lighting = {e['lighting'] for e in evidence if e['lighting'] in {'dark-lighted', 'dark-unlighted'}}
+    category = value
+    if value == 'dark':
+        category = {'dark-lighted': 'dark-lighted', 'dark-unlighted': 'dark-not-lighted'}.get(
+            next(iter(known_lighting)) if len(known_lighting) == 1 else None, 'dark-unknown')
+    return {'value': value, 'category': category,
             'reason': 'source-conflict' if len(categories) > 1 else None if categories else 'lighting-unavailable',
+            'lightingReason': 'source-conflict' if value == 'dark' and len(known_lighting) > 1 else
+                              'lighting-unavailable' if category == 'dark-unknown' else None,
             'lighting': sorted({e['lighting'] for e in evidence}), 'evidence': evidence}
 
 
@@ -185,16 +194,18 @@ def school_context(group, observations, source_observations, register, radius=40
             'reasons': sorted(reasons), 'evidence': [c['observationId'] for c in candidates]}
 
 
-def add_context(group, source_observations, register):
+def add_context(group, source_observations, register, young_children=(), bike_lanes=()):
     observations = group['enrichment']['observations']
     group['enrichment']['context'] = {
         'schemaVersion': 1, 'registerVersion': register['version'], 'registerSha256': sha256_file(REGISTER),
+        'youngChild': {**merge_person_results(young_children), 'maximumAgeYears': 12},
+        'bikeLane': merge_person_results(bike_lanes),
         'darkness': reported_darkness(observations),
         'school': school_context(group, observations, source_observations, register)}
 
 
 def coverage(collection, register):
-    years = defaultdict(lambda: {'groups': 0, 'darkness': Counter(), 'school': Counter(),
+    years = defaultdict(lambda: {'groups': 0, 'darkness': Counter(), 'darknessCategories': Counter(), 'youngChild': Counter(), 'bikeLane': Counter(), 'school': Counter(),
                                  'unknownReasons': Counter(), 'darknessUnknownReasons': Counter(), 'spatialCandidates': 0,
                                  'possibleHistoricalSpatialCandidates': 0, 'radius201Metres': Counter()})
     from .incident_updates import flatten
@@ -207,6 +218,11 @@ def coverage(collection, register):
         context = group['enrichment']['context']
         row['groups'] += 1
         row['darkness'][context['darkness']['value']] += 1
+        row['darknessCategories'][context['darkness']['category']] += 1
+        child = context['youngChild']
+        row['youngChild']['yes' if child['value'] is True else 'no' if child['value'] is False else 'unknown'] += 1
+        lane = context['bikeLane']
+        row['bikeLane']['yes' if lane['value'] is True else 'no' if lane['value'] is False else 'unknown'] += 1
         if context['darkness']['reason']:
             row['darknessUnknownReasons'][context['darkness']['reason']] += 1
         school = context['school']

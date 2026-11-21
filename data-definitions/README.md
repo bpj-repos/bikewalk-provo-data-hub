@@ -14,3 +14,5 @@ The crash metadata catalog's `export-codes.json` supplements common codebooks fo
 Reference captures retain original relative names so existing hashes and locators remain reproducible. A captured src/danger_zones/police.py under historical references is evidence. Runnable processing code lives in [pipelines](../pipelines/README.md).
 
 Published package definitions are also retained verbatim in [releases](../releases/README.md). Edits to a shared meaning follow the [ownership contract](../docs/ownership.md) and release review.
+
+- `crashes/road-segments-v1.json` pins the reviewed Provo City source schema, disclosure exclusion, eligibility, length projection and crash-assignment tolerances. Changes invalidate the dependency-driven [segment package](../docs/datasets/crash-road-segments.md).

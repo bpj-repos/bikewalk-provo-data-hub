@@ -15,3 +15,5 @@
 [Approved packages](../../releases/README.md) bind exact resources by checksum. Source selection, missingness, units and reuse terms belong to each product's contract.
 
 - [Provo bicycle traffic stress usage](provo-bicycle-traffic-stress.md) covers usage; its [method](../../data-definitions/provo-bicycle-traffic-stress/method.md) reconciles native directional and whole-line scores with explicit coverage. [Maintenance](../operations/traffic-stress.md).
+
+- [Crash road-segment associations](crash-road-segments.md) provides every managed crash's assignment/status and complete reviewed Provo City segment metadata, including zero-crash inventory and explicit mileage/topology limits.

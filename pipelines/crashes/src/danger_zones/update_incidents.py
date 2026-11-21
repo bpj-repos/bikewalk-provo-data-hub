@@ -539,7 +539,7 @@ def rollback(private_root=DEFAULT_PRIVATE_DATA_ROOT, *, restore=None):
         return {'status':'rolled-back','releaseId':previous['snapshotId'],'audit':str(audit)}
 
 
-def main():
+def parse_args():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--portal-workbook',type=Path,action='append',default=[])
     parser.add_argument('--police-input','--police-workbook',dest='police_workbook',help='Police .xlsx, .numbers or forwarded .eml (repeatable)',type=Path,action='append',default=[])
@@ -566,6 +566,11 @@ def main():
     private_root = args.private_data_root or (restore.root/'tools/.danger-zone-private' if restore else DEFAULT_PRIVATE_DATA_ROOT)
     data_root = args.data_root or (restore.root/'tools/.danger-zone-data' if restore else DEFAULT_DATA_ROOT)
     if args.rollback and (args.offline or args.portal_workbook or args.police_workbook or args.address_points or args.reviewed_matches or args.reviewed_summaries or args.map_records):parser.error('--rollback cannot be combined with update inputs or --offline')
+    return args, private_root, data_root, restore
+
+
+def main(parsed=None):
+    args, private_root, data_root, restore = parsed or parse_args()
     result=rollback(private_root,restore=restore) if args.rollback else run_update(private_root,data_root,restore=restore,portal_workbooks=args.portal_workbook,police_workbooks=args.police_workbook,address_points=args.address_points,reviewed_matches=args.reviewed_matches,reviewed_summaries=args.reviewed_summaries,map_records=args.map_records,offline=args.offline)
     print(json.dumps(result,indent=2))
 

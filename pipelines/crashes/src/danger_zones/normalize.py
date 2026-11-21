@@ -386,6 +386,11 @@ def _datetime_from_millis(value: Any) -> datetime | None:
     if value is None:
         return None
     try:
+        if isinstance(value, str) and "T" in value:
+            result = datetime.fromisoformat(value.replace("Z", "+00:00"))
+            if result.tzinfo is None:
+                raise ValueError("Timestamp requires an offset")
+            return result.astimezone(timezone.utc)
         return datetime.fromtimestamp(float(value) / 1000, timezone.utc)
     except (TypeError, ValueError, OSError):
         return None
@@ -902,6 +907,17 @@ def normalize_streets(
     return rows, rejected
 
 
+def udot_crash_time(value, *, hosted=False):
+    stamp = _datetime_from_millis(value)
+    if stamp is None:
+        raise ValueError("Invalid UDOT crash timestamp")
+    if hosted:
+        from zoneinfo import ZoneInfo
+        # Hosted UTC-tagged values encode Utah wall time, corroborated against Portal records.
+        stamp = stamp.replace(tzinfo=ZoneInfo("America/Denver"))
+    return stamp
+
+
 def normalize_crashes(
     features_by_year: list[tuple[int, dict[str, Any]]],
     *,
@@ -911,7 +927,20 @@ def normalize_crashes(
     rows: list[dict[str, Any]] = []
     rejected: list[str] = []
     for year, feature in features_by_year:
-        properties = feature.get("properties") or {}
+        properties = {key.upper(): value for key, value in (feature.get("properties") or {}).items()}
+        if "crash_datetime" in (feature.get("properties") or {}):
+            stamp = udot_crash_time(properties.get("CRASH_DATETIME"), hosted=True)
+            properties["CRASH_DATETIME"] = int(stamp.timestamp() * 1000)
+            current = _datetime_from_millis(properties.get("CURRENT_AS_OF_DATE"))
+            properties["CURRENT_AS_OF_DATE"] = int(current.timestamp() * 1000) if current else None
+            for source, target in (("ROUTE_ID", "ROUTE"), ("BEG_MILEAGE", "START_ACCUM")):
+                properties[target] = properties.pop(source, None)
+            import re
+            route = str(properties.get("ROUTE") or "")
+            matched = re.fullmatch(r"(\d+)([PN])([A-Z])", route)
+            if matched and (matched[2], matched[3]) == (properties.get("ROUTE_DIRECTION"), properties.get("ROADWAY_TYPE_CD")):
+                properties["ROUTE"] = matched[1]
+
         crash_id = properties.get("CRASH_ID")
         if crash_id is None or not feature.get("geometry"):
             rejected.append(str(properties.get("OBJECTID", "missing-id")))

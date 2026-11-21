@@ -1,6 +1,7 @@
 """Pure update transformations; no active pointers, downloads or publication."""
 from copy import deepcopy
 from collections import Counter
+from zoneinfo import ZoneInfo
 from .incidents import _date, combine_observations, observation_day
 from .crash_portal import enrich_state_records, state_join_evidence
 from .match_review import review, load_portal
@@ -39,10 +40,25 @@ def fingerprint(o):
                         'mode':o.get('mode'),'modes':sorted(o.get('modes',[])), 'metadata':m})
 
 
+def equivalent_udot(left, right):
+    """Ignore schema aliases and sub-decimetre reprojection noise, not source corrections."""
+    if left['sourceKey'] != 'udot-crashes' or right['sourceKey'] != 'udot-crashes':
+        return False
+    values = []
+    for record in (left, right):
+        value = deepcopy(record)
+        value['metadata'] = {k:v for k,v in value['metadata'].items()
+                             if v is not None and k not in {'ROUTE_DIR_ID', 'LAT_UTM_Y', 'LONG_UTM_X'}}
+        value['coordinates'] = [round(v, 6) for v in value['coordinates']]
+        values.append(fingerprint(value))
+    return values[0] == values[1]
+
+
 def upsert(target, records):
     for o in records:
         previous = target.get(o['id'])
-        if previous is None or fingerprint(previous) != fingerprint(o): target[o['id']] = o
+        if previous is None or (fingerprint(previous) != fingerprint(o) and not equivalent_udot(previous, o)):
+            target[o['id']] = o
 
 
 def police_observations(store):
@@ -77,7 +93,7 @@ def candidate_rows(state):
     candidates={c['id']:c for c in load_portal(tables,'retained-portal-lookup')} if portal else {}
     udot={**state.get('udotLookup',{}),**{k:o for k,o in state['observations'].items() if o['sourceKey']=='udot-crashes'}}
     for o in udot.values():
-        id=o['sourceRecordId'];when=_date(o['observedAt'])
+        id=o['sourceRecordId'];when=_date(o['observedAt']).astimezone(ZoneInfo('America/Denver'))
         if id in candidates:
             p=state['portal']['utah-crash-portal:'+id]
             if not state_join_evidence(o,p):candidates[id]['sourceConflict']=True

@@ -104,6 +104,12 @@ class CityHistoryTests(unittest.TestCase):
                 (root / 'receipt.json').write_text(json.dumps(dict(layers={'2025': 'fixture'}, files=files)))
             save([crash, crash])
             self.assertEqual(udot_summary(root, ['Provo'])['Provo'][0], 1)
+            crash['properties']['crash_datetime'] = '2025-01-01T01:00:00+00:00'
+            save([crash])
+            receipt = json.loads((root / 'receipt.json').read_bytes())
+            receipt['layers']['2025'] = 'https://services.arcgis.com/example/Utah_Crash_Locations/FeatureServer/1'
+            (root / 'receipt.json').write_text(json.dumps(receipt))
+            self.assertEqual(str(udot_summary(root, ['Provo'])['Provo'][2]), '2025-01-01')
             changed = {**crash, 'geometry': {'type': 'Point', 'coordinates': [.6, .5]}}
             save([crash, changed])
             with self.assertRaisesRegex(ValueError, 'conflicting'):

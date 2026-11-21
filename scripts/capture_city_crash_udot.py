@@ -9,8 +9,7 @@ from datetime import datetime, timezone
 from danger_zones.arcgis import session
 from scripts.prepare_crash_releases import ROOT
 
-ARCHIVE = 'https://maps.udot.utah.gov/central/rest/services/TrafficAndSafety/Crash_Locations/MapServer'
-HOSTED = 'https://services.arcgis.com/pA2nEVnB6tquxgOW/ArcGIS/rest/services/Utah_Crash_Locations/FeatureServer'
+from danger_zones.pipeline import UDOT_CRASHES_URL as ARCHIVE, UDOT_HOSTED_CRASHES_URL as HOSTED
 BOUNDARIES = 'https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/UtahMunicipalBoundaries/FeatureServer/0'
 
 

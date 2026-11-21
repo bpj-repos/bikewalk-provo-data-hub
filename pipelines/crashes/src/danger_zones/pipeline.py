@@ -87,6 +87,7 @@ PROVO_TRAILS_URL = (
     "ParksTrails/FeatureServer/1"
 )
 UDOT_TRAFFIC_EVENTS_URL = "https://www.udottraffic.utah.gov/api/v2/get/event"
+UDOT_HOSTED_CRASHES_URL = "https://services.arcgis.com/pA2nEVnB6tquxgOW/ArcGIS/rest/services/Utah_Crash_Locations/FeatureServer"
 UDOT_CRASHES_URL = (
     "https://maps.udot.utah.gov/central/rest/services/TrafficAndSafety/"
     "Crash_Locations/MapServer"
@@ -819,38 +820,28 @@ def import_provo_streets(data_root: Path) -> dict[str, Any]:
 
 
 def _crash_layer_year(layer: dict[str, Any]) -> int | None:
-    name = str(layer.get("name", ""))
-    parts = name.rsplit(" ", 1)
-    if len(parts) != 2 or not parts[1].isdigit():
-        return None
-    return int(parts[1])
+    import re
+    match = re.search(r"\b(20\d{2})\b", str(layer.get("name", "")))
+    return int(match[1]) if match else None
 
 
 def import_udot_crashes(data_root: Path) -> dict[str, Any]:
     started_at = utc_now()
     staging = data_root / ".staging" / f"udot-crashes-{timestamp_slug(started_at)}"
     raw = staging / "raw"
-    service_metadata = fetch_service_metadata(UDOT_CRASHES_URL, raw / "service-metadata.json")
-    layer_pairs = sorted(
-        (
-            (year, layer)
-            for layer in service_metadata.get("layers", [])
-            if (year := _crash_layer_year(layer)) is not None
-        ),
-        key=lambda item: item[0],
-    )
+    layers = {}
+    for name, url in (("archive", UDOT_CRASHES_URL), ("hosted", UDOT_HOSTED_CRASHES_URL)):
+        metadata = fetch_service_metadata(url, raw / (name + "-service-metadata.json"))
+        for layer in metadata.get("layers", []):
+            year = _crash_layer_year(layer)
+            if year is not None:
+                layers[year] = (url, layer)
+    if not layers or not any(url == UDOT_HOSTED_CRASHES_URL for url, _ in layers.values()):
+        raise ValueError("Missing hosted UDOT annual layers")
+    service_metadata = {"layers": [dict(layer, sourceUrl=url) for _, (url, layer) in sorted(layers.items())]}
     downloads: list[tuple[int, LayerDownload]] = []
-    for year, layer in layer_pairs:
-        downloads.append(
-            (
-                year,
-                fetch_layer(
-                    f"{UDOT_CRASHES_URL}/{layer['id']}",
-                    raw / f"layer-{year}",
-                    bbox=PROVO_AREA_BBOX,
-                ),
-            )
-        )
+    for year, (url, layer) in sorted(layers.items()):
+        downloads.append((year, fetch_layer(f"{url}/{layer['id']}", raw / f"layer-{year}", bbox=PROVO_AREA_BBOX)))
     completed_at = utc_now()
     features_by_year = [
         (year, feature)
@@ -861,9 +852,9 @@ def import_udot_crashes(data_root: Path) -> dict[str, Any]:
     current_dates = [
         value
         for _, feature in features_by_year
-        if (value := (feature.get("properties") or {}).get("CURRENT_AS_OF_DATE")) is not None
+        if (value := (feature.get("properties") or {}).get("CURRENT_AS_OF_DATE", (feature.get("properties") or {}).get("current_as_of_date"))) is not None
     ]
-    source_current_through = epoch_millis_to_iso(max(current_dates)) if current_dates else None
+    source_current_through = max(str(v) if isinstance(v, str) else epoch_millis_to_iso(v) for v in current_dates) if current_dates else None
     layer_years = [year for year, _ in downloads]
     warnings: list[str] = []
     if datetime.now(timezone.utc).year not in layer_years:
@@ -874,7 +865,7 @@ def import_udot_crashes(data_root: Path) -> dict[str, Any]:
     schema_fingerprint = sha256_json(
         {
             "serviceLayers": [
-                {"id": layer.get("id"), "name": layer.get("name")} for _, layer in layer_pairs
+                {"id": layer.get("id"), "name": layer.get("name"), "sourceUrl": url} for _, (url, layer) in sorted(layers.items())
             ],
             "fields": field_fingerprint_payload([download for _, download in downloads]),
         }
@@ -902,7 +893,7 @@ def import_udot_crashes(data_root: Path) -> dict[str, Any]:
         retrieved_at=started_at,
         retrieval_completed_at=completed_at,
         source_current_through=source_current_through,
-        source_crs="EPSG:26912 provider geometry, queried as EPSG:4326",
+        source_crs="Archive and hosted provider geometry queried as EPSG:4326",
         record_count=len(features_by_year),
         schema_fingerprint=schema_fingerprint,
         content_fingerprint=content_fingerprint,
@@ -912,7 +903,22 @@ def import_udot_crashes(data_root: Path) -> dict[str, Any]:
     rows, rejected = normalize_crashes(
         features_by_year, snapshot_id=snapshot_id, retrieved_at=started_at
     )
-    output_path = data_root / "normalized" / "udot-crashes" / "v1" / snapshot_id / "records.parquet"
+    unique = {}
+    duplicate_rows = 0
+    for row in rows:
+        previous = unique.get(row["crash_id"])
+        if previous:
+            def evidence(value):
+                attrs = json.loads(value["attributes"])
+                attrs.pop("OBJECTID", None)
+                return {**value, "attributes": attrs}
+            if evidence(previous) != evidence(row):
+                raise ValueError("Conflicting UDOT rows for state crash ID " + row["crash_id"])
+            duplicate_rows += 1
+        else:
+            unique[row["crash_id"]] = row
+    rows = list(unique.values())
+    output_path = data_root / "normalized" / "udot-crashes" / "v2" / sha256_file(Path(__file__).with_name("normalize.py")) / snapshot_id / "records.parquet"
     normalized_reused = output_path.exists()
     if not normalized_reused:
         write_geoparquet(
@@ -931,8 +937,8 @@ def import_udot_crashes(data_root: Path) -> dict[str, Any]:
     checks = [
         {
             "name": "record-reconciliation",
-            "status": "passed" if len(rows) + len(rejected) == len(features_by_year) else "failed",
-            "detail": f"{len(rows)} normalized, {len(rejected)} rejected, {len(features_by_year)} raw",
+            "status": "passed" if len(rows) + len(rejected) + duplicate_rows == len(features_by_year) else "failed",
+            "detail": f"{len(rows)} normalized, {len(rejected)} rejected, {duplicate_rows} identical duplicates, {len(features_by_year)} raw",
         },
         {
             "name": "geometry-validity",

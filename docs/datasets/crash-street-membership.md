@@ -13,3 +13,5 @@ Release commit 16af7f1 and manifest SHA-256 c704827ea8286c9bc9d2d1f3dab02221f17d
 Version 1.1.0 uses the November 15 retained crash snapshot `d0e5f1c9fdbeca56cb71e14b78c0b890570c7ed3fbfedb61c3f48ce5cb725095`. Rebuild using `--crash-pin d0e5f1c9fdbeca56cb71e14b78c0b890570c7ed3fbfedb61c3f48ce5cb725095 --road-version 1.1.0 --road-pin 37e2e608fd66fea74e4489d5516ef7e968a96810268b67fabb0143b84e4fb8e1 --version 1.1.0`. Earlier versions retain their original input pins.
 
 Version 1.1.1 binds the November 17 refresh snapshot `3ad1d844df66b7df38e82346d81761dcedf961a6dc813d6532923df57b530b83`. It retains 1,358 mapped groups and the existing field definitions. The map includes the newly managed crash through the earlier county reference, so map membership is unchanged.
+
+Version 1.1.3 binds hosted-refresh base map `42e4ef6263566256f97e68b0a4d1e5bb32d7791471983c3ba91e457f48cf8cab`, with 1,363 mapped groups. It includes the four newly ingested November crashes and preserves prior opaque references. Definitions and earlier pins are unchanged.

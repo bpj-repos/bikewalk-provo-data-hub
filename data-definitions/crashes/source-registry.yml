@@ -20,11 +20,11 @@ sources:
   - key: udot-crashes
     title: UDOT Crash Locations
     steward: Utah Department of Transportation
-    officialUrl: https://maps.udot.utah.gov/central/rest/services/TrafficAndSafety/Crash_Locations/MapServer
+    officialUrl: https://services.arcgis.com/pA2nEVnB6tquxgOW/ArcGIS/rest/services/Utah_Crash_Locations/FeatureServer
     accessClass: public
     accessStatus: available
     evidenceFamily: observed
-    format: ArcGIS Map Service with annual feature layers
+    format: Hosted ArcGIS Feature Service with archive annual-layer fallback
     expectedCadence: weekly
     importer: arcgis-udot-crashes-v1
     schemaVersion: 1

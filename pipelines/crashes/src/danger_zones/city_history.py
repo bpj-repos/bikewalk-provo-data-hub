@@ -143,9 +143,8 @@ def udot_summary(directory, requested):
                 continue
             city = matches.pop()
             stamp = props['crash_datetime']
-            time = datetime.fromtimestamp(stamp / 1000, timezone.utc) if isinstance(stamp, (int, float)) else datetime.fromisoformat(stamp)
-            if time.tzinfo is None:
-                raise ValueError('Missing UDOT timestamp offset')
+            from .normalize import udot_crash_time
+            time = udot_crash_time(stamp, hosted='/Utah_Crash_Locations/FeatureServer/' in receipt['layers'][str(year)])
             day = time.astimezone(ZONE).date()
             counts[city] += 1
             latest[city] = max(latest.get(city, day), day)

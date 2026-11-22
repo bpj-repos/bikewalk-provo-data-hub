@@ -31,6 +31,12 @@ class CoordinatorTests(unittest.TestCase):
                 package_version(dataset,'1.2.0','new',ledger)
             self.assertEqual(package_version(dataset,'1.2.0','old',ledger),entry)
 
+    def test_unchanged_snapshot_reuses_approved_version(self):
+        from scripts.coordinate_crash_update import version_for_snapshot
+        with patch('scripts.coordinate_crash_update.latest',return_value=(Path('/package'),{'version':'1.2.1'})), patch('scripts.coordinate_crash_update.read',return_value={'crashDataset':'same'}):
+            self.assertEqual(version_for_snapshot('time','same'),'1.2.1')
+            self.assertEqual(version_for_snapshot('time','new'),'1.2.2')
+
     def test_interrupted_stage_resumes_completed_work_and_preserves_attempt(self):
         with tempfile.TemporaryDirectory() as tmp:
             run=Run.__new__(Run); run.folder=Path(tmp);run.file=run.folder/'run.json'

@@ -68,8 +68,13 @@ def next_version(dataset):
     return '.'.join(map(str, parts))
 
 
+def version_for_snapshot(dataset, crash_pin):
+    folder,entry=latest(dataset)
+    return entry['version'] if read(folder/'datapackage.json').get('crashDataset')==crash_pin else next_version(dataset)
+
+
 class Run:
-    def __init__(self, folder, request=None):
+    def __init__(self, folder, request=None, *, check_producer=True):
         self.folder = folder.resolve(); self.file = self.folder/'run.json'
         if not self.folder.is_relative_to(ROOT/'private'):
             raise ValueError('Use a private run directory in this checkout')
@@ -94,7 +99,8 @@ class Run:
             if sha(request['previousExport']) != request['previousExportSha256']: raise ValueError('Previous export checksum mismatch')
             self.state = {'schemaVersion':1, 'request':request, 'inputs':inputs, 'producerFiles':code_files(consumer), 'stages':{}}
             save(self.file, self.state)
-        verify_files(self.state['inputs']); verify_files(self.state['producerFiles'])
+        if check_producer:
+            verify_files(self.state['inputs']); verify_files(self.state['producerFiles'])
         self.request = self.state['request']; self.consumer = Path(self.request['consumer']).resolve()
 
     def guard_collection(self):
@@ -181,8 +187,8 @@ class Run:
         base = self.step('base', baseline)
         def comparison(work):
             result = review(work/'review', Path(request['previousExport']), request['previousExportSha256'], [],
-                            Path(base['archive']), request.get('streetVersion') or next_version('provo-crash-street-membership'),
-                            request.get('timeVersion') or next_version('provo-crash-occurrence-time'))
+                            Path(base['archive']), request.get('streetVersion') or version_for_snapshot('provo-crash-street-membership',base['dataset']),
+                            request.get('timeVersion') or version_for_snapshot('provo-crash-occurrence-time',base['dataset']))
             if any(a['changedYears'] for a in result['annual'].values()):
                 from scripts.prepare_crash_releases import prepare, AT
                 _, current=latest(AT)
@@ -402,7 +408,7 @@ if __name__ == '__main__':
     try:
         with (a.run/'.lock').open('a') as lock:
             fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-            run=Run(a.run,read(a.request) if a.request else None)
+            run=Run(a.run,read(a.request) if a.request else None,check_producer=a.command not in ('status','verify-live'))
             with redirect_stdout(sys.stderr):
                 result=(run.prepare(a.through) if a.command=='prepare' else getattr(run,a.command)(a.sha256)
                         if a.command in ('register','publish','apply') else run.verify_live() if a.command=='verify-live' else run.state)

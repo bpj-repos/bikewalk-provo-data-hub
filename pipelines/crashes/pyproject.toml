@@ -24,7 +24,7 @@ dependencies = [
 ci = ["coverage==7.17.0"]
 
 [project.scripts]
-bwp-update-crashes = "danger_zones.update_incidents:main"
+bwp-update-crashes = "danger_zones.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -6,6 +6,7 @@ import csv
 import hashlib
 import io
 import json
+import re
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -47,7 +48,20 @@ def semantic_changes(before, after):
             'ambiguousIds': {'before': before.get('ambiguousCrashIds', []), 'after': after.get('ambiguousCrashIds', [])}}
 
 
-def review(output, previous_export, export_pin, follow_cases, map_snapshot=None):
+def package_version(dataset, version, crash_pin, ledger):
+    if not version or not re.fullmatch(r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)", version):
+        raise ValueError("Supply an explicit numeric version for " + dataset)
+    if any(e['dataset'] == dataset and e['version'] == version for e in ledger['withdrawn']):
+        raise ValueError("Withdrawn package version")
+    existing = next((e for e in ledger['approved'] if e['dataset'] == dataset and e['version'] == version), None)
+    if existing:
+        files = checked_package(ROOT/'releases/datasets'/dataset/version, existing)
+        if json.loads(files['datapackage.json'])['crashDataset'] != crash_pin:
+            raise ValueError("Published version belongs to another snapshot; choose a new version")
+    return existing
+
+
+def review(output, previous_export, export_pin, follow_cases, map_snapshot=None, street_version=None, time_version=None):
     if not output.resolve().is_relative_to(ROOT/'private') or output.exists():
         raise ValueError('Use a new private output folder')
     previous_bytes = previous_export.read_bytes()
@@ -88,10 +102,16 @@ def review(output, previous_export, export_pin, follow_cases, map_snapshot=None)
             import gzip
             from scripts.prepare_crash_streets import build as streets
             from scripts.prepare_crash_time import build as occurrence
-            map_pin = json.loads(gzip.decompress(map_snapshot.read_bytes()))['map']['dataset']
-            for name, build in [('streets', streets), ('time', occurrence)]:
+            snapshot = json.loads(gzip.decompress(map_snapshot.read_bytes()))['map']
+            if snapshot['collectionHash'] != pointer['sha256'] or snapshot['release'] != pointer['snapshotId']:
+                raise ValueError('Map snapshot belongs to another managed collection')
+            map_pin = snapshot['dataset']
+            for name, build, dataset, version in [('streets', streets, 'provo-crash-street-membership', street_version), ('time', occurrence, 'provo-crash-occurrence-time', time_version)]:
+                existing = package_version(dataset, version, map_pin, ledger)
                 destination = stage/name
-                coverage = build(map_snapshot, destination, crash_pin=map_pin, version='1.2.0')
+                coverage = build(map_snapshot, destination, crash_pin=map_pin, version=version)
+                if existing and hashlib.sha256((destination/'datapackage.json').read_bytes()).hexdigest() != existing['sha256']:
+                    raise ValueError('Published version has different bytes; choose a new version')
                 prepared[name] = {'path': str(output/name), 'coverage': coverage,
                                   'manifestSha256': hashlib.sha256((destination/'datapackage.json').read_bytes()).hexdigest()}
         collection = read(mf.parent/'collection.json')
@@ -111,5 +131,7 @@ if __name__ == '__main__':
     p.add_argument('export_sha256')
     p.add_argument('--case',action='append',default=[])
     p.add_argument('--map-snapshot',type=Path,help='Prepare street, occurrence and record-fact candidates for this verified map archive')
+    p.add_argument('--street-version', help='Explicit street package version when preparing a map')
+    p.add_argument('--time-version', help='Explicit occurrence package version when preparing a map')
     a=p.parse_args()
-    print(json.dumps(review(a.output,a.previous_export,a.export_sha256,a.case,a.map_snapshot),indent=2))
+    print(json.dumps(review(a.output,a.previous_export,a.export_sha256,a.case,a.map_snapshot,a.street_version,a.time_version),indent=2))

@@ -72,3 +72,5 @@ The parking assessment commands are retained for historical reproduction only.
 - `prepare_bike_parking.py` validates city point membership and prepares a private, versioned [bike parking candidate](../docs/datasets/provo-bike-parking.md).
 
 `python -m scripts.crash_summaries status` prepares/resumes required summary assignments and exits 2 until reviewed wording is complete for uniquely identifiable crashes. Require exit 0 before consumer adoption; inspect separately reported ambiguous IDs.
+
+- `python -m scripts.crash_road_segments [--offline] [--source-receipt PRIVATE_RECEIPT] [--version VERSION]` captures/reuses Provo City streets and prepares the complete versioned crash-to-segment package. The normal crash updater invokes it after summary readiness, including unchanged offline updates. `--root`, `--pointer` and `--boundary` support isolated reproduction. See the [segment contract](../docs/datasets/crash-road-segments.md).

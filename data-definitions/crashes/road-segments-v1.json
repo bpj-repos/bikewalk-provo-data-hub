@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "source": "https://gispublicweb.provo.gov/arcgis/rest/services/Parcel/FeatureServer/0",
   "maximumDistanceMeters": 25,
   "separationMeters": 8,
@@ -150,5 +150,29 @@
     "Roundabout",
     "Bike/Ped Path Intersection",
     "Ramp Intersection With Crossroad"
-  ]
+  ],
+  "intersectionSearchMeters": 60,
+  "intersectionSeparationMeters": 12,
+  "endpointJoinMeters": 0.5,
+  "spatialIntersectionMeters": 15,
+  "roadTokenCorrections": {
+    "UNIV": "UNIVERSITY",
+    "UIVERSITY": "UNIVERSITY",
+    "UNIVERISTY": "UNIVERSITY",
+    "PRKWY": "PARKWAY",
+    "SHAWDOWBROOK": "SHADOWBROOK",
+    "MARCREST": "MARRCREST"
+  },
+  "reviewedRoadAliases": {
+    "BULLDOG BOULEVARD": "COUGAR BOULEVARD",
+    "BULL DOG BOULEVARD": "COUGAR BOULEVARD",
+    "BULLDOG": "COUGAR BOULEVARD"
+  },
+  "aliasEvidence": {
+    "BULLDOG BOULEVARD": "https://www.utah.gov/pmn/files/566500.pdf"
+  },
+  "singleRoadIntersectionMeters": 35,
+  "intersectionMergeMeters": 20,
+  "unlabeledPointSnapMeters": 5,
+  "officialSiteLinkMeters": 45
 }

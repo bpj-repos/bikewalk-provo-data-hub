@@ -167,3 +167,80 @@ class RoadSegmentsTest(unittest.TestCase):
             self.assertEqual(r['junctionEvidence'][0]['value'],label)
         g=crash();g['observations'][0].update(sourceKey='utah-crash-portal',metadata={'crash':{'roadName':'Center St','roadwayJunction_label':'4-Leg Intersection'}})
         self.assertEqual(run([road(1,[(0,0),(100,0)])],[g])['assignments.json'][0]['status'],'ambiguous')
+
+    def test_intersection_identity_and_approaches_do_not_double_count(self):
+        roads=[road(1,[(0,0),(100,0)]),road(2,[(50,0),(50,100)],'Freedom Blvd')]
+        result=run(roads,[crash(point=(50,2),name='N Center St & W Freedom Blvd')])
+        row=result['assignments.json'][0]
+        self.assertEqual(row['status'],'matched');self.assertEqual(row['assignmentType'],'intersection')
+        self.assertIsNone(row['segmentId']);self.assertEqual(set(row['relatedSegmentIds']),{'provo-city:1','provo-city:2'})
+        self.assertEqual(row['intersectionId'],result['intersections.geojson']['features'][0]['id'])
+        self.assertEqual(result,run(list(reversed(roads)),[crash(point=(50,2),name='N Center St & W Freedom Blvd')]))
+
+    def test_bend_is_not_an_intersection_and_grade_crossings_need_evidence(self):
+        bend=[road(1,[(0,0),(50,0)]),road(2,[(50,0),(50,100)],'Freedom Blvd')]
+        self.assertEqual(run(bend)['intersections.geojson']['features'],[])
+        crossing=[road(1,[(0,0),(100,0)]),road(2,[(50,-50),(50,50)],'Freedom Blvd')]
+        ordinary=run(crossing)['assignments.json'][0]
+        self.assertNotEqual(ordinary['assignmentType'],'intersection')
+        explicit=run(crossing,[crash(name='Center St & Freedom Blvd')])['assignments.json'][0]
+        self.assertEqual(explicit['assignmentType'],'intersection')
+        crossing[1]['properties']['VERT_LEVEL']=1;crossing[0]['properties']['VERT_LEVEL']=0
+        self.assertIsNone(run(crossing,[crash(name='Center St & Freedom Blvd')])['assignments.json'][0]['intersectionId'])
+
+    def test_address_notes_historical_alias_and_highway_names(self):
+        cases=[('389 W BULLDOG BLVD; business','Cougar Blvd'),('350 N FREEDOM BLVD SMITHS PR 1021','Freedom Blvd'),
+               ('INTERSTATE 15','I-15'),('I 15','I-15'),('2430W 200 N','200 North'),('4751 N UNIVERISTY AVE','University Ave')]
+        for description,name in cases:
+            with self.subTest(description=description):
+                row=run([road(1,[(0,0),(100,0)],name)],[crash(name=description)])['assignments.json'][0]
+                self.assertEqual(row['status'],'matched');self.assertEqual(row['assignmentType'],'segment')
+
+    def test_address_grid_and_explicit_cross_street_cannot_override_wrong_road(self):
+        roads=[road(1,[(0,0),(100,0)],'350 North'),road(2,[(50,0),(50,100)],'Other Road')]
+        row=run(roads,[crash(name='350 N Freedom Blvd')])['assignments.json'][0]
+        self.assertNotEqual(row['status'],'matched')
+        roads+=[road(3,[(0,200),(100,200)],'Freedom Blvd')]
+        row=run(roads,[crash(name='350 North & Freedom Blvd')])['assignments.json'][0]
+        self.assertNotEqual(row['status'],'matched')
+
+    def test_outside_records_are_separate_from_provo_coverage(self):
+        result=run([road(1,[(0,0),(100,0)])],[crash(point=(1000,1000))])
+        self.assertEqual(result['assignments.json'][0]['status'],'out-of-scope')
+        self.assertEqual(result['coverage.json']['locatedInProvo'],0)
+        self.assertEqual(result['exceptions.json'],[])
+
+    def test_unknown_names_and_source_disagreement_keep_reviewable_exceptions(self):
+        result=run([road(1,[(0,0),(100,0)])],[crash(name='PRIVATE PROPERTY')])
+        self.assertEqual(result['exceptions.json'][0]['category'],'off-road-or-parking-location')
+        roads=[road(1,[(0,0),(100,0)]),road(2,[(0,150),(100,150)],'Other Road')]
+        result=run(roads,[crash(name='Other Road')])
+        self.assertEqual(result['exceptions.json'][0]['category'],'road-name-location-disagreement')
+        self.assertGreater(result['exceptions.json'][0]['nearestNamedSegment']['distanceMeters'],100)
+
+    def test_location_only_assignment_is_labeled_and_never_overrides_known_names(self):
+        result=run([road(1,[(0,0),(100,0)])],[crash(name='4898 N')])
+        row=result['assignments.json'][0]
+        self.assertEqual(row['assignmentType'],'segment');self.assertEqual(row['matchEvidence'],'recorded-location-only')
+        self.assertNotEqual(run([road(1,[(0,0),(100,0)])],[crash(name='Private property')])['assignments.json'][0]['status'],'matched')
+
+    def test_police_location_uses_reviewed_geocode_without_exporting_private_address(self):
+        g=crash();o=g['observations'][0];o.update(sourceKey='provo-police-incidents',metadata={'location':{'normalizedAddress':'50 Center Street','geocoding':{'mapEligible':True}},'hasSourceConflict':False})
+        row=run([road(1,[(0,0),(100,0)])],[g])['assignments.json'][0]
+        self.assertEqual(row['status'],'matched');self.assertEqual(row['roadEvidence'],[])
+        self.assertNotIn('50 Center Street',json.dumps(row));self.assertNotIn('text',row['nameEvidence'][0])
+        o['metadata']['hasSourceConflict']=True
+        self.assertNotEqual(run([road(1,[(0,0),(100,0)])],[g])['assignments.json'][0]['status'],'matched')
+
+    def test_official_intersection_identity_preserves_city_geometry_and_excludes_meters(self):
+        roads=[road(1,[(0,0),(100,0)]),road(2,[(50,0),(50,100)],'Freedom Blvd')]
+        site={'type':'Feature','id':'udot-atspm-test','geometry':mapping(Point(xy(55,5))),
+              'properties':{'siteId':'udot-atspm-test','primary':'Center Street','secondary':'Freedom Boulevard'}}
+        result=assign({'records':[crash(name='Center St & Freedom Blvd')]},roads,BOUNDARY,RULES,'pin',[site])
+        row=result['assignments.json'][0];feature=result['intersections.geojson']['features'][0]
+        self.assertEqual(row['intersectionId'],'udot-atspm-test')
+        self.assertNotEqual(feature['geometry'],site['geometry'])
+        self.assertEqual(feature['properties']['providerCoordinates'],site['geometry']['coordinates'])
+        site['properties']['primary']='Center Street SB Meter'
+        result=assign({'records':[crash(name='Center St & Freedom Blvd')]},roads,BOUNDARY,RULES,'pin',[site])
+        self.assertNotEqual(result['assignments.json'][0]['intersectionId'],'udot-atspm-test')

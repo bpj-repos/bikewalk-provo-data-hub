@@ -53,3 +53,12 @@ A fresh agent cloned both repositories with --no-hardlinks, rebuilt independentl
 ## Treeside planned-campus revision
 
 Rebuild 1.1.0 with the same checksummed private receipt as 1.0.0, using `python3 -m scripts.safe_routes prepare receipt NEW_PACKAGE --version 1.1.0`. Check all seven route features and the school point for campusStatus, campusAddress, currentCampusAddress and campusEvidence. The operating school and planned campus have distinct addresses. The fourteen plan features are outside the reviewed addition. Keep directions to the current school out of the map until a dated school plan or steward verification supports them. If a provider ID, payload or school address changes, review the campus designation again before promoting. For another stable release, add its own change notes and release decision. Application maintainers choose their versions independently.
+
+
+## Crash intersection and segment release, November 21, 2026
+
+Owner authorization promoted the exact reviewed `provo-crash-road-segments` 1.0.0 candidate after implementation PR #3 merged (`3a51f183e749ab5598c765bea31f0aa5732141e9`). Manifest SHA-256: `dc1d88b7a79435697b1b0c0fe9daf032a212de4365cc3abbeefeb403f5b54573`; complete catalog-generated ZIP: `7c8295a4d0828d28326f2f540dfe989157a9a74425599eba43b60a91656d7bcf` (2,069,681 bytes). The original candidate-era hold in the frozen method resource is historical and superseded by this approval and ledger entry; published bytes were not rewritten.
+
+The staged deployment `dpl_e6M7Q4F9qr9rpVQVPcxCPVmGyG2c` at https://bikewalk-provo-data-5stfmnvj8-brycepjs-projects.vercel.app passed all 586 public-file byte, MIME, CORS and ZIP attachment checks before promotion. It replaces `dpl_DqFkHabHmf7Xcsfv8gY7fbKBsWes`; that deployment did not expose a Git commit in its metadata. The full catalog is 262,050,666 bytes, with approximately 20.6 MB of changed upload content. Team billing-period usage was checked before deployment ($15.7151 effective usage, covered by credits at inspection). The 55 Hub tests passed on the registered release; producer verification remains the previously passed 219 crash tests and independent byte-identical rebuild. Existing pins and withdrawals remain unchanged. PSW adoption is independently verified in its integration chat.
+
+Anonymous verification on the stable Hub alias also passed all 586 files after promotion. The existing PSW integration chat was instructed to finish adopting this public manifest and verify its consumer release.

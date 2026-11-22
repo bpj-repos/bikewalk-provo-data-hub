@@ -327,6 +327,9 @@ class Run:
         if pin!=self.state['adoption']['sha256']:raise ValueError('Approve the exact adoption receipt')
         from scripts.publish_route_update import cmd, git, stage_url, unchanged_head
         from scripts.build_catalog import build
+        def logged(args,cwd):
+            raw=cmd(args,cwd,output=True)
+            if raw:print(raw.decode(),file=sys.stderr,end='')
         for _,entry,files in self.packages():
             if entry not in read(ROOT/'releases/release-ledger.json')['approved']:raise ValueError('Register packages first')
             if checked_package(ROOT/'releases/datasets'/entry['dataset']/entry['version'],entry)!=files:raise ValueError('Registered release differs')
@@ -345,14 +348,14 @@ class Run:
                 build(Path(self.request.get('sourceRepo',Path.home()/'Documents/ChatGPT/bikewalk-provo')),Path(temp)/'catalog')
                 (Path(temp)/'catalog').rename(stage)
         if not state.get('url'):
-            cmd(['vercel','link','--yes','--project','bikewalk-provo-data-hub','--scope=brycepjs-projects'],stage)
+            logged(['vercel','link','--yes','--project','bikewalk-provo-data-hub','--scope=brycepjs-projects'],stage)
             state['url']=stage_url(stage,'bikewalk-provo-data');save(state_path,state)
-        cmd([sys.executable,ROOT/'scripts/verify_public_catalog.py',stage/'public','--stage',state['url']],stage)
+        logged([sys.executable,ROOT/'scripts/verify_public_catalog.py',stage/'public','--stage',state['url']],stage)
         if not state.get('promoted'):
             unchanged_head(ROOT)
-            cmd(['vercel','promote',state['url'],'--yes','--scope=brycepjs-projects'],stage)
+            logged(['vercel','promote',state['url'],'--yes','--scope=brycepjs-projects'],stage)
             state['promoted']=True;save(state_path,state)
-        cmd([sys.executable,ROOT/'scripts/verify_public_catalog.py',stage/'public'],stage)
+        logged([sys.executable,ROOT/'scripts/verify_public_catalog.py',stage/'public'],stage)
         state['liveVerified']=True;save(state_path,state)
         return self.status('published-awaiting-adoption')
 

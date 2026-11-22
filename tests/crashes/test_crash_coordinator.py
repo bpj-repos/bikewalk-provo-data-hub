@@ -37,6 +37,15 @@ class CoordinatorTests(unittest.TestCase):
             self.assertEqual(version_for_snapshot('time','same'),'1.2.1')
             self.assertEqual(version_for_snapshot('time','new'),'1.2.2')
 
+    def test_historical_status_does_not_require_retired_producer_checkout(self):
+        with tempfile.TemporaryDirectory() as tmp, patch('scripts.coordinate_crash_update.ROOT',Path(tmp).resolve()):
+            folder=Path(tmp)/'private/run';folder.mkdir(parents=True)
+            state={'request':{'consumer':'/retired/consumer'},'inputs':{'/retired/input':'pin'},
+                   'producerFiles':{'/retired/script':'pin'},'stages':{},'status':'live-verified'}
+            save(folder/'run.json',state)
+            self.assertEqual(Run(folder,check_producer=False).state['status'],'live-verified')
+            with self.assertRaisesRegex(ValueError,'changed'):Run(folder)
+
     def test_interrupted_stage_resumes_completed_work_and_preserves_attempt(self):
         with tempfile.TemporaryDirectory() as tmp:
             run=Run.__new__(Run); run.folder=Path(tmp);run.file=run.folder/'run.json'

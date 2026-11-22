@@ -397,6 +397,42 @@ def assign(collection, features, boundary, rules, source_pin, sites=()):
             'exceptions.json':exceptions}
 
 
+def crash_records(result):
+    """Materialize the shared road join once, with no raw private crash fields."""
+    segments = {f['id']: f['properties'] for f in result['segments.geojson']['features']}
+    intersections_by_id = {f['id']: f for f in result['intersections.geojson']['features']}
+    records = []
+    for row in result['assignments.json']:
+        location = {key: row[key] for key in (
+            'status', 'scope', 'identityStatus', 'assignmentType', 'intersectionId',
+            'segmentId', 'physicalGeometryId', 'relatedSegmentIds', 'matchEvidence',
+            'exceptionCategory', 'reasons', 'ruleVersion', 'distanceMeters', 'locationSource')}
+        location.update(intersection=None, segment=None)
+        if row['intersectionId']:
+            feature = intersections_by_id[row['intersectionId']]
+            location['intersection'] = {**feature['properties'], 'coordinates': feature['geometry']['coordinates']}
+        if row['segmentId']:
+            props = segments[row['segmentId']]
+            location['segment'] = {**props['derived'], 'label': props['source'].get('LABEL') or props['source'].get('FULLNAME'),
+                                   'attributes': props['source']}
+        records.append({'crashId': row['crashId'], 'sourceRecords': row['sourceRecords'], 'roadLocation': location})
+    return records
+
+
+def enrich_collection(collection, records, package_pin):
+    """Return a private derived view; never rewrite the reconciled source release."""
+    from copy import deepcopy
+    by_id = {r['crashId']: r['roadLocation'] for r in records}
+    ids = ['crash:'+hashlib.sha256(g['id'].encode()).hexdigest()[:24] for g in collection['records']]
+    if len(by_id) != len(records) or len(set(ids)) != len(ids) or set(ids) != set(by_id):
+        raise ValueError('Road enrichment and collection membership differ')
+    enriched = deepcopy(collection)
+    enriched['roadLocationPackage'] = package_pin
+    for group, identifier in zip(enriched['records'], ids):
+        group.setdefault('enrichment', {})['roadLocation'] = deepcopy(by_id[identifier])
+    return enriched
+
+
 def changes(previous, current):
     old={r['crashId']:r for r in previous.get('assignments.json',[])}
     new={r['crashId']:r for r in current['assignments.json']}

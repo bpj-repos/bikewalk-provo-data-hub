@@ -10,7 +10,7 @@ import tempfile
 from datetime import datetime, timezone
 
 from danger_zones.config import HUB_ROOT, DEFAULT_PRIVATE_DATA_ROOT
-from danger_zones.road_segments import assign, changes, encoded, digest
+from danger_zones.road_segments import assign, changes, crash_records, enrich_collection, encoded, digest
 from scripts.build_catalog import checked_package, download_zip
 from scripts.capture_traffic_stress import capture_layer
 
@@ -113,6 +113,7 @@ def prepare(pointer, receipt, boundary, output, version, previous=None):
             check_inputs()
             return {'status':'unchanged','path':str(previous),'sha256':sha(Path(previous)/'datapackage.json'),'dependencyFingerprint':recipe,'version':old['version'],**archive}
     result=assign(collection,roads['features'],read(boundary)['features'][0]['geometry'],rules,receipt['road']['sha256'],read(sites)['features'])
+    result['crash-records.json']=crash_records(result)
     result['review.json']=changes(previous_files,result)
     result['boundary.geojson']=read(boundary)
     result['intersection-sites.geojson']=read(sites)
@@ -121,6 +122,7 @@ def prepare(pointer, receipt, boundary, output, version, previous=None):
         'sourceSpatialReference':metadata.get('sourceSpatialReference',metadata.get('extent',{}).get('spatialReference')),
         'excludedSourceFields':rules['excludedSourceFields'],
         'derived':{'lengthMeters':'EPSG:26912 planar line length, metres; full source geometry.',
+          'roadLocation':'Materialized per-crash road association in crash-records.json, with intersection or segment metadata, evidence and explicit unresolved status. City attributes describe the current source snapshot, not crash-date conditions. Intersection approaches are contextual, not additional crash allocations.',
           'withinBoundaryLengthMeters':'EPSG:26912 length clipped to boundary, metres; count physicalGeometryId once.',
           'physicalGeometryId':'Normalized complete line geometry and recorded grade; exact forward/reverse duplicates share a key.',
           'endpointIds':'0.1-metre coordinate/recorded-grade clusters, potential connectivity only; never interior crossings.',
@@ -228,6 +230,19 @@ def refresh(*,offline=False,source_receipt=None,version=None,root=None,pointer=N
                     'capture':sha(HUB_ROOT/'scripts/capture_traffic_stress.py'),
                     'environment':sha(HUB_ROOT/'pipelines/crashes/pyproject.toml'),'comparisonBaseline':prior['sha256'] if prior else None})
         result=prepare(pointer,receipt,boundary,root/'candidates'/run/version,version,prior['path'] if prior else None)
+        # Keep full private records outside the public package and bind both immutable inputs.
+        before=pointer.read_bytes(); collection_pin=json.loads(before)
+        package=Path(result['path'])
+        files=checked_package(package,{'dataset':DATASET,'version':result['version'],'sha256':result['sha256']})
+        if sha(collection_pin['path'])!=collection_pin['sha256'] or json.loads(files['datapackage.json'])['dependencies']['crashCollection']!=collection_pin['sha256']:
+            raise ValueError('Road enrichment collection pin mismatch')
+        package_pin={'dataset':DATASET,'version':result['version'],'sha256':result['sha256']}
+        enriched=enrich_collection(read(collection_pin['path']),json.loads(files['crash-records.json']),package_pin)
+        raw=encoded(enriched); enriched_path=root/'enriched'/hashlib.sha256(raw).hexdigest()/'collection.json'
+        if enriched_path.exists() and enriched_path.read_bytes()!=raw:raise ValueError('Enriched collection checksum mismatch')
+        if not enriched_path.exists():atomic(enriched_path,enriched)
+        if pointer.read_bytes()!=before or sha(collection_pin['path'])!=collection_pin['sha256']:raise ValueError('Collection changed during road enrichment')
+        result['enrichedCollection']={'path':str(enriched_path),'sha256':sha(enriched_path),'sourceCollectionSha256':collection_pin['sha256'],'roadLocationPackage':package_pin}
         # Preparation and verification must succeed before either operational pointer advances.
         atomic(root/'source.json',receipt);atomic(root/'candidate.json',result)
         return result

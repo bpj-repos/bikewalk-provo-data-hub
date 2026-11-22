@@ -8,7 +8,7 @@ from unittest.mock import patch
 from shapely.geometry import Point, LineString, box, mapping
 from shapely.ops import transform
 
-from danger_zones.road_segments import assign, changes, encoded, TO_METERS, TO_WGS84
+from danger_zones.road_segments import assign, changes, crash_records, enrich_collection, encoded, TO_METERS, TO_WGS84
 from scripts import crash_road_segments as pipeline
 
 RULES=json.loads(pipeline.RULES.read_bytes())
@@ -28,6 +28,27 @@ def run(roads,crashes=None):return assign({'records':crashes or [crash()]},roads
 
 
 class RoadSegmentsTest(unittest.TestCase):
+    def test_record_enrichment_preserves_sources_and_explicit_exceptions(self):
+        groups=[crash('1'),crash('2',point=(50,2),name='Center St & Freedom Blvd'),crash('3',point=None)]
+        roads=[road(1,[(0,0),(100,0)]),road(2,[(50,0),(50,100)],'Freedom Blvd')]
+        groups[0]['observations'][0]['coordinates']=xy(10,1)
+        result=run(roads,groups); records=crash_records(result)
+        source={'records':groups}; original=deepcopy(source)
+        enriched=enrich_collection(source,records,{'sha256':'pin'})
+        locations=[g['enrichment']['roadLocation'] for g in enriched['records']]
+        self.assertEqual(source,original)
+        self.assertEqual(locations[0]['segmentId'],'provo-city:1')
+        self.assertEqual(locations[0]['segment']['attributes']['OWNER'],'Provo')
+        self.assertNotIn('UPDATEDBY',locations[0]['segment']['attributes'])
+        self.assertTrue(locations[1]['intersectionId']);self.assertIsNone(locations[1]['segment'])
+        self.assertEqual(len(locations[1]['relatedSegmentIds']),2)
+        self.assertEqual(locations[2]['status'],'missing-location');self.assertIsNone(locations[2]['intersection'])
+        for before,after in zip(groups,enriched['records']):
+            self.assertEqual(before['observations'],after['observations'])
+            self.assertEqual(before['enrichment']['reviewedSummary'],after['enrichment']['reviewedSummary'])
+        with self.assertRaisesRegex(ValueError,'membership'):enrich_collection(source,records[:-1],{})
+        with self.assertRaisesRegex(ValueError,'membership'):enrich_collection(source,records+[records[0]],{})
+
     def test_complete_attributes_nulls_zero_crash_inventory_and_reproducibility(self):
         roads=[road(1,[(0,0),(100,0)],BIKE_L=None,EXTRA='retained'),road(2,[(0,120),(100,120)],'Other Road')]
         original=deepcopy(roads);result=run(roads)
@@ -108,6 +129,10 @@ class RoadSegmentsTest(unittest.TestCase):
             with patch.object(pipeline,'RULES',rule):
                 args=dict(offline=True,source_receipt=receipt,root=root/'operations',pointer=pointer,boundary=boundary,version='1.0.0')
                 first=pipeline.refresh(**args);second=pipeline.refresh(**args)
+                enriched=pipeline.read(first['enrichedCollection']['path'])
+                self.assertEqual(enriched['records'][0]['enrichment']['roadLocation']['segmentId'],'provo-city:1')
+                self.assertEqual(first['enrichedCollection'],second['enrichedCollection'])
+                self.assertIn('crash-records.json',[r['path'] for r in pipeline.read(Path(first['path'])/'datapackage.json')['resources']])
                 self.assertEqual(second['status'],'unchanged');self.assertEqual(first['sha256'],second['sha256'])
                 roads[0]['properties']['SPEED_LMT']=30;road_path.write_bytes(encoded({'features':roads}))
                 data=pipeline.read(receipt);data['road']['sha256']=pipeline.sha(road_path);receipt.write_bytes(encoded(data))

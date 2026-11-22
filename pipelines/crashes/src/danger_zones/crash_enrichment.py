@@ -150,10 +150,11 @@ def public_text(key, cell, rules):
     raise ValueError('Unknown public detail field')
 
 
-def public_details(group, release_id):
+def public_details(group, release_id, *, rules=None, rules_sha256=None):
     enrichment = group.get('enrichment')
-    rules = read_rules()
-    if not enrichment or enrichment['schemaVersion'] != 1 or enrichment['rulesVersion'] != rules['version'] or enrichment['rulesSha256'] != sha256_file(RULES):
+    rules = rules if rules is not None else read_rules()
+    rules_sha256 = rules_sha256 or sha256_file(RULES)
+    if not enrichment or enrichment['schemaVersion'] != 1 or enrichment['rulesVersion'] != rules['version'] or enrichment['rulesSha256'] != rules_sha256:
         raise ValueError('Missing or unsupported enrichment')
     fields = []
     for key, (title, _) in FIELDS.items():
@@ -181,6 +182,7 @@ def export_release(directory, manifest_sha256):
     collection = read_json(path)
     if collection['snapshotId'] != manifest['releaseId']:
         raise ValueError('Release identity mismatch')
+    rules, rules_sha256 = read_rules(), sha256_file(RULES)
     crashes = {}; ambiguous = set()
     for group in collection['records']:
         ids = {o['sourceRecordId'] for o in flatten({'records': [group]}).values()
@@ -190,7 +192,7 @@ def export_release(directory, manifest_sha256):
                 raise ValueError('Invalid state crash ID: ' + identifier)
             if identifier in crashes or identifier in ambiguous:
                 crashes.pop(identifier, None); ambiguous.add(identifier); continue
-            crashes[identifier] = public_details(group, collection['snapshotId'])
+            crashes[identifier] = public_details(group, collection['snapshotId'], rules=rules, rules_sha256=rules_sha256)
     return {'schemaVersion': 1, 'releaseId': collection['snapshotId'],
             'collectionSha256': manifest['files']['collection.json'], 'manifestSha256': manifest_sha256, 'ambiguousCrashIds': sorted(ambiguous), 'crashes': dict(sorted(crashes.items()))}
 

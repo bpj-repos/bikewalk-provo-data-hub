@@ -304,3 +304,9 @@ Verification passed 219 crash tests (one unavailable historical fixture skipped)
 ### Intersection and segment publication (November 21)
 
 The owner authorized publication after PR #3 merged. Release `provo-crash-road-segments` 1.0.0 registers the exact verified candidate, manifest `dc1d88b7a79435697b1b0c0fe9daf032a212de4365cc3abbeefeb403f5b54573`, in the approved ledger. The earlier candidate and merge holds above are historical. Immutable resource bytes and the candidate-era method record remain unchanged. The standard catalog builder packages the release; staged and live checks gate promotion and consumer adoption. PSW independently adopts the public pin. Publication evidence is recorded in the maintainer guide.
+
+### Crash pipeline reliability and consumer preparation
+
+The routine updater checks producer ancestry before acquisition and returns one structured result, including partial completion and review blockers. Parsed Portal caches depend on parser/conversion/catalog versions; changed versions replay retained receipts before reconciliation. Each collection record retains its selected source receipt, independently of the broader lookup's precedence. Source fingerprints include time precision/date meaning, and legacy reviewed-summary bases migrate only against verified unchanged evidence. Summary review remains a required stage.
+
+Receipt comparisons cover semantic additions, removals and every concern field. The existing review command can also prepare street and occurrence packages for a checksummed map archive. Occurrence 1.2.0 adds local dates and indexed state/person/vehicle facts for the existing map and dashboard consumers. Consumers validate pins and prepare their own summary/filter views at adoption. Hub field export reads derivation rules once per export instead of per crash. Original source records, immutable releases and earlier consumer archives are preserved.

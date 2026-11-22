@@ -47,7 +47,7 @@ def read_gzip(path):
 def tool_hash():
     names=['update_incidents.py','incident_updates.py','match_review.py','incidents.py','crash_portal.py',
            'police.py','police_forward.py','police_datastore.py','address_points.py','police_portal_candidates.py','pipeline.py','normalize.py','arcgis.py',
-           'incident_conversions.py','normalize_incidents.py','derived_incidents.py','crash_enrichment.py','crash_context.py','common_structure.py','util.py','config.py','registry.py','geoparquet.py']
+           'incident_conversions.py','normalize_incidents.py','derived_incidents.py','crash_enrichment.py','crash_context.py','common_structure.py','field_inventory.py','util.py','config.py','registry.py','geoparquet.py']
     return sha256_json({'modules':{n:sha256_file(Path(__file__).parent/n) for n in names},
                         'catalog':{name:sha256_file(PACKAGE_ROOT/'catalog/incident-metadata'/name) for name in ['fields.yml','common.yml','derived.yml']},
                         'schoolContext':sha256_file(HUB_ROOT/'data-definitions/crashes/school-context-v1.json'),
@@ -188,10 +188,19 @@ def summary_groups(collection, ids):
     return groups
 
 
-def summary_basis(group):
+def summary_basis(group, *, legacy=False):
     observations = flatten({'records': [group]})
-    return sha256_json({'observations': {k: fingerprint(o) for k, o in observations.items()},
+    return sha256_json({'observations': {k: fingerprint(o, legacy=legacy) for k, o in observations.items()},
                         'reviewedLink': group.get('reviewedLink')})
+
+
+def migrate_summary_bases(collection, reviewed):
+    """Upgrade only summaries verified against the unchanged, prior source evidence."""
+    groups = summary_groups(collection, reviewed.keys())
+    for key, entry in reviewed.items():
+        group = groups.get(key)
+        if group and entry['basis'] == summary_basis(group, legacy=True):
+            entry['basis'] = summary_basis(group)
 
 
 def import_summaries(path, state, private_root, collection, collection_hash):
@@ -224,9 +233,44 @@ def apply_summaries(collection, reviewed):
     return sorted(skipped)
 
 
+def portal_parser_hash():
+    names = ('crash_portal.py', 'incident_conversions.py', 'field_inventory.py', 'util.py')
+    return sha256_json({'modules': {n: sha256_file(Path(__file__).parent/n) for n in names},
+                        'catalog': sha256_file(PACKAGE_ROOT/'catalog/incident-metadata/fields.yml'),
+                        'dependencies': sha256_file(PIPELINE_ROOT/'pyproject.toml')})
+
+
+def replay_portal(state, private_root):
+    parser = portal_parser_hash()
+    if state.get('portalParserSha256') == parser:
+        return
+    receipts = [r for r in state['inputs'] if r['kind'] == 'portal']
+    if receipts:
+        portal = {}
+        replacements = {}
+        for receipt in receipts:
+            rows, parsed = portal_input(Path(receipt['path']), private_root)
+            upsert(portal, rows)
+            for row in rows:
+                previous = state['observations'].get(row['id'])
+                if (previous and previous.get('sourceSnapshotId') == receipt['sha256'] or
+                        not previous and row['id'] not in state['portal'] and receipt.get('scope') == 'collection' and row.get('modes')):
+                    replacements[row['id']] = row
+        retained = {k for k, o in state['observations'].items() if o['sourceKey'] == 'utah-crash-portal'}
+        if retained - replacements.keys():
+            raise ValueError('Portal replay lacks the selected source receipt for collection records')
+        missing = set(state['portal']) - set(portal)
+        if missing:
+            raise ValueError('Portal parser removed retained records; review required: ' + str(len(missing)))
+        state['portal'] = portal
+        upsert(state['observations'], replacements.values())
+    state['portalParserSha256'] = parser
+
+
 def portal_input(path,private_root):
     desc=retain_input(path,private_root,'portal')
-    parsed=Path(desc['path']).parent/'portal.json.gz';receipt=parsed.with_suffix('.receipt.json')
+    parser = portal_parser_hash()
+    parsed=Path(desc['path']).parent/('portal-'+parser+'.json.gz');receipt=parsed.with_suffix('.receipt.json')
     if parsed.exists() and receipt.exists():
         if sha256_file(parsed)!=read_json(receipt)['sha256']:raise ValueError('Parsed portal checksum mismatch')
         payload=read_gzip(parsed)
@@ -234,8 +278,8 @@ def portal_input(path,private_root):
         records,filters=read_portal(Path(desc['path']),include_all=True,allow_county=True,validate=True)
         for o in records:o['sourceSnapshotId']=desc['sha256']
         payload={'records':records,'filters':filters}
-        write_gzip(parsed,payload);write_json(receipt,{'sha256':sha256_file(parsed)})
-    desc.update(filters=payload['filters'],coverage=max((o['observedAt'] for o in payload['records']),default=None),
+        write_gzip(parsed,payload);write_json(receipt,{'sha256':sha256_file(parsed),'parserSha256':parser})
+    desc.update(parserSha256=parser,filters=payload['filters'],coverage=max((o['observedAt'] for o in payload['records']),default=None),
                 scope='collection' if payload['filters']['City']=='Provo' else 'reference',checkedAt=isoformat(utc_now()))
     return payload['records'],desc
 
@@ -283,6 +327,7 @@ def udot_observations(path):
 def input_fingerprint(state):
     return sha256_json({'observations':{k:fingerprint(v) for k,v in sorted(state['observations'].items())},
                         'addressReference':state.get('addressReference'),
+                        'portalParserSha256':state.get('portalParserSha256'),
                         'mapReceipts':sorted(r['sha256'] for r in state['inputs'] if r['kind']=='map-records'),
                         'summaryReceipts':[r['sha256'] for r in state['inputs'] if r['kind']=='reviewed-summaries'],
                         'decisionReceipts':sorted(ref['sha256'] for ref in state['inputs'] if ref['kind']=='reviewed-matches'),
@@ -310,6 +355,7 @@ def load_state(pointer,old,private_root):
 
 
 def apply_inputs(state,private_root,data_root,run_dir,portal_workbooks,police_workbooks,offline,refresh,address_points):
+    replay_portal(state, private_root)
     known={d['sha256'] for d in state['inputs']}
     if not offline:
         imported=refresh(run_dir/'udot')
@@ -408,6 +454,7 @@ def run_update(private_root=DEFAULT_PRIVATE_DATA_ROOT,data_root=DEFAULT_DATA_ROO
             for source in state['sources']+state['inputs']:
                 if source.get('path') and source.get('sha256') and sha256_file(Path(source['path']))!=source['sha256']:
                     raise ValueError('Pinned source checksum mismatch: '+source['path'])
+            migrate_summary_bases(old, state.get('reviewedSummaries', {}))
             old_lookup={k:fingerprint(v) for k,v in {**state.get('udotLookup',{}),**state['portal']}.items()}
             decisions = import_reviewed_matches(reviewed_matches, state, private_root, before['sha256']) if reviewed_matches else []
             if reviewed_summaries:
@@ -548,6 +595,7 @@ def parse_args():
     parser.add_argument('--reviewed-matches',type=Path,help='Apply private case decisions against their reviewed collection checksum')
     parser.add_argument('--address-points',type=Path,help='Retain a new UGRC Provo snapshot for offline exact-address lookup, including earlier receipts')
     parser.add_argument('--offline',action='store_true')
+    parser.add_argument('--json',action='store_true',help='Emit one structured JSON result (also the default)')
     parser.add_argument('--rollback',action='store_true',help='Restore the verified predecessor pointer; no downloads')
     parser.add_argument('--private-data-root',type=Path)
     parser.add_argument('--data-root',type=Path)
@@ -569,10 +617,12 @@ def parse_args():
     return args, private_root, data_root, restore
 
 
-def main(parsed=None):
+def main(parsed=None, *, emit=True):
     args, private_root, data_root, restore = parsed or parse_args()
     result=rollback(private_root,restore=restore) if args.rollback else run_update(private_root,data_root,restore=restore,portal_workbooks=args.portal_workbook,police_workbooks=args.police_workbook,address_points=args.address_points,reviewed_matches=args.reviewed_matches,reviewed_summaries=args.reviewed_summaries,map_records=args.map_records,offline=args.offline)
-    print(json.dumps(result,indent=2))
+    if emit:
+        print(json.dumps(result,indent=2))
+    return result
 
 
 if __name__=='__main__':main()

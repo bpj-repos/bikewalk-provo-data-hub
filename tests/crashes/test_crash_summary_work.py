@@ -80,14 +80,47 @@ class SummaryWorkTests(unittest.TestCase):
             self.assertEqual(ready['pending'], [])
             self.assertNotIn('nextCommand', ready)
 
-    def test_update_wrapper_requires_summaries_and_skips_rollback(self):
+    def test_update_wrapper_emits_one_result_and_reports_partial_failure(self):
+        import io, json
+        from contextlib import redirect_stdout
         from scripts.update_crashes import run
-        with patch('scripts.update_crashes.main'), \
-                patch('scripts.crash_summaries.pending_work', return_value={'pending': ['123']}) as queue, \
-                patch('sys.argv', ['update_crashes.py', '--offline']), patch('builtins.print'):
-            self.assertEqual(run(), 2)
-            queue.assert_called_once()
-            queue.reset_mock()
-            with patch('sys.argv', ['update_crashes.py', '--rollback']):
-                run()
-            queue.assert_not_called()
+        from argparse import Namespace
+        parsed = (Namespace(rollback=False, offline=True), Path('/tmp/test'), None, None)
+        with patch('scripts.update_crashes.main', return_value={'status':'accepted', 'releaseId':'new'}), \
+                patch('scripts.update_crashes.parse_args', return_value=parsed), \
+                patch('scripts.update_crashes.producer_preflight'), \
+                patch('scripts.update_crashes.read_json', return_value={'snapshotId':'new'}), \
+                patch('scripts.crash_summaries.pending_work', return_value={'pending':['123'], 'nextCommand':'review'}), \
+                patch('sys.argv', ['update_crashes.py', '--offline', '--json']):
+            out = io.StringIO()
+            with redirect_stdout(out):
+                self.assertEqual(run(), 2)
+            self.assertEqual(json.loads(out.getvalue())['status'], 'needs-summary-review')
+            with patch('scripts.crash_summaries.pending_work', return_value={'pending':[]}), \
+                    patch('scripts.crash_road_segments.refresh', side_effect=ValueError('missing capture')):
+                out = io.StringIO()
+                with redirect_stdout(out):
+                    self.assertEqual(run(), 1)
+                result = json.loads(out.getvalue())
+                self.assertEqual(result['status'], 'partially-complete')
+                self.assertEqual(result['releaseId'], 'new')
+                self.assertEqual(result['blockedStage'], 'roadSegments')
+
+    def test_receipt_review_includes_all_consumer_changes(self):
+        from scripts.review_crash_receipt import semantic_changes
+        a = {'crashes': {'1': {'releaseId':'old', 'reviewedSummary':{'brief':'Old'}}, '2':{}, '4':{'releaseId':'old'}}}
+        b = {'crashes': {'1': {'releaseId':'new', 'reviewedSummary':{'brief':'New'}, 'recordedRoadName':'Main'}, '3':{}, '4':{'releaseId':'new'}}}
+        diff = semantic_changes(a,b)
+        self.assertEqual(diff['added'], ['3'])
+        self.assertEqual(diff['removed'], ['2'])
+        self.assertEqual(set(diff['changed']['1']), {'reviewedSummary', 'recordedRoadName'})
+        self.assertNotIn('4', diff['changed'])
+
+    def test_preflight_rejects_checkout_before_active_producer(self):
+        from scripts.update_crashes import producer_preflight
+        from types import SimpleNamespace
+        with patch('scripts.update_crashes.read_json', side_effect=[{'path':'/tmp/collection', 'sha256':'pin'}, {'producerCommit':'newer'}]), \
+                patch('scripts.update_crashes.sha256_file', return_value='pin'), \
+                patch('scripts.update_crashes.subprocess.run', return_value=SimpleNamespace(returncode=1)):
+            with self.assertRaisesRegex(ValueError, 'predates or diverges'):
+                producer_preflight(Path('/tmp'))

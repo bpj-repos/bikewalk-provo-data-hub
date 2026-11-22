@@ -19,7 +19,7 @@ def flatten(snapshot):
     return result
 
 
-def fingerprint(o):
+def fingerprint(o, *, legacy=False):
     """Source values, excluding export positions and dataset/run bookkeeping."""
     m = deepcopy(o['metadata'])
     if o['sourceKey'] == 'provo-police-incidents':
@@ -36,8 +36,11 @@ def fingerprint(o):
             m[key] = sorted(m.get(key,[]),key=sha256_json)
     observed = o['observedAt']
     when = observation_day(o) if len(observed) == 10 else _date(observed)
-    return sha256_json({'observedAt':when.isoformat(),'coordinates':o['coordinates'],
-                        'mode':o.get('mode'),'modes':sorted(o.get('modes',[])), 'metadata':m})
+    value = {'observedAt':when.isoformat(),'coordinates':o['coordinates'],
+             'mode':o.get('mode'),'modes':sorted(o.get('modes',[])), 'metadata':m}
+    if not legacy:
+        value.update(timePrecision=o.get('timePrecision'), dateMeaning=o.get('dateMeaning'))
+    return sha256_json(value)
 
 
 def equivalent_udot(left, right):

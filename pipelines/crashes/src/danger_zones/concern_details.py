@@ -5,7 +5,8 @@ import json
 from pathlib import Path
 import re
 
-from .crash_enrichment import export_release, public_details
+from .crash_enrichment import export_release, public_details, read_rules, RULES
+from .util import sha256_file
 from .incident_updates import flatten
 from .update_incidents import SUMMARY_FIELDS
 
@@ -73,6 +74,7 @@ def retained_portal_factors(release):
 
 def restore_omitted_factors(export, groups, retained_release):
     history = None
+    rules, rules_sha256 = read_rules(), sha256_file(RULES)
     for group in groups:
         observations = flatten({'records': [group]})
         for reading in group['enrichment']['observations']:
@@ -91,7 +93,7 @@ def restore_omitted_factors(export, groups, retained_release):
                 raise ValueError('Retained factor rules differ from the adopted release')
             # Recombine just this earlier Portal reading with current readings from other sources.
             reading['fields']['reportedFactors'] = prior[1]
-            field = next(f for f in public_details(group, export['releaseId'])['fields'] if f['key'] == 'reportedFactors')
+            field = next(f for f in public_details(group, export['releaseId'], rules=rules, rules_sha256=rules_sha256)['fields'] if f['key'] == 'reportedFactors')
             field['retainedPortalFactors'] = FACTOR_RELEASE
             fields = export['crashes'][state_id]['fields']
             current = next(f for f in fields if f['key'] == 'reportedFactors')

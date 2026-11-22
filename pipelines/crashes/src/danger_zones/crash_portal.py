@@ -101,7 +101,7 @@ def read_portal(path: Path, *, include_all=False, allow_county=False, validate=F
 
 def state_join_evidence(existing, portal):
     """Shared state ID/time; road text can corroborate modest coordinate differences."""
-    if existing['sourceRecordId'] != portal['sourceRecordId'] or portal.get('timePrecision', 'second') != 'second':
+    if existing['sourceRecordId'] != portal['sourceRecordId'] or portal.get('timePrecision', 'second') not in {'second', 'minute'}:
         return None
     from pyproj import Geod
 
@@ -113,7 +113,7 @@ def state_join_evidence(existing, portal):
     if delta > 1 or not (distance <= 10 or distance <= 100 and same_road):
         return None
     return {'method': 'same-state-crash-id-and-corroborated-time-location',
-            'timeDifferenceSeconds': delta, 'distanceMeters': round(distance, 3),
+            'timeDifferenceSeconds': delta, 'timePrecision': portal.get('timePrecision', 'second'), 'distanceMeters': round(distance, 3),
             'roadTextAgreement': same_road, 'coordinateDisagreement': distance > 10}
 
 

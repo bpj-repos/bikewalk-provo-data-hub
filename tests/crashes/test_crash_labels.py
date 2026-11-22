@@ -102,6 +102,15 @@ class CrashLabelTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             export_display_fields('portal.crashes', [{'label': 'County', 'value': '49'}, {'label': 'County', 'value': '35'}])
 
+    def test_legacy_label_case_preserves_known_negative(self):
+        from danger_zones.crash_labels import export_person_context
+        record = {'source':'Utah Crash Data Portal', 'recordId':'1', 'sections':[
+            {'title':'Person 1', 'fields':[{'label':'Person type', 'value':'Other Pedestrian (wheelchair, skater, personal conveyance, etc.)'},
+                {'label':'Person nm location', 'value':'Roadside (Legacy code)'}]}]}
+        self.assertIs(export_person_context([record])['bikeLane']['value'], False)
+        record['sections'][0]['fields'][1]['value'] = 'Unmapped code: 999'
+        self.assertIsNone(export_person_context([record])['bikeLane']['value'])
+
     def test_migration_preserves_map_and_replays_and_rejects_corruption(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'source'

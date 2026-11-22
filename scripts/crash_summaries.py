@@ -46,7 +46,7 @@ def evidence(group):
     result = []
     for o in flatten({'records': [group]}).values():
         src, meta = o['sourceKey'], o['metadata']
-        record = {k:o.get(k) for k in ('id','observedAt','dateMeaning','mode','modes')}
+        record = {k:o.get(k) for k in ('id','observedAt','timePrecision','dateMeaning','mode','modes')}
         result.append(record)
         if src == 'provo-police-incidents':
             record['reportedLocation'] = meta.get('location', {}).get('normalizedAddress')

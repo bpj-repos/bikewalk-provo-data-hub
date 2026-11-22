@@ -23,10 +23,10 @@ Run module commands from the repository root. Use a new output directory for bui
 | `python3 -m scripts.rehearse_crash_receipt` | Replay the retained second Provo delivery in a temporary recovery tree. |
 | `python3 -m scripts.restore_crash_collections --help` | Offline restore and parity fixture for the two Wave 6 crash collection pins. |
 | `python3 -m scripts.review_campus --help` | Report changes to reviewed Treeside records and the provider's campus address. |
-| `python3 -m scripts.review_crash_receipt --help` | Compare a managed crash receipt with published annual series and the previous Streets Watch export. |
+| `python3 -m scripts.review_crash_receipt --help` | Compare all semantic concern fields and annual rows; optionally prepare street/time/fact candidates with `--map-snapshot`. |
 | `python3 -m scripts.review_routes --help` | Compare a complete Safe Routes candidate to the approved hub package by feature identity. |
 | `python3 -m scripts.safe_routes --help` | Receive UDOT records privately and prepare the Provo Safe Routes package. |
-| `python3 -m scripts.update_crashes --help` | Acquire hosted UDOT (archive-only years retained), reconcile the active private crash workspace and prepare required summary review; exit 2 means summaries remain pending. `--map-records` admits pinned, explicitly reviewed retained Portal IDs. |
+| `python3 -m scripts.update_crashes --help` | Acquire hosted UDOT (archive-only years retained), reconcile the active private crash workspace and prepare required summary review; one JSON result reports stages and pins; exit 2 means summaries remain pending, exit 1 reports the failed stage and any completed intake. `--map-records` admits pinned, explicitly reviewed retained Portal IDs. |
 | `python3 -m scripts.prepare_crash_map_lighting SOURCE NEW_CANDIDATE [--apply]` | Prepare or locally adopt Hub-derived lighting, young-child and bike-lane fields in a minimized crash-map snapshot, preserving earlier pins. |
 | `python3 -m scripts.migrate_crash_map_labels SOURCE NEW_OUTPUT [--apply]` | Prepare or adopt readable crash-map base fields from the existing minimized snapshot; preserve immutable versions. Requires the crash environment and `PYTHONPATH=.:pipelines/crashes/src`. |
 | `python3 -m scripts.verify_demo_host --help` | Compare every anonymous HTTPS response with the verified synthetic build. |

@@ -139,16 +139,16 @@ class RoadSegmentsTest(unittest.TestCase):
 
     def test_update_wrapper_rebuilds_after_ready_even_on_offline_noop(self):
         from scripts.update_crashes import run as update
-        with patch('scripts.update_crashes.main'),patch('scripts.crash_summaries.pending_work',return_value={'pending':[]}),patch('scripts.crash_road_segments.refresh',return_value={'status':'unchanged'}) as rebuild,patch('sys.argv',['update_crashes.py','--offline']),patch('builtins.print'):
+        with patch('scripts.update_crashes.producer_preflight'),patch('scripts.update_crashes.read_json',return_value={}),patch('scripts.update_crashes.main',return_value={'releaseId':'test'}),patch('scripts.crash_summaries.pending_work',return_value={'pending':[]}),patch('scripts.crash_road_segments.refresh',return_value={'status':'unchanged'}) as rebuild,patch('sys.argv',['update_crashes.py','--offline']),patch('builtins.print'):
             self.assertEqual(update(),0);rebuild.assert_called_once_with(offline=True)
 
     def test_online_update_captures_roads_before_intake_and_fails_closed(self):
         from scripts.update_crashes import run as update
         order=[]
-        with patch('scripts.update_crashes.main',side_effect=lambda parsed:order.append('crashes')) as intake,patch('scripts.crash_road_segments.capture_for_update',side_effect=lambda:order.append('roads')) as capture,patch('scripts.crash_summaries.pending_work',return_value={'pending':['1']}),patch('sys.argv',['update_crashes.py']),patch('builtins.print'):
+        with patch('scripts.update_crashes.producer_preflight'),patch('scripts.update_crashes.read_json',return_value={}),patch('scripts.update_crashes.main',side_effect=lambda parsed, **kwargs:(order.append('crashes') or {'releaseId':'test'})) as intake,patch('scripts.crash_road_segments.capture_for_update',side_effect=lambda:order.append('roads')) as capture,patch('scripts.crash_summaries.pending_work',return_value={'pending':['1']}),patch('sys.argv',['update_crashes.py']),patch('builtins.print'):
             self.assertEqual(update(),2);self.assertEqual(order,['roads','crashes'])
             intake.reset_mock();capture.side_effect=ValueError('incomplete street capture')
-            with self.assertRaises(ValueError):update()
+            self.assertEqual(update(),1)
             intake.assert_not_called()
 
     def test_help_and_invalid_arguments_never_capture(self):

@@ -17,6 +17,9 @@ class CrashTimeTests(unittest.TestCase):
         record = dict(source='Utah Crash Data Portal', dateMeaning='state crash date/time in America/Denver',
                       date='2012-10-18T00:00:00-06:00', sections=[dict(fields=[dict(label='Crash dateand time', value='10/18/2012')])])
         self.assertEqual(derive([record])['status'], 'date-only')
+        self.assertEqual(derive([record])['localDate'], '2012-10-18')
+        self.assertEqual(derive([record])['localMonth'], 10)
+        self.assertEqual(derive([record])['precision'], 'date')
         udot = dict(source='UDOT', dateMeaning='crash date/time', date='2012-10-18T06:00:00Z')
         self.assertEqual(derive([record, udot])['localMinuteOfDay'], 0)
         self.assertEqual(derive([udot, dict(udot, date='2012-10-18T06:01:00Z')])['status'], 'minute-conflict')

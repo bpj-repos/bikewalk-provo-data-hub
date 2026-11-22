@@ -101,6 +101,34 @@ class TransformationTests(unittest.TestCase):
         self.assertEqual(fingerprint(a),fingerprint(b))
         a=portal_record();b=deepcopy(a);b['metadata']['persons'].append(deepcopy(b['metadata']['persons'][0]));a=deepcopy(b)
         b['metadata']['persons'].reverse();self.assertEqual(fingerprint(a),fingerprint(b))
+    def test_shared_state_identity_survives_honest_minute_precision(self):
+        from danger_zones.crash_portal import state_join_evidence
+        portal = portal_record()
+        portal['timePrecision'] = 'minute'
+        self.assertEqual(state_join_evidence(state_record(), portal)['timePrecision'], 'minute')
+        portal['timePrecision'] = 'date'
+        self.assertIsNone(state_join_evidence(state_record(), portal))
+        portal['timePrecision'] = 'minute'
+        portal['observedAt'] = '2025-03-04T09:31:00-07:00'
+        self.assertIsNone(state_join_evidence(state_record(), portal))
+
+    def test_precision_correction_invalidates_summary_in_both_directions(self):
+        from danger_zones.incident_updates import upsert
+        from danger_zones.update_incidents import summary_basis, migrate_summary_bases, apply_summaries
+        for before, after in [('date', 'second'), ('second', 'date')]:
+            a = portal_record()
+            a.update(observedAt='2025-03-04T00:00:00-07:00', timePrecision=before)
+            b = deepcopy(a); b['timePrecision'] = after
+            group = {'id': a['id'], 'observations': [a], 'enrichment': {}}
+            reviewed = {'1': {'basis': summary_basis(group, legacy=True), 'summary': {'brief': 'Reviewed.'}}}
+            migrate_summary_bases({'records': [group]}, reviewed)
+            self.assertEqual(apply_summaries({'records': [group]}, reviewed), [])
+            target = {a['id']: a}
+            upsert(target, [b])
+            self.assertEqual(target[a['id']]['timePrecision'], after)
+            group['observations'] = [target[a['id']]]
+            self.assertEqual(apply_summaries({'records': [group]}, reviewed), ['1'])
+
     def test_timestamp_presentation_does_not_change_content(self):
         a=portal_record();b=deepcopy(a);b['metadata']['crash']['crashDateandTime']='3/4/2025 9:30:00 AM'
         b['metadata']['crash']['longitude']=-111.66
@@ -140,6 +168,23 @@ class PipelineTests(unittest.TestCase):
         self.bootstrap.start()
     def tearDown(self):self.bootstrap.stop();self.temp.cleanup()
     def run_update(self,**kwargs):return run_update(self.root,offline=kwargs.pop('offline',True),**kwargs)
+    def test_parser_change_replays_retained_receipt_and_repeats(self):
+        from danger_zones.update_incidents import read_portal, read_gzip
+        workbook = portal_workbook(self.root/'initial.xlsx', [portal_record('2')])
+        self.run_update(portal_workbooks=[workbook])
+        def corrected(*args, **kwargs):
+            rows, filters = read_portal(*args, **kwargs)
+            rows[0]['metadata']['crash']['roadName'] = 'Corrected road'
+            return rows, filters
+        with patch('danger_zones.update_incidents.portal_parser_hash', return_value='changed-parser'), \
+                patch('danger_zones.update_incidents.read_portal', side_effect=corrected) as parser:
+            result = self.run_update()
+            self.assertEqual(parser.call_count, 1)
+            record = flatten(read_json(Path(result['bundle'])/'collection.json'))['utah-crash-portal:2']
+            self.assertEqual(record['metadata']['crash']['roadName'], 'Corrected road')
+            self.assertEqual(self.run_update()['status'], 'unchanged')
+            self.assertEqual(parser.call_count, 1)
+
     def test_map_intake_promotes_only_reviewed_retained_ids_and_repeats(self):
         workbook = portal_workbook(self.root/'county.xlsx', [portal_record('2'), portal_record('3')], city='All')
         self.run_update(portal_workbooks=[workbook])

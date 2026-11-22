@@ -111,7 +111,7 @@ def export_person_context(records):
     from .incident_conversions import convert
     _, books = definitions()
     concepts = {'Person type': 'person.type', 'Person nm location': 'person.nonmotorist_location'}
-    codes = {concept: {label: code for code, label in books[concept].items()} for concept in concepts.values()}
+    codes = {concept: {label.casefold(): code for code, label in books[concept].items()} for concept in concepts.values()}
     children, lanes = [], []
     for record in records:
         if record['source'] != 'Utah Crash Data Portal':
@@ -129,7 +129,7 @@ def export_person_context(records):
             values = {'person.age': {'value': age}}
             for label, concept in concepts.items():
                 value = fields.get(label)
-                token = codes[concept].get(value, str(value) if value is not None else None)
+                token = codes[concept].get(str(value).casefold(), str(value) if value is not None else None)
                 if token and token.isascii() and token.isdecimal():
                     token = str(int(token))
                 values[concept] = {'value': {'code': token} if token is not None else None}

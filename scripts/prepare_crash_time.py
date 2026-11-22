@@ -9,6 +9,7 @@ import tempfile
 from zoneinfo import ZoneInfo
 
 from scripts.prepare_crash_streets import BASE, compact, digest, pinned_details
+from danger_zones.crash_labels import export_display_fields
 
 ZONE = ZoneInfo('America/Denver')
 DATASET = 'provo-crash-occurrence-time'
@@ -53,7 +54,7 @@ def derive(records):
             if minute is not None:
                 minutes.add(minute)
             evidence.append(dict(recordIndex=i, source=source, field=field,
-                                 localWeekday=day.isoweekday(), localMinuteOfDay=minute))
+                                 localDate=day.isoformat(), localWeekday=day.isoweekday(), localMinuteOfDay=minute))
     if len(days) > 1:
         status = 'date-conflict'
     elif len(minutes) > 1:
@@ -62,14 +63,38 @@ def derive(records):
         status = 'complete'
     else:
         status = 'date-only' if days else 'no-occurrence-evidence'
-    return dict(localWeekday=next(iter(days)).isoweekday() if len(days) == 1 else None,
+    day = next(iter(days)) if len(days) == 1 else None
+    return dict(localDate=day.isoformat() if day else None, localYear=day.year if day else None,
+                localMonth=day.month if day else None, precision='minute' if status == 'complete' else 'date' if day else None,
+                localWeekday=day.isoweekday() if day else None,
                 localMinuteOfDay=next(iter(minutes)) if status == 'complete' else None,
                 status=status, evidence=evidence)
+
+
+def record_facts(record):
+    """Index the existing public state fields once, retaining source and missingness."""
+    if record['source'] not in ('UDOT', 'Utah Crash Data Portal'):
+        return None
+    sections = []
+    for section in record['sections']:
+        fields = section['fields']
+        if record['source'] == 'Utah Crash Data Portal':
+            table = ('portal.persons' if re.fullmatch(r'Person \d+', section['title']) else
+                     'portal.vehicles' if re.fullmatch(r'Vehicle \d+', section['title']) else
+                     'portal.rollups' if section['title'] == 'Recorded involvement and factors' else 'portal.crashes')
+            fields = export_display_fields(table, fields)
+        sections.append({'title': section['title'], 'values': {f['label'].removesuffix(' label'): f['value'] for f in fields}})
+    occurrence = derive([record])
+    return {'source': record['source'], 'recordId': record['recordId'], 'occurrence': occurrence,
+            'sections': sections,
+            'people': [s['values'] for s in sections if re.fullmatch(r'Person \d+', s['title'])],
+            'vehicles': [s['values'] for s in sections if re.fullmatch(r'Vehicle \d+', s['title'])]}
 
 
 def build(snapshot, output, crash_pin=BASE, version="1.0.0"):
     details = pinned_details(snapshot, crash_pin)
     rows = {key: derive(value['records']) for key, value in sorted(details.items())}
+    facts = {key: [record_facts(r) for r in value['records']] for key, value in sorted(details.items())}
     coverage = dict(crashes=len(rows), statuses=dict(Counter(row['status'] for row in rows.values())),
                     weekday=sum(r['localWeekday'] is not None for r in rows.values()),
                     minute=sum(r['localMinuteOfDay'] is not None for r in rows.values()))
@@ -83,7 +108,7 @@ def build(snapshot, output, crash_pin=BASE, version="1.0.0"):
     with tempfile.TemporaryDirectory(dir=output.parent) as tmp:
         stage = Path(tmp)/'package'
         stage.mkdir()
-        for name, value in [('occurrence', rows), ('coverage', coverage)]:
+        for name, value in [('occurrence', rows), ('facts', facts), ('coverage', coverage)]:
             raw = compact(value) + b'\n'
             path = name + '.json'
             (stage/path).write_bytes(raw)

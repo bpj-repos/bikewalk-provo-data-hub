@@ -15,3 +15,11 @@ Version 1.1.0 uses the November 15 rebuilt map snapshot `d0e5f1c9fdbeca56cb71e14
 Version 1.1.1 binds the November 17 refresh snapshot `3ad1d844df66b7df38e82346d81761dcedf961a6dc813d6532923df57b530b83`. It retains 1,358 mapped groups and the existing field definitions. The map includes the newly managed crash through the earlier county reference, so map membership is unchanged.
 
 Version 1.1.3 binds hosted-refresh base map `42e4ef6263566256f97e68b0a4d1e5bb32d7791471983c3ba91e457f48cf8cab`, with 1,363 mapped groups. It includes the four newly ingested November crashes and preserves prior opaque references. Definitions and earlier pins are unchanged.
+
+## Compatible record facts in 1.2.0
+
+Occurrence rows additionally carry `localDate` (ISO), `localYear`, `localMonth` and `precision` (`minute`, `date` or null). Precision describes this minute-resolution product, not source seconds. Date conflicts suppress the date, year and month. Existing weekday/minute definitions remain unchanged.
+
+`facts.json` is a reusable index over the same minimized, pinned map records. Each map ID maps to an array aligned with its detail records, with null for police report records. State entries retain source-qualified identity, per-record occurrence status/evidence, base-field dictionaries by section, and person/vehicle rows. Missing source readings remain explicit unavailable strings; absent rows remain absent. Person roles, injuries, ages, nonmotorist settings and vehicle maneuvers retain the Hub export definitions. No people are deduplicated across source records. Consumers choose their existing populations and denominators, including Portal-only charts and state-linked road charts. This resource avoids re-decoding display fields on each request without introducing a service or a second time model.
+
+Streets Watch verifies the package and prepares its map summary/filter views at adoption. Its aggregates, calendar windows, age groupings and BYU screen remain consumer-owned. Earlier archive pins retain their original behavior.

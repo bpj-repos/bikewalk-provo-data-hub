@@ -393,6 +393,21 @@
       "dataset": "provo-crash-road-segments",
       "version": "1.3.0",
       "sha256": "7045d059b89188281d5f143f8e3be8446d293d9e22df3b17a29337c3fd6f9552"
+    },
+    {
+      "dataset": "provo-crash-street-membership",
+      "version": "1.2.2",
+      "sha256": "8d9318e607abb1fdec1aa4d3337958779ca1918f609eb90c0359560f41de017b"
+    },
+    {
+      "dataset": "provo-crash-occurrence-time",
+      "version": "1.2.2",
+      "sha256": "41b8a9a4645ed3515f7e56f5ed4dbb69a2ffbf9d7fb913a976c113e7081c2da3"
+    },
+    {
+      "dataset": "provo-crash-road-segments",
+      "version": "1.4.0",
+      "sha256": "c7b94d19a4328e8fc14d0a9b71db1b7cdb4c21ef1538d576e555cdc3a99191a0"
     }
   ],
   "withdrawn": [
